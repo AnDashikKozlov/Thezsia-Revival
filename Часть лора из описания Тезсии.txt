@@ -1,0 +1,21 @@
+ENG:
+Planet orbiting a white dwarf
+Name: Thezsia
+Description/Lore:
+Once upon a time, Thezsia is inhabited by an advanced civilization.
+
+Time passes, and its stars turns into red giant, perishing every single living organism on it.
+The star eventually turns into a white dwarf, and Thezsia cools down.
+
+This planet contain valuable resources, making it great place to set up a mining operation. Can you recapture this planet, and replace its original inhabit?
+
+RUS :
+Планета на орбите белого карлика
+Название: Тезсия
+Описание/Лор:
+Когда-то давно Тезсия была населена развитой цивилизацией.
+
+Проходит время, и её звезда превращается в красного гиганта, убивая на ней всё до единого живого организма.
+Звезда со временем превращается в белого карлика, а Тезсия остывает.
+
+Эта планета содержит ценные ресурсы, что делает ее отличным местом для организации добычи полезных ископаемых. Сможете ли вы вернуть эту планету и заменить ее первоначальное население?

@@ -1,0 +1,21 @@
+name: "thezsia1"
+displayName: "Thezsia Revival"
+author:
+'''
+Programmers: AnDashik, Ace
+Spriters: AnDasik
+Testers: AnDashik, Ace, Sorokonozhka
+Translators: AnDashik, Sputnuc, Ace
+Mappers: ItzCraft, Andashik, Ace, Sorokonozhka
+Composer: Ace
+'''
+description: 
+'''
+New planet, new stuff, what a surprise
+Now not dead?
+'''
+subtitle: "v1.0.4 Dead ot alive?"
+version: "v1.0.4"
+minGameVersion: "146"
+dependencies: [ ]
+hidden: false
