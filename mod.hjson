@@ -19,3 +19,4 @@ version: "v1.0.4"
 minGameVersion: "146"
 dependencies: [ ]
 hidden: false
+hideBrowser: true
