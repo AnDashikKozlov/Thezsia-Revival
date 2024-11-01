@@ -1,0 +1,17 @@
+type: Item
+
+name: Tensorite
+description: Charged with electricity.
+
+color: 3976A7FF
+hardness: 5
+cost: 1.6
+
+hiddenOnPlanets: [
+serpulo
+erekir
+]
+
+research: k03-infium
+
+alwaysUnlocked: false

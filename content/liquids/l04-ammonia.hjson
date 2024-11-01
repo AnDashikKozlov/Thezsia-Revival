@@ -1,0 +1,20 @@
+type: Liquid
+
+name: Ammonia
+description: There is some amount of this natural gas in the atmosphere. It is not very dense, it can also be converted into a liquid state
+details: Easily soluble in water, but where can we find water on the surface of Thessia, incinerated by the heat of the star? Nowhere...
+
+gas: true
+color: dcbdf0
+gasColor: c29fcf
+barColor: c29fcf
+lightColor: 988ca3
+
+flammability: 0.15
+temperature: 0.2
+heatCapacity: 0.5
+viscosity: 0.08
+
+coolant: false
+
+research: l01-wind

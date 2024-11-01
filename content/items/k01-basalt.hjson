@@ -1,0 +1,17 @@
+type: Item
+
+name: Basalt
+description: Used in basic buildings.
+
+color: 9192A6FF
+hardness: 2
+cost: 1
+
+hiddenOnPlanets: [
+serpulo
+erekir
+]
+
+research: i01-core-dust
+
+alwaysUnlocked: true

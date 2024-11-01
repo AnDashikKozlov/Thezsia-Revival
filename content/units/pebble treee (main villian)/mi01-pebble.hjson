@@ -1,0 +1,74 @@
+type: legs
+
+name: Pebble
+description: A very small and weak stone, has a melee attack.
+
+drag: 0.04
+speed: 1
+rotateSpeed: 4
+outlineColor: 19181AFF
+
+accel: 0.04
+health: 90
+armor: 6
+hitSize: 5
+engineOffset: 0
+engineSize: 0
+itemCapacity: 0
+useEngineElevation: false
+researchCostMultiplier: 0
+
+legStraightness: 0.07
+legContinuousMove: true
+lockLegBase: false
+legGroupSize: 2
+legCount: 4
+allowLegStep: true
+legExtension: -2
+legLength: 8
+legSpeed: 0.4
+legForwardScl: 0.4
+legMoveSpace: 3
+hovering: true
+
+parts: [
+  {
+    type: RegionPart
+    suffix: -claw
+    mirror: true
+    progress: recoil
+    moveX: -0.3
+    moveY: 0.5
+    moveRot: 30
+    layerOffset: -0.001
+  }
+]
+
+weapons: [
+  {
+    name: none
+    display: false
+    x: 0
+    y: 0
+    shootY: 0.2
+    mirror: false
+    reload: 30
+    recoil: 0
+    inaccuracy: 0
+    shootSound: blaster
+    cooldownTime: 0
+    bullet: {
+      type: BasicBulletType
+      speed: 12
+      despawnEffect: none
+      shootEffect: none
+      smokeEffect: none
+      lifetime: 2.5
+      reflectable: false
+      absorbable: false
+      damage: 28
+      width: 0
+      height: 0
+    }
+  }
+]

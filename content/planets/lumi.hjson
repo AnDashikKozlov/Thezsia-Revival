@@ -1,0 +1,22 @@
+//localizedName: Lumi
+description:
+'''
+A white dwarf
+'''
+mesh: [
+ {
+    type: SunMesh
+    planet: lumi
+    color1: FFFFFF
+    color2: FFFFFF
+  }
+]
+bloom: true
+accessible: false
+parent: sun
+radius: 0.6
+
+drawOrbit: false
+orbitRadius: 3000
+orbitSpacing: 23
+solarSystem: lumi

@@ -1,0 +1,17 @@
+type: Item
+
+name: Tritanium
+description: Used in repairing and advanced electronics.
+
+color: 2CDC78FF
+hardness: 5
+cost: 1.4
+
+hiddenOnPlanets: [
+serpulo
+erekir
+]
+
+research: k07-tritanium-crystal
+
+alwaysUnlocked: false

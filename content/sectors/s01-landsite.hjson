@@ -1,0 +1,11 @@
+//localizedName: Landsite
+//description: 
+//''' 
+//A small lonely area. Few enemy detected nearby, a great start.
+//''' 
+captureWave: 7
+planet: thezsia
+sector: 0
+research: i01-core-dust
+difficulty: 1
+alwaysUnlocked: true

@@ -1,0 +1,19 @@
+type: Liquid
+
+name: Carbon Dioxide
+description: Natural gas, there is quite a lot of it in the atmosphere of Thezsia. It's flammable so be careful.
+
+gas: true
+color: c2c2c2
+gasColor: 9a9da6
+barColor: 9a9da6
+lightColor: 5f626e
+
+flammability: 0.23
+temperature: 0.5
+heatCapacity: 0.35
+viscosity: 0.35
+
+coolant: false
+
+research: l01-wind

@@ -1,0 +1,17 @@
+type: Item
+
+name: Sulfur
+description: Yes
+
+color: BDA511FF
+hardness: 4
+cost: 1.2
+
+hiddenOnPlanets: [
+serpulo
+erekir
+]
+
+research: k03-infium
+
+alwaysUnlocked: false
