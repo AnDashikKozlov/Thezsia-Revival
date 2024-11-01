@@ -1,0 +1,14 @@
+type: Sorter
+name: Inverted Basalt Sorter
+description: Selected item will outputted to the side, other items will pass through.
+
+health: 50
+invert: true
+category: distribution
+research: c09-basalt-sorter
+requirements: [
+  k01-basalt/5
+  k02-volcanic-stone/2
+]   
+
+researchCostMultiplier: 0.5

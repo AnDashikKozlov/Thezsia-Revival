@@ -1,0 +1,5 @@
+type: Prop
+name: Limestone Boulder
+
+variants: 2
+breakSound: rock-crush

@@ -1,0 +1,5 @@
+type: Prop
+name: Charrok Pile
+
+variants: 2
+breakSound: rock-crush

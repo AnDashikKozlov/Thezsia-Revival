@@ -1,0 +1,72 @@
+type: GenericCrafter
+
+name: Tensorite Synthesizer
+description: Produce Tensorite by colliding sulfur and infium in lava until it became unstable.
+
+size: 4
+squareSprite: false
+requirements: [
+k01-basalt/100
+k03-infium/90
+k04-tensorite/50
+k06-tritanium/25
+]
+research: g09-tensorite-crucible
+
+outputItem: k04-tensorite/1
+craftTime: 30
+consumes: {
+  items: [
+    k05-sulfur/2
+    k03-infium/1
+  ]
+  liquids: [
+    l02-lava/0.4
+  ]
+}
+
+category: crafting
+
+drawer: {
+  type: DrawMulti
+  drawers: [
+    {
+    type: DrawRegion
+    suffix: -bottom
+    }
+    {
+    type: DrawLiquidTile
+    drawLiquid: l02-lava
+    padding: 2
+    }
+    {
+    type: DrawBlurSpin
+	suffix: -rotator
+	rotateSpeed: 6.7
+	blurThresh: 0.01
+    }
+    {
+    type: DrawDefault
+    }
+    {
+     type: DrawGlowRegion
+     color: 86B9E2
+    }
+  ]
+}
+
+craftEffect: {
+  type: ParticleEffect
+  particles: 9
+  cone: 360
+  sizeFrom: 2
+  sizeTo: 0.1
+  colorFrom: 86B9E2FF
+  colorTo: 3976A7FF
+  lifetime: 80
+  length: 6
+  baseLength: 7
+}
+
+ambientSound: machine
+ambientSoundVolume: 0.1

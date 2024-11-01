@@ -1,0 +1,32 @@
+type: Battery
+name: Capacitor
+description: Sulfur based battery. Can store up to 1500 power.
+health: 90
+size: 2
+squareSprite: false
+consumes: {
+  powerBuffered: 1500
+}
+requirements: [
+  k01-basalt/15
+  k04-tensorite/10
+  k05-sulfur/5
+]
+emptyLightColor: 000000
+fullLightColor: 000000
+category: power
+research: e02a-cable-junction
+researchCostMultiplier: 0.5
+
+drawer: {
+  type: DrawMulti
+  drawers: [
+    {
+    type: DrawDefault
+    }
+    {
+     type: DrawGlowRegion
+     color: 86B9E2
+    }
+  ]
+}

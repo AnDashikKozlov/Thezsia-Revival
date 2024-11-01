@@ -1,0 +1,12 @@
+type: Wall
+
+name: Large Infium Wall
+description: Protects structures from enemy projectiles.
+size: 2
+requirements: [
+k03-infium/24
+]
+health: 1760
+category: defense
+
+research: f03-infium-wall

@@ -1,0 +1,8 @@
+type: Floor
+
+name: Smooth Sulfur
+
+variants: 4
+
+wall: q05-sulfur-wall
+decoration: t05-sulfur-boulder

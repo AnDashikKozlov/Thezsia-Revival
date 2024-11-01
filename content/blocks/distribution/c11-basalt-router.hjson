@@ -1,0 +1,12 @@
+type: Router
+
+name: Basalt Router
+description: Distribute items evenly.
+size: 1
+squareSprite: true
+
+requirements: [
+k01-basalt/5
+]
+
+research: c01-basalt-belt

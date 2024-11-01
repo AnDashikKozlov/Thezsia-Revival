@@ -1,0 +1,8 @@
+type: Floor
+
+name: Peridotite
+
+variants: 4
+
+wall: q07-peridotite-wall
+decoration: t06-peridotite-cube

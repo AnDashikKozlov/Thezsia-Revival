@@ -1,0 +1,66 @@
+type: RegenProjector
+
+name: Renewer
+description: Regenerate nearby blocks. Require power.
+size: 2
+category: effect
+squareSprite: false
+requirements: [
+k01-basalt/40
+k04-tensorite/30
+k07-tritanium-crystal/15
+]
+
+baseColor: 2CDC78FF
+range: 14
+healPercent: 0.013
+
+effect: {
+  type: ParticleEffect
+  colorFrom: 2FA157FF
+  colorTo: 307046FF
+  particles: 4
+  line: false
+  strokeFrom: 0.6
+  strokeTo: 1.9
+  lifetime: 85
+  cone: 360
+  interp: pow2
+  sizeInterp: pow2Out
+}
+
+consumes: {
+  power: 1
+  items: {
+    items: [
+      k06-tritanium/1
+    ]
+    optional: true
+    booster: true
+  }
+}
+
+drawer: {
+  type: DrawMulti
+  drawers: [
+    {
+    type: DrawRegion
+    suffix: -bottom
+    }
+    {
+    type: DrawParticles
+    radius: 10
+    particleRad: 5
+    particleLife: 120
+    alpha: 0.5
+    particleSize: 3
+    color: 2CDC78
+    reverse: true
+    }
+    {
+      type: DrawDefault
+    }
+  ]
+} 
+
+research: f01-basalt-wall

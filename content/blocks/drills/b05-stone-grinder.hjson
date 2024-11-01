@@ -1,0 +1,24 @@
+type: WallCrafter
+name: Stone Grinder
+description: Extract stone from walls. Require wind to operate.
+size: 2
+category: production
+research: b01-rotary-drill
+requirements: [
+  k01-basalt/25
+]
+
+consumes: {
+  liquids: [
+    l01-wind/0.05
+  ]
+}
+
+drillTime: 220
+output: k02-volcanic-stone
+attribute: volcanic-stone
+ambientSound: drill
+ambientSoundVolume: 0.08
+
+squareSprite: false
+researchCostMultiplier: 0.1

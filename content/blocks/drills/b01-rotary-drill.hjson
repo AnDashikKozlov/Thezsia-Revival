@@ -1,0 +1,28 @@
+type: Drill
+
+name: Rotary Drill
+description: Drill mineral from the ground. Require wind to operate.
+
+size: 3
+squareSprite: false
+requirements: [
+k01-basalt/40
+]
+
+consumes: {
+  liquids: [
+    l01-wind/0.1
+  ]
+}
+
+tier: 3
+drillTime: 900
+liquidBoostIntensity: 1
+
+research: i01-core-dust
+
+category: production
+
+ambientSound: grinding
+ambientSoundVolume: 0.3
+alwaysUnlocked: true

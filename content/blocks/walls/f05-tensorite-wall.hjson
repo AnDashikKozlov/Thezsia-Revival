@@ -1,0 +1,12 @@
+type: Wall
+
+name: Tensorite Wall
+description: Protects structures from enemy projectiles.
+size: 1
+requirements: [
+k04-tensorite/6
+]
+health: 560
+category: defense
+
+research: f03-infium-wall

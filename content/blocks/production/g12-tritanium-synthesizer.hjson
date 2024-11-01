@@ -1,0 +1,68 @@
+type: GenericCrafter
+
+name: Tritanium Synthesizer
+description: Turns tritanium cryztal to usable tritanium.
+
+size: 4
+squareSprite: false
+requirements: [
+k01-basalt/90
+k03-infium/60
+k04-tensorite/30
+k05-sulfur/15
+]
+research: g12-tritanium-refinery
+
+outputItem: k06-tritanium/3
+consumes: {
+  items: [
+    k07-tritanium-crystal/4
+  ]
+  power: 2.5
+}
+
+category: crafting
+
+craftEffect: {
+  type: ParticleEffect
+  particles: 8
+  cone: 360
+  followParent: true
+  rotWithParent: false
+  sizeFrom: 1.2
+  sizeTo: 0.1
+  lifetime: 40
+  length: 3
+  baseLength: 5
+  interp: pow2
+  sizeInterp: pow3In
+}
+
+drawer: {
+  type: DrawMulti
+  drawers: [
+    {
+    type: DrawRegion
+    suffix: -bottom
+    }
+    {
+    type: DrawParticles
+    radius: 15
+    particleRad: 13
+    particleLife: 100
+    alpha: 0.8
+    particleSize: 2.6
+    color: 2CDC78
+    }
+    {
+    type: DrawDefault
+    }
+    {
+     type: DrawGlowRegion
+     color: 2CDC78
+    }
+  ]
+}
+
+ambientSound: machine
+ambientSoundVolume: 0.09

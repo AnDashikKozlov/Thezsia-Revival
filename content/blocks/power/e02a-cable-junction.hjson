@@ -1,0 +1,24 @@
+type: Junction
+name: Cable junction
+description: Transfers power between blocks.
+
+conductivePower: true
+health: 40
+hasPower: true
+speed: 0
+outputsPower: true
+liquidPressure: 0
+liquidCapacity: 0
+consumes: {
+  powerBuffered: 3
+} 
+requirements: [
+  k01-basalt/3
+  k04-tensorite/1
+]
+category: power
+research: e01-cable
+acceptsItems: false
+instantTransfer: false
+solid: false
+researchCostMultiplier: 0.5

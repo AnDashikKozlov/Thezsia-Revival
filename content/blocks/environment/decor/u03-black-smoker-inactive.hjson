@@ -1,0 +1,5 @@
+type: TallBlock
+name: Black Smoker
+
+variants: 3
+shadowAlpha: 0.2

@@ -1,0 +1,166 @@
+type: PowerTurret
+name: Gaze
+description: Sprays bullet to enemy at intense rate.
+size: 3
+category: turret
+requirements: [
+k01-basalt/125
+k03-infium/75
+k04-tensorite/50
+]
+
+coolant: {
+  type: ConsumeCoolant
+  allowGas: true
+  allowLiquid: true
+  amount: 0.1
+}
+
+minWarmup: 0.95
+shootWarmupSpeed: 0.03
+
+consumes: {
+  power: 5
+}
+
+research: a01-ember
+rotateSpeed: 2.5
+outlineColor: 19181AFF
+targetAir: false
+targetGround: true
+reload: 4
+range: 180
+fogRadiusMultiplier: 0.35
+inaccuracy: 45
+velocityRnd: 0.2
+shootY: 8.7
+shootSound: malignShoot
+shooySoundVol: 0.62
+shake: 1
+cooldownTime: 90
+
+shootType: {
+    type: MissileBulletType
+    shootEffect: none
+    smokeEffect: shootSmokeSmite
+    weaveMag: 3
+    weaveScale: 2
+    frontColor: AEF2CBFF
+    backColor: 2CDC78FF
+    trailColor: AEF2CBFF
+    hitEffect: hitSquaresColor
+    despawnEffect: hitLancer
+    homingPower: 0.03
+    width: 8
+    height: 8
+    speed: 5.5
+    lifetime: 40
+    despawnShake: 0.4
+    hitShake: 0.8
+    damage: 13
+    pierce: true
+    pierceCap: 2
+    pierceBuilding: true
+    trailLength: 20
+    trailWidth: 2
+}
+drawer: {
+  type: DrawTurret
+  basePrefix: basaltic-
+  parts: [
+    {
+      type: RegionPart
+      suffix: -side
+      mirror: true
+      under: true
+      outline: true
+      progress: warmup
+      heatProgress: warmup
+      moveX: 3
+      moveY: -2.5
+      moveRot: -28
+      heatColor:  2CDC78FF
+    }
+    {
+      type: RegionPart
+      suffix: -mid
+      mirror: true
+      under: true
+      outline: true
+      progress: warmup
+      heatProgress: warmup
+      moveX: 3
+      moveY: -0.3
+      moveRot: -8
+      heatColor:  2CDC78FF
+    }
+    {
+      type: RegionPart
+      suffix: -front
+      mirror: true
+      under: true
+      outline: true
+      progress: warmup
+      heatProgress: warmup
+      moveX: 10
+      moveY: -3.3
+      moveRot: 10
+      heatColor:  2CDC78FF
+    }
+    {
+      //circle
+      type: ShapePart
+      progress: warmup
+      circle: true
+      hollow: true
+      color: 2CDC78FF
+      stroke: 0
+      strokeTo: 1
+      radius: 7.3
+      y: 8.7
+    }
+    {
+      //big triangle
+      type: ShapePart
+      progress: warmup
+      rotateSpeed: 1
+      sides: 3
+      hollow: true
+      color: 2CDC78FF
+      stroke: 0
+      strokeTo: 1.2
+      radius: 7
+      y: 8.7
+    }
+    {
+      //smol triangle
+      type: ShapePart
+      progress: warmup
+      rotateSpeed: 0.7
+      sides: 3
+      hollow: true
+      color: 2CDC78C6
+      stroke: 0
+      strokeTo: 1.1
+      radius: 4
+      y: 8.7
+    }
+    {
+      type: HaloPart
+      progress: warmup
+      rotateSpeed: -1.3
+      tri: true
+      shapes: 3
+      triLength: 0
+      triLengthTo: 3
+      radius: 3
+      haloRadius: 7
+      haloRotateSpeed: -1.3
+      color: 2CDC78C6
+      haloRotation: 180
+      shapeRotation: 180
+      radius: 6
+      y: 8.7
+    }
+  ]
+}

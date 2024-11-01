@@ -1,0 +1,8 @@
+type: Floor
+
+name: Charrok
+
+variants: 4
+
+wall: q01-charrok-wall
+decoration: t01-charrok-pile

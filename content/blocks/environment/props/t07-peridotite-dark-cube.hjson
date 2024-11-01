@@ -1,0 +1,5 @@
+type: Prop
+name: Peridotite Dark Cube
+
+variants: 3
+breakSound: rock-crush

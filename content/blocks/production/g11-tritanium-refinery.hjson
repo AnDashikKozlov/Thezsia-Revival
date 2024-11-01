@@ -1,0 +1,67 @@
+type: GenericCrafter
+
+name: Tritanium Refinery
+description: Turns tritanium cryztal to usable tritanium.
+
+size: 3
+squareSprite: false
+requirements: [
+k01-basalt/50
+k02-volcanic-stone/20
+k03-infium/30
+]
+research: g07-infium-molder
+
+outputItem: k06-tritanium/1
+consumes: {
+  items: [
+    k07-tritanium-crystal/1
+  ]
+  power: 1
+}
+
+category: crafting
+
+craftEffect: {
+  type: ParticleEffect
+  particles: 6
+  cone: 360
+  followParent: true
+  rotWithParent: false
+  sizeFrom: 1.2
+  sizeTo: 0.1
+  lifetime: 40
+  length: 3
+  baseLength: 5
+  interp: pow2
+  sizeInterp: pow3In
+}
+
+drawer: {
+  type: DrawMulti
+  drawers: [
+    {
+    type: DrawRegion
+    suffix: -bottom
+    }
+    {
+    type: DrawParticles
+    radius: 15
+    particleRad: 10
+    particleLife: 170
+    alpha: 0.7
+    particleSize: 2.3
+    color: 2CDC78
+    }
+    {
+    type: DrawDefault
+    }
+    {
+     type: DrawGlowRegion
+     color: 2CDC78
+    }
+  ]
+}
+
+ambientSound: machine
+ambientSoundVolume: 0.06

@@ -1,0 +1,8 @@
+type: Floor
+
+name: Limestone
+
+variants: 3
+
+wall: q03-limestone-wall
+decoration: t03-limestone-boulder

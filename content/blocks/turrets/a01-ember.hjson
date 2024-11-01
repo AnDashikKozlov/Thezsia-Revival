@@ -1,0 +1,112 @@
+type: ItemTurret
+name: Ember
+description: Fires a piercing bullet.
+size: 3
+category: turret
+requirements: [
+k01-basalt/30
+]
+
+coolant: {
+  type: ConsumeCoolant
+  allowGas: true
+  allowLiquid: true
+  amount: 0.1
+}
+
+research: i01-core-dust
+researchCostMultiplier: 0.1
+rotateSpeed: 3
+outlineColor: 19181AFF
+targetAir: false
+targetGround: true
+reload: 90
+range: 200
+fogRadiusMultiplier: 0.25
+inaccuracy: 2
+shootY: 2
+shootSound: largeCannon
+shooySoundVol: 0.45
+shake: 0.7
+cooldownTime: 90
+
+ammoPerShot: 5
+minWarmup: 0.5
+shootWarmupSpeed: 0.03
+
+ammoTypes: {
+  k01-basalt: {
+    type: BasicBulletType
+    ammoMultiplier: 2
+    shootEffect: shootTitan
+    smokeEffect: shootSmokeTitan
+    width: 8
+    height: 10
+	sprite: thezsia1-basaltic-fragment
+    speed: 5.5
+    lifetime: 36.36
+    damage: 12
+    pierce: true
+    pierceCap: 3
+    pierceBuilding: true
+    trailLength: 8
+    trailWidth: 2
+  }
+  k02-volcanic-stone: {
+    type: BasicBulletType
+    ammoMultiplier: 1
+    shootEffect: shootTitan
+    smokeEffect: shootSmokeTitan
+    width: 9.4
+    height: 13.4
+	sprite: thezsia1-volcanic-stone-fragment
+    speed: 5.7
+    lifetime: 38.59
+	damage: 14
+	rangeChange: 20
+    pierce: true
+    pierceCap: 4
+    pierceBuilding: true
+    trailLength: 9.4
+    trailWidth: 2.3
+		fragRandomSpread: 7
+        fragOnHit: true
+        fragSpread: 30
+        fragBullets: 7
+        fragBullet: {
+          type: BasicBulletType
+          incendAmount: 0.2
+          incendChange: 0.03
+          width: 4.5
+          height: 7.5
+          lifetime: 28
+          speed: 3.25
+          damage: 2
+          pierce: true
+          pierceBuilding: true
+          pierceCap: 2
+          hitSize: 4
+          trailWidth: 1.3
+          trailLength: 7.5
+        }
+  }
+}
+drawer: {
+  type: DrawTurret
+  basePrefix: basaltic-
+  parts: [
+    {
+      type: RegionPart
+      suffix: -side
+      mirror: true
+      under: true
+      outline: true
+      progress: recoil
+      heatProgress: warmup
+      moveX: 0.7
+      moveY: -0.8
+      moveRot: -18
+      heatColor:  FFA665FF
+    }
+  ]
+}

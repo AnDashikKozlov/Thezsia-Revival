@@ -1,0 +1,40 @@
+type: RegenProjector
+
+name: Tritanium Wall
+description: Protects structures from enemy projectiles. Regenerate itself over time.
+size: 1
+requirements: [
+k06-tritanium/6
+k05-sulfur/4
+]
+health: 410
+category: defense
+
+research: f03-infium-wall
+
+baseColor: 2CDC78FF
+range: 1
+healPercent: 0.005
+
+effect: {
+  type: ParticleEffect
+  colorFrom: 2FA157FF
+  colorTo: 307046FF
+  particles: 3
+  line: false
+  strokeFrom: 0.7
+  strokeTo: 1.8
+  lifetime: 80
+  cone: 360
+  interp: pow2
+  sizeInterp: pow2Out
+}
+
+drawer: {
+  type: DrawMulti
+  drawers: [
+    {
+    type: DrawDefault
+    }
+  ]
+}

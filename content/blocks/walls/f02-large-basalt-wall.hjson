@@ -1,0 +1,12 @@
+type: Wall
+
+name: Large Basalt Wall
+description: Protects structures from enemy projectiles.
+size: 2
+requirements: [
+k01-basalt/24
+]
+health: 1440
+category: defense
+
+research: f01-basalt-wall
