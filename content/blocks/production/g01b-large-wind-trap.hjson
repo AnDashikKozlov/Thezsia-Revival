@@ -1,0 +1,73 @@
+type: GenericCrafter
+
+name: Large Wind Trap
+description: Traps wind using vacuum. More efficient that normal wind trap.
+size: 5
+squareSprite: false
+requirements: [
+k01-basalt/225
+k03-infium/80
+k04-tensorite/50
+]
+research: g01a-wind-trap
+
+outputLiquid: l01-wind/1
+liquidCapacity: 400
+
+consumes: {
+  power: 1
+}
+
+category: crafting
+
+craftEffect: {
+  type: ParticleEffect
+  particles: 6
+  cone: 360
+  followParent: true
+  rotWithParent: false
+  sizeFrom: 1.2
+  sizeTo: 0.1
+  lifetime: 40
+  length: 9
+  baseLength: 5
+  interp: pow2
+  sizeInterp: pow3In
+}
+
+drawer: {
+  type: DrawMulti
+  drawers: [
+    {
+    type: DrawRegion
+    suffix: -bottom
+    }
+    {
+    type: DrawLiquidTile
+    drawLiquid: l01-wind
+    padding: 3
+    }
+    {
+    type: DrawRegion
+    suffix: -rotator
+    spinSprite: true
+    rotateSpeed: -6
+    }
+    {
+    type: DrawDefault
+    }
+    {
+    type: DrawParticles
+    radius: 10
+    particleRad: 21
+    particleLife: 190
+    alpha: 0.5
+    particleSize: 6
+    color: FFFFFF
+    }
+  ]
+}
+
+ambientSound: grinding
+ambientSoundVolume: 0.08
+alwaysUnlocked: false

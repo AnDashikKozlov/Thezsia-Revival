@@ -1,0 +1,62 @@
+type: GenericCrafter
+
+name: Infium Molder
+description: Filter and cast lava to form infium.
+
+size: 3
+squareSprite: false
+requirements: [
+k01-basalt/70
+k02-volcanic-stone/20
+]
+research: g05a-blast-furnace
+
+outputItem: k03-infium/1
+consumes: {
+  liquids: [
+    l02-lava/0.2
+    l01-wind/0.2
+  ]
+}
+
+category: crafting
+
+drawer: {
+  type: DrawMulti
+  drawers: [
+    {
+    type: DrawRegion
+    suffix: -bottom
+    }
+    {
+    type: DrawLiquidTile
+    drawLiquid: l02-lava
+    padding: 2
+    }
+    {
+    type: DrawRegion
+    suffix: -rotator
+    spinSprite: true
+    rotateSpeed: -4
+    }
+    {
+    type: DrawDefault
+    }
+  ]
+}
+
+craftEffect: {
+  type: ParticleEffect
+  particles: 6
+  cone: 360
+  sizeFrom: 1
+  sizeTo: 0.1
+  colorFrom: FFCB00FF
+  colorTo: C99200FF
+  lifetime: 60
+  length: 3
+  baseLength: 5
+}
+
+ambientSound: machine
+ambientSoundVolume: 0.08
