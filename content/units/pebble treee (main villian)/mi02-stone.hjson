@@ -61,17 +61,17 @@ weapons: [
     shootY: 0.3
     mirror: false
     reload: 60
-    recoil: 0
+    recoil: 0.02
     inaccuracy: 0
     shootSound: blaster
     cooldownTime: 0
     bullet: {
       type: BasicBulletType
-      speed: 12
+      speed: 11
       despawnEffect: none
       shootEffect: none
       smokeEffect: none
-      lifetime: 2.4
+      lifetime: 2.2
       reflectable: false
       absorbable: false
       damage: 58

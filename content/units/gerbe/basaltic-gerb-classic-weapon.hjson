@@ -1,0 +1,108 @@
+type: legs
+legCount: 6
+legGroupSize: 3
+legLength: 14
+legBaseOffset: 1
+lockLegBase: true
+speed: 1.5
+legStraightness: 0.3
+deathSound: gerbDeath
+
+faceTarget: true
+legMinLength: 0.75
+legMaxLength: 1.3
+legExtension: -4
+//envEnabled: 4
+deathExplosionEffect: [
+{
+particles: 1
+sizeFrom: 5
+layer: 80
+sizeTo: 0
+colorFrom: d47153
+colorTo: 8f4f3c
+}
+]
+abilities: [
+{
+type: LiquidExplodeAbility
+liquid: l02-lava
+}
+]
+
+health: 340
+armor: 0
+drawCell: false
+fying: false
+allowLegStep: false
+baseLegStraightness: .3
+flipLegSide: true
+rotateSpeed: 5
+legContinuousMove: true
+lockLegBase: true
+outlineColor: 302020
+weapons: [
+{
+parts: [
+{
+moveRot: -7
+mirror: true
+moveX: -.25
+suffix: -fang
+progress: recoil
+under: true
+}
+{
+suffix: -sac
+growX: .1
+progress: recoil
+under: true
+moveY: 1
+}
+]
+layerOffset: -.001
+x: 0
+y: 0
+mirror: false
+bullet: {
+speed: 1.7
+width: 5
+height: 6
+frontColor: d47153
+backColor: 8f4f3c
+hitColor: d47153
+trailColor: 8f4f3c
+traillength: 4
+trailWidth: .2
+smokeEffec: none
+trailInterval: 5
+damage: 55
+recoil: 1.1
+homingPower: 0.18
+shootEffect: [
+{
+particles: 4
+sizeFrom: 3.2
+sizeTo: 0
+colorFrom: d47153
+colorTo: 8f4f3c
+}
+]
+trailEffect: [
+{
+particles: 3
+sizeFrom: 2
+sizeTo: 0
+colorFrom: 8f4f3c
+colorTo: d47153
+lifetime: 10
+length: 15
+}
+]
+}
+name: fang
+recoil: 0
+reload: 55
+shootCone: 40
+}
+]

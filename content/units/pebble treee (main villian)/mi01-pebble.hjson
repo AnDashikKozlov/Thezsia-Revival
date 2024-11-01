@@ -53,7 +53,7 @@ weapons: [
     shootY: 0.2
     mirror: false
     reload: 30
-    recoil: 0
+    recoil: 0.01
     inaccuracy: 0
     shootSound: blaster
     cooldownTime: 0
@@ -63,7 +63,7 @@ weapons: [
       despawnEffect: none
       shootEffect: none
       smokeEffect: none
-      lifetime: 2.5
+      lifetime: 2.1
       reflectable: false
       absorbable: false
       damage: 28
