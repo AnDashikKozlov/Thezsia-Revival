@@ -6,7 +6,7 @@ description: The most basic core unit. Can move over terrain. Not meant to attac
 speed: 1
 accel: 0.1
 drag: 0.1
-health: 400
+health: 450
 armor: 2
 hitSize: 7
 iemCapacity: 30
@@ -48,14 +48,14 @@ weapons: [
     shootSound: blaster
     bullet: {
       homingPower: 0.13
-      weaveMag: 2
-      weaveScale: 4
+      weaveMag: 2.4
+      weaveScale: 4.7
       type: MissileBulletType
-      trailLength: 12
+      trailLength: 14
       trailWidth: 2
       speed: 3.7
       lifetime: 50
-      damage: 8
+      damage: 10
       buildingDamageMultiplier: 0.2
     }
   }
