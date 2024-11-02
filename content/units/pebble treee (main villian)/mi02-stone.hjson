@@ -9,7 +9,7 @@ rotateSpeed: 2
 outlineColor: 19181AFF
 
 accel: 0.04
-health: 215
+health: 190
 armor: 34
 hitSize: 9
 engineOffset: 0
@@ -74,7 +74,7 @@ weapons: [
       lifetime: 2.2
       reflectable: false
       absorbable: false
-      damage: 58
+      damage: 42
       width: 0
       height: 0
     }
