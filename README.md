@@ -1,5 +1,5 @@
 
-# Welcome to planet THezsia.
+# Welcome to planet Thezsia.
 
 
 [![Discord](https://img.shields.io/discord/1301553669925244970?style=for-the-badge&label=Thezsia%20%7C%20Main%20Outpost)](https://discord.gg/VhqTMUEUmZ)
