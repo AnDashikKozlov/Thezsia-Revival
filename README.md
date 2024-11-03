@@ -1,6 +1,8 @@
 
-  THIS IS DEAD MOD by DisplayName
+# Welcome to planet THezsia.
 
-  HE NOT WORKING ON IT ANYMORE
 
-  I'm AnDashik and NOW me (plus team) working on this mod
+[![Discord](https://img.shields.io/discord/1011940744774303795.svg?color=7289da&logo=discord&label=Omaloon-Genral&style=for-the-badge)](https://discord.gg/PcTnJ96mwf)
+This place, although it looks empty and safe, is actually fraught with dangers that you will encounter, good luck with your passage.
+
+# All original rights to the mod belong to displayname (display_namer) from the English Mindustry discord
