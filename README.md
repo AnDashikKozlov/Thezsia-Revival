@@ -1,10 +1,7 @@
-
-# Welcome to planet Thezsia.
-
+# Welcome to planet THezsia.
+# ![img.png](/sprites/img.png)
 
 [![Discord](https://img.shields.io/discord/1301553669925244970?style=for-the-badge&label=Thezsia%20%7C%20Main%20Outpost)](https://discord.gg/VhqTMUEUmZ)
-
-https://img.shields.io/discord/1301553669925244970?style=for-the-badge&label=Thezsia%20%7C%20Main%20Outpost
 
 This place, although it looks empty and safe, is actually fraught with dangers that you will encounter, good luck with your passage.
 
