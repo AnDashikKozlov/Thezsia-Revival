@@ -12,7 +12,7 @@ outlineColor: 19181AFF
 targetable: false
 isEnemy: false
 drawMinimap: false
-range: 10
+range: 8
 physics: false
 lightRadius: 0
 lightOpacity: 0
