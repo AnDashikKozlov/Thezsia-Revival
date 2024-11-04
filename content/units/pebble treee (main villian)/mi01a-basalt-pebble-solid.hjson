@@ -1,0 +1,50 @@
+type: legs
+
+name: Basaltic Solid Pebble
+description: Don't be too close to them.
+
+drag: 1
+speed: 0
+rotateSpeed: 0
+outlines: false
+outlineColor: 19181AFF
+
+targetable: false
+isEnemy: false
+drawMinimap: false
+range: 10
+physics: false
+lightRadius: 0
+lightOpacity: 0
+
+accel: 0
+health: 100
+armor: 5
+hitSize: 5
+engineOffset: 0
+engineSize: 0
+itemCapacity: 0
+useEngineElevation: false
+researchCostMultiplier: 0
+
+weapons: [
+  {
+    shootOnDeath: true
+    shootCone: 180
+    mirror: false
+    shootY: 0
+    shootSound: explosion
+    bullet: {
+      type: BasicBulletType
+      rangeOverride: 70
+      collidesTile: false
+      collides: false
+      collidesAir: true
+      hittable: false
+      speed: 0
+      instantDisappear: true
+      killShooter: true
+      spawnUnit: mi01-pebble
+    }
+  }
+]
