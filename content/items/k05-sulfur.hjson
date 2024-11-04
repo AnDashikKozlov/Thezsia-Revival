@@ -4,7 +4,7 @@ name: Sulfur
 description: Yes
 
 color: BDA511FF
-hardness: 4
+hardness: 3
 cost: 1.2
 
 hiddenOnPlanets: [
