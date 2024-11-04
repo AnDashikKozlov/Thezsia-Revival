@@ -44,7 +44,7 @@ weapons: [
       speed: 0
       instantDisappear: true
       killShooter: true
-      spawnUnit: mi01-pebble
+      spawnUnit: mi01-basalt-pebble
     }
   }
 ]
