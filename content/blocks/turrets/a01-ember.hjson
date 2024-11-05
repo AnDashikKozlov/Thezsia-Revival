@@ -75,13 +75,11 @@ ammoTypes: {
         fragBullets: 5
         fragBullet: {
           type: BasicBulletType
-          incendAmount: 0.1
-          incendChange: 0.005
           width: 4.5
           height: 7.5
           lifetime: 28
           speed: 3.25
-          damage: 2
+          damage: 3
           pierce: true
           pierceBuilding: true
           pierceCap: 2
