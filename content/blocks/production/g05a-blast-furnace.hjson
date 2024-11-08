@@ -9,7 +9,15 @@ requirements: [
 k01-basalt/50
 k02-volcanic-stone/15
 ]
-research: i01-core-dust
+research: {
+  parent: "i01-core-dust"
+         objectives: [
+            {
+      type: OnSector
+                     preset: "s02-basalt-flats"
+                    }
+         ]
+} 
 
 outputLiquid: l02-lava/0.116666
 consumes: {
