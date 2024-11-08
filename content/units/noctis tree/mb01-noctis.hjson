@@ -66,9 +66,9 @@ weapons: [
   }
 ]
 
-researchCostMultiplier: 1.5
+researchCostMultiplier: 2.5
 research: h01-ground-fabricator
 researchCost: [
-      k01-basalt/20
-      k03-infium/5
+      "k01-basalt/50"  //20
+      "k03-infium/12"  //5
     ]
