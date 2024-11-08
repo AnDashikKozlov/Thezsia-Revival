@@ -36,7 +36,7 @@ phaseShieldBoost: 200
 phaseUseTime: 190
 
 shieldHealth: 1200
-shieldRotation: 45
+shieldRotation: 0
 sides: "4" //4, 12
 solid: true
 canOverdrive: true
