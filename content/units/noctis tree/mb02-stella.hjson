@@ -81,10 +81,10 @@ weapons: [
   }
 ]
 
-researchCostMultiplier: 1.65
+researchCostMultiplier: 2.65
 research: mb01-noctis
 researchCost: [
-      k01-basalt/95
-      k03-infium/50
-	  k05-sulfur/25
+      "k01-basalt/251"  //95
+      "k03-infium/132"  //50
+	  "k05-sulfur/66"  //25
     ]
