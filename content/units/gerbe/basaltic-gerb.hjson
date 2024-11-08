@@ -52,6 +52,20 @@ progress: recoil
 under: true
 }
 {
+type: RegionPart
+suffix: -glow
+blending: additive
+layer: -0.001
+outline: false
+}
+{
+type: RegionPart
+suffix: -eyeglow
+blending: additive
+layer: 110
+outline: false
+}
+{
 suffix: -sac
 growX: 0.18
 progress: recoil
@@ -59,7 +73,7 @@ under: true
 moveY: 1.15
 }
 ]
-layerOffset: -0.001
+layerOffset: -0.002
 x: 0
 y: 0
 shootY: 17
