@@ -1,0 +1,42 @@
+type: ForceProjector
+name: "Force dome projector"
+description: "Creates a shield to protect allied structures and units from damage."
+size: 3
+category: effect
+squareSprite: false
+requirements: [
+k01-basalt/80
+k04-tensorite/50
+k05-sulfur/15
+k07-tritanium-crystal/25
+]
+category: effect
+consumes: {
+  power: 2.15
+  items: {
+    items: [
+      k06-tritanium/1.5
+    ]
+    optional: true
+    booster: true
+  }
+}
+
+researchCostMultiplier: 0.5
+research: i07-renewer
+
+cooldownNormal: 2.65
+cooldownLiquid: 2.5
+cooldownBrokenBase: 1.15
+coolantConsumption: 0.2
+
+radius: 128
+phaseRadiusBoost: 48
+phaseShieldBoost: 200
+phaseUseTime: 190
+
+shieldHealth: 1200
+shieldRotation: 45
+sides: "4" //4, 12
+solid: true
+canOverdrive: true
