@@ -116,11 +116,11 @@ weapons: [
   }
 ]
 
-researchCostMultiplier: 1.8
+researchCostMultiplier: 2.8
 research: mb02-stella
 researchCost: [
-      k01-basalt/275
-      k03-infium/120
-	  k04-tensorite/25
-	  k05-sulfur/60
+      "k01-basalt/770"  //275
+      "k03-infium/336"  //120
+	  "k04-tensorite/70"  //25
+	  "k05-sulfur/168"  //60
     ]
