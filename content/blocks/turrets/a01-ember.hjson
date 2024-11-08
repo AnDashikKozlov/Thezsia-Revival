@@ -16,11 +16,11 @@ coolant: {
 
 research: i01-core-dust
 researchCostMultiplier: 0.1
-rotateSpeed: 3
+rotateSpeed: 3.1
 outlineColor: 19181AFF
 targetAir: false
 targetGround: true
-reload: 90
+reload: 82
 range: 200
 fogRadiusMultiplier: 0.25
 inaccuracy: 2
