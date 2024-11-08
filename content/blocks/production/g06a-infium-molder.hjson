@@ -9,7 +9,15 @@ requirements: [
 k01-basalt/70
 k02-volcanic-stone/20
 ]
-research: g05a-blast-furnace
+research: {
+  parent: "g05a-blast-furnace"
+         objectives: [
+            {
+      type: SectorComplete
+                     preset: "s02-basalt-flats"
+                    }
+         ]
+} 
 
 outputItem: k03-infium/1
 consumes: {
