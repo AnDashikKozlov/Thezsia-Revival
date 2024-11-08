@@ -53,9 +53,9 @@ mechLegColor: 19181A
       }
     }
 ]
-researchCostMultiplier: 1.5
+researchCostMultiplier: 2.5
 research: h01-ground-fabricator
 researchCost: [
-      k01-basalt/10
-      k02-volcanic-stone/10
+      "k01-basalt/25"  //10
+      "k02-volcanic-stone/25"  //10
     ]
