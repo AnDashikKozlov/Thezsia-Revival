@@ -22,7 +22,7 @@ targetAir: false
 targetGround: true
 reload: 82
 range: 200
-fogRadiusMultiplier: 0.25
+fogRadiusMultiplier: 0.5
 inaccuracy: 2
 shootY: 2
 shootSound: largeCannon
