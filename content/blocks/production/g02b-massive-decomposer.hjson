@@ -1,0 +1,77 @@
+type: GenericCrafter
+name: Massive decomposer
+size: 4
+squareSprite: false
+category: crafting
+research: g02a-gas-decomposer
+
+itemCapacity: 0
+hasLiquids: true
+liquidCapacity: 60
+researchCostMultiplier: 0.5
+requirements: [
+ k01-basalt/60
+ k02-volcanic-stone/15
+ k03-infium/20
+]
+
+craftTime: 180
+outputLiquids: [
+  l03-carbon-dioxide/0.42
+  l04-ammonia/0.3
+]
+consumes: {
+  power: 1.5
+  liquids: [
+   l01-wind/0.55
+   l02-lava/0.14
+   ]
+}
+
+ambientSound: hum
+ambientSoundVolume: 0.12
+rotate: true
+invertFlip: true
+rotateDraw: false
+liquidOutputDirections: [1, 3]
+regionRotated1: 1
+buildVisibility: shown
+outputFacing: true
+
+drawer: {
+  type: DrawMulti
+        drawers: [
+          {
+          type: DrawRegion
+          suffix: -bottom
+          layer: 15
+          },
+		  {
+		  type: DrawParticles
+		  radius: 30
+		  particleRad: 7
+		  particleLife: 135
+		  alpha: 0.48
+		  particleSize: 2.65
+		  color: cacdd979
+		  reverse: true
+		  },
+		  {
+		  type: DrawLiquidTile
+		  drawLiquid: l01-wind
+		  padding: 5
+		  alpha: 0.82
+		  },
+		  {
+		  type: DrawDefault
+		  },
+		  {
+		  type: DrawLiquidOutputs
+		  layer: 99
+		  },
+		  {
+		  type: DrawGlowRegion
+		  color: cfd4e80d
+		  }
+    ]
+}
