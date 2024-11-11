@@ -6,6 +6,7 @@ description: Yes
 color: BDA511FF
 hardness: 3
 cost: 1.2
+flammability: 0.42
 
 hiddenOnPlanets: [
 serpulo
