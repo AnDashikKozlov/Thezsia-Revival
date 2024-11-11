@@ -1,35 +1,35 @@
 type: legs
 
-name: Ambient T-I
+name: Ambient T-II
 description: The most basic core unit. Can move over terrain. Not meant to attack, armed with weak guided missile.
 
-speed: 1
-accel: 0.1
-drag: 0.1
-health: 450
-armor: 2
-hitSize: 7
-iemCapacity: 30
-engineOffset: 6
+speed: 1.25
+accel: 0.12
+drag: 0.12
+health: 530
+armor: 5
+hitSize: 8
+iemCapacity: 50
+engineOffset: 7
 faceTarget: true
 outlineColor: 19181AFF
 
 mineTier: 2
 mineWalls: true
 mineRange: 80
-mineSpeed: 6.5
+mineSpeed: 6.7
 buildRange: 230
-buildSpeed: 0.75
+buildSpeed: 0.82
 
-legStraightness: 0.3
+legStraightness: 0.35
 legContinuousMove: true
 lockLegBase: true
 legGroupSize: 4
 legCount: 8
 allowLegStep: true
-legExtension: -2
-legLength: 14
-legSpeed: 0.3
+legExtension: -4
+legLength: 19
+legSpeed: 0.35
 legForwardScl: 0.7
 legMoveSpace: 1
 hovering: true
@@ -41,25 +41,25 @@ weapons: [
   {
     name: none
     x: 0
-    y: 2
-    reload: 30
-    recoil: 1
-    inaccuracy: 10
+    y: 3
+    reload: 28
+    recoil: 1.2
+    inaccuracy: 14
     shootSound: blaster
     bullet: {
       homingPower: 0.13
-      weaveMag: 2.4
-      weaveScale: 4.7
+      weaveMag: 2.6
+      weaveScale: 5.1
       type: MissileBulletType
-      trailLength: 14
-      trailWidth: 2
-      speed: 3.7
-      lifetime: 50
-      damage: 10
+      trailLength: 17
+      trailWidth: 2.1
+      speed: 3.85
+      lifetime: 72
+      damage: 13
       buildingDamageMultiplier: 0.2
     }
   }
  ] 
 
-research: i01-core-dust
+research: i02-core-fog
 alwaysUnlocked: true
