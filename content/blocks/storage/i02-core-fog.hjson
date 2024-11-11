@@ -8,7 +8,7 @@ squareSprite: false
 health: 1850
 itemCapacity: 6500
 unitCapModifier: 15
-unitType: ma01-ambient
+unitType: ma02-ambient
 
 requirements: [
 k01-basalt/1200
