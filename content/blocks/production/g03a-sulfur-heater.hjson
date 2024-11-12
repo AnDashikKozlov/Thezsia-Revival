@@ -1,0 +1,25 @@
+type: HeatProducer
+size: 2
+name: Sulfur Heater
+heatOutput: 4
+requirements: [
+  k01-basalt/20
+  k02-volcanic-stone/80
+  k03-infium/30
+]
+consumes: {
+  items: [
+    k05-sulfur/1
+  ]
+}
+category: crafting
+research: i01-core-dust
+drawer: [
+  {
+  type: drawDefault
+  },
+  {
+  type: drawHeatOutput
+  suffix: -heat
+  },
+]
