@@ -96,12 +96,14 @@ generator: {
   radMax: 600
   iceChange: 0
 }
+
 sectorSize: 1
 allowLaunchSchematics: false
-allowLaunchToNumbered: false
+allowLaunchToNumbered: true
 allowLaunchLoadout: false
 allowSectorInvasion: false
 startSector: 0
+orbitTime: 540
 orbitSpacing: 17
 orbitRadius: 43
 solarSystem: lumi
@@ -109,15 +111,18 @@ updateLighting: true
 radius: 1.2
 minZoom: 0.8
 drawOrbit: true
-atmosphereColor: 5151517E
+//defaultEnv: 17
+cloudColor: 1a1816bb
+lighting: 111212ce
+ambientLight: 111212ce
+atmosphereColor: 313131FF
 atmosphereRadIn: 0
 atmosphereRadOut: 0.3
 accessible: true
-updateLighting: true
-sectorSeed: 12837
+updateLighting: false
+sectorSeed: 1583
 bloom: true
 visible: true
-atmosphereColor: 1D1D23FF
 iconColor: 313131FF
 hasAtmosphere: true
 allowWaveSimulation: true
@@ -126,7 +131,7 @@ allowWaves: true
 prebuildBase: false
 defaultCore: i01-core-dust
 parent: lumi
-solarSystem: sun
+solarSystem: lumi
 launchCandidates: []
 itemWhitelist: [
   "k01-basalt",
