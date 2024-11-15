@@ -59,7 +59,7 @@ weapons: [
 	shootY: 1.8
     mirror: true
     alternate: true
-    reload: 5
+    reload: 7
     recoil: 0.82
     inaccuracy: 8
     shootSound: blaster
@@ -83,36 +83,34 @@ weapons: [
     }
   }
   {
-    name: mb03-astrum-gun
-    top: false
+	name: mb03-astrum-gun
+	top: false
     under: true
-    x: 0
-    y: 0
-    mirror: false
-    reload: 100
-    recoil: 0.7
-    inaccuracy: 2
+	cone: 5  
 	shootX: 0
-	shootY: 3.7
-    shootSound: blaster
-    cooldownTime: 50
-    shoot: {
-      shots: 7
-      shotDelay: 8
-    }
-    bullet: {
-      type: BasicBulletType
-      trailLength: 10
-      trailWidth: 2.3
-	  height: 7.3
-      width: 6.9
-      speed: 4.3
-      lifetime: 52
-      damage: 6
-      frontColor: FFFFFFFF
-      backColor: 869CBEFF
-      trailColor: 869CBEFF
-    }
+	shootY: 6.8
+	x: 0
+	y: 0
+	mirror: false
+	rotate: false
+	recoil: 0.75
+	reload: 256
+	shootSound: laser
+	shoot: {
+	shots: 4
+	firstShootDelay: 92
+	shotDelay: 52
+	}
+	bullet: {
+	  type: LaserBulletType
+	  damage: 10
+	  length: 72
+      width: 9
+	  lifetime: 42
+	  colors: [869CBEFF,b8dbf5,FFFFFFFF]
+	  shootEffect: [lightningShoot,lightningCharge]
+	  hitEffect: hitLancer
+	} 
   }
 ]
 
