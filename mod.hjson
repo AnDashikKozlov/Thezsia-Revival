@@ -14,8 +14,8 @@ description:
 New planet, new stuff, what a surprise
 Not dead now)
 '''
-subtitle: "ALPHA v1.0.6"
-version: "v1.0.6"
+subtitle: "ALPHA v1.0.7"
+version: "v1.0.7"
 minGameVersion: "146"
 dependencies: [ ]
 hidden: false
