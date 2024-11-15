@@ -1,7 +1,7 @@
 type: UnitFactory
 
 name: Ground Fabricator
-description: Constructs legged units.
+description: Produces legged units.
 size: 3
 requirements: [
 k01-basalt/50
