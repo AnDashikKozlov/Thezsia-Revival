@@ -19,7 +19,7 @@ research: {
          ]
 } 
 
-outputLiquid: l02-lava/0.116666
+outputLiquid: l02-lava/0.13
 consumes: {
   items: [
     k02-volcanic-stone/2
