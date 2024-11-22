@@ -1,4 +1,12 @@
 type: legs
+immunities: [
+  burning
+  wet
+  freezing
+  tarred
+  spore-slowed
+  melting
+]
 legCount: 6
 legGroupSize: 3
 legLength: 19
