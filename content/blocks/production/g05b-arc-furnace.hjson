@@ -12,7 +12,7 @@ k04-tensorite/50
 ]
 research: g05a-blast-furnace
 
-outputLiquid: l02-lava/0.34
+outputLiquid: l02-lava/0.3
 liquidCapacity: 80
 consumes: {
   items: [

@@ -93,20 +93,22 @@ weapons: [
 	y: 0
 	mirror: false
 	rotate: false
-	recoil: 0.75
-	reload: 256
+	recoil: 0.78
+	reload: 267
+	cooldownTime: 152
+	heatColor: e5f1ffdb
 	shootSound: laser
 	shoot: {
 	shots: 4
-	firstShootDelay: 92
-	shotDelay: 52
+	firstShootDelay: 104
+	shotDelay: 68
 	}
 	bullet: {
 	  type: LaserBulletType
 	  damage: 10
 	  length: 72
       width: 9
-	  lifetime: 42
+	  lifetime: 32
 	  colors: [869CBEFF,b8dbf5,FFFFFFFF]
 	  shootEffect: [lightningShoot,lightningCharge]
 	  hitEffect: hitLancer

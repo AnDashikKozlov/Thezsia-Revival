@@ -1,0 +1,204 @@
+type: flying
+lowAltitude: true
+drag: 0.08
+accel: 0.09
+health: 840
+armor: 2
+speed: 3
+hitSize: 13
+flying: true
+engineSize: 0 
+deathExplosionEffect: [
+{
+particles: 1
+sizeFrom: 5
+layer: 80
+sizeTo: 0
+colorFrom: d47153
+colorTo: 8f4f3c
+}
+]
+abilities: [
+  {
+	type: LiquidExplodeAbility
+	liquid: l02-lava
+  }
+  {
+    type: MoveEffectAbility
+    minVelocity: 0
+    interval: 2
+    x: -3
+    y: 0
+    rotateEffect: true
+    rotation: 0
+    parentizeEffects: true // this doesn't work with MultiEffect unfortunately, nothing can be done about it
+    effect: {
+      type: MultiEffect
+      effects: [
+        {
+          type: ParticleEffect
+          layer: 91
+          followParent: true
+          rotWithParent: true
+          region: thezsia1-basaltic-gerbwasp-wing-left
+          particles: 1
+          length: 0
+          spin: 2
+          lifetime: 2
+          sizeFrom: 30
+          sizeTo: 30
+          baseRotation: 180
+          lightOpacity: 0
+        }
+        {
+          type: ParticleEffect
+          layer: 91
+          followParent: true
+          rotWithParent: true
+          region: thezsia1-basaltic-gerbwasp-wing-left
+          particles: 1
+          length: 0
+          spin: -10
+          lifetime: 2
+          sizeFrom: 30
+          sizeTo: 30
+          baseRotation: 200
+          startDelay: 1
+          lightOpacity: 0
+        }
+      ]
+    }
+  }
+  {
+    type: MoveEffectAbility
+    minVelocity: 0
+    interval: 2
+    x: 3
+    y: 0
+    rotateEffect: true
+    rotation: 0
+    parentizeEffects: true
+    effect: {
+      type: MultiEffect
+      effects: [
+        {
+          type: ParticleEffect
+          layer: 91
+          followParent: true
+          rotWithParent: true
+          region: thezsia1-basaltic-gerbwasp-wing-right
+          particles: 1
+          length: 0
+          spin: -10
+          lifetime: 2
+          sizeFrom: 30
+          sizeTo: 30
+          baseRotation: 0
+          lightOpacity: 0
+        }
+        {
+          type: ParticleEffect
+          layer: 91
+          followParent: true
+          rotWithParent: true
+          region: thezsia1-basaltic-gerbwasp-wing-right
+          particles: 1
+          length: 0
+          spin: 2
+          lifetime: 2
+          sizeFrom: 30
+          sizeTo: 30
+          baseRotation: -20
+          startDelay: 1
+          lightOpacity: 0
+        }
+      ]
+    }
+  }
+]
+health: 1130
+armor: 3
+drawCell: false
+fying: false
+rotateSpeed: 5
+outlineColor: 302020
+weapons: [
+{
+parts: [
+{
+moveRot: 9
+mirror: true
+moveX: -0.28
+suffix: -fang
+progress: recoil
+under: true
+}
+{
+type: RegionPart
+suffix: -glow
+blending: additive
+layer: -0.001
+outline: false
+}
+{
+type: RegionPart
+suffix: -eyeglow
+blending: additive
+layer: 110
+outline: false
+}
+{
+suffix: -sac
+growX: 0.18
+progress: recoil
+under: true
+moveY: 1.15
+}
+]
+layerOffset: -0.002
+x: 0
+y: 0
+shootY: 13
+reload: 10
+inaccuracy: 10
+shoot: {
+      shots: 5
+      shotDelay: 8
+    }
+shootSound: splash
+bullet: {
+type: BasicBulletType
+sprite: thezsia1-basaltic-gerbwasp-ammo
+shootEffect: none
+backColor: ed5a3d
+frontColor: efb680
+mixColorTo: efb680
+width: 20
+height: 20
+maxRange: 30
+hitSound:
+hitShake: 1
+lifetime: 60
+shrinkX: 0.7
+shrinkY: 0.7
+speed: 0
+collides: false
+splashDamage: 60
+splashDamageRadius: 36
+keepVelocity: false
+shootEffect: [
+{
+particles: 6
+sizeFrom: 5
+sizeTo: 0
+colorFrom: d47153
+colorTo: 8f4f3c
+}
+]
+}
+name: basaltic-gerbwasp-fang
+recoil: 0
+reload: 60
+shootCone: 60
+}
+]

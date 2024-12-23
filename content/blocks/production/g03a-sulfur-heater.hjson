@@ -1,7 +1,9 @@
 type: HeatProducer
 size: 2
 name: Sulfur Heater
+craftTime: 220
 heatOutput: 4
+warmupRate: 0.165
 requirements: [
   k01-basalt/20
   k02-volcanic-stone/80

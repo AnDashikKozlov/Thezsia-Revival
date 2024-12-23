@@ -6,6 +6,8 @@ description: Used in repairing and advanced electronics.
 color: 2CDC78FF
 hardness: 5
 cost: 1.4
+charge: 0.15
+radioactivity: 0.45
 
 hiddenOnPlanets: [
 serpulo

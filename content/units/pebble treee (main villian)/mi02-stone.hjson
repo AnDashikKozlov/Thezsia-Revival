@@ -7,6 +7,7 @@ drag: 0.08
 speed: 0.9
 rotateSpeed: 2
 outlineColor: 19181AFF
+drawCell: false
 
 accel: 0.04
 health: 190

@@ -19,4 +19,8 @@ drawer: [
   type: drawHeatInput
   suffix: -heat
   }
+  {
+  type: DrawGlowRegion
+  color: 876c5c1b
+  }
 ]

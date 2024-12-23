@@ -38,7 +38,7 @@ mesh: [
     type: NoiseMesh
     planet: thezsia
     divisions: 5
-    seed: 19
+    seed: 7
     radius: 1.1
      color1: FFA100
     color2: FFCB00

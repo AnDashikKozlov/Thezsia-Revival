@@ -1,0 +1,64 @@
+type: mech
+name: Flamma
+description: Fires incendiary bullet at slow rate.
+speed: 0.74
+flying: false
+health: 445
+hitSize: 14
+rotateSpeed: 3.1
+outlineColor: 19181A
+mechLegColor: 19181A
+  weapons: [
+    {
+      top: false
+      shootX: 0.4
+      shootY: 6.2
+      x: 9
+      //layerOffset: -0.01
+      alternate: false
+      recoil: 2.4
+      reload: 10
+      name: mc02-flamma-weapon
+      rotate: true
+      rotateSpeed: 0.95
+      rotationLimit: 20
+      shootCone: 30
+      mirror: true
+      inaccuracy: 12
+      alwaysContinuous: true
+      continuous: true
+      soundPitchMin: 0.8
+      soundPitchMax: 1.1
+      shootSound: torch
+      bullet: {
+        type: ContinuousFlameBulletType
+        colors: [f0533ece, ff7a5c, ffaf96, ffdbc2]
+        damage: 7
+        flareWidth: 1.8
+        flareLength: 11
+        flareColor: FF5845FF
+        width: 2.4
+        length: 51
+        status: melting
+        statusDuration: 117
+        hitEffect: {
+          type: ParticleEffect
+          line: true
+          particles: 8
+          lifetime: 25
+          length: 65
+          cone: -360
+          lenFrom: 7
+          lenTo: 1
+          colorFrom: FF5845FF
+          colorTo: FFC1BBFF
+        }
+      }
+	}
+  ]
+researchCostMultiplier: 2.5
+research: h01-ground-fabricator
+researchCost: [
+      "k01-basalt/25"  //10
+      "k02-volcanic-stone/25"  //10
+	]

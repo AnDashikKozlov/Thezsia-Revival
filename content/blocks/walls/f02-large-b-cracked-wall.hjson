@@ -1,0 +1,12 @@
+type: Wall
+
+name: Large Cracked Wall
+description: Protects structures from enemy projectiles.
+variants: 3
+size: 2
+requirements: [
+k01-basalt/19
+]
+health: 481
+category: defense
+buildVisibility: sandboxOnly

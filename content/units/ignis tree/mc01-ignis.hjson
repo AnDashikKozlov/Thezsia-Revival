@@ -5,6 +5,7 @@ speed: 0.7
 flying: false
 health: 180
 hitSize: 9
+rotateSpeed: 3.4
 outlineColor: 19181A
 mechLegColor: 19181A
   weapons: [

@@ -1,0 +1,131 @@
+type: legs
+immunities: [
+  burning
+  wet
+  freezing
+  tarred
+  spore-slowed
+  melting
+]
+legCount: 4
+legGroupSize: 5
+legLength: 10
+legBaseOffset: 1
+lockLegBase: true
+hitSize: 13
+speed: 1.5
+legStraightness: 0.15
+deathSound: broken
+faceTarget: true
+legMinLength: 0.2
+legMaxLength: 1.0
+legExtension: -2
+//envEnabled: 4
+deathExplosionEffect: [
+{
+particles: 1
+sizeFrom: 5
+layer: 80
+sizeTo: 0
+colorFrom: d47153
+colorTo: 8f4f3c
+}
+]
+abilities: [
+{
+type: LiquidExplodeAbility
+liquid: l02-lava
+}
+]
+
+health: 510
+armor: 3
+drawCell: false
+fying: false
+baseLegStraightness: .3
+flipLegSide: true
+rotateSpeed: 5
+legContinuousMove: true
+lockLegBase: true
+outlineColor: 302020
+weapons: [
+{
+parts: [
+{
+moveRot: 9
+mirror: true
+moveX: -0.28
+suffix: -fang
+progress: recoil
+under: true
+}
+{
+type: RegionPart
+suffix: -glow
+blending: additive
+layer: -0.001
+outline: false
+}
+{
+type: RegionPart
+suffix: -eyeglow
+blending: additive
+layer: 110
+outline: false
+}
+{
+suffix: -sac
+growX: 0.1
+progress: recoil
+under: true
+moveY: 0.5
+}
+]
+layerOffset: -0.002
+x: 0
+y: 0
+shootY: 7
+display: false
+alwaysContinuous: false
+alternate: false
+heatColor: fde588
+shootSound: missile
+mirror: false
+rotationLimit: 3
+rotateSpeed: 0.2
+rotate: true
+inaccuracy: 10
+reload: 20
+  shoot: {
+      shots: 5
+      shotDelay: 8
+    }
+ bullet: {
+      type: MissileBulletType
+      homing: false
+      weaveMag: 2
+      weaveScale: 1
+      trailLength: 3
+      trailWidth: 2
+      speed: 2
+      lifetime: 120
+      damage: 10
+      frontColor: fa9e7b
+      backColor: fb8169
+      trailColor: ffd7b3
+shootEffect: [
+{
+particles: 3
+sizeFrom: 2
+sizeTo: 0
+colorFrom: d47153
+colorTo: 8f4f3c
+}
+]
+}
+name: basaltic-tinygerb-fang
+recoil: 0
+reload: 60
+shootCone: 60
+}
+]

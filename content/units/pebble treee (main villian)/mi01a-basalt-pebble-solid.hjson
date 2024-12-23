@@ -8,6 +8,7 @@ speed: 0
 rotateSpeed: 0
 outlines: false
 outlineColor: 19181AFF
+drawCell: false
 
 targetable: false
 isEnemy: false

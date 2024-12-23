@@ -6,6 +6,7 @@ description: Charged with electricity.
 color: 3976A7FF
 hardness: 5
 cost: 1.6
+charge: 0.75
 
 hiddenOnPlanets: [
 serpulo

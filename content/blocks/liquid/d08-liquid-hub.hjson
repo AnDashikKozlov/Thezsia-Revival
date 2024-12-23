@@ -7,7 +7,6 @@ category: liquid
 requirements: [
   k01-basalt/5
 ]
-liquidCapacity: 30
 
 liquidPadding: 1
 

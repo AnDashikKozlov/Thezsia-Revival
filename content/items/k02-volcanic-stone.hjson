@@ -6,6 +6,7 @@ description: Contains precious mineral.
 color: 494949FF
 hardness: 2
 cost: 0.8
+flammability: 0.005
 
 hiddenOnPlanets: [
 serpulo
