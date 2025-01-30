@@ -1,7 +1,0 @@
-type: OverlayFloor
-
-name: Basaltic Vein
-description: A mineable source of tritanium crystal.
-
-itemDrop: k01-basalt
-wallOre: true

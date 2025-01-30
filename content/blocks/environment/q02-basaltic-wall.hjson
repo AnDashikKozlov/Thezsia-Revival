@@ -1,7 +1,0 @@
-type: StaticWall
-
-name: Basaltic Wall
-
-attributes: {
-  volcanic-stone: 0.8
-}

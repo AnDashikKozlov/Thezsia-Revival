@@ -1,7 +1,0 @@
-type: StaticWall
-
-name: Charrok Wall
-
-attributes: {
-  volcanic-stone: 1
-}

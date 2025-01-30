@@ -1,9 +1,0 @@
-type: Floor
-
-name: Basaltic Patch
-variants: 3
-
-itemDrop: k01-basalt
-
-wall: q02-basaltic-wall
-decoration: t02-basaltic-rock

@@ -1,8 +1,0 @@
-type: Floor
-
-name: Dark Limestone
-
-variants: 3
-
-wall: q04-dark-limestone-wall
-decoration: t04-dark-limestone-boulder

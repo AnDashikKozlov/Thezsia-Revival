@@ -1,9 +1,0 @@
-type: Floor
-
-name: Sulfur
-
-variants: 4
-itemDrop: k05-sulfur
-
-wall: q05-sulfur-wall
-decoration: t05-sulfur-boulder

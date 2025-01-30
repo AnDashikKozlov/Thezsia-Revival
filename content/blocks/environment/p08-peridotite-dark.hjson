@@ -1,8 +1,0 @@
-type: Floor
-
-name: Peridotite Dark
-
-variants: 4
-
-wall: q08-peridotite-dark-wall
-decoration: t07-peridotite-dark-cube
