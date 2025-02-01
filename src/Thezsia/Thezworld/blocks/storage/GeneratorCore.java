@@ -18,14 +18,12 @@ import mindustry.world.blocks.storage.CoreBlock;
 public class GeneratorCore extends CoreBlock{
     public Color[] glowColors = {Color.valueOf("00000000"), Color.coral, Color.valueOf("ff6161"), Color.pink, Color.acid, Color.sky};
     public TextureRegion glow;
-    public float glowMag = 0.5f, glowScl = 10f;
+    public float glowMag = 0.5f;
+    public float glowScl = 10f;
     public float powerProduction = 60 / 60f;
-
-    //public int maxNodes = 3;
 
     public GeneratorCore(String name){
         super(name);
-        //maxNodes = 100;
         hasPower = true;
         conductivePower= true;
         outputsPower = true;

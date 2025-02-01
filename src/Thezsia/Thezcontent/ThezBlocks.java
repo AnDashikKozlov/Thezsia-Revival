@@ -31,6 +31,7 @@ import mindustry.world.consumers.*;
 import mindustry.world.draw.*;
 
 import static arc.math.Interp.*;
+import static mindustry.logic.LAccess.team;
 import static mindustry.type.ItemStack.with;
 
 public class ThezBlocks {
@@ -819,7 +820,8 @@ public class ThezBlocks {
                     conductivePower = true;
                     powerProduction = 180 / 60f;
                     consumePowerBuffered(180);
-                    glowColors = new Color[]{Color.valueOf("ade7ec79")};
+
+                    //glowColors = new Color[]{Color.valueOf("ade7ec79")};
                     glowMag = 0.62f; glowScl = 8.2f;
 
                     itemCapacity = 5000;
@@ -839,7 +841,8 @@ public class ThezBlocks {
                     conductivePower = true;
                     powerProduction = 600 / 60f;
                     consumePowerBuffered(100);
-                    glowColors = new Color[]{Color.valueOf("ade7ec79")};
+
+                   //glowColors = new Color[]{Color.valueOf("ade7ec79")};
                     glowMag = 0.78f; glowScl = 9.5f;
 
                     itemCapacity = 7500;
