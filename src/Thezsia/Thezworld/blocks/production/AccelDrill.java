@@ -1,4 +1,4 @@
-package Thezsia.Thezworld.blocks;
+package Thezsia.Thezworld.blocks.production;
 
 import arc.Core;
 import mindustry.graphics.Pal;

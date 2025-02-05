@@ -4,6 +4,7 @@ import Thezsia.Thezworld.blocks.ThezAttribute;
 import Thezsia.Thezworld.blocks.distribution.ClosedConveyor;
 import Thezsia.Thezworld.blocks.power.PowerWire;
 import Thezsia.Thezworld.blocks.power.TransferPowerConsumeGenerator;
+import Thezsia.Thezworld.blocks.production.AccelDrill;
 import Thezsia.Thezworld.blocks.storage.GeneratorCore;
 import Thezsia.Thezworld.draw.*;
 import arc.graphics.Color;
@@ -30,6 +31,7 @@ import mindustry.world.blocks.units.*;
 import mindustry.world.consumers.*;
 import mindustry.world.draw.*;
 
+import static arc.graphics.Blending.additive;
 import static arc.math.Interp.*;
 import static mindustry.logic.LAccess.team;
 import static mindustry.type.ItemStack.with;
@@ -481,6 +483,139 @@ public class ThezBlocks {
                     );
                 }};
 
+                tritaniumRefinery = new HeatCrafter("g12a-tritanium-refinery"){{
+                    requirements(Category.crafting, ItemStack.with(ThezItems.basalt, 50f, ThezItems.volcanicStone, 20f, ThezItems.infium, 30f));
+                    size = 3;
+                    outputItem = new ItemStack(ThezItems.tritanium, 1);
+                    heatRequirement = 12f;
+                    hasPower = hasItems = true;
+                    craftTime = 190f;
+
+                    consumeItems(with(ThezItems.tritaniumCrystal, 2));
+                    consumeLiquid(ThezLiquids.ammonia, 0.3f);
+                    consumePower(1f);
+
+                    craftEffect = new MultiEffect(
+                            new ParticleEffect(){{
+                                particles = 4;
+                                length = 19;
+                                lifetime = 47;
+                                interp = circleOut; sizeInterp = pow5In;
+                                lightColor = Color.valueOf("9effd7d2");
+                                colorFrom = Color.valueOf("7a7f7be0");
+                                colorTo = Color.valueOf("9effd7d2");
+                                sizeFrom = 4.7f;
+                                sizeTo = 0;
+                            }},
+                            new ParticleEffect(){{
+                                particles = 2;
+                                length = 20;
+                                lifetime = 64;
+                                interp = circleOut; sizeInterp = pow5In;
+                                lightColor = Color.valueOf("9effd7d2");
+                                colorFrom = Color.valueOf("7a7f7be0");
+                                colorTo = Color.valueOf("9effd7d2");
+                                sizeFrom = 2.8f;
+                                sizeTo = 0;
+                            }}
+                    );
+                    drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawRegion("-bottom2"), new DrawHeatInput("-heat"), new DrawDefault(),
+                            new DrawGlowRegion(){{
+                                color = Color.valueOf("2CDC78");
+                            }},
+                            new DrawParticles(){{
+                                fadeMargin = 1.3f;
+                                particleRad = 13;
+                                particleLife = 170;
+                                alpha = 0.9f;
+                                particleSize = 2.4f;
+                                color = Color.valueOf("48d986d7");
+                            }},
+                            new DrawLiquidTile(){{
+                                padding = 2;
+                                drawLiquid = ThezLiquids.ammonia;
+                                alpha = 0.95f;
+                            }},
+                            new DrawParticles(){{
+                                reverse = true;
+                                fadeMargin = 0.6f;
+                                particleRad = 10;
+                                particleLife = 125;
+                                alpha = 0.45f;
+                                particleSize = 1.4f;
+                                color = Color.valueOf( "4fff959e");
+                            }}
+                    );
+                    ambientSound = Sounds.machine;
+                    ambientSoundVolume = 0.06f;
+                }};
+                tritaniumSynthesizer = new HeatCrafter("tritanium-synthesizer"){{
+                    requirements(Category.crafting, ItemStack.with(ThezItems.basalt, 90f, ThezItems.infium, 60f, ThezItems.tensorite, 30f, ThezItems.sulfur, 15f));
+                    size = 4;
+                    outputItem = new ItemStack(ThezItems.tritanium, 4);
+                    heatRequirement = 18f;
+                    hasPower = hasItems = true;
+                    craftTime = 235f;
+                    squareSprite = false;
+                    craftEffect = new MultiEffect(
+                            new ParticleEffect(){{
+                                particles = 5;
+                                length = 22;
+                                lifetime = 52;
+                                interp = circleOut; sizeInterp = pow5In;
+                                lightColor = Color.valueOf("9effd7d2");
+                                colorFrom = Color.valueOf("7a7f7be0");
+                                colorTo = Color.valueOf("9effd7d2");
+                                sizeFrom = 4.8f;
+                                sizeTo = 0;
+                            }},
+                            new ParticleEffect(){{
+                                particles = 2;
+                                length = 25;
+                                lifetime = 72;
+                                interp = circleOut; sizeInterp = pow5In;
+                                lightColor = Color.valueOf("9effd7d2");
+                                colorFrom = Color.valueOf("7a7f7be0");
+                                colorTo = Color.valueOf("9effd7d2");
+                                sizeFrom = 2.9f;
+                                sizeTo = 0;
+                            }}
+                    );
+                    drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawRegion("-bottom2"), new DrawHeatInput("-heat"), new DrawDefault(),
+                            new DrawGlowRegion(){{
+                                color = Color.valueOf("2CDC78");
+                            }},
+                            new DrawParticles(){{
+                                fadeMargin = 1.4f;
+                                particleRad = 14;
+                                particleLife = 176;
+                                alpha = 0.9f;
+                                particleSize = 2.5f;
+                                color = Color.valueOf("48d986d7");
+                            }},
+                            new DrawLiquidTile(){{
+                                padding = 2;
+                                drawLiquid = ThezLiquids.ammonia;
+                                alpha = 0.95f;
+                            }},
+                            new DrawParticles(){{
+                                reverse = true;
+                                fadeMargin = 0.7f;
+                                particleRad = 12;
+                                particleLife = 137;
+                                alpha = 0.45f;
+                                particleSize = 1.55f;
+                                color = Color.valueOf( "4fff959e");
+                            }}
+                    );
+                    ambientSound = Sounds.machine;
+                    ambientSoundVolume = 0.09f;
+
+                    consumeItems(with(ThezItems.tritaniumCrystal, 5));
+                    consumeLiquid(ThezLiquids.ammonia, 0.45f);
+                    consumePower(2.5f);
+                }};
+
                 //production (drills,extractors, "cultivators")
                 windTrap = new GenericCrafter("wind-trap"){{
                     requirements(Category.production, ItemStack.with(ThezItems.basalt, 100));
@@ -554,6 +689,35 @@ public class ThezBlocks {
                     attribute = ThezAttribute.volcanicStone;
                     ambientSound = Sounds.drill;
                     ambientSoundVolume = 0.08f;
+                }};
+                rotaryDrill = new Drill("rotary-drill"){{
+                    requirements(Category.production, ItemStack.with(ThezItems.basalt, 40));
+                    consumeLiquid(ThezLiquids.wind, 0.1f);
+                    squareSprite = false;
+                    size = 3;
+                    tier = 3;
+                    drillTime = 900;
+                    liquidBoostIntensity = 1;
+
+                    ambientSound = Sounds.grinding;
+                    ambientSoundVolume = 0.3f;
+                    alwaysUnlocked = true;
+                }};
+                circularDrill = new Drill("circular-drill"){{
+                    requirements(Category.production, ItemStack.with(ThezItems.basalt, 60, ThezItems.infium, 20f, ThezItems.volcanicStone, 15f));
+                    size = 4;
+                    tier = 4;
+                    //accelTime = (int) 75f;
+                    //accelLimit = 175;
+                    drillTime = 630;
+                    //drillAccelMultiplier = 2
+                    liquidBoostIntensity = 1.35f;
+                    consumeLiquids(LiquidStack.with(ThezLiquids.lava, 0.27f));
+                    consumePower(0.92f);
+                    //powerRequirement = 1f;
+
+                    ambientSound = Sounds.grinding;
+                    ambientSoundVolume = 0.4f;
                 }};
 
                //effects
