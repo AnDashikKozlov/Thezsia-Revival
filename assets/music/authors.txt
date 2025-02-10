@@ -1,9 +1,10 @@
-Music byAce:
+Music by Ace (ace1020spawn):
 - Menu
 - Game4
+- Game5
 - Boss1
 
-Music by CY4NIDE
+Music by CY4NIDE (cy4nide0165):
 - Game1
 - Game2
 - Game3
