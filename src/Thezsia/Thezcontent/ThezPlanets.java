@@ -1,15 +1,18 @@
 package Thezsia.Thezcontent;
 
-import  static Thezsia.Thezcontent.ThezItems.*;
-
-import Thezsia.Thezworld.meta.ThezTeams;
-import arc.graphics.*;
+import Thezsia.Thezworld.meta.*;
+import arc.graphics.Color;
 import mindustry.content.*;
 import mindustry.graphics.g3d.*;
-import mindustry.maps.planet.*;
-import mindustry.type.*;
-import mindustry.world.meta.*;
+import mindustry.maps.planet.ErekirPlanetGenerator;
+import mindustry.type.ItemStack;
+import mindustry.type.Planet;
+import mindustry.type.Weather;
+import mindustry.world.meta.Env;
 
+import static Thezsia.Thezcontent.ThezItems.*;
+import static mindustry.content.Blocks.*;
+import static mindustry.content.Items.*;
 import static mindustry.content.Planets.*;
 
 public class ThezPlanets {
@@ -57,7 +60,7 @@ public class ThezPlanets {
             clearSectorOnLose = true;
             startSector = 12;
             defaultCore = ThezBlocks.coreDust;
-            itemWhitelist = thezsiaItems;
+            itemWhitelist.addAll(beryllium, basaltShard, silver, infium, tungsten, sulfur, oxide, tensorite, tritaniumCrystal, tritanium);
             defaultEnv = Env.oxygen | Env.terrestrial | Env.groundOil;
 
             updateLighting = false;
@@ -87,7 +90,9 @@ public class ThezPlanets {
                 Weather.WeatherEntry weather = new Weather.WeatherEntry(Weathers.fog);
                 weather.always = true; //always fogy
                 r.weather.add(weather);
-                //r.bannedBlocks.addAll(conveyor);
+                r.bannedBlocks.addAll(plasmaBore, duct, armoredDuct, ductBridge, ductRouter, reinforcedConduit, reinforcedLiquidContainer, reinforcedLiquidTank, reinforcedPayloadConveyor, reinforcedPayloadRouter,
+                        electricHeater, slagHeater, slagIncinerator,
+                        berylliumWall, berylliumWallLarge, tungstenWall, tungstenWallLarge);
                 r.hideBannedBlocks = true;
             };
 

@@ -10,22 +10,17 @@ import static mindustry.content.Planets.*;
 
 public class ThezItems {
     public static Item
-            basalt, silver, volcanicStone, infium, tensorite, sulfur, tritaniumCrystal, tritanium;
+            silver, basaltShard, infium, tensorite, sulfur, tritaniumCrystal, tritanium;
     public static final Seq<Item> thezsiaItems = new Seq<>();
     public static void load(){
         Items.scrap.buildable = true;
-        basalt = new Item("basalt", Color.valueOf("5e5f6b")){{
-            hardness = 2;
-            cost = 1;
-        }};
         silver = new Item("silver", Color.valueOf("d8eded")){{
             hardness = 2;
             cost = 1.24f;
         }};
-        volcanicStone = new Item("volcanic-stone", Color.valueOf("494949FF")){{
+        basaltShard = new Item("basalt-shard", Color.valueOf("5e5f6b")){{
             hardness = 2;
-            cost = 0.62f;
-            flammability = 0.005f;
+            cost = 1;
         }};
         infium = new Item("infium", Color.valueOf("C99200FF")){{
             hardness = 4;
@@ -53,8 +48,9 @@ public class ThezItems {
             charge = 0.15f;
             radioactivity = 0.45f;
         }};
+
         thezsiaItems.addAll(
-                basalt, silver, volcanicStone, infium, tensorite, sulfur, tritaniumCrystal, tritanium
+                basaltShard, silver, infium, sulfur, tensorite, tritaniumCrystal, tritanium
         );
     }
 }

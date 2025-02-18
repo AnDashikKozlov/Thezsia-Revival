@@ -16,10 +16,12 @@ import mindustry.ui.Bar;
 import mindustry.world.blocks.storage.CoreBlock;
 
 public class GeneratorCore extends CoreBlock{
+    /*
     public Color[] glowColors = {Color.valueOf("00000000"), Color.coral, Color.valueOf("ff6161"), Color.pink, Color.acid, Color.sky};
     public TextureRegion glow;
     public float glowMag = 0.5f;
     public float glowScl = 10f;
+    */
     public float powerProduction = 60 / 60f;
 
     public GeneratorCore(String name){
@@ -33,7 +35,7 @@ public class GeneratorCore extends CoreBlock{
     @Override
     public void load(){
         super.load();
-        glow = Core.atlas.find(name + "-glow");
+        //glow = Core.atlas.find(name + "-glow");
         uiIcon = fullIcon = editorIcon = Core.atlas.find(name + "-full");
     }
 
@@ -65,7 +67,7 @@ public class GeneratorCore extends CoreBlock{
         @Override
         public void draw(){
             super.draw();
-            Drawf.additive(glow, team.id < 6 ? glowColors[team.id] : glowColors[1], 0.8f - glowMag + Mathf.absin(Time.time, glowScl, glowMag), x, y, 0f, Layer.blockAdditive);
+            //Drawf.additive(glow, team.id < 6 ? glowColors[team.id] : glowColors[1], 0.8f - glowMag + Mathf.absin(Time.time, glowScl, glowMag), x, y, 0f, Layer.blockAdditive);
         }
 
         @Override

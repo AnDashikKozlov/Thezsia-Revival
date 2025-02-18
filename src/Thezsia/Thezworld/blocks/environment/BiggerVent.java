@@ -60,6 +60,10 @@ public class BiggerVent extends Floor {
         this.variants = variants;
     }
 
+    public BiggerVent(String name) {
+        super(name);
+    }
+
     @Override
     public void drawBase(Tile tile){
         parent.drawBase(tile);

@@ -53,7 +53,7 @@ public class ThezUnitTypes {
             mineSpeed = 6.5f;
             buildRange = 230;
             buildSpeed = 0.75f;
-            buildBeamOffset = 5.5f;
+            buildBeamOffset = 6.5f;
 
             legStraightness = 0.3f;
             legContinuousMove = true;
@@ -61,8 +61,8 @@ public class ThezUnitTypes {
             legGroupSize = 4;
             legCount = 8;
             allowLegStep = true;
-            legExtension = -2;
-            legLength = 14;
+            legExtension = -3;
+            legLength = 18;
             legSpeed = 0.3f;
             legForwardScl = 0.7f;
             legMoveSpace = 1;
@@ -102,6 +102,8 @@ public class ThezUnitTypes {
         }};
         IIambient = new UnitType("02-ambient"){{
             constructor = LegsUnit::create;
+            coreUnitDock = true;
+            controller = u -> new BuilderAI(true, coreFleeRange);
 
             speed = 1.25f;
             accel = 0.12f;
@@ -119,6 +121,7 @@ public class ThezUnitTypes {
             mineSpeed = 6.8f;
             buildRange = 262;
             buildSpeed = 0.82f;
+            buildBeamOffset = 7f;
 
             legStraightness = 0.35f;
             legContinuousMove = true;
@@ -126,8 +129,8 @@ public class ThezUnitTypes {
             legGroupSize = 4;
             legCount = 8;
             allowLegStep = true;
-            legExtension = -4;
-            legLength = 19;
+            legExtension = -5;
+            legLength = 25;
             legSpeed = 0.35f;
             legForwardScl = 0.7f;
             legMoveSpace = 1;

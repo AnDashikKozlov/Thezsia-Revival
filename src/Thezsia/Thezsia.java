@@ -21,7 +21,7 @@ public class Thezsia extends Mod{
                 BaseDialog dialog = new BaseDialog("Thanks for playing!");
                 dialog.cont.add("cool").row();
                 //mod sprites are prefixed with the mod name (this mod is called 'example-java-mod' in its config)
-                dialog.cont.image(Core.atlas.find("thezsia1-img-logo")).pad(20f).row();
+                dialog.cont.image(Core.atlas.find("thezsia1-text-logo")).pad(20f).row();
                 dialog.cont.button("Thezsia is the best!", dialog::hide).size(100f, 50f);
                 dialog.show();
             });
