@@ -2,9 +2,9 @@ package Thezsia.Thezcontent;
 
 import Thezsia.Thezworld.blocks.ThezAttribute;
 import Thezsia.Thezworld.blocks.distribution.ClosedConveyor;
+import Thezsia.Thezworld.blocks.environment.BiggerVent;
 import Thezsia.Thezworld.blocks.power.PowerWire;
 import Thezsia.Thezworld.blocks.power.TransferPowerConsumeGenerator;
-import Thezsia.Thezworld.blocks.production.AccelDrill;
 import Thezsia.Thezworld.blocks.storage.GeneratorCore;
 import Thezsia.Thezworld.draw.*;
 import arc.graphics.Color;
@@ -30,9 +30,11 @@ import mindustry.world.blocks.storage.*;
 import mindustry.world.blocks.units.*;
 import mindustry.world.consumers.*;
 import mindustry.world.draw.*;
+import mindustry.world.meta.Attribute;
 
 import static arc.graphics.Blending.additive;
 import static arc.math.Interp.*;
+import static mindustry.content.Items.*;
 import static mindustry.logic.LAccess.team;
 import static mindustry.type.ItemStack.with;
 
@@ -42,7 +44,7 @@ public class ThezBlocks {
             basalticPatch, basalticRock, basalticWall,
             charrokFloor, hardCharrok, charrokPile, hardCharrokPile, charrokWall, hardCharrokWall, largeCharrokPile, largeHardCharrokPile,
             limestone, limestoneDark, limestoneCracked, limestoneBoulder, limestoneDarkBoulder, limestoneWall, limestoneDarkWall, limestoneCrackWall,
-            smoothSulfur, sulfurFloor, sulfurBoulder, sulfurWall, largeSulfurPile,
+            smoothSulfur, sulfurFloor, sulfurVent, sulfurBigVent, sulfurBoulder, sulfurWall, largeSulfurPile,
             peridotite, peridotiteDark, peridotiteCube, peridotiteDarkCube, peridotiteWall, peridotiteDarkWall, tritaniumCluster,
             //ores
             basalticVein, silverLick, tritaniumOre, tritaniumOreWall,
@@ -60,13 +62,13 @@ public class ThezBlocks {
             basaltWall, largeBasaltWall, infiumWall, largeInfiumWall, tensoriteWall, largeTensoriteWall, tritaniumWall, largeTritaniumWall, crackedWall, largeCrackedWall,
 
             //distribution
-            basaltBelt, basaltJunction, basaltRouter, basaltBridge, basaltSorter, invertedBasaltSorter, basaltSpillwayGate, invertedBasaltSpillwayGate,
+            berylliumBelt, berylliumConvJunction, berylliumConvRouter, berylliumConvBridge, berylliumConvSorter, invertedBerylliumConvSorter, berylliumConvSpillwayGate, invertedBerylliumConvSpillwayGate,
 
             //liquid
-            basaltPipe, infiumPipe, liquidJunction, liquidHub, liquidBallast, liquidBridge,
+            berylliumPipe, infiumPipe, liquidJunction, liquidHub, liquidBallast, liquidBridge,
 
             //power
-            silverСable, capacitor, lavaGenerator, testFignya,
+            silverCable, capacitor, lavaGenerator, testFignya,
 
             //storage (cores)
             coreDust, coreFog,
@@ -176,6 +178,16 @@ public class ThezBlocks {
                     variants = 4;
                     blendGroup = ThezBlocks.smoothSulfur;
                 }};
+                sulfurVent = new SteamVent("sulfur-vent"){{
+                    variants = 0;
+                    blendGroup = parent = sulfurFloor = smoothSulfur;
+                    attributes.set(Attribute.steam, 1f);
+                }};
+                sulfurBigVent = new BiggerVent("sulfur-big-vent"){{
+                    variants = 0;
+                    blendGroup = parent = sulfurFloor;
+                    attributes.set(Attribute.steam, 1.6f);
+                }};
                 sulfurBoulder = new Prop("sulfur-boulder"){{
                     variants = 2;
                     sulfurFloor.asFloor().decoration = smoothSulfur.asFloor().decoration = this;
@@ -217,7 +229,7 @@ public class ThezBlocks {
                 //ores
                 basalticVein = new OreBlock("basaltic-vein"){{
                     variants = 3;
-                    itemDrop = ThezItems.basalt;
+                    itemDrop = ThezItems.basaltShard;
                     wallOre = false;
                 }};
                 silverLick = new OreBlock("silver-lick"){{
@@ -237,12 +249,12 @@ public class ThezBlocks {
                 }};
                 //crafting
                 blastFurnace = new GenericCrafter("blast-furnace"){{
-                    requirements(Category.crafting, ItemStack.with(ThezItems.basalt, 50, ThezItems.volcanicStone, 15));
+                    requirements(Category.crafting, ItemStack.with(beryllium, 50, ThezItems.basaltShard, 15));
                     size = 3;
                     squareSprite = false;
 
                     consumePower(1);
-                    consumeItem(ThezItems.volcanicStone, 2);
+                    consumeItem(ThezItems.basaltShard, 2);
                     consumeLiquid(ThezLiquids.wind, 0.23f);
                     outputLiquid = new LiquidStack(ThezLiquids.lava,0.126666f);
 
@@ -268,12 +280,12 @@ public class ThezBlocks {
                     );
                 }};
                 arcFurnace = new GenericCrafter("arc-furnace"){{
-                    requirements(Category.crafting, ItemStack.with(ThezItems.basalt, 80, ThezItems.volcanicStone, 32, ThezItems.infium, 50));
+                    requirements(Category.crafting, ItemStack.with(beryllium, 80, ThezItems.basaltShard, 32, ThezItems.infium, 50));
                     size = 4;
                     squareSprite = false;
 
                     consumePower(1.5f);
-                    consumeItem(ThezItems.volcanicStone, 3);
+                    consumeItem(ThezItems.basaltShard, 3);
                     consumeLiquid(ThezLiquids.wind, 0.34f);
                     outputLiquid = new LiquidStack(ThezLiquids.lava,0.3f);
 
@@ -300,7 +312,7 @@ public class ThezBlocks {
                 }};
 
                 infiumMolder = new GenericCrafter("infium-molder"){{
-                    requirements(Category.crafting, ItemStack.with(ThezItems.basalt, 70, ThezItems.volcanicStone, 20));
+                    requirements(Category.crafting, ItemStack.with(beryllium, 70, ThezItems.basaltShard, 20));
                     size = 3;
                     squareSprite = false;
                     outputItem = new ItemStack(ThezItems.infium, 1);
@@ -328,7 +340,7 @@ public class ThezBlocks {
                     );
                 }};
                 massMolder = new GenericCrafter("mass-molder"){{
-                   requirements(Category.crafting, ItemStack.with(ThezItems.basalt, 100, ThezItems.infium, 75, ThezItems.tensorite, 20));
+                   requirements(Category.crafting, ItemStack.with(beryllium, 100, ThezItems.infium, 75, ThezItems.tensorite, 20));
                    size = 4;
                    outputItem = new ItemStack(ThezItems.infium, 5);
                    consumeLiquid(ThezLiquids.lava, 0.6f); consumeLiquid(ThezLiquids.wind, 0.4f);
@@ -371,7 +383,7 @@ public class ThezBlocks {
                 }};
 
                 gasDecomposer= new GenericCrafter("gas-decomposer"){{
-                    requirements(Category.crafting, ItemStack.with(ThezItems.basalt, 60, ThezItems.volcanicStone, 15, ThezItems.infium, 20));
+                    requirements(Category.crafting, ItemStack.with(beryllium, 60, ThezItems.basaltShard, 15, ThezItems.infium, 20));
                     size = 3;
                     squareSprite = false;
 
@@ -404,7 +416,7 @@ public class ThezBlocks {
                             }}, new DrawDefault(), new DrawLiquidOutputs());
                 }};
                 massiveDecomposer= new GenericCrafter("massive-decomposer"){{
-                    requirements(Category.crafting, ItemStack.with(ThezItems.basalt, 80, ThezItems.silver, 25, ThezItems.infium, 25));
+                    requirements(Category.crafting, ItemStack.with(beryllium, 80, ThezItems.silver, 25, ThezItems.infium, 25));
                     size = 4;
                     squareSprite = false;
 
@@ -437,7 +449,7 @@ public class ThezBlocks {
                             }}, new DrawDefault(), new DrawLiquidOutputs());
                 }};
                 sulfurHeater = new HeatProducer("sulfur-heater"){{
-                    requirements(Category.crafting, ItemStack.with(ThezItems.basalt, 20, ThezItems.silver, 80, ThezItems.infium, 30));
+                    requirements(Category.crafting, ItemStack.with(beryllium, 20, ThezItems.silver, 80, ThezItems.infium, 30));
                     size = 2;
                     consumeItem(ThezItems.sulfur);
                     heatOutput = 4;
@@ -446,13 +458,13 @@ public class ThezBlocks {
                     drawer = new DrawMulti(new DrawDefault(), new DrawHeatOutput());
                 }};
                 heatRedirector = new HeatConductor("heat-redirector"){{
-                    requirements(Category.crafting, ItemStack.with(ThezItems.volcanicStone, 130, ThezItems.silver, 30));
+                    requirements(Category.crafting, ItemStack.with(ThezItems.basaltShard, 130, ThezItems.silver, 30));
                     size = 3;
                     drawer = new DrawMulti(new DrawDefault(), new DrawHeatOutput(), new DrawHeatOutput(), new DrawGlowRegion(){{color = Color.valueOf("876c5c1b");}});
                 }};
 
                 tensoriteSmelter = new GenericCrafter("tensorite-smelter"){{
-                    requirements(Category.crafting, ItemStack.with(ThezItems.basalt, 80, ThezItems.silver, 10, ThezItems.infium, 40));
+                    requirements(Category.crafting, ItemStack.with(beryllium, 80, ThezItems.silver, 10, ThezItems.infium, 40));
                     size = 3;
                     squareSprite = false;
 
@@ -483,8 +495,8 @@ public class ThezBlocks {
                     );
                 }};
 
-                tritaniumRefinery = new HeatCrafter("g12a-tritanium-refinery"){{
-                    requirements(Category.crafting, ItemStack.with(ThezItems.basalt, 50f, ThezItems.volcanicStone, 20f, ThezItems.infium, 30f));
+                tritaniumRefinery = new HeatCrafter("tritanium-refinery"){{
+                    requirements(Category.crafting, ItemStack.with(beryllium, 50f, ThezItems.basaltShard, 20f, ThezItems.infium, 30f));
                     size = 3;
                     outputItem = new ItemStack(ThezItems.tritanium, 1);
                     heatRequirement = 12f;
@@ -550,7 +562,7 @@ public class ThezBlocks {
                     ambientSoundVolume = 0.06f;
                 }};
                 tritaniumSynthesizer = new HeatCrafter("tritanium-synthesizer"){{
-                    requirements(Category.crafting, ItemStack.with(ThezItems.basalt, 90f, ThezItems.infium, 60f, ThezItems.tensorite, 30f, ThezItems.sulfur, 15f));
+                    requirements(Category.crafting, ItemStack.with(beryllium, 90f, ThezItems.infium, 60f, ThezItems.tensorite, 30f, ThezItems.sulfur, 15f));
                     size = 4;
                     outputItem = new ItemStack(ThezItems.tritanium, 4);
                     heatRequirement = 18f;
@@ -618,7 +630,7 @@ public class ThezBlocks {
 
                 //production (drills,extractors, "cultivators")
                 windTrap = new GenericCrafter("wind-trap"){{
-                    requirements(Category.production, ItemStack.with(ThezItems.basalt, 100));
+                    requirements(Category.production, ItemStack.with(beryllium, 100));
                     size = 4;
                     health = 320;
                     squareSprite = false;
@@ -648,7 +660,7 @@ public class ThezBlocks {
                     );
                 }};
                 largeWindTrap = new GenericCrafter("large-wind-trap"){{
-                    requirements(Category.production, ItemStack.with(ThezItems.basalt, 100, ThezItems.infium, 80, ThezItems.tensorite, 50));
+                    requirements(Category.production, ItemStack.with(beryllium, 100, ThezItems.infium, 80, ThezItems.tensorite, 50));
                     size = 5;
                     health = 525;
                     squareSprite = false;
@@ -678,20 +690,20 @@ public class ThezBlocks {
                     );
                 }};
                stoneGrinder = new WallCrafter("stone-grinder"){{
-                    requirements(Category.production, ItemStack.with(ThezItems.basalt, 25));
+                    requirements(Category.production, ItemStack.with(beryllium, 25));
                     size = 2;
                     health = 85;
                     squareSprite = false;
 
                     consume(new ConsumeLiquid(ThezLiquids.wind, 0.05f));
                     drillTime = 220;
-                    output = ThezItems.volcanicStone;
+                    output = ThezItems.basaltShard;
                     attribute = ThezAttribute.volcanicStone;
                     ambientSound = Sounds.drill;
                     ambientSoundVolume = 0.08f;
                 }};
                 rotaryDrill = new Drill("rotary-drill"){{
-                    requirements(Category.production, ItemStack.with(ThezItems.basalt, 40));
+                    requirements(Category.production, ItemStack.with(beryllium, 40));
                     consumeLiquid(ThezLiquids.wind, 0.1f);
                     squareSprite = false;
                     size = 3;
@@ -704,7 +716,7 @@ public class ThezBlocks {
                     alwaysUnlocked = true;
                 }};
                 circularDrill = new Drill("circular-drill"){{
-                    requirements(Category.production, ItemStack.with(ThezItems.basalt, 60, ThezItems.infium, 20f, ThezItems.volcanicStone, 15f));
+                    requirements(Category.production, ItemStack.with(beryllium, 60, ThezItems.infium, 20f, ThezItems.basaltShard, 15f));
                     size = 4;
                     tier = 4;
                     //accelTime = (int) 75f;
@@ -722,7 +734,7 @@ public class ThezBlocks {
 
                //effects
                renewer = new RegenProjector("renewer"){{
-                    requirements(Category.effect, ItemStack.with(ThezItems.basalt, 40, ThezItems.tensorite, 30, ThezItems.tritaniumCrystal, 15));
+                    requirements(Category.effect, ItemStack.with(beryllium, 40, ThezItems.tensorite, 30, ThezItems.tritaniumCrystal, 15));
                     health = 185;
                     size = 2;
                     squareSprite = false;
@@ -753,7 +765,7 @@ public class ThezBlocks {
                             }}, new DrawDefault());
                }};
                barrierProjector = new ForceProjector("barrier-projector"){{
-                    requirements(Category.effect, ItemStack.with(ThezItems.basalt, 80, ThezItems.tensorite, 50, ThezItems.sulfur, 15, ThezItems.tritaniumCrystal, 25));
+                    requirements(Category.effect, ItemStack.with(beryllium, 80, ThezItems.tensorite, 50, ThezItems.sulfur, 15, ThezItems.tritaniumCrystal, 25));
                     size = 3;
                     squareSprite = false;
 
@@ -779,16 +791,16 @@ public class ThezBlocks {
                }};
 
                //walls
-               basaltWall = new Wall("basalt-wall"){{
-                    requirements(Category.defense, ItemStack.with(ThezItems.basalt, 6));
+                basaltWall = new Wall("basalt-wall"){{
+                    requirements(Category.defense, ItemStack.with(ThezItems.basaltShard, 6));
                     health = 360;
                     size = 1;
-               }};
-               largeBasaltWall = new Wall("large-basalt-wall"){{
-                    requirements(Category.defense, ItemStack.with(ThezItems.basalt, 24));
+                }};
+                largeBasaltWall = new Wall("large-basalt-wall"){{
+                    requirements(Category.defense, ItemStack.with(ThezItems.basaltShard, 24));
                     health = 1440;
                     size = 2;
-               }};
+                }};
                infiumWall = new Wall("infium-wall"){{
                     requirements(Category.defense, ItemStack.with(ThezItems.infium, 6));
                     health = 440;
@@ -865,60 +877,60 @@ public class ThezBlocks {
                 }};
 
                //distribution
-               basaltBelt = new ClosedConveyor("basalt-belt"){{
-                    requirements(Category.distribution, ItemStack.with(ThezItems.basalt, 1));
+               berylliumBelt = new ClosedConveyor("beryllium-belt"){{
+                    requirements(Category.distribution, ItemStack.with(beryllium, 1));
                     health = 40;
                     speed = 0.04f;
                     displayedSpeed = 5.4f;
 
-                    bridgeReplacement = ThezBlocks.basaltBridge;
-                    junctionReplacement = ThezBlocks.basaltJunction;
+                    bridgeReplacement = ThezBlocks.berylliumConvBridge;
+                    junctionReplacement = ThezBlocks.berylliumConvJunction;
                }};
-               basaltJunction = new Junction("basalt-junction"){{
-                    requirements(Category.distribution, ItemStack.with(ThezItems.basalt, 3));
+               berylliumConvJunction = new Junction("beryllium-conv-junction"){{
+                    requirements(Category.distribution, ItemStack.with(beryllium, 3));
                     size = 1;
 
                     speed = 35;
                     capacity = 6;
                }};
-               basaltBridge = new ItemBridge("basalt-bridge"){{
-                    requirements(Category.distribution, ItemStack.with(ThezItems.basalt, 8));
+                berylliumConvBridge = new ItemBridge("beryllium-conv-bridge"){{
+                    requirements(Category.distribution, ItemStack.with(beryllium, 8));
                     size = 1;
                     health = 80;
 
                     hasPower = false;
                     range = 3;
                }};
-               ((ClosedConveyor) basaltBelt).junctionReplacement = basaltJunction;
-               basaltRouter = new Router("basalt-router"){{
-                    requirements(Category.distribution, ItemStack.with(ThezItems.basalt, 5));
+               ((ClosedConveyor) berylliumBelt).junctionReplacement = berylliumConvJunction;
+                berylliumConvRouter = new Router("beryllium-conv-router"){{
+                    requirements(Category.distribution, ItemStack.with(beryllium, 5));
                     size = 1;
                }};
-               ((ClosedConveyor) basaltBelt).bridgeReplacement = basaltBridge;
-               basaltSorter = new Sorter("basalt-sorter"){{
-                    requirements(Category.distribution, ItemStack.with(ThezItems.basalt, 5, ThezItems.volcanicStone,2));
+               ((ClosedConveyor) berylliumBelt).bridgeReplacement = berylliumConvBridge;
+               berylliumConvSorter = new Sorter("beryllium-conv-sorter"){{
+                    requirements(Category.distribution, ItemStack.with(beryllium, 5, ThezItems.basaltShard,2));
                     health =50;
                }};
-               invertedBasaltSorter = new Sorter("inverted-basalt-sorter"){{
-                    requirements(Category.distribution, ItemStack.with(ThezItems.basalt, 5, ThezItems.volcanicStone,2));
+               invertedBerylliumConvSorter = new Sorter("inverted-beryllium-conv-sorter"){{
+                    requirements(Category.distribution, ItemStack.with(beryllium, 5, ThezItems.basaltShard,2));
                     health = 50;
                     invert = true;
                }};
-               basaltSpillwayGate = new OverflowGate("basalt-spillway-gate"){{
-                    requirements(Category.distribution, ItemStack.with(ThezItems.basalt, 5, ThezItems.volcanicStone,2));
+                berylliumConvSpillwayGate = new OverflowGate("beryllium-conv-spillway-gate"){{
+                    requirements(Category.distribution, ItemStack.with(beryllium, 5, ThezItems.basaltShard,2));
                     health = 50;
                     researchCostMultiplier = 0.5f;
                }};
-               invertedBasaltSpillwayGate = new OverflowGate("inverted-basalt-spillway-gate"){{
-                    requirements(Category.distribution, ItemStack.with(ThezItems.basalt, 5, ThezItems.volcanicStone,2));
+               invertedBerylliumConvSpillwayGate = new OverflowGate("inverted-beryllium-conv-spillway-gate"){{
+                    requirements(Category.distribution, ItemStack.with(beryllium, 5, ThezItems.basaltShard,2));
                     health = 50;
                     invert = true;
                     researchCostMultiplier = 0.5f;
                }};
 
                //liquid
-               basaltPipe = new Conduit("basalt-pipe"){{
-                    requirements(Category.liquid, ItemStack.with(ThezItems.basalt, 2));
+               berylliumPipe = new Conduit("beryllium-pipe"){{
+                    requirements(Category.liquid, ItemStack.with(beryllium, 2));
                     size = 1;
                     liquidCapacity = 12;
                     botColor = Color.valueOf("19181AFF");
@@ -931,29 +943,29 @@ public class ThezBlocks {
                     botColor = Color.valueOf("19181AFF");
                }};
                liquidJunction = new LiquidJunction("liquid-junction"){{
-                    requirements(Category.liquid,ItemStack.with(ThezItems.basalt, 6));
+                    requirements(Category.liquid,ItemStack.with(beryllium, 6));
                     health = 50;
                     size = 1;
                }};
-               ((Conduit) basaltPipe).junctionReplacement = liquidJunction;
+               ((Conduit) berylliumPipe).junctionReplacement = liquidJunction;
                ((Conduit) infiumPipe).junctionReplacement = liquidJunction;
                liquidBridge = new LiquidBridge("liquid-bridge"){{
-                    requirements(Category.liquid, ItemStack.with(ThezItems.basalt, 10));
+                    requirements(Category.liquid, ItemStack.with(beryllium, 10));
                     size = 1;
                     hasPower = false;
                     range = 3;
                     arrowSpacing =5;
                }};
-               ((Conduit) basaltPipe).bridgeReplacement = liquidBridge;
+               ((Conduit) berylliumPipe).bridgeReplacement = liquidBridge;
                ((Conduit) infiumPipe).bridgeReplacement = liquidBridge;
                liquidHub = new LiquidRouter("liquid-hub"){{
-                    requirements(Category.liquid, ItemStack.with(ThezItems.basalt, 5));
+                    requirements(Category.liquid, ItemStack.with(beryllium, 5));
                     health = 45;
                     size = 1;
                     liquidPadding = 1;
                }};
                liquidBallast = new LiquidRouter("liquid-ballast"){{
-                    requirements(Category.liquid, ItemStack.with(ThezItems.basalt, 40, ThezItems.infium, 10));
+                    requirements(Category.liquid, ItemStack.with(beryllium, 40, ThezItems.infium, 10));
                     size = 2;
                     liquidPadding = 2;
                     squareSprite = false;
@@ -961,12 +973,12 @@ public class ThezBlocks {
 
 
                //power
-                silverСable = new PowerWire("silver-cable"){{
-                    requirements(Category.power, with(ThezItems.basalt, 1, ThezItems.silver, 1));
+                silverCable = new PowerWire("silver-cable"){{
+                    requirements(Category.power, with(beryllium, 1, ThezItems.silver, 1));
                     health = 12;
                 }};
                 testFignya = new TransferPowerConsumeGenerator("test-fignya"){{
-                    requirements(Category.power, with(ThezItems.basalt, 1, ThezItems.silver, 1));
+                    requirements(Category.power, with(beryllium, 1, ThezItems.silver, 1));
                     size = 2;
                     health = 12;
                     radius = 240f;
@@ -975,7 +987,7 @@ public class ThezBlocks {
 
                //storage (cores)
                coreDust = new GeneratorCore("core-dust"){{
-                    requirements(Category.effect, ItemStack.with(ThezItems.basalt, 750, ThezItems.silver, 70));
+                    requirements(Category.effect, ItemStack.with(beryllium, 750, ThezItems.silver, 70));
                     size= 4;
                     health = 1950;
                     squareSprite = false;
@@ -986,7 +998,7 @@ public class ThezBlocks {
                     consumePowerBuffered(180);
 
                     //glowColors = new Color[]{Color.valueOf("ade7ec79")};
-                    glowMag = 0.62f; glowScl = 8.2f;
+                    //glowMag = 0.78f; glowScl = 9.5f;
 
                     itemCapacity = 5000;
                     unitType = ThezUnitTypes.Iambient;
@@ -996,7 +1008,7 @@ public class ThezBlocks {
                     alwaysUnlocked = true;
                }};
                coreFog = new GeneratorCore("core-fog"){{
-                    requirements(Category.effect, ItemStack.with(ThezItems.basalt, 1200, ThezItems.silver, 500, ThezItems.infium, 260, ThezItems.tensorite, 180));
+                    requirements(Category.effect, ItemStack.with(beryllium, 1200, ThezItems.silver, 500, ThezItems.infium, 260, ThezItems.tensorite, 180));
                     size= 5;
                     health = 3700;
                     squareSprite = false;
@@ -1006,8 +1018,8 @@ public class ThezBlocks {
                     powerProduction = 600 / 60f;
                     consumePowerBuffered(100);
 
-                   //glowColors = new Color[]{Color.valueOf("ade7ec79")};
-                    glowMag = 0.78f; glowScl = 9.5f;
+                    //glowColors = new Color[]{Color.valueOf("ade7ec79")};
+                    //glowMag = 0.78f; glowScl = 9.5f;
 
                     itemCapacity = 7500;
                     unitType = ThezUnitTypes.IIambient;
@@ -1016,7 +1028,7 @@ public class ThezBlocks {
 
                //turrets
                ember = new ItemTurret("ember"){{
-                    requirements(Category.turret, ItemStack.with(ThezItems.basalt, 50));
+                    requirements(Category.turret, ItemStack.with(beryllium, 50));
                     size = 3;
                     squareSprite = false;
                     coolant = consume(new ConsumeCoolant(0.1f, true, true));
@@ -1035,13 +1047,13 @@ public class ThezBlocks {
                     minWarmup = 0.5f;
                     shootWarmupSpeed = 0.03f;
                     ammo(
-                            ThezItems.basalt, new BasicBulletType(){{
+                            ThezItems.basaltShard, new BasicBulletType(){{
                                 ammoMultiplier = 2;
                                 shootEffect = Fx.shootTitan;
                                 smokeEffect = Fx.shootSmokeTitan;
                                 width = 8;
                                 height = 10;
-                                //sprite = "thezsia-basaltic-fragment";
+                                //sprite = "thezsia-berylliumic-fragment";
                                 speed = 5.5f;
                                 lifetime = 36.36f;
                                 pierce = true;
@@ -1051,7 +1063,7 @@ public class ThezBlocks {
                                 trailLength = 8;
                                 trailWidth = 2;
                             }},
-                            ThezItems.volcanicStone, new BasicBulletType(){{
+                            beryllium, new BasicBulletType(){{
                                 ammoMultiplier = 1;
                                 shootEffect = Fx.shootTitan;
                                 smokeEffect = Fx.shootSmokeTitan;
@@ -1084,7 +1096,7 @@ public class ThezBlocks {
                                 }};
                            }}
                     );
-                    drawer = new DrawTurret("basaltic-"){{
+                    drawer = new DrawTurret("thezsia-"){{
                         parts.add(new RegionPart("-side"){{
                             mirror = true;
                             under = true;
@@ -1100,7 +1112,7 @@ public class ThezBlocks {
                }};
 
                gaze = new PowerTurret("gaze"){{
-                    requirements(Category.turret, ItemStack.with(ThezItems.basalt, 125, ThezItems.silver, 75, ThezItems.tensorite, 50));
+                    requirements(Category.turret, ItemStack.with(beryllium, 125, ThezItems.silver, 75, ThezItems.tensorite, 50));
                     size = 3;
                     coolant = consume(new ConsumeCoolant(0.1f, true, true));
                     minWarmup = 0.95f;
@@ -1140,7 +1152,7 @@ public class ThezBlocks {
                         trailLength = 20;
                         trailWidth = 2;
                     }};
-                    drawer = new DrawTurret("basaltic-"){{
+                    drawer = new DrawTurret("thezsia-"){{
                        parts.addAll(new RegionPart("-side"){{
                                mirror = true;
                                under = true;
@@ -1228,26 +1240,26 @@ public class ThezBlocks {
 
                //units (blocks)
                groundFabricator = new UnitFactory("ground-fabricator"){{
-                    requirements(Category.units, ItemStack.with(ThezItems.basalt,50, ThezItems.tensorite, 30));
+                    requirements(Category.units, ItemStack.with(beryllium,50, ThezItems.tensorite, 30));
                     size = 3;
                     health = 600;
 
                     consumePower(3);
 
                     plans.addAll(
-                            new UnitPlan(ThezUnitTypes.noctis, 600, with(ThezItems.basalt, 15, ThezItems.silver, 8)),
-                            new UnitPlan(ThezUnitTypes.ignis, 560, with(ThezItems.basalt, 20, ThezItems.infium, 12))
+                            new UnitPlan(ThezUnitTypes.noctis, 600, with(beryllium, 15, ThezItems.silver, 8)),
+                            new UnitPlan(ThezUnitTypes.ignis, 560, with(beryllium, 20, ThezItems.infium, 12))
                     );
                }};
 
                //payloads
                massConveyor = new PayloadConveyor("mass-conveyor"){{
-                    requirements(Category.units, ItemStack.with(ThezItems.basalt, 16, ThezItems.volcanicStone, 8));
+                    requirements(Category.units, ItemStack.with(beryllium, 16, ThezItems.basaltShard, 8));
                     canOverdrive = false;
                     payloadLimit = 3;
                }};
                massRouter = new PayloadConveyor("mass-router"){{
-                    requirements(Category.units, ItemStack.with(ThezItems.basalt, 20, ThezItems.volcanicStone, 10));
+                    requirements(Category.units, ItemStack.with(beryllium, 20, ThezItems.basaltShard, 10));
                     canOverdrive = false;
                }};
 
