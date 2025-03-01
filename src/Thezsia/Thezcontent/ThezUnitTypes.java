@@ -126,8 +126,8 @@ public class ThezUnitTypes {
             legStraightness = 0.35f;
             legContinuousMove = true;
             lockLegBase = true;
-            legGroupSize = 4;
-            legCount = 8;
+            legGroupSize = 3;
+            legCount = 6;
             allowLegStep = true;
             legExtension = -5;
             legLength = 25;
