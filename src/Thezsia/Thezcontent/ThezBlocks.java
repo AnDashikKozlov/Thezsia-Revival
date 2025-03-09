@@ -50,7 +50,7 @@ public class ThezBlocks {
             basalticVein, silverLick, tritaniumOre, tritaniumOreWall,
 
             //crafting
-            blastFurnace, arcFurnace, infiumMolder, massMolder, gasDecomposer, massiveDecomposer, sulfurHeater, heatRedirector, tensoriteSmelter, tensoriteSynthesizer, tritaniumRefinery, tritaniumSynthesizer,
+            blastFurnace, arcFurnace, infiumMolder, massMolder, gasDecomposer, massiveDecomposer, commonHeater, sulfurHeater, heatRedirector, tensoriteSmelter, tensoriteSynthesizer, tritaniumRefinery, tritaniumSynthesizer,
 
             //production (drills,extractors, "cultivators")
             windTrap, largeWindTrap, stoneGrinder, rotaryDrill, circularDrill,
@@ -448,13 +448,22 @@ public class ThezBlocks {
                                 alpha = 0.82f;
                             }}, new DrawDefault(), new DrawLiquidOutputs());
                 }};
-                sulfurHeater = new HeatProducer("sulfur-heater"){{
+                commonHeater = new HeatProducer("common-heater"){{
                     requirements(Category.crafting, ItemStack.with(beryllium, 20, ThezItems.silver, 80, ThezItems.infium, 30));
                     size = 2;
-                    consumeItem(ThezItems.sulfur);
-                    heatOutput = 4;
+                    consumePower(124f / 60f);
+                    heatOutput = 3;
                     warmupRate = 0.165f;
                     craftTime = 119;
+                    drawer = new DrawMulti(new DrawDefault(), new DrawHeatOutput());
+                }};
+                sulfurHeater = new HeatProducer("sulfur-heater"){{
+                    requirements(Category.crafting, ItemStack.with(beryllium, 45, ThezItems.silver, 115, ThezItems.infium, 50, tungsten, 32));
+                    size = 3;
+                    consumeItem(ThezItems.sulfur);
+                    heatOutput = 7;
+                    warmupRate = 0.165f;
+                    craftTime = 127;
                     drawer = new DrawMulti(new DrawDefault(), new DrawHeatOutput());
                 }};
                 heatRedirector = new HeatConductor("heat-redirector"){{
