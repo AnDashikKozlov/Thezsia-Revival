@@ -1,8 +1,10 @@
 package Thezsia;
 
-import Thezsia.Thezcontent.*;
-import Thezsia.Thezworld.blocks.ThezAttribute;
-import Thezsia.Thezworld.meta.*;
+import Thezsia.content.*;
+import Thezsia.content.Thezsia.ThezUnits;
+import Thezsia.content.Thezsia.blocks.ThezsiaBlocks;
+import Thezsia.world.blocks.ThezAttribute;
+import Thezsia.world.meta.*;
 import Thezsia.ui.*;
 import arc.*;
 import arc.util.*;
@@ -35,8 +37,8 @@ public class Thezsia extends Mod{
         ThezAttribute.load();
         ThezItems.load();
         ThezLiquids.load();
-        ThezUnitTypes.load();
-        ThezBlocks.load();
+        ThezUnits.load();
+        ThezsiaBlocks.load();
         ThezPlanets.load();
     }
 
