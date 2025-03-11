@@ -18,6 +18,7 @@ public class Thezsia extends Mod{
         Events.on(EventType.ClientLoadEvent.class, e -> {
             UIHandler.init();
         });
+        /*
         Events.on(EventType.ClientLoadEvent.class, e -> {
             Time.runTask(10f, () -> {
                 BaseDialog dialog = new BaseDialog("Thanks for playing!");
@@ -28,6 +29,7 @@ public class Thezsia extends Mod{
                 dialog.show();
             });
         });
+        */
     }
 
     @Override
