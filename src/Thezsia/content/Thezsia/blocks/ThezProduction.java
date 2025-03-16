@@ -97,7 +97,7 @@ public class ThezProduction{
         rotaryDrill = new Drill("rotary-drill"){{
             requirements(Category.production, ItemStack.with(beryllium, 40));
             size = 3; squareSprite = false;
-            tier = 3;
+            tier = 4;
             drillTime = 900;
             liquidBoostIntensity = 1;
             consumeLiquid(ThezLiquids.wind, 0.1f);
@@ -109,7 +109,7 @@ public class ThezProduction{
         circularDrill = new Drill("circular-drill"){{
             requirements(Category.production, ItemStack.with(beryllium, 60, ThezItems.infium, 20f, ThezItems.basaltShard, 15f));
             size = 4;
-            tier = 4;
+            tier = 5;
             drillTime = 630;
             liquidBoostIntensity = 1.35f;
             consumeLiquids(LiquidStack.with(ThezLiquids.lava, 0.27f));

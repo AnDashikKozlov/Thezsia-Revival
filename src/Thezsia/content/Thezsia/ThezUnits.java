@@ -47,7 +47,7 @@ public class ThezUnits {
             pickupUnits = false;
             vulnerableWithPayloads = true;
 
-            mineTier = 2;
+            mineTier = 3;
             mineWalls = true;
             mineRange = 80;
             mineSpeed = 6.5f;
@@ -115,7 +115,7 @@ public class ThezUnits {
             faceTarget = true;
             outlineColor = Color.valueOf("212222");
 
-            mineTier = 2;
+            mineTier = 3;
             mineWalls = true;
             mineRange = 112;
             mineSpeed = 6.8f;
