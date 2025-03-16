@@ -1,10 +1,19 @@
 Music by Ace (ace1020spawn/OLD account - scrap1020spawn):
-  Out Of The Darknes (Menu)
-  Through Åhe Shadow (Game4)
-  Rise Of The Empire (Game5)
-  Defense Breakthrough (Boss1)
+
+ [ambient] - Out Of The Darknes
+ [game] - Through Åhe Shadow
+ [game] - Rise Of The Empire
+ [boss] - Defense Breakthrough
+
+
 
 Music by CY4NIDE (cy4nide0165):
-  Game1
-  Game2
-  Game3
+
+Heat Death (Menu)
+Orbit (Laucnh)
+Melancholy (Fine)
+[game] - Shadows
+[game] - Game1
+[game] - Game2
+[ambient] - Game3
+[ambient] - Edge Of Time
