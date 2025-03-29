@@ -10,7 +10,7 @@ import static mindustry.content.Planets.*;
 
 public class ThezItems {
     public static Item
-            silver, basaltShard, infium, tensorite, sulfur, tritaniumCrystal, tritanium;
+            silver, basaltShard, infium, tensorite, sulfur, tritaniumCrystal, Tritanium, bebebe, nihilite, tantalum;
     public static final Seq<Item> thezsiaItems = new Seq<>();
     public static void load(){
         Items.scrap.buildable = true;
@@ -49,8 +49,18 @@ public class ThezItems {
             radioactivity = 0.45f;
         }};
 
+        nihilite = new Item("nihilite", Color.valueOf("778d88"){{
+            hardness = 0.4f;
+            cost = 1;
+            charge = 0.1f;
+        }};
+        tantalum = new Item("tantalum", Color.valueOf("979faa")){{
+            cost = 1;
+            hardness = 0.6f;
+        }};
+
         thezsiaItems.addAll(
-                basaltShard, silver, infium, sulfur, tensorite, tritaniumCrystal, tritanium
+                basaltShard, silver, infium, sulfur, tensorite, tritaniumCrystal, Tritanium, nihilite, tantalum
         );
     }
-}
+            }
