@@ -49,7 +49,7 @@ public class ThezItems {
             radioactivity = 0.45f;
         }};
 
-        nihilite = new Item("nihilite", Color.valueOf("778d88"){{
+        nihilite = new Item("nihilite", Color.valueOf("778d88")){{
             hardness = 0.4f;
             cost = 1;
             charge = 0.1f;
@@ -63,4 +63,4 @@ public class ThezItems {
                 basaltShard, silver, infium, sulfur, tensorite, tritaniumCrystal, Tritanium, nihilite, tantalum
         );
     }
-            }
+}
