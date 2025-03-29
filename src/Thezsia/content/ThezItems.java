@@ -60,7 +60,7 @@ public class ThezItems {
         }};
 
         thezsiaItems.addAll(
-                basaltShard, silver, infium, sulfur, tensorite, tritaniumCrystal, Tritanium, nihilite, tantalum
+                basaltShard, silver, infium, sulfur, tensorite, tritaniumCrystal, tritanium, nihilite, tantalum
         );
     }
 }
