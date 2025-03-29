@@ -1,32 +1,31 @@
 
-displayName: "Thezsia Revival (Java)"
 name: "thezsia1"
+main: "Thezsia.Thezsia"
+java: true
+minGameVersion: 146
+
+
+displayName: "Thezsia Revival (Java)"
+
 author:
 '''
-Programmers: AnDashik, Ace, ItzCraft
+Programmers: AnDashik, ItzCraft
 Spriters: AnDasik
-Testers: AnDashik, Ace, Sorokonozhka
-Translators: AnDashik, Sputnuc, Ace
-Mappers: ItzCraft, Andashik, Ace, Sorokonozhka
+Testers: AnDashik, ItzCraft
+Translators: AnDashik, Sputnuc
+Mappers: Andashik
 Composer: Ace
 '''
-main: "Thezsia.Thezsia"
 
-#the mod description as seen in the mod dialog
 description:
 '''
 ALPHA VERSION
 New planet, new stuff, what a surprise
-Not dead now :)
+Not dead now :) (Or dead :/ idk)
 '''
-
 subtitle: "Alpha 0.3 JAVA"
 
-#the mod version
-version: "Alpha 0.2 JAVA"
+version: "Alpha 0.3 JAVA"
 
-#the minimum game build required to run this mod
-minGameVersion: 146
 
-#this is a java mod no this is a RUST mode
-java: true
+dependencies: ["font-icon-lib"]
