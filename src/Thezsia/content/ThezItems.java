@@ -2,25 +2,25 @@ package Thezsia.content;
 
 import arc.graphics.*;
 import arc.struct.*;
-import mindustry.content.Items;
 import mindustry.type.*;
-
-import static mindustry.content.Items.*;
-import static mindustry.content.Planets.*;
 
 public class ThezItems {
     public static Item
-            silver, basaltShard, infium, tensorite, sulfur, tritaniumCrystal, tritanium, bebebe, nihilite, tantalum;
+            tantalum, silver, nihilite, infium, tensorite, sulfur, tritaniumCrystal, tritanium /*, bebebe, bro wtf*/ ;
     public static final Seq<Item> thezsiaItems = new Seq<>();
     public static void load(){
-        Items.scrap.buildable = true;
+        tantalum = new Item("tantalum", Color.valueOf("979faa")){{
+            cost = 1;
+            hardness = 1;
+        }};
         silver = new Item("silver", Color.valueOf("d8eded")){{
             hardness = 2;
             cost = 1.24f;
         }};
-        basaltShard = new Item("basalt-shard", Color.valueOf("5e5f6b")){{
-            hardness = 2;
+        nihilite = new Item("nihilite", Color.valueOf("778d88")){{
+            hardness = 1;
             cost = 1;
+            charge = 0.1f;
         }};
         infium = new Item("infium", Color.valueOf("C99200FF")){{
             hardness = 4;
@@ -49,18 +49,8 @@ public class ThezItems {
             radioactivity = 0.45f;
         }};
 
-        nihilite = new Item("nihilite", Color.valueOf("778d88")){{
-            hardness = 1;
-            cost = 1;
-            charge = 0.1f;
-        }};
-        tantalum = new Item("tantalum", Color.valueOf("979faa")){{
-            cost = 1;
-            hardness = 1;
-        }};
-
         thezsiaItems.addAll(
-                basaltShard, silver, infium, sulfur, tensorite, tritaniumCrystal, tritanium, nihilite, tantalum
+                tantalum, silver, nihilite, infium, sulfur, tensorite, tritaniumCrystal, tritanium
         );
     }
 }

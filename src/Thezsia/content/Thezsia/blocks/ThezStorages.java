@@ -1,13 +1,12 @@
 package Thezsia.content.Thezsia.blocks;
 
-import Thezsia.content.ThezItems;
-import Thezsia.content.Thezsia.ThezUnits;
 import Thezsia.world.blocks.storage.GeneratorCore;
 import mindustry.type.Category;
 import mindustry.type.ItemStack;
 import mindustry.world.Block;
 
-import static mindustry.content.Items.*;
+import static Thezsia.content.ThezItems.*;
+import static Thezsia.content.Thezsia.ThezUnits.*;
 
 public class ThezStorages{
     public static Block
@@ -15,7 +14,7 @@ public class ThezStorages{
             coreDust, coreFog;
     public static void load(){
         coreDust = new GeneratorCore("core-dust"){{
-            requirements(Category.effect, ItemStack.with(beryllium, 750, ThezItems.silver, 70));
+            requirements(Category.effect, ItemStack.with(tantalum, 750, silver, 70));
             size= 4; health = 1950; squareSprite = false;
 
             hasPower = true;
@@ -25,13 +24,13 @@ public class ThezStorages{
             //glowColors = new Color[]{Color.valueOf("ade7ec79")};
             //glowMag = 0.78f; glowScl = 9.5f;
             itemCapacity = 5000;
-            unitType = ThezUnits.Iambient;
+            unitType = Iambient;
             unitCapModifier = 15;
             isFirstTier = true;
             alwaysUnlocked = true;
         }};
         coreFog = new GeneratorCore("core-fog"){{
-            requirements(Category.effect, ItemStack.with(beryllium, 1200, ThezItems.silver, 500, ThezItems.infium, 260, ThezItems.tensorite, 180));
+            requirements(Category.effect, ItemStack.with(tantalum, 1200, silver, 500, infium, 260, tensorite, 180));
             size= 5; health = 3700; squareSprite = false;
 
             hasPower = true;
@@ -41,7 +40,7 @@ public class ThezStorages{
             //glowColors = new Color[]{Color.valueOf("ade7ec79")};
             //glowMag = 0.78f; glowScl = 9.5f;
             itemCapacity = 7500;
-            unitType = ThezUnits.IIambient;
+            unitType = IIambient;
             unitCapModifier = 22;
         }};
     }

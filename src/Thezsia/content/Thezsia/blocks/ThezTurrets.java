@@ -1,6 +1,5 @@
 package Thezsia.content.Thezsia.blocks;
 
-import Thezsia.content.ThezItems;
 import arc.graphics.Color;
 import mindustry.content.Fx;
 import mindustry.entities.bullet.*;
@@ -13,7 +12,7 @@ import mindustry.world.blocks.defense.turrets.*;
 import mindustry.world.consumers.ConsumeCoolant;
 import mindustry.world.draw.DrawTurret;
 
-import static mindustry.content.Items.beryllium;
+import static Thezsia.content.ThezItems.*;
 
 public class ThezTurrets{
     public static Block
@@ -21,7 +20,7 @@ public class ThezTurrets{
             ember, gaze;
     public static void load() {
         ember = new ItemTurret("ember"){{
-            requirements(Category.turret, ItemStack.with(beryllium, 50));
+            requirements(Category.turret, ItemStack.with(tantalum, 50));
             size = 3;
             squareSprite = false;
             coolant = consume(new ConsumeCoolant(0.1f, true, true));
@@ -40,7 +39,7 @@ public class ThezTurrets{
             minWarmup = 0.5f;
             shootWarmupSpeed = 0.03f;
             ammo(
-                    ThezItems.basaltShard, new BasicBulletType(){{
+                    nihilite, new BasicBulletType(){{
                         ammoMultiplier = 2;
                         shootEffect = Fx.shootTitan; smokeEffect = Fx.shootSmokeTitan;
                         width = 8; height = 10;
@@ -51,7 +50,7 @@ public class ThezTurrets{
                         damage = 10;
                         trailLength = 8; trailWidth = 2;
                     }},
-                    beryllium, new BasicBulletType(){{
+                    infium, new BasicBulletType(){{
                         ammoMultiplier = 1;
                         shootEffect = Fx.shootTitan; smokeEffect = Fx.shootSmokeTitan;
                         width = 9.4f; height = 13.4f;
@@ -87,7 +86,7 @@ public class ThezTurrets{
         }};
 
         gaze = new PowerTurret("gaze"){{
-            requirements(Category.turret, ItemStack.with(beryllium, 125, ThezItems.silver, 75, ThezItems.tensorite, 50));
+            requirements(Category.turret, ItemStack.with(tantalum, 125, silver, 75, tensorite, 50));
             size = 3;
             coolant = consume(new ConsumeCoolant(0.1f, true, true));
             minWarmup = 0.95f; shootWarmupSpeed = 0.03f;

@@ -152,11 +152,11 @@ public class ThezEnv{
             shadowAlpha = 0.3f;
         }};
         //ores
-        basalticVein = new OreBlock("basaltic-vein"){{
+        /* basalticVein = new OreBlock("basaltic-vein"){{
             variants = 3;
-            itemDrop = ThezItems.basaltShard;
+            itemDrop = nihilite;
             wallOre = false;
-        }};
+        }}; */
         silverLick = new OreBlock("silver-lick"){{
             variants = 3;
             itemDrop = ThezItems.silver;

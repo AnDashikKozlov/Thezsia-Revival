@@ -14,8 +14,9 @@ import mindustry.world.blocks.heat.*;
 import mindustry.world.blocks.production.*;
 import mindustry.world.draw.*;
 
+import static Thezsia.content.ThezItems.*;
+import static Thezsia.content.ThezLiquids.*;
 import static arc.math.Interp.*;
-import static mindustry.content.Items.*;
 import static mindustry.type.ItemStack.with;
 
 public class ThezCrafting{
@@ -24,13 +25,13 @@ public class ThezCrafting{
             blastFurnace, arcFurnace, infiumMolder, massMolder, gasDecomposer, massiveDecomposer, commonHeater, sulfurHeater, heatRedirector, tensoriteSmelter, tritaniumRefinery, tritaniumSynthesizer;
     public static void load(){
         blastFurnace = new GenericCrafter("blast-furnace"){{
-            requirements(Category.crafting, ItemStack.with(beryllium, 50, ThezItems.basaltShard, 15));
+            requirements(Category.crafting, ItemStack.with(tantalum, 50, nihilite, 15));
             size = 3;
             squareSprite = false;
 
             consumePower(1);
-            consumeItem(ThezItems.basaltShard, 2);
-            consumeLiquid(ThezLiquids.wind, 0.23f);
+            consumeItem(nihilite, 2);
+            consumeLiquid(wind, 0.23f);
             outputLiquid = new LiquidStack(ThezLiquids.lava,0.126666f);
 
             craftEffect = new RadialEffect(){{rotationSpacing = 45; amount = 2; layer = 118;
@@ -43,8 +44,7 @@ public class ThezCrafting{
                     layer = 80;
                 }};
             }};
-            ambientSound = Sounds.machine;
-            ambientSoundVolume = 0.08f;
+            ambientSound = Sounds.machine; ambientSoundVolume = 0.08f;
             drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawLiquidTile(ThezLiquids.lava, 3),
                     new DrawArcSmeltReverse(){{
                         particleLife = 55; particleRad = 9;
@@ -55,14 +55,14 @@ public class ThezCrafting{
             );
         }};
         arcFurnace = new GenericCrafter("arc-furnace"){{
-            requirements(Category.crafting, ItemStack.with(beryllium, 80, ThezItems.basaltShard, 32, ThezItems.infium, 50));
+            requirements(Category.crafting, ItemStack.with(tantalum, 80, nihilite, 32, infium, 50));
             size = 4;
             squareSprite = false;
 
             consumePower(1.5f);
-            consumeItem(ThezItems.basaltShard, 3);
-            consumeLiquid(ThezLiquids.wind, 0.34f);
-            outputLiquid = new LiquidStack(ThezLiquids.lava,0.3f);
+            consumeItem(nihilite, 3);
+            consumeLiquid(wind, 0.34f);
+            outputLiquid = new LiquidStack(lava,0.3f);
 
             craftEffect = new RadialEffect(){{rotationSpacing = 45; amount = 4; layer = 118;
                 effect = new ParticleEffect(){{
@@ -74,9 +74,8 @@ public class ThezCrafting{
                     layer = 80;
                 }};
             }};
-            ambientSound = Sounds.machine;
-            ambientSoundVolume = 0.1f;
-            drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawLiquidTile(ThezLiquids.lava, 3),
+            ambientSound = Sounds.machine; ambientSoundVolume = 0.1f;
+            drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawLiquidTile(lava, 3),
                     new DrawArcSmeltReverse(){{
                         particleLife = 90; particleRad = 13;
                     }}, new DrawDefault(),
@@ -87,12 +86,12 @@ public class ThezCrafting{
         }};
 
         infiumMolder = new GenericCrafter("infium-molder"){{
-            requirements(Category.crafting, ItemStack.with(beryllium, 70, ThezItems.basaltShard, 20));
+            requirements(Category.crafting, ItemStack.with(tantalum, 70, nihilite, 20));
             size = 3;
             squareSprite = false;
-            outputItem = new ItemStack(ThezItems.infium, 1);
-            consumeItem(ThezItems.silver, 2);
-            consumeLiquid(ThezLiquids.lava, 0.2f);
+            outputItem = new ItemStack(infium, 1);
+            consumeItem(silver, 2);
+            consumeLiquid(lava, 0.2f);
             consumePower(0.87f);
             craftEffect = new ParticleEffect(){{
                 particles = 6;
@@ -105,9 +104,8 @@ public class ThezCrafting{
                 length = 3;
                 baseLength = 5;
             }};
-            ambientSound = Sounds.machine;
-            ambientSoundVolume = 0.08f;
-            drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawLiquidTile(ThezLiquids.lava, 2),
+            ambientSound = Sounds.machine; ambientSoundVolume = 0.08f;
+            drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawLiquidTile(lava, 2),
                     new DrawRegion("-rotator"){{
                         spinSprite = true;
                         rotateSpeed = -4;}},
@@ -115,13 +113,13 @@ public class ThezCrafting{
             );
         }};
         massMolder = new GenericCrafter("mass-molder"){{
-            requirements(Category.crafting, ItemStack.with(beryllium, 100, ThezItems.infium, 75, ThezItems.tensorite, 20));
+            requirements(Category.crafting, ItemStack.with(tantalum, 100, infium, 75, tensorite, 20));
             size = 4;
-            outputItem = new ItemStack(ThezItems.infium, 5);
-            consumeLiquid(ThezLiquids.lava, 0.6f); consumeLiquid(ThezLiquids.wind, 0.4f);
+            outputItem = new ItemStack(infium, 5);
+            consumeLiquid(lava, 0.6f); consumeLiquid(wind, 0.4f);
             consumePower(1.14f);
-            consumeItem(ThezItems.silver, 4);
-            drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawLiquidTile(ThezLiquids.lava, 2),
+            consumeItem(silver, 4);
+            drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawLiquidTile(lava, 2),
                     new DrawParticles(){{
                         particleRad = 10;
                         particleLife = 190;
@@ -153,12 +151,11 @@ public class ThezCrafting{
                 length = 5;
                 baseLength = 5;
             }};
-            ambientSound = Sounds.machine;
-            ambientSoundVolume = 0.1f;
+            ambientSound = Sounds.machine; ambientSoundVolume = 0.1f;
         }};
 
         gasDecomposer= new GenericCrafter("gas-decomposer"){{
-            requirements(Category.crafting, ItemStack.with(beryllium, 60, ThezItems.basaltShard, 15, ThezItems.infium, 20));
+            requirements(Category.crafting, ItemStack.with(tantalum, 60, nihilite, 15, infium, 20));
             size = 3;
             squareSprite = false;
 
@@ -166,8 +163,8 @@ public class ThezCrafting{
             hasLiquids = true;
             liquidCapacity = 40;
             craftTime = 160;
-            outputLiquids = LiquidStack.with(ThezLiquids.carbonDioxide,0.22f, ThezLiquids.ammonia,0.1f);
-            consumeLiquid(ThezLiquids.wind, 0.38f);
+            outputLiquids = LiquidStack.with(carbonDioxide,0.22f, ammonia,0.1f);
+            consumeLiquid(wind, 0.38f);
             consumePower(1.2f);
 
             ambientSound = Sounds.hum;
@@ -186,12 +183,12 @@ public class ThezCrafting{
                         color = Color.valueOf("cacdd979");
                         reverse = true;
                     }},
-                    new DrawLiquidTile(ThezLiquids.wind, 4){{
+                    new DrawLiquidTile(wind, 4){{
                         alpha = 0.76f;
                     }}, new DrawDefault(), new DrawLiquidOutputs());
         }};
         massiveDecomposer= new GenericCrafter("massive-decomposer"){{
-            requirements(Category.crafting, ItemStack.with(beryllium, 80, ThezItems.silver, 25, ThezItems.infium, 25));
+            requirements(Category.crafting, ItemStack.with(tantalum, 80, silver, 25, infium, 25));
             size = 4;
             squareSprite = false;
 
@@ -199,8 +196,8 @@ public class ThezCrafting{
             hasLiquids = true;
             liquidCapacity = 70;
             craftTime = 180;
-            outputLiquids = LiquidStack.with(ThezLiquids.carbonDioxide,0.72f, ThezLiquids.ammonia,0.45f);
-            consumeLiquids(LiquidStack.with(ThezLiquids.wind, 0.64f, ThezLiquids.lava, 0.14f));
+            outputLiquids = LiquidStack.with(carbonDioxide,0.72f, ammonia,0.45f);
+            consumeLiquids(LiquidStack.with(wind, 0.64f, lava, 0.14f));
             consumePower(2.12f);
 
             ambientSound = Sounds.hum;
@@ -219,12 +216,12 @@ public class ThezCrafting{
                         color = Color.valueOf("cacdd979");
                         reverse = true;
                     }},
-                    new DrawLiquidTile(ThezLiquids.wind, 5){{
+                    new DrawLiquidTile(wind, 5){{
                         alpha = 0.82f;
                     }}, new DrawDefault(), new DrawLiquidOutputs());
         }};
         commonHeater = new HeatProducer("common-heater"){{
-            requirements(Category.crafting, ItemStack.with(beryllium, 20, ThezItems.silver, 80, ThezItems.infium, 30));
+            requirements(Category.crafting, ItemStack.with(tantalum, 20, silver, 80, infium, 30));
             size = 2;
             consumePower(124f / 60f);
             heatOutput = 3;
@@ -233,22 +230,22 @@ public class ThezCrafting{
             drawer = new DrawMulti(new DrawDefault(), new DrawHeatOutput());
         }};
         sulfurHeater = new HeatProducer("sulfur-heater"){{
-            requirements(Category.crafting, ItemStack.with(beryllium, 45, ThezItems.silver, 115, ThezItems.infium, 50, tungsten, 32));
+            requirements(Category.crafting, ItemStack.with(tantalum, 45, silver, 115, infium, 50));
             size = 3;
-            consumeItem(ThezItems.sulfur);
+            consumeItem(sulfur);
             heatOutput = 7;
             warmupRate = 0.165f;
             craftTime = 127;
             drawer = new DrawMulti(new DrawDefault(), new DrawHeatOutput());
         }};
         heatRedirector = new HeatConductor("heat-redirector"){{
-            requirements(Category.crafting, ItemStack.with(ThezItems.basaltShard, 130, ThezItems.silver, 30));
+            requirements(Category.crafting, ItemStack.with(nihilite, 130, silver, 30));
             size = 3;
             drawer = new DrawMulti(new DrawDefault(), new DrawHeatOutput(), new DrawHeatOutput(), new DrawGlowRegion(){{color = Color.valueOf("876c5c1b");}});
         }};
 
         tensoriteSmelter = new GenericCrafter("tensorite-smelter"){{
-            requirements(Category.crafting, ItemStack.with(beryllium, 80, ThezItems.silver, 10, ThezItems.infium, 40));
+            requirements(Category.crafting, ItemStack.with(tantalum, 80, silver, 10, infium, 40));
             size = 3;
             squareSprite = false;
 
@@ -256,9 +253,9 @@ public class ThezCrafting{
             hasLiquids = true;
             liquidCapacity = 70;
             craftTime = 180;
-            outputLiquids = LiquidStack.with(ThezLiquids.meltedTensorite, 0.217f);
+            outputLiquids = LiquidStack.with(meltedTensorite, 0.217f);
             consumeItem(ThezItems.silver, 3);
-            consumeLiquids(LiquidStack.with(ThezLiquids.lava, 0.36f, ThezLiquids.carbonDioxide, 0.14));
+            consumeLiquids(LiquidStack.with(lava, 0.36f, carbonDioxide, 0.14));
             consumePower(2.12f);
 
             ambientSound = Sounds.hum;
@@ -274,21 +271,21 @@ public class ThezCrafting{
                     //new DrawRegion("-hintoverlay"){{layer = 29.5f;}},
                     new DrawRegion("-bottom"), //{{layer = 30.1f;}},
                     new DrawRegion("-top"){{layer = 30.5f;}},
-                    new DrawLiquidTile(ThezLiquids.meltedTensorite,1),
+                    new DrawLiquidTile(meltedTensorite,1),
                     new DrawDefault() //DrawRegion(""){{layer = 32f;}}
             );
         }};
 
         tritaniumRefinery = new HeatCrafter("tritanium-refinery"){{
-            requirements(Category.crafting, ItemStack.with(beryllium, 50f, ThezItems.basaltShard, 20f, ThezItems.infium, 30f));
+            requirements(Category.crafting, ItemStack.with(tantalum, 50f, nihilite, 20f, infium, 30f));
             size = 3;
-            outputItem = new ItemStack(ThezItems.tritanium, 1);
+            outputItem = new ItemStack(tritanium, 1);
             heatRequirement = 12f;
             hasPower = hasItems = true;
             craftTime = 190f;
 
-            consumeItems(with(ThezItems.tritaniumCrystal, 2));
-            consumeLiquid(ThezLiquids.ammonia, 0.3f);
+            consumeItems(with(tritaniumCrystal, 2));
+            consumeLiquid(ammonia, 0.3f);
             consumePower(1f);
 
             craftEffect = new MultiEffect(
@@ -329,7 +326,7 @@ public class ThezCrafting{
                     }},
                     new DrawLiquidTile(){{
                         padding = 2;
-                        drawLiquid = ThezLiquids.ammonia;
+                        drawLiquid = ammonia;
                         alpha = 0.95f;
                     }},
                     new DrawParticles(){{
@@ -342,13 +339,12 @@ public class ThezCrafting{
                         color = Color.valueOf( "4fff959e");
                     }}
             );
-            ambientSound = Sounds.machine;
-            ambientSoundVolume = 0.06f;
+            ambientSound = Sounds.machine; ambientSoundVolume = 0.06f;
         }};
         tritaniumSynthesizer = new HeatCrafter("tritanium-synthesizer"){{
-            requirements(Category.crafting, ItemStack.with(beryllium, 90f, ThezItems.infium, 60f, ThezItems.tensorite, 30f, ThezItems.sulfur, 15f));
+            requirements(Category.crafting, ItemStack.with(tantalum, 90f, infium, 60f, tensorite, 30f, sulfur, 15f));
             size = 4;
-            outputItem = new ItemStack(ThezItems.tritanium, 4);
+            outputItem = new ItemStack(tritanium, 4);
             heatRequirement = 18f;
             hasPower = hasItems = true;
             craftTime = 235f;
@@ -360,10 +356,8 @@ public class ThezCrafting{
                         lifetime = 52;
                         interp = circleOut; sizeInterp = pow5In;
                         lightColor = Color.valueOf("9effd7d2");
-                        colorFrom = Color.valueOf("7a7f7be0");
-                        colorTo = Color.valueOf("9effd7d2");
-                        sizeFrom = 4.8f;
-                        sizeTo = 0;
+                        colorFrom = Color.valueOf("7a7f7be0"); colorTo = Color.valueOf("9effd7d2");
+                        sizeFrom = 4.8f; sizeTo = 0;
                     }},
                     new ParticleEffect(){{
                         particles = 2;
@@ -371,22 +365,16 @@ public class ThezCrafting{
                         lifetime = 72;
                         interp = circleOut; sizeInterp = pow5In;
                         lightColor = Color.valueOf("9effd7d2");
-                        colorFrom = Color.valueOf("7a7f7be0");
-                        colorTo = Color.valueOf("9effd7d2");
-                        sizeFrom = 2.9f;
-                        sizeTo = 0;
+                        colorFrom = Color.valueOf("7a7f7be0"); colorTo = Color.valueOf("9effd7d2");
+                        sizeFrom = 2.9f; sizeTo = 0;
                     }}
             );
             drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawRegion("-bottom2"), new DrawHeatInput("-heat"), new DrawDefault(),
-                    new DrawGlowRegion(){{
-                        color = Color.valueOf("2CDC78");
-                    }},
+                    new DrawGlowRegion(){{color = Color.valueOf("2CDC78");}},
                     new DrawParticles(){{
                         fadeMargin = 1.4f;
-                        particleRad = 14;
-                        particleLife = 176;
+                        particleRad = 14; particleLife = 176; particleSize = 2.5f;
                         alpha = 0.9f;
-                        particleSize = 2.5f;
                         color = Color.valueOf("48d986d7");
                     }},
                     new DrawLiquidTile(){{
@@ -397,18 +385,15 @@ public class ThezCrafting{
                     new DrawParticles(){{
                         reverse = true;
                         fadeMargin = 0.7f;
-                        particleRad = 12;
-                        particleLife = 137;
+                        particleRad = 12; particleLife = 137; particleSize = 1.55f;
                         alpha = 0.45f;
-                        particleSize = 1.55f;
                         color = Color.valueOf( "4fff959e");
                     }}
             );
-            ambientSound = Sounds.machine;
-            ambientSoundVolume = 0.09f;
+            ambientSound = Sounds.machine; ambientSoundVolume = 0.09f;
 
-            consumeItems(with(ThezItems.tritaniumCrystal, 5));
-            consumeLiquid(ThezLiquids.ammonia, 0.45f);
+            consumeItems(with(tritaniumCrystal, 5));
+            consumeLiquid(ammonia, 0.45f);
             consumePower(2.5f);
         }};
     }

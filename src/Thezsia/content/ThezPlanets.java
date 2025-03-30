@@ -47,8 +47,8 @@ public class ThezPlanets {
             lightColor = Color.valueOf("e8f3ff");
             drawOrbit = true;
             orbitTime = 252;
-            orbitSpacing = 27;
-            orbitRadius = 132;
+            orbitSpacing = 24;
+            orbitRadius = 129;
             rotateTime = 14 * 60;
             enemyBuildSpeedMultiplier = 0.4f;
 
@@ -61,7 +61,7 @@ public class ThezPlanets {
             clearSectorOnLose = true;
             startSector = 12;
             defaultCore = ThezStorages.coreDust;
-            itemWhitelist.addAll(beryllium, basaltShard, silver, infium, tungsten, sulfur, oxide, tensorite, tritaniumCrystal, tritanium);
+            itemWhitelist = thezsiaItems;
             defaultEnv = Env.oxygen | Env.terrestrial | Env.groundOil;
 
             updateLighting = false;
@@ -69,7 +69,7 @@ public class ThezPlanets {
             atmosphereColor = Color.valueOf("666362d9");
             atmosphereRadIn = 0.2f;
             atmosphereRadOut = 0.3f;
-            //tidalLock = true;
+            tidalLock = true;
             updateLighting = false;
             sectorSeed = 12;
 
