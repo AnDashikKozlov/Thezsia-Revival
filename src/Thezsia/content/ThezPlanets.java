@@ -1,22 +1,20 @@
-package Thezsia.Thezcontent;
-
-import  static Thezsia.Thezcontent.ThezItems.*;
+package Thezsia.content;
 
 import Thezsia.Thezworld.ColorPassage;
 import Thezsia.Thezworld.HeightPassage;
-import Thezsia.Thezworld.generators.ThezsiaPlanetGenerator;
-import Thezsia.Thezworld.meta.ThezTeams;
+import Thezsia.world.generators.ThezsiaPlanetGenerator;
 import arc.graphics.*;
 import arc.math.Interp;
 import arc.math.Mathf;
-import arc.math.geom.Vec3;
 import arc.struct.Seq;
 import mindustry.content.*;
 import mindustry.graphics.g3d.*;
 import mindustry.type.*;
 import mindustry.world.meta.*;
 
-import static mindustry.content.Planets.*;
+import static Thezsia.content.Thezsia.blocks.ThezEnv.*;
+import static Thezsia.content.Thezsia.blocks.ThezStorages.*;
+import static Thezsia.world.meta.ThezTeams.*;
 
 public class ThezPlanets {
     public static Planet
@@ -42,7 +40,7 @@ public class ThezPlanets {
         planetThezsia = new Planet("thezsia", starLumi, 3.6f, 2){{
             generator = new ThezsiaPlanetGenerator(){{
                 baseHeight = 0;
-                baseColor = ThezBlocks.basalticPatch.mapColor;
+                baseColor = basalticPatch.mapColor;
 
                 heights.add(new HeightPassage.NoiseHeight(){{
                     offset.set(1050, 0, 0);
@@ -83,7 +81,7 @@ public class ThezPlanets {
                             magnitude = 1.2f;
                             min = 0.3f;
                             max = 0.6f;
-                            out = ThezBlocks.limestone.mapColor;
+                            out = limestone.mapColor;
                             offset.set(1500f, 300f, -500f);
                         }});
             }};
@@ -111,7 +109,7 @@ public class ThezPlanets {
             allowWaves = true;
             clearSectorOnLose = true;
             startSector = 12;
-            defaultCore = ThezBlocks.coreDust;
+            defaultCore = coreDust;
             defaultEnv = Env.oxygen | Env.terrestrial | Env.groundOil;
 
             updateLighting = false;
@@ -134,8 +132,8 @@ public class ThezPlanets {
                 r.loadout = ItemStack.list();
                 r.fog = true;
                 r.showSpawns = true;
-                r.defaultTeam = ThezTeams.vanitser;
-                r.waveTeam = ThezTeams.precursors;
+                r.defaultTeam = vanitser;
+                r.waveTeam = precursors;
                 r.enemyCoreBuildRadius = 250;
                 r.coreCapture = false;
                 Weather.WeatherEntry weather = new Weather.WeatherEntry(Weathers.fog);
@@ -144,7 +142,7 @@ public class ThezPlanets {
                 //r.bannedBlocks.addAll(conveyor);
                 r.hideBannedBlocks = true;
             };
-            unlockedOnLand.add(ThezBlocks.coreDust);
+            unlockedOnLand.add(coreDust);
         }};
     }
 }
