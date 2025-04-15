@@ -1,30 +1,18 @@
-package Thezsia.Thezworld.generators;
+package Thezsia.world.generators;
 
-import Thezsia.Thezcontent.ThezBlocks;
 import Thezsia.Thezworld.ColorPassage;
 import Thezsia.Thezworld.HeightPassage;
 import arc.graphics.Color;
 import arc.math.Mathf;
-import arc.math.geom.Geometry;
-import arc.math.geom.Point2;
 import arc.math.geom.Vec3;
-import arc.struct.ObjectMap;
 import arc.struct.Seq;
 import arc.util.Tmp;
-import arc.util.noise.Ridged;
-import arc.util.noise.Simplex;
-import mindustry.content.Blocks;
-import mindustry.game.Rules;
-import mindustry.game.Schematics;
+import arc.util.noise.*;
 import mindustry.maps.generators.PlanetGenerator;
 import mindustry.type.Sector;
 import mindustry.world.Block;
-import mindustry.world.TileGen;
 
-import static arc.graphics.VertexAttribute.position;
-import static arc.input.KeyCode.x;
-import static arc.input.KeyCode.y;
-import static mindustry.Vars.world;
+import static Thezsia.content.Thezsia.blocks.ThezEnv.*;
 
 public class ThezsiaPlanetGenerator extends PlanetGenerator {
 
@@ -35,7 +23,7 @@ public class ThezsiaPlanetGenerator extends PlanetGenerator {
     public static int sulfurSeed = 5, sulfurOct = 2;
     public static float sulfurScl = 0.1f, sulfurMag = 0.25f;
 
-    Block[] terrain = {ThezBlocks.peridotiteWall, ThezBlocks.basalticWall, ThezBlocks.basalticWall, ThezBlocks.sulfurWall, ThezBlocks.sulfurWall, ThezBlocks.peridotiteWall, ThezBlocks.charrokWall, ThezBlocks.basalticWall, ThezBlocks.basalticWall, ThezBlocks.basalticWall, ThezBlocks.peridotiteWall};
+    Block[] terrain = {peridotiteWall, basalticWall, basalticWall, sulfurWall, sulfurWall, peridotiteWall, charrokWall, basalticWall, basalticWall, basalticWall, peridotiteWall};
 
     Color c1 = Color.valueOf("7c5c2b"), c2 = Color.valueOf("6c522c"), out = new Color();
 
@@ -59,7 +47,7 @@ public class ThezsiaPlanetGenerator extends PlanetGenerator {
         if (Math.abs(position.y) + depth> 1.08) {return c1.write(out).lerp(c2, Mathf.clamp(Mathf.round(depth, 0.25f))).a(0.5f);}
         Block blocks = getBlock(position);
 
-        if(blocks == ThezBlocks.sulfurWall) blocks = ThezBlocks.sulfurFloor;
+        if(blocks == sulfurWall) blocks = sulfurFloor;
 
         return Tmp.c1.set(blocks.mapColor).a(1f - blocks.albedo);
     }
@@ -80,7 +68,7 @@ public class ThezsiaPlanetGenerator extends PlanetGenerator {
         Block result = terrain[Mathf.clamp((int)(height * terrain.length), 0, terrain.length - 1)];
 
         if(ice < 0.2 + Math.abs(Ridged.noise3d(seed + sulfurSeed, position.x + 2.5f, position.y + 6f, position.z + 1.2f, sulfurOct, sulfurScl)) * sulfurMag){
-            return ThezBlocks.sulfurWall;
+            return sulfurWall;
         }
 
         return result;
