@@ -21,8 +21,7 @@ public class ThezStorages{
             conductivePower = true;
             powerProduction = 180 / 60f;
             consumePowerBuffered(180);
-            //glowColors = new Color[]{Color.valueOf("ade7ec79")};
-            //glowMag = 0.78f; glowScl = 9.5f;
+            glowMag = 0.78f; glowScl = 9.5f;
             itemCapacity = 5000;
             unitType = Iambient;
             unitCapModifier = 15;
@@ -37,8 +36,7 @@ public class ThezStorages{
             conductivePower = true;
             powerProduction = 600 / 60f;
             consumePowerBuffered(100);
-            //glowColors = new Color[]{Color.valueOf("ade7ec79")};
-            //glowMag = 0.78f; glowScl = 9.5f;
+            glowMag = 0.78f; glowScl = 9.5f;
             itemCapacity = 7500;
             unitType = IIambient;
             unitCapModifier = 22;
