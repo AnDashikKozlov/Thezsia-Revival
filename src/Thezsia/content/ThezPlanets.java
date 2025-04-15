@@ -13,7 +13,6 @@ import mindustry.world.meta.Env;
 
 import static Thezsia.content.ThezItems.*;
 import static mindustry.content.Blocks.*;
-import static mindustry.content.Items.*;
 import static mindustry.content.Planets.*;
 
 public class ThezPlanets {
@@ -61,7 +60,8 @@ public class ThezPlanets {
             clearSectorOnLose = true;
             startSector = 12;
             defaultCore = ThezStorages.coreDust;
-            itemWhitelist = thezsiaItems;
+            //itemWhitelist = thezsiaItems;
+            boolean autoAssignPlanet = false;
             defaultEnv = Env.oxygen | Env.terrestrial | Env.groundOil;
 
             updateLighting = false;
@@ -100,7 +100,7 @@ public class ThezPlanets {
             unlockedOnLand.add(ThezStorages.coreDust);
         }};
 
-        serpulo.hiddenItems.addAll(thezsiaItems).addAll(thezsiaItems).removeAll(Items.serpuloItems);
-        erekir.hiddenItems.addAll(thezsiaItems).addAll(thezsiaItems).removeAll(Items.erekirItems);
+        //serpulo.hiddenItems.addAll(thezsiaItems).addAll(thezsiaItems).removeAll(Items.serpuloItems);
+        //erekir.hiddenItems.addAll(thezsiaItems).addAll(thezsiaItems).removeAll(Items.erekirItems);
     }
 }
