@@ -1,8 +1,9 @@
-package Thezsia.content.Thezsia;
+package Thezsia.Thezcontent;
 
 import arc.graphics.Color;
 import mindustry.ai.types.*;
 import mindustry.content.StatusEffects;
+import mindustry.entities.abilities.SpawnDeathAbility;
 import mindustry.entities.bullet.*;
 import mindustry.entities.effect.*;
 import mindustry.entities.part.*;
@@ -21,8 +22,10 @@ public class ThezUnits {
     //Noctis tree
     noctis, stella, astrum,
     //Ignis tree
-    ignis, flamma ;
+    ignis, flamma,
     //Pebble tree
+    pebble, pebbleSolid, stone;
+
     public static void load(){
 
         float coreFleeRange = 500f;
@@ -47,13 +50,13 @@ public class ThezUnits {
             pickupUnits = false;
             vulnerableWithPayloads = true;
 
-            mineTier = 3;
+            mineTier = 2;
             mineWalls = true;
             mineRange = 80;
             mineSpeed = 6.5f;
             buildRange = 230;
             buildSpeed = 0.75f;
-            buildBeamOffset = 6.5f;
+            buildBeamOffset = 5.5f;
 
             legStraightness = 0.3f;
             legContinuousMove = true;
@@ -61,8 +64,8 @@ public class ThezUnits {
             legGroupSize = 4;
             legCount = 8;
             allowLegStep = true;
-            legExtension = -3;
-            legLength = 18;
+            legExtension = -2;
+            legLength = 14;
             legSpeed = 0.3f;
             legForwardScl = 0.7f;
             legMoveSpace = 1;
@@ -102,8 +105,6 @@ public class ThezUnits {
         }};
         IIambient = new UnitType("02-ambient"){{
             constructor = LegsUnit::create;
-            coreUnitDock = true;
-            controller = u -> new BuilderAI(true, coreFleeRange);
 
             speed = 1.25f;
             accel = 0.12f;
@@ -115,22 +116,21 @@ public class ThezUnits {
             faceTarget = true;
             outlineColor = Color.valueOf("212222");
 
-            mineTier = 3;
+            mineTier = 2;
             mineWalls = true;
             mineRange = 112;
             mineSpeed = 6.8f;
             buildRange = 262;
             buildSpeed = 0.82f;
-            buildBeamOffset = 7f;
 
             legStraightness = 0.35f;
             legContinuousMove = true;
             lockLegBase = true;
-            legGroupSize = 3;
-            legCount = 6;
+            legGroupSize = 4;
+            legCount = 8;
             allowLegStep = true;
-            legExtension = -5;
-            legLength = 25;
+            legExtension = -4;
+            legLength = 19;
             legSpeed = 0.35f;
             legForwardScl = 0.7f;
             legMoveSpace = 1;
@@ -496,6 +496,178 @@ public class ThezUnits {
                     }}
             );
         }};
+        //pebble tree
+        pebble = new UnitType("pebble"){{
+            constructor = LegsUnit::create;
 
+            drag = 0.04f;
+            outlineColor = Color.valueOf("19181AFF");
+            drawCell = false;
+            speed = 1;
+            rotateSpeed = 4;
+            accel = 0.04f;
+            health = 80;
+            armor = 6;
+            hitSize = 5;
+            engineOffset = 0;
+            engineSize = 0;
+            itemCapacity = 0;
+            useEngineElevation = false;
+
+            legStraightness = 0.07f;
+            legContinuousMove = true;
+            lockLegBase = false;
+            legGroupSize = 2;
+            legCount = 4;
+            allowLegStep = true;
+            legExtension = -2;
+            legLength = 8;
+            legSpeed = 0.4f;
+            legForwardScl = 0.4f;
+            legMoveSpace = 3;
+            hovering = true;
+
+            parts.add(new RegionPart("-claw"){{
+                layerOffset = -0.001f;
+                progress = DrawPart.PartProgress.recoil;
+                mirror = true;
+                moveX = -0.3f;
+                moveY = 0.5f;
+                moveRot = 30;
+            }});
+
+            weapons.add(new Weapon(){{
+                display = false;
+                shootSound = Sounds.blaster;
+                x = 0;
+                y = 0;
+                shootY = 0.2f;
+                mirror = false;
+                reload = 30;
+                recoil = 0.01f;
+                inaccuracy = 0;
+                cooldownTime = 0;
+
+                bullet = new BasicBulletType(){{
+                    shootEffect = despawnEffect = smokeEffect = none;
+                    damage = 15;
+                    speed = 12;
+                    lifetime = 0.65f;
+                    reflectable = false;
+                    absorbable = false;
+                    width = height = 0;
+                }};
+            }});
+        }};
+        pebbleSolid = new UnitType("pebble-solid"){{
+            constructor = LegsUnit::create;
+
+            drag = 1;
+            targetable = false;
+            isEnemy = false;
+            drawMinimap = false;
+            range = 10;
+            physics = false;
+            lightRadius = 0;
+            lightOpacity = 0;
+            outlineColor = Color.valueOf("19181AFF");
+            drawCell = false;
+            speed = 0;
+            rotateSpeed = 0;
+            accel = 0;
+            health = 100;
+            armor = 5;
+            hitSize = 5;
+            engineOffset = 0;
+            engineSize = 0;
+            itemCapacity = 0;
+            useEngineElevation = false;
+
+            weapons.add(new Weapon(){{
+                shootOnDeath = true;
+                shootCone = 180;
+                mirror = false;
+                shootY = 0;
+                shootSound = Sounds.explosion;
+                bullet = new BasicBulletType(){{
+                    rangeOverride = 70;
+                    collidesTiles = false;
+                    collides = false;
+                    collidesAir = true;
+                    hittable = false;
+                    speed = 0;
+                    instantDisappear = true;
+                    killShooter = true;
+                    spawnUnit = ThezUnits.pebble;
+                }};
+            }});
+        }};
+        stone = new UnitType("stone"){{
+            constructor = LegsUnit::create;
+
+            drag = 0.08f;
+            outlineColor = Color.valueOf("19181AFF");
+            drawCell = false;
+            speed = 0.9f;
+            rotateSpeed = 2;
+            accel = 0.04f;
+            health = 190;
+            armor = 34;
+            hitSize = 9;
+            engineOffset = 0;
+            engineSize = 0;
+            itemCapacity = 0;
+            useEngineElevation = false;
+
+            legStraightness = 0.07f;
+            legContinuousMove = true;
+            lockLegBase = false;
+            legGroupSize = 2;
+            legCount = 6;
+            allowLegStep = true;
+            legExtension = -2;
+            legLength = 15;
+            legSpeed = 0.3f;
+            legForwardScl = 0.4f;
+            legMoveSpace = 3;
+            hovering = true;
+
+            abilities.add(new SpawnDeathAbility(){{
+                unit = ThezUnits.pebble;
+                amount = 4;
+            }});
+
+            parts.add(new RegionPart("-claw"){{
+                layerOffset = -0.001f;
+                progress = DrawPart.PartProgress.recoil;
+                mirror = true;
+                moveX = -0.3f;
+                moveY = 0.5f;
+                moveRot = 30;
+            }});
+
+            weapons.add(new Weapon(){{
+                display = false;
+                shootSound = Sounds.blaster;
+                x = 0;
+                y = 0;
+                shootY = 0.3f;
+                mirror = false;
+                reload = 60;
+                recoil = 0.02f;
+                inaccuracy = 0;
+                cooldownTime = 0;
+
+                bullet = new BasicBulletType(){{
+                    shootEffect = despawnEffect = smokeEffect = none;
+                    damage = 42;
+                    speed = 11;
+                    lifetime = 0.85f;
+                    reflectable = false;
+                    absorbable = false;
+                    width = height = 0;
+                }};
+            }});
+        }};
     }
 }
