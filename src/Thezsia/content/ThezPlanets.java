@@ -1,24 +1,29 @@
-package Thezsia.content;
+package Thezsia.Thezcontent;
 
-import Thezsia.content.Thezsia.blocks.ThezStorages;
-import Thezsia.world.meta.*;
-import arc.graphics.Color;
+import  static Thezsia.Thezcontent.ThezItems.*;
+
+import Thezsia.Thezworld.ColorPassage;
+import Thezsia.Thezworld.HeightPassage;
+import Thezsia.Thezworld.generators.ThezsiaPlanetGenerator;
+import Thezsia.Thezworld.meta.ThezTeams;
+import arc.graphics.*;
+import arc.math.Interp;
+import arc.math.Mathf;
+import arc.math.geom.Vec3;
+import arc.struct.Seq;
 import mindustry.content.*;
 import mindustry.graphics.g3d.*;
-import mindustry.maps.planet.ErekirPlanetGenerator;
-import mindustry.type.ItemStack;
-import mindustry.type.Planet;
-import mindustry.type.Weather;
-import mindustry.world.meta.Env;
+import mindustry.type.*;
+import mindustry.world.meta.*;
 
-import static Thezsia.content.ThezItems.*;
-import static mindustry.content.Blocks.*;
 import static mindustry.content.Planets.*;
 
 public class ThezPlanets {
     public static Planet
+
         //Lumi system
         starLumi, planetThezsia;
+
     public static void  load() {
         starLumi = new Planet("lumi", null, 2.1f){{
             bloom = false;
@@ -33,21 +38,68 @@ public class ThezPlanets {
             alwaysUnlocked = true;
             //solarSystem = starLumi;
         }};
+
         planetThezsia = new Planet("thezsia", starLumi, 3.6f, 2){{
-            generator = new ErekirPlanetGenerator(); //ThezsiaPlanetGenerator();
+            generator = new ThezsiaPlanetGenerator(){{
+                baseHeight = 0;
+                baseColor = ThezBlocks.basalticPatch.mapColor;
+
+                heights.add(new HeightPassage.NoiseHeight(){{
+                    offset.set(1050, 0, 0);
+                    octaves = 16f;
+                    persistence = 0.6f;
+                    magnitude = 1.25f;
+                    heightOffset = -0.5f;
+                }});
+
+                Mathf.rand.setSeed(2);
+                Seq<HeightPassage>
+                mountains = new Seq<>();
+                for(int i = 0; i < 20; i++){
+                    mountains.add(new HeightPassage.DotHeight(){{
+                        dir.setToRandomDirection().y = Mathf.random(2f, 5f);
+                        min = 0.99f;
+                        magnitude = Math.max(0.7f, dir.nor().y) * 0.3f;
+                        interp = Interp.exp10In;
+                    }});
+                }
+                heights.add(new HeightPassage.MultiHeight(mountains, HeightPassage.MultiHeight.MixType.max, HeightPassage.MultiHeight.Operation.add));
+
+                mountains = new Seq<>();
+                for(int i = 0; i < 20; i++){
+                    mountains.add(new HeightPassage.DotHeight(){{
+                        dir.setToRandomDirection().y = Mathf.random(-2f, -5f);
+                        min = 0.99f;
+                        magnitude = Math.max(0.7f, dir.nor().y) * 0.3f;
+                        interp = Interp.exp10In;
+                    }});
+                }
+                heights.add(new HeightPassage.MultiHeight(mountains, HeightPassage.MultiHeight.MixType.max, HeightPassage.MultiHeight.Operation.add));
+                colors.addAll(
+                        new ColorPassage.NoiseColorPass(){{
+                            scale = 1.5;
+                            persistence = 0.5;
+                            octaves = 3;
+                            magnitude = 1.2f;
+                            min = 0.3f;
+                            max = 0.6f;
+                            out = ThezBlocks.limestone.mapColor;
+                            offset.set(1500f, 300f, -500f);
+                        }});
+            }};
             meshLoader = () -> new HexMesh(this, 5);
             cloudMeshLoader = () -> new MultiMesh(
-                    new HexSkyMesh(this, 33, 0.891f, 0.092f, 6, Color.valueOf("615d5aaf").a(0.42f), 3, 0.5f, 1f, 0.58f),
-                    new HexSkyMesh(this, 32, 1.21f, 0.11f, 6, Color.valueOf("42423f99").a(0.65f), 3, 0.56f, 1f, 0.5f),
-                    new HexSkyMesh(this, 31, 1.13f, 0.13f, 6, Color.valueOf("2d2e36aa").a(0.54f), 3, 0.4f, 1f, 0.61f)
+                    new HexSkyMesh(this, 33, 0.891f, 0.11f, 6, Color.valueOf("4d4c4baf").a(0.42f), 3, 0.5f, 1f, 0.58f),
+                    new HexSkyMesh(this, 32, 1.21f, 0.178f, 6, Color.valueOf("42423f40").a(0.65f), 3, 0.56f, 0.89f, 0.5f),
+                    new HexSkyMesh(this, 31, 1.13f, 0.26f, 6, Color.valueOf("31323638").a(0.58f), 3, 0.4f, 1f, 0.61f)
             );
 
             bloom = false;
             lightColor = Color.valueOf("e8f3ff");
             drawOrbit = true;
             orbitTime = 252;
-            orbitSpacing = 24;
-            orbitRadius = 129;
+            orbitSpacing = 27;
+            orbitRadius = 132;
             rotateTime = 14 * 60;
             enemyBuildSpeedMultiplier = 0.4f;
 
@@ -59,17 +111,15 @@ public class ThezPlanets {
             allowWaves = true;
             clearSectorOnLose = true;
             startSector = 12;
-            defaultCore = ThezStorages.coreDust;
-            //itemWhitelist = thezsiaItems;
-            boolean autoAssignPlanet = false;
+            defaultCore = ThezBlocks.coreDust;
             defaultEnv = Env.oxygen | Env.terrestrial | Env.groundOil;
 
             updateLighting = false;
             hasAtmosphere = true;
             atmosphereColor = Color.valueOf("666362d9");
-            atmosphereRadIn = 0.2f;
-            atmosphereRadOut = 0.3f;
-            tidalLock = true;
+            atmosphereRadIn = 0.9f;
+            atmosphereRadOut = 1;
+            //tidalLock = true;
             updateLighting = false;
             sectorSeed = 12;
 
@@ -91,16 +141,10 @@ public class ThezPlanets {
                 Weather.WeatherEntry weather = new Weather.WeatherEntry(Weathers.fog);
                 weather.always = true; //always fogy
                 r.weather.add(weather);
-                r.bannedBlocks.addAll(plasmaBore, duct, armoredDuct, ductBridge, ductRouter, reinforcedConduit, reinforcedLiquidContainer, reinforcedLiquidTank, reinforcedPayloadConveyor, reinforcedPayloadRouter,
-                        electricHeater, slagHeater, slagIncinerator,
-                        berylliumWall, berylliumWallLarge, tungstenWall, tungstenWallLarge);
+                //r.bannedBlocks.addAll(conveyor);
                 r.hideBannedBlocks = true;
             };
-
-            unlockedOnLand.add(ThezStorages.coreDust);
+            unlockedOnLand.add(ThezBlocks.coreDust);
         }};
-
-        //serpulo.hiddenItems.addAll(thezsiaItems).addAll(thezsiaItems).removeAll(Items.serpuloItems);
-        //erekir.hiddenItems.addAll(thezsiaItems).addAll(thezsiaItems).removeAll(Items.erekirItems);
     }
 }
