@@ -5,8 +5,8 @@ import mindustry.type.Category;
 import mindustry.type.ItemStack;
 import mindustry.world.Block;
 
-import static Thezsia.Thezcontent.ThezUnits.*;
 import static Thezsia.content.ThezItems.*;
+import static Thezsia.content.Thezsia.ThezUnits.*;
 
 public class ThezStorages{
     public static Block

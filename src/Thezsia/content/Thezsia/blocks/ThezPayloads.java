@@ -7,8 +7,8 @@ import mindustry.world.Block;
 import mindustry.world.blocks.payloads.PayloadConveyor;
 import mindustry.world.blocks.units.UnitFactory;
 
-import static Thezsia.Thezcontent.ThezUnits.*;
 import static Thezsia.content.ThezItems.*;
+import static Thezsia.content.Thezsia.ThezUnits.*;
 import static mindustry.type.ItemStack.with;
 
 public class ThezPayloads{
