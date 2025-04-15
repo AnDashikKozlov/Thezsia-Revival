@@ -1,15 +1,14 @@
 package Thezsia.content.Thezsia.blocks;
 
 import Thezsia.content.ThezItems;
-import Thezsia.content.Thezsia.ThezUnits;
 import mindustry.type.Category;
 import mindustry.type.ItemStack;
 import mindustry.world.Block;
 import mindustry.world.blocks.payloads.PayloadConveyor;
 import mindustry.world.blocks.units.UnitFactory;
 
+import static Thezsia.Thezcontent.ThezUnits.*;
 import static Thezsia.content.ThezItems.*;
-import static Thezsia.content.Thezsia.ThezUnits.*;
 import static mindustry.type.ItemStack.with;
 
 public class ThezPayloads{
