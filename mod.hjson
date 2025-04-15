@@ -2,10 +2,10 @@
 name: "thezsia1"
 main: "Thezsia.Thezsia"
 java: true
-minGameVersion: 146
+minGameVersion: 147
 
 
-displayName: "Thezsia Revival (Java)"
+displayName: "Thezsia Revival"
 
 author:
 '''
@@ -14,7 +14,9 @@ Spriters: AnDasik
 Testers: AnDashik, ItzCraft
 Translators: AnDashik, Sputnuc
 Mappers: Andashik
-Composer: Ace
+Composers: Ace, CY4NIDE
+
+Original idea: Thruster (DisplayName)
 '''
 
 description:
@@ -28,4 +30,4 @@ subtitle: "Alpha 0.3 JAVA"
 version: "Alpha 0.3 JAVA"
 
 
-dependencies: ["font-icon-lib"]
+//dependencies: ["font-icon-lib"]
