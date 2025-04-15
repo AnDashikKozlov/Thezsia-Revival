@@ -1,4 +1,4 @@
-package Thezsia.Thezcontent;
+package Thezsia.content.Thezsia;
 
 import arc.graphics.Color;
 import mindustry.ai.types.*;
