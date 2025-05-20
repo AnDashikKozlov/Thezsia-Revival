@@ -23,39 +23,11 @@ import static arc.math.Interp.*;
 public class ThezProduction{
     public static Block
             //Blocks
-            windTrap, largeWindTrap,
+            windTrap,
             //drills
             stoneGrinder, rotaryDrill, circularDrill;
     public static void load(){
-        windTrap = new GenericCrafter("wind-trap"){{
-            requirements(Category.production, ItemStack.with(tantalum, 100));
-            size = 4; health = 320; squareSprite = false;
-            alwaysUnlocked = true;
-
-            consumePower(1.17f); //power: 0.23f
-            outputLiquid = new LiquidStack(wind,0.5f);
-            liquidCapacity = 200;
-
-            craftEffect = new ParticleEffect(){{
-                particles = 6;
-                cone = 360;
-                followParent = false; rotWithParent = false;
-                sizeFrom = 1.2f; sizeTo = 0.1f;
-                lifetime = 40;
-                length = 3; baseLength = 5;
-                interp = pow2; sizeInterp = Interp.pow3In;
-            }};
-            ambientSound = Sounds.grinding;
-            ambientSoundVolume = 0.08f;
-            drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawLiquidTile(wind, 3), new DrawDefault(),
-                    new DrawParticles(){{
-                        particleRad = 17; particleLife = 160; particleSize = 4;
-                        alpha = 0.5f;
-                        color = Color.valueOf("FFFFFF");
-                    }}
-            );
-        }};
-        largeWindTrap = new GenericCrafter("large-wind-trap"){{
+        windTrap = new GenericCrafter("large-wind-trap"){{
             requirements(Category.production, ItemStack.with(tantalum, 100, infium, 80, tensorite, 50));
             size = 5; health = 525; squareSprite = false;
 
