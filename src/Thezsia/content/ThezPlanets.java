@@ -1,7 +1,7 @@
 package Thezsia.content;
 
-import Thezsia.Thezworld.ColorPassage;
-import Thezsia.Thezworld.HeightPassage;
+import Thezsia.world.ColorPassage;
+import Thezsia.world.HeightPassage;
 import Thezsia.world.generators.ThezsiaPlanetGenerator;
 import arc.graphics.*;
 import arc.math.Interp;
@@ -9,6 +9,7 @@ import arc.math.Mathf;
 import arc.struct.Seq;
 import mindustry.content.*;
 import mindustry.graphics.g3d.*;
+import mindustry.maps.planet.ErekirPlanetGenerator;
 import mindustry.type.*;
 import mindustry.world.meta.*;
 
@@ -19,130 +20,112 @@ import static Thezsia.world.meta.ThezTeams.*;
 public class ThezPlanets {
     public static Planet
 
-        //Lumi system
-        starLumi, planetThezsia;
+            //Lumi system
+            doubleLumiSystem, starLumiAlpha, starLumiBeta, planetThezsia;
 
-    public static void  load() {
-        starLumi = new Planet("lumi", null, 2.1f){{
+    public static void load() {
+        doubleLumiSystem = new Planet("lumi-system", null, 1f) {{
             bloom = false;
-            lightColor = Color.valueOf("e8f3ff");
+            lightColor = Color.valueOf("d4aff0"); //404040
             hasAtmosphere = false;
-            meshLoader = () -> new SunMesh(this, 5, 5, 0.27, 1.8, 1.3, 1, 1.1f,
-                    Color.valueOf("c2edfff9"), Color.valueOf("a8effff9"), Color.valueOf("c2d3fff9"), Color.valueOf("94c6fff9"));
-            iconColor = Color.valueOf("c4e0ff");
+            meshLoader = () -> new SunMesh(this, 0, 0, 0, 0, 0, 0, 0, Color.valueOf("404040"));
+            iconColor = Color.valueOf("404040");
+
+            //accessible = true;
+            visible = false;
+            alwaysUnlocked = false;
+            //solarSystem = doubleLumiSystem;
+        }};
+        starLumiAlpha = new Planet("lumi-alpha", doubleLumiSystem, 1.6f) {{
+            orbitRadius = 17; orbitOffset = 0; orbitTime = 72f * 60f; rotateTime =  19f * 60f;
+            bloom = true;
+            lightColor = Color.valueOf("d7daf5");
+            hasAtmosphere = false;
+            meshLoader = () -> new SunMesh(this, 4, 5, 0.27, 1.8, 1.3, 1, 1.1f,
+                    Color.valueOf("eeedf7"), Color.valueOf("c9cdf2"), Color.valueOf("a3b6e5"), Color.valueOf("7ea4cf"));
+            iconColor = Color.valueOf("bcc9eb");
 
             //accessible = true;
             visible = true;
             alwaysUnlocked = true;
-            //solarSystem = starLumi;
+            solarSystem = doubleLumiSystem;
         }};
+        starLumiBeta = new Planet("lumi-beta", doubleLumiSystem, 4.7f) {{
+            orbitRadius = 17; orbitOffset = 180; orbitTime = 72f * 60f; rotateTime = 72f * 60f;
+            bloom = true;
+            lightColor = Color.valueOf("f5b28c");
+            hasAtmosphere = false;
+            meshLoader = () -> new SunMesh(this, 5, 4, 0.27, 1.8, 1, 1.3, 1.2f,
+                    Color.valueOf("f7d1ad"), Color.valueOf("f5b28c"), Color.valueOf("eb8375"), Color.valueOf("d65c64"));
+            iconColor = Color.valueOf("eb8375");
 
-        planetThezsia = new Planet("thezsia", starLumi, 3.6f, 2){{
-            generator = new ThezsiaPlanetGenerator(){{
-                baseHeight = 0;
-                baseColor = basalticPatch.mapColor;
-
-                heights.add(new HeightPassage.NoiseHeight(){{
-                    offset.set(1050, 0, 0);
-                    octaves = 16f;
-                    persistence = 0.6f;
-                    magnitude = 1.25f;
-                    heightOffset = -0.5f;
-                }});
-
-                Mathf.rand.setSeed(2);
-                Seq<HeightPassage>
-                mountains = new Seq<>();
-                for(int i = 0; i < 20; i++){
-                    mountains.add(new HeightPassage.DotHeight(){{
-                        dir.setToRandomDirection().y = Mathf.random(2f, 5f);
-                        min = 0.99f;
-                        magnitude = Math.max(0.7f, dir.nor().y) * 0.3f;
-                        interp = Interp.exp10In;
-                    }});
-                }
-                heights.add(new HeightPassage.MultiHeight(mountains, HeightPassage.MultiHeight.MixType.max, HeightPassage.MultiHeight.Operation.add));
-
-                mountains = new Seq<>();
-                for(int i = 0; i < 20; i++){
-                    mountains.add(new HeightPassage.DotHeight(){{
-                        dir.setToRandomDirection().y = Mathf.random(-2f, -5f);
-                        min = 0.99f;
-                        magnitude = Math.max(0.7f, dir.nor().y) * 0.3f;
-                        interp = Interp.exp10In;
-                    }});
-                }
-                heights.add(new HeightPassage.MultiHeight(mountains, HeightPassage.MultiHeight.MixType.max, HeightPassage.MultiHeight.Operation.add));
-                colors.addAll(
-                        new ColorPassage.NoiseColorPass(){{
-                            scale = 1.5;
-                            persistence = 0.5;
-                            octaves = 3;
-                            magnitude = 1.2f;
-                            min = 0.3f;
-                            max = 0.6f;
-                            out = limestone.mapColor;
-                            offset.set(1500f, 300f, -500f);
-                        }});
-            }};
-            meshLoader = () -> new HexMesh(this, 5);
-            cloudMeshLoader = () -> new MultiMesh(
-                    new HexSkyMesh(this, 33, 0.891f, 0.11f, 6, Color.valueOf("4d4c4baf").a(0.42f), 3, 0.5f, 1f, 0.58f),
-                    new HexSkyMesh(this, 32, 1.21f, 0.178f, 6, Color.valueOf("42423f40").a(0.65f), 3, 0.56f, 0.89f, 0.5f),
-                    new HexSkyMesh(this, 31, 1.13f, 0.26f, 6, Color.valueOf("31323638").a(0.58f), 3, 0.4f, 1f, 0.61f)
-            );
-
-            bloom = false;
-            lightColor = Color.valueOf("e8f3ff");
-            drawOrbit = true;
-            orbitTime = 252;
-            orbitSpacing = 27;
-            orbitRadius = 132;
-            rotateTime = 14 * 60;
-            enemyBuildSpeedMultiplier = 0.4f;
-
-            allowLaunchSchematics = false;
-            allowLaunchToNumbered = false;
-            allowLaunchLoadout = false;
-            allowSectorInvasion = true;
-            allowWaveSimulation = false;
-            allowWaves = true;
-            clearSectorOnLose = true;
-            startSector = 12;
-            defaultCore = coreDust;
-            defaultEnv = Env.oxygen | Env.terrestrial | Env.groundOil;
-
-            updateLighting = false;
-            hasAtmosphere = true;
-            atmosphereColor = Color.valueOf("666362d9");
-            atmosphereRadIn = 0.9f;
-            atmosphereRadOut = 1;
-            //tidalLock = true;
-            updateLighting = false;
-            sectorSeed = 12;
-
-            accessible = true;
+            //accessible = true;
             visible = true;
             alwaysUnlocked = true;
-            solarSystem = starLumi;
+            solarSystem = doubleLumiSystem;
+        }};
 
-            ruleSetter = r -> {
-                r.lighting = true;
-                r.ambientLight = Color.valueOf("111212ce");
-                r.loadout = ItemStack.list();
-                r.fog = true;
-                r.showSpawns = true;
-                r.defaultTeam = vanitser;
-                r.waveTeam = precursors;
-                r.enemyCoreBuildRadius = 250;
-                r.coreCapture = false;
-                Weather.WeatherEntry weather = new Weather.WeatherEntry(Weathers.fog);
-                weather.always = true; //always fogy
-                r.weather.add(weather);
-                //r.bannedBlocks.addAll(conveyor);
-                r.hideBannedBlocks = true;
-            };
-            unlockedOnLand.add(coreDust);
+        planetThezsia = new Planet("thezsia", doubleLumiSystem, 1.13f, 3) {{
+            generator = new ThezsiaPlanetGenerator() {{
+
+                meshLoader = () -> new HexMesh(planetThezsia, 5);
+                cloudMeshLoader = () -> new MultiMesh(
+                        new HexSkyMesh(planetThezsia, 33, 0.891f, 0.11f, 6, Color.valueOf("4d4c4baf").a(0.42f), 3, 0.5f, 1f, 0.58f),
+                        new HexSkyMesh(planetThezsia, 32, 1.21f, 0.178f, 6, Color.valueOf("42423f40").a(0.65f), 3, 0.56f, 0.89f, 0.5f),
+                        new HexSkyMesh(planetThezsia, 31, 1.13f, 0.26f, 6, Color.valueOf("31323638").a(0.58f), 3, 0.4f, 1f, 0.61f)
+                );
+
+                //lightColor = Color.valueOf("39383d");
+                drawOrbit = true;
+                orbitTime = 34 * 60;
+                orbitSpacing = 27;
+                orbitRadius = 72;
+                rotateTime = 34 * 60;
+                enemyBuildSpeedMultiplier = 0.4f;
+
+                allowLaunchSchematics = false;
+                allowLaunchToNumbered = false;
+                allowLaunchLoadout = false;
+                allowSectorInvasion = true;
+                allowWaveSimulation = false;
+                allowWaves = true;
+                clearSectorOnLose = true;
+                startSector = 12;
+                defaultCore = coreDust;
+                defaultEnv = Env.oxygen | Env.terrestrial | Env.groundOil;
+
+                updateLighting = false;
+                hasAtmosphere = true;
+                atmosphereColor = Color.valueOf("4d4143d6");
+                atmosphereRadIn = 0f;
+                atmosphereRadOut = 1f;
+                tidalLock = true;
+                updateLighting = false;
+                sectorSeed = 12;
+
+                accessible = true;
+                visible = true;
+                alwaysUnlocked = true;
+                solarSystem = doubleLumiSystem;
+
+                ruleSetter = r -> {
+                    r.lighting = true;
+                    r.ambientLight = Color.valueOf("39383d");
+                    r.loadout = ItemStack.list();
+                    r.fog = true;
+                    r.showSpawns = true;
+                    r.defaultTeam = vanitser;
+                    r.waveTeam = precursors;
+                    r.enemyCoreBuildRadius = 250;
+                    r.coreCapture = false;
+                    Weather.WeatherEntry weather = new Weather.WeatherEntry(Weathers.fog);
+                    weather.always = true; //always fogy
+                    r.weather.add(weather);
+                    //r.bannedBlocks.addAll(conveyor);
+                    r.hideBannedBlocks = true;
+                };
+                unlockedOnLand.add(coreDust);
+            }};
         }};
     }
 }
