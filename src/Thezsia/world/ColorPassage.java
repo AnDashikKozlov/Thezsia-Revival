@@ -1,4 +1,4 @@
-package Thezsia.Thezworld;
+package Thezsia.world;
 
 import arc.graphics.*;
 import arc.math.geom.*;
