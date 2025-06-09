@@ -1,7 +1,7 @@
 package Thezsia.world.generators;
 
-import Thezsia.Thezworld.ColorPassage;
-import Thezsia.Thezworld.HeightPassage;
+import Thezsia.world.ColorPassage;
+import Thezsia.world.HeightPassage;
 import arc.graphics.Color;
 import arc.math.Mathf;
 import arc.math.geom.Vec3;
