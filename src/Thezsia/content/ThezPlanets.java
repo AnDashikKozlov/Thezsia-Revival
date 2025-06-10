@@ -28,16 +28,16 @@ public class ThezPlanets {
             bloom = false;
             lightColor = Color.valueOf("d4aff0"); //404040
             hasAtmosphere = false;
-            meshLoader = () -> new SunMesh(this, 0, 0, 0, 0, 0, 0, 0, Color.valueOf("404040"));
+            meshLoader = () -> new HexSkyMesh(planetThezsia, 1, 1, 5f, 5, Color.valueOf("4040400").a(0f), 3, 0.5f, 1f, 0.58f);
             iconColor = Color.valueOf("404040");
 
             //accessible = true;
-            visible = false;
+            visible = true;
             alwaysUnlocked = false;
             //solarSystem = doubleLumiSystem;
         }};
         starLumiAlpha = new Planet("lumi-alpha", doubleLumiSystem, 1.6f) {{
-            orbitRadius = 17; orbitOffset = 0; orbitTime = 72f * 60f; rotateTime =  19f * 60f;
+            orbitRadius = 13; orbitOffset = 0; orbitTime = 72f * 60f; rotateTime =  19f * 60f;
             bloom = true;
             lightColor = Color.valueOf("d7daf5");
             hasAtmosphere = false;
@@ -51,7 +51,7 @@ public class ThezPlanets {
             solarSystem = doubleLumiSystem;
         }};
         starLumiBeta = new Planet("lumi-beta", doubleLumiSystem, 4.7f) {{
-            orbitRadius = 17; orbitOffset = 180; orbitTime = 72f * 60f; rotateTime = 72f * 60f;
+            orbitRadius = 13; orbitOffset = 180; orbitTime = 72f * 60f; rotateTime = 72f * 60f;
             bloom = true;
             lightColor = Color.valueOf("f5b28c");
             hasAtmosphere = false;
