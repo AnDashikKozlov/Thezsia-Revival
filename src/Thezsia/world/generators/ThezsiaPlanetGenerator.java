@@ -12,7 +12,7 @@ import mindustry.world.Block;
 import static Thezsia.content.Thezsia.blocks.ThezEnv.*;
 
 public class ThezsiaPlanetGenerator extends PlanetGenerator {
-    public float heightScl = 1.0f, octaves = 4, persistence = 0.8f, heightPow = 1.3f, heightMult = 1.15f;
+    public float heightScl = 1.2f, octaves = 4, persistence = 1.2f, heightPow = 1.0f, heightMult = 0.8f;
 
     @Override
     public float getHeight(Vec3 position){
@@ -25,7 +25,7 @@ public class ThezsiaPlanetGenerator extends PlanetGenerator {
 
     @Override
     public Color getColor(Vec3 position){
-        Block block = rawHeight(position) < 0.3f ? Blocks.slag : rawHeight(position) < 0.62f ? peridotite : rawHeight(position) < 0.64f ? peridotiteDark : rawHeight(position) < 0.4f ? hardCharrok : rawHeight(position) < 0.47f ? charrokFloor : rawHeight(position) < 0.55f ? basalticPatch : rawHeight(position) < 0.45f ? sulfurFloor : Blocks.ferricStone;
+        Block block = rawHeight(position) < 0.3f ? Blocks.water : rawHeight(position) < 0.7f ? peridotite : rawHeight(position) < 0.65f ? peridotiteDark : rawHeight(position) < 0.47f ? hardCharrok : rawHeight(position) < 0.5f ? charrokFloor : rawHeight(position) < 0.35f ? basalticPatch : rawHeight(position) < 0.9f ? sulfurFloor : Blocks.ferricStone;
         return Tmp.c1.set(block.mapColor).a(1f - block.albedo);
     }
 }
