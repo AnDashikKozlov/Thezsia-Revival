@@ -17,11 +17,11 @@ public class ThezPower {
             requirements(Category.power, with(tantalum, 1, silver, 1));
             health = 12;
         }};
-        testFignya = new TransferPowerConsumeGenerator("test-fignya"){{
+        /*testFignya = new TransferPowerConsumeGenerator("test-fignya"){{
             requirements(Category.power, with(tantalum, 1, silver, 1));
             size = 2;
             health = 12;
             radius = 15 / 8f;
-        }};
+        }};*/
     }
 }
