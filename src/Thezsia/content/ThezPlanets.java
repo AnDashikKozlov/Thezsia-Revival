@@ -1,21 +1,14 @@
 package Thezsia.content;
 
-import Thezsia.world.ColorPassage;
-import Thezsia.world.HeightPassage;
 import Thezsia.world.generators.ThezsiaPlanetGenerator;
-import Thezsia.world.generators.ThezsiaPlanetGeneratorOLD;
+import Thezsia.world.meta.ThezEnv;
 import arc.graphics.*;
-import arc.math.Interp;
-import arc.math.Mathf;
-import arc.struct.Seq;
 import mindustry.content.*;
 import mindustry.graphics.g3d.*;
-import mindustry.maps.planet.ErekirPlanetGenerator;
 import mindustry.type.*;
 import mindustry.world.meta.*;
 
-import static Thezsia.content.Thezsia.blocks.ThezEnv.*;
-import static Thezsia.content.Thezsia.blocks.ThezStorages.*;
+import static Thezsia.content.Thezsia.blocks.ThezsiaStorages.*;
 import static Thezsia.world.meta.ThezTeams.*;
 
 public class ThezPlanets {
@@ -76,7 +69,7 @@ public class ThezPlanets {
                         new HexSkyMesh(planetThezsia, 30, 1.13f, 0.19f, 6, Color.valueOf("8b898f").a(0.27f), 4, 0.6f, 1f, 0.61f)
                 );
 
-                //lightColor = Color.valueOf("39383d");
+                //lightColor = Color.valueOf("39383d"); //39383d
                 drawOrbit = true;
                 orbitTime = 34 * 60;
                 orbitSpacing = 27;
@@ -92,8 +85,9 @@ public class ThezPlanets {
                 allowWaves = true;
                 clearSectorOnLose = true;
                 startSector = 12;
+                sectorSeed = 12;
                 defaultCore = coreDust;
-                defaultEnv = Env.oxygen | Env.terrestrial | Env.groundOil;
+                defaultEnv = Env.oxygen | Env.terrestrial | Env.groundOil | ThezEnv.underwaterWarm;
 
                 updateLighting = false;
                 hasAtmosphere = true;
@@ -102,7 +96,6 @@ public class ThezPlanets {
                 atmosphereRadOut = 0.24f;
                 tidalLock = true;
                 updateLighting = false;
-                sectorSeed = 12;
 
                 accessible = true;
                 visible = true;
@@ -111,17 +104,17 @@ public class ThezPlanets {
 
                 ruleSetter = r -> {
                     r.lighting = true;
-                    r.ambientLight = Color.valueOf("39383d");
+                    r.ambientLight = Color.valueOf("1d4a624a");
                     r.loadout = ItemStack.list();
-                    r.fog = true;
+                    r.fog = false; //true
                     r.showSpawns = true;
                     r.defaultTeam = vanitser;
                     r.waveTeam = precursors;
                     r.enemyCoreBuildRadius = 250;
                     r.coreCapture = false;
-                    Weather.WeatherEntry weather = new Weather.WeatherEntry(Weathers.fog);
-                    weather.always = true; //always fogy
-                    r.weather.add(weather);
+                    //Weather.WeatherEntry weather = new Weather.WeatherEntry(Weathers.suspendParticles);
+                    //weather.always = true; //there are always weather
+                    //r.weather.add(weather);
                     //r.bannedBlocks.addAll(conveyor);
                     r.hideBannedBlocks = true;
                 };
