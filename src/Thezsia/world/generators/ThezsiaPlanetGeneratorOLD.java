@@ -12,7 +12,7 @@ import mindustry.maps.generators.PlanetGenerator;
 import mindustry.type.Sector;
 import mindustry.world.Block;
 
-import static Thezsia.content.Thezsia.blocks.ThezEnv.*;
+import static Thezsia.content.Thezsia.blocks.ThezsiaEnv.*;
 
 public class ThezsiaPlanetGeneratorOLD extends PlanetGenerator {
 
