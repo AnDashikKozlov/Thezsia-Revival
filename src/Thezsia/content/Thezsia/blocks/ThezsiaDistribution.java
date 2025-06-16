@@ -16,7 +16,7 @@ import mindustry.world.blocks.liquid.LiquidRouter;
 
 import static Thezsia.content.ThezItems.*;
 
-public class ThezDistribution{
+public class ThezsiaDistribution{
     public static Block
             //item
             tantalumBelt, tantalumJunction, tantalumBridge, tantalumRouter, tantalumSorter, invertedTantalumSorter, tantalumSpillwayGate, invertedTantalumSpillwayGate,
@@ -40,7 +40,7 @@ public class ThezDistribution{
             requirements(Category.distribution, ItemStack.with(tantalum, 8));
             size = 1; health = 80;
             hasPower = false;
-            range = 3;
+            range = 4;
         }};
         ((ClosedConveyor) tantalumBelt).junctionReplacement = tantalumJunction;
         tantalumRouter = new Router("tantalum-router"){{
@@ -75,28 +75,29 @@ public class ThezDistribution{
             size = 1;
             liquidCapacity = 12;
             botColor = Color.valueOf("19181AFF");
+            leaks = false;
         }};
-        infiumPipe = new Conduit("infium-pipe"){{
+        /*infiumPipe = new Conduit("infium-pipe"){{
             requirements(Category.liquid, ItemStack.with(infium, 2, sulfur, 1));
             health = 160;
             size = 1;
             liquidCapacity = 25;
             botColor = Color.valueOf("19181AFF");
-        }};
+        }};*/
         liquidJunction = new LiquidJunction("liquid-junction"){{
             requirements(Category.liquid,ItemStack.with(tantalum, 6));
             health = 50;
             size = 1;
         }};
-        ((Conduit) tantalumPipe).junctionReplacement = liquidJunction; ((Conduit) infiumPipe).junctionReplacement = liquidJunction;
+        ((Conduit) tantalumPipe).junctionReplacement = liquidJunction; //((Conduit) infiumPipe).junctionReplacement = liquidJunction;
         liquidBridge = new LiquidBridge("liquid-bridge"){{
             requirements(Category.liquid, ItemStack.with(tantalum, 10));
             size = 1;
             hasPower = false;
-            range = 3;
+            range = 4;
             arrowSpacing =5;
         }};
-        ((Conduit) tantalumPipe).bridgeReplacement = liquidBridge; ((Conduit) infiumPipe).bridgeReplacement = liquidBridge;
+        ((Conduit) tantalumPipe).bridgeReplacement = liquidBridge; //((Conduit) infiumPipe).bridgeReplacement = liquidBridge;
         liquidHub = new LiquidRouter("liquid-hub"){{
             requirements(Category.liquid, ItemStack.with(tantalum, 5));
             health = 45;

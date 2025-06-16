@@ -11,7 +11,7 @@ import static Thezsia.content.ThezItems.*;
 import static Thezsia.content.Thezsia.ThezUnits.*;
 import static mindustry.type.ItemStack.with;
 
-public class ThezPayloads{
+public class ThezsiaPayloads{
     public static Block
             //Blocks
             groundFabricator, massConveyor, massRouter;

@@ -19,7 +19,7 @@ import static Thezsia.content.ThezLiquids.*;
 import static arc.math.Interp.*;
 import static mindustry.type.ItemStack.with;
 
-public class ThezCrafting{
+public class ThezsiaCrafting{
     public static Block
             //Blocks
             blastFurnace, arcFurnace, infiumMolder, massMolder, gasDecomposer, massiveDecomposer, commonHeater, sulfurHeater, heatRedirector, tensoriteSmelter, tritaniumRefinery, tritaniumSynthesizer;
@@ -31,7 +31,7 @@ public class ThezCrafting{
 
             consumePower(1);
             consumeItem(nihilite, 2);
-            consumeLiquid(wind, 0.23f);
+            consumeLiquid(oxygen, 0.23f);
             outputLiquid = new LiquidStack(ThezLiquids.lava,0.126666f);
 
             craftEffect = new RadialEffect(){{rotationSpacing = 45; amount = 2; layer = 118;
@@ -93,7 +93,7 @@ public class ThezCrafting{
             liquidCapacity = 40;
             craftTime = 160;
             outputLiquids = LiquidStack.with(carbonDioxide,0.22f, ammonia,0.1f);
-            consumeLiquid(wind, 0.38f);
+            consumeLiquid(oxygen, 0.38f);
             consumePower(1.2f);
 
             ambientSound = Sounds.hum;
@@ -112,7 +112,7 @@ public class ThezCrafting{
                         color = Color.valueOf("cacdd979");
                         reverse = true;
                     }},
-                    new DrawLiquidTile(wind, 4){{
+                    new DrawLiquidTile(oxygen, 4){{
                         alpha = 0.76f;
                     }}, new DrawDefault(), new DrawLiquidOutputs());
         }};

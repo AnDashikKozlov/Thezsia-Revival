@@ -14,7 +14,7 @@ import mindustry.world.draw.DrawTurret;
 
 import static Thezsia.content.ThezItems.*;
 
-public class ThezTurrets{
+public class ThezsiaTurrets{
     public static Block
             //Blocks
             ember, gaze;

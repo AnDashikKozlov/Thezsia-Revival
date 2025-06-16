@@ -8,7 +8,7 @@ import mindustry.world.Block;
 import static Thezsia.content.ThezItems.*;
 import static Thezsia.content.Thezsia.ThezUnits.*;
 
-public class ThezStorages{
+public class ThezsiaStorages{
     public static Block
             //Blocks
             coreDust, coreFog;
@@ -19,7 +19,7 @@ public class ThezStorages{
 
             hasPower = true;
             conductivePower = true;
-            powerProduction = 180 / 60f;
+            powerProduction = 80 / 60f;
             consumePowerBuffered(180);
             glowMag = 0.78f; glowScl = 9.5f;
             itemCapacity = 5000;
@@ -34,7 +34,7 @@ public class ThezStorages{
 
             hasPower = true;
             conductivePower = true;
-            powerProduction = 600 / 60f;
+            powerProduction = 250 / 60f;
             consumePowerBuffered(100);
             glowMag = 0.78f; glowScl = 9.5f;
             itemCapacity = 7500;

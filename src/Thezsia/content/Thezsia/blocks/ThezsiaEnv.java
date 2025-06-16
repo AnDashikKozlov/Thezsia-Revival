@@ -3,16 +3,18 @@ package Thezsia.content.Thezsia.blocks;
 import Thezsia.content.ThezItems;
 import Thezsia.world.blocks.ThezAttribute;
 import Thezsia.world.blocks.environment.BiggerVent;
+import arc.graphics.Color;
 import mindustry.world.Block;
 import mindustry.world.blocks.environment.*;
 import mindustry.world.meta.Attribute;
 
-public class ThezEnv{
+public class ThezsiaEnv{
     public static Block
             //Blocks
             //environment
             basalticPatch, basalticRock, basalticWall,
             charrokFloor, hardCharrok, charrokPile, hardCharrokPile, charrokWall, hardCharrokWall, largeCharrokPile, largeHardCharrokPile,
+            MagmaOverlayA, MagmaOverlayB, MagmaOverlayC,
             smoothSulfur, sulfurFloor, sulfurVent, sulfurBigVent, sulfurBoulder, sulfurWall, largeSulfurPile,
             peridotite, peridotiteDark, peridotiteCube, peridotiteDarkCube, peridotiteWall, peridotiteDarkWall, tritaniumCluster,
             //ores
@@ -31,6 +33,7 @@ public class ThezEnv{
         }};
         basalticRock = new Prop("basaltic-rock"){{
             variants = 3;
+            basalticPatch.asFloor().decoration = this;
         }};
         basalticWall = new StaticWall("basaltic-wall"){{
             variants = 4;
@@ -60,12 +63,21 @@ public class ThezEnv{
             hardCharrok.asFloor().wall = this;
         }};
         largeCharrokPile = new TallBlock("large-charrok-pile"){{
-            variants = 2;
-            shadowAlpha = 0.3f;
+            variants = 3;
+            shadowAlpha = 0.8f;
         }};
         largeHardCharrokPile = new TallBlock("large-hard-charrok-pile"){{
-            variants = 2;
-            shadowAlpha = 0.3f;
+            variants = 3;
+            shadowAlpha = 0.8f;
+        }};
+        MagmaOverlayA = new OverlayFloor("magma-overlay-a"){{variants = 4;
+            emitLight = true; lightColor = Color.valueOf("ffbd7f"); lightRadius = 12f * 8f;
+        }};
+        MagmaOverlayB = new OverlayFloor("magma-overlay-b"){{variants = 4;
+            emitLight = true; lightColor = Color.valueOf("f2724bd3"); lightRadius = 8f * 8f;
+        }};
+        MagmaOverlayC = new OverlayFloor("magma-overlay-c"){{variants = 4;
+            emitLight = true; lightColor = Color.valueOf("d13e30c3"); lightRadius = 5 * 8f;
         }};
         //Sulfur Biome
         smoothSulfur = new Floor("smooth-sulfur"){{
@@ -73,7 +85,7 @@ public class ThezEnv{
         }};
         sulfurFloor = new Floor("sulfur-floor"){{
             variants = 5;
-            blendGroup = ThezEnv.smoothSulfur;
+            blendGroup = smoothSulfur;
         }};
         sulfurVent = new SteamVent("sulfur-vent"){{
             variants = 0;
@@ -95,7 +107,7 @@ public class ThezEnv{
         }};
         largeSulfurPile = new TallBlock("large-sulfur-pile"){{
             variants = 1;
-            shadowAlpha = 0.3f;
+            shadowAlpha = 0.5f;
         }};
         //Peridotite biome
         peridotite = new Floor("peridotite"){{

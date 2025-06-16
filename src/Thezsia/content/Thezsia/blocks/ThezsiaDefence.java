@@ -12,7 +12,7 @@ import static Thezsia.content.ThezItems.*;
 import static arc.math.Interp.pow2;
 import static arc.math.Interp.pow2Out;
 
-public class ThezDefence{
+public class ThezsiaDefence{
     public static Block
             //walls
             tantalumWall, largeTantalumWall, infiumWall, largeInfiumWall, tensoriteWall, largeTensoriteWall, tritaniumWall, largeTritaniumWall, crackedWall, largeCrackedWall,
