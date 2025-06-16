@@ -4,6 +4,7 @@ import Thezsia.content.*;
 import Thezsia.content.Thezsia.ThezUnits;
 import Thezsia.content.Thezsia.blocks.ThezsiaBlocks;
 import Thezsia.world.blocks.ThezAttribute;
+import Thezsia.world.graphics.ThezEnvRenderers;
 import Thezsia.world.meta.*;
 import Thezsia.ui.*;
 import arc.*;
@@ -42,6 +43,7 @@ public class Thezsia extends Mod{
         ThezUnits.load();
         ThezsiaBlocks.load();
         ThezPlanets.load();
+        ThezEnvRenderers.init();
     }
 
 }
