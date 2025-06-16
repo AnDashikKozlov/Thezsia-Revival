@@ -9,7 +9,7 @@ import mindustry.content.Blocks;
 import mindustry.maps.generators.PlanetGenerator;
 import mindustry.world.Block;
 
-import static Thezsia.content.Thezsia.blocks.ThezEnv.*;
+import static Thezsia.content.Thezsia.blocks.ThezsiaEnv.*;
 
 public class ThezsiaPlanetGenerator extends PlanetGenerator {
     public float heightScl = 0.8f, octaves = 6, persistence = 1.2f, heightPow = 1.2f, heightMult = 1.15f;
