@@ -5,17 +5,17 @@ import mindustry.type.Liquid;
 
 public class ThezLiquids {
     public static Liquid
-            wind, lava, carbonDioxide, ammonia, meltedTensorite;
+            oxygen, lava, carbonDioxide, ammonia, meltedTensorite;
     public static void load() {
 
-        wind = new Liquid("wind", Color.valueOf("FFFFFF00")){{
+        oxygen = new Liquid("oxygen", Color.valueOf("FFFFFF00")){{
             gas = true;
             gasColor = Color.valueOf("E6E6E600");
             barColor = Color.valueOf("E6E6E633");
-            lightColor = Color.valueOf("DEDEDEFF");
+            //lightColor = Color.valueOf("DEDEDEFF");
 
-            flammability = 0;
-            temperature = 0.4f;
+            flammability = 0.3f;
+            temperature = 0.1f;
             heatCapacity = 0.2f;
             viscosity = 0.5f;
 
@@ -38,11 +38,11 @@ public class ThezLiquids {
             gas = true;
             gasColor = Color.valueOf("9a9da6");
             barColor = Color.valueOf("9a9da6");
-            lightColor = Color.valueOf("5f626e");
+            //lightColor = Color.valueOf("5f626e");
 
-            flammability = 0.23f;
-            temperature = 0.5f;
-            heatCapacity = 0.35f;
+            flammability = 0f;
+            temperature = 0f;
+            heatCapacity = 0.45f;
             viscosity = 0.35f;
 
             coolant = false;
@@ -51,7 +51,7 @@ public class ThezLiquids {
             gas = true;
             gasColor = Color.valueOf("c29fcf");
             barColor = Color.valueOf("c29fcf");
-            lightColor = Color.valueOf("988ca3");
+            //lightColor = Color.valueOf("988ca3");
 
             flammability = 0.15f;
             temperature = 0.2f;
@@ -67,7 +67,7 @@ public class ThezLiquids {
             lightColor = Color.valueOf("4a6aba");
 
             flammability = 0.07f;
-            temperature = 0.47f;
+            temperature = 0.87f;
             heatCapacity = 0.23f;
             viscosity = 0.67f;
 
