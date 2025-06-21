@@ -12,10 +12,11 @@ import mindustry.graphics.Pal;
 import mindustry.type.*;
 import mindustry.type.weapons.*;
 
+import static Thezsia.world.graphics.ThezPal.*;
 import static mindustry.Vars.tilesize;
 import static mindustry.content.Fx.*;
 
-public class ThezUnits {
+public class ThezsiaUnits {
     public static UnitType
     //core
     Iambient, IIambient,
@@ -44,7 +45,7 @@ public class ThezUnits {
             itemCapacity  = 30;
             faceTarget = true;
             targetPriority = -2;
-            outlineColor = Color.valueOf("212222");
+            outlineColor = outlineCoreunitTree;
 
             payloadCapacity = 2f * 2f * tilesize * tilesize;
             pickupUnits = false;
@@ -114,7 +115,7 @@ public class ThezUnits {
             hitSize = 9;
             itemCapacity  = 50;
             faceTarget = true;
-            outlineColor = Color.valueOf("212222");
+            outlineColor = outlineCoreunitTree;
 
             mineTier = 2;
             mineWalls = true;
@@ -173,7 +174,7 @@ public class ThezUnits {
             drag = 0.07f;
             speed = 1;
             rotateSpeed = 4;
-            outlineColor = Color.valueOf("242229");
+            outlineColor = outlineNoctisTree;
 
             accel = 0.06f;
             health = 175;
@@ -225,7 +226,7 @@ public class ThezUnits {
             drag = 0.07f;
             speed = 0.9f;
             rotateSpeed = 3.7f;
-            outlineColor = Color.valueOf("242229");
+            outlineColor = outlineNoctisTree;
 
             accel = 0.06f;
             health = 460;
@@ -293,7 +294,7 @@ public class ThezUnits {
             drag = 0.07f;
             speed = 0.75f;
             rotateSpeed = 3.42f;
-            outlineColor = Color.valueOf("242229");
+            outlineColor = outlineNoctisTree;
 
             accel = 0.06f;
             health = 985;
@@ -393,8 +394,8 @@ public class ThezUnits {
             health = 180;
             hitSize = 9;
             rotateSpeed = 3.4f;
-            outlineColor = Color.valueOf("1f1c1c");
-            mechLegColor = Color.valueOf("1f1c1c");
+            outlineColor = outlineIgnisTree;
+            mechLegColor = outlineIgnisTree;
 
             weapons.add(
             new Weapon("thezsia1-ignis-weapon"){{
@@ -449,8 +450,8 @@ public class ThezUnits {
             health = 445;
             hitSize = 14;
             rotateSpeed = 3.1f;
-            outlineColor = Color.valueOf("1f1c1c");
-            mechLegColor = Color.valueOf("1f1c1c");
+            outlineColor = outlineIgnisTree;
+            mechLegColor = outlineIgnisTree;
 
             weapons.add(
                     new Weapon("thezsia1-flamma-weapon"){{
@@ -501,7 +502,7 @@ public class ThezUnits {
             constructor = LegsUnit::create;
 
             drag = 0.04f;
-            outlineColor = Color.valueOf("19181AFF");
+            outlineColor = outlinePebbleTree;
             drawCell = false;
             speed = 1;
             rotateSpeed = 4;
@@ -570,7 +571,7 @@ public class ThezUnits {
             physics = false;
             lightRadius = 0;
             lightOpacity = 0;
-            outlineColor = Color.valueOf("19181AFF");
+            outlineColor = outlinePebbleTree;
             drawCell = false;
             speed = 0;
             rotateSpeed = 0;
@@ -598,7 +599,7 @@ public class ThezUnits {
                     speed = 0;
                     instantDisappear = true;
                     killShooter = true;
-                    spawnUnit = ThezUnits.pebble;
+                    spawnUnit = ThezsiaUnits.pebble;
                 }};
             }});
         }};
@@ -606,7 +607,7 @@ public class ThezUnits {
             constructor = LegsUnit::create;
 
             drag = 0.08f;
-            outlineColor = Color.valueOf("19181AFF");
+            outlineColor = outlinePebbleTree;
             drawCell = false;
             speed = 0.9f;
             rotateSpeed = 2;
@@ -633,7 +634,7 @@ public class ThezUnits {
             hovering = true;
 
             abilities.add(new SpawnDeathAbility(){{
-                unit = ThezUnits.pebble;
+                unit = ThezsiaUnits.pebble;
                 amount = 4;
             }});
 
