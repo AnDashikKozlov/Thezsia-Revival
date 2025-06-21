@@ -87,7 +87,7 @@ public class ThezPlanets {
                 startSector = 12;
                 sectorSeed = 12;
                 defaultCore = coreDust;
-                defaultEnv = Env.oxygen | Env.terrestrial | Env.groundOil | ThezEnv.underwaterWarm;
+                defaultEnv = Env.terrestrial | Env.groundOil | ThezEnv.underwaterWarm;
 
                 updateLighting = false;
                 hasAtmosphere = true;
