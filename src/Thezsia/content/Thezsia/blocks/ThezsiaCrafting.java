@@ -4,9 +4,11 @@ import Thezsia.content.ThezItems;
 import Thezsia.content.ThezLiquids;
 import Thezsia.world.draw.DrawArcSmeltReverse;
 import arc.graphics.Color;
+import arc.math.Interp;
 import mindustry.entities.effect.*;
 import mindustry.gen.Sounds;
 import mindustry.type.Category;
+import mindustry.type.Item;
 import mindustry.type.ItemStack;
 import mindustry.type.LiquidStack;
 import mindustry.world.Block;
@@ -29,29 +31,32 @@ public class ThezsiaCrafting{
             size = 3;
             squareSprite = false;
 
-            consumePower(1);
+            consumePower(130f / 60f);
             consumeItem(nihilite, 2);
-            consumeLiquid(oxygen, 0.23f);
-            outputLiquid = new LiquidStack(ThezLiquids.lava,0.126666f);
+            consumeLiquid(oxygen, 10f / 60f);
+            outputLiquid = new LiquidStack(ThezLiquids.lava,8f / 60f);
 
-            craftEffect = new RadialEffect(){{rotationSpacing = 45; amount = 2; layer = 118;
+            craftTime = 2f * 60f;
+                    craftEffect = new MultiEffect(new RadialEffect(){{rotationSpacing = 45; amount = 2; layer = 118;
                 effect = new ParticleEffect(){{
-                    particles = 4;
-                    length = 14;
-                    lifetime = 60;
-                    sizeFrom = 2.5f; sizeTo = 0;
+                    particles = 5; length = 15; lifetime = 72;
+                    sizeFrom = 2.7f; sizeTo = 0;
                     colorFrom = Color.valueOf("ffffff00"); colorTo = Color.valueOf("ffffff88");
-                    layer = 80;
-                }};
-            }};
+                    layer = 80; }};
+                    }}, new ParticleEffect(){{
+                        particles = 13; lifetime = 42;
+                        length = 120; baseLength = 10f;
+                        sizeFrom = 3.5f; sizeTo = 1.2f;
+                        cone = 30f; baseRotation = 45f;
+                        colorFrom = Color.valueOf("615755c6");
+                        colorTo = Color.valueOf("544f5074");
+                        interp = Interp.pow2; sizeInterp = Interp.pow2Out;
+                    }});
             ambientSound = Sounds.machine; ambientSoundVolume = 0.08f;
             drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawLiquidTile(ThezLiquids.lava, 3),
                     new DrawArcSmeltReverse(){{
-                        particleLife = 55; particleRad = 9;
-                    }}, new DrawDefault(),
-                    new DrawGlowRegion(){{
-                        color = Color.valueOf("F6916330");
-                    }}
+                        particleLife = 55; particleRad = 9;}}, new DrawDefault(),
+                    new DrawGlowRegion(){{color = Color.valueOf("e06f554f");}}
             );
         }};
 
@@ -60,26 +65,22 @@ public class ThezsiaCrafting{
             size = 3;
             squareSprite = false;
             outputItem = new ItemStack(infium, 1);
-            consumeItem(silver, 2);
-            consumeLiquid(lava, 0.2f);
-            consumePower(0.87f);
+            consumeItems(ItemStack.with(tantalum, 3, nihilite, 1));
+            consumeLiquid(lava, 4f / 60f);
+            consumePower(135f / 60f);
             craftEffect = new ParticleEffect(){{
-                particles = 6;
-                cone = 360;
-                sizeFrom = 1;
-                sizeTo = 0.1f;
-                colorFrom = Color.valueOf("FFCB00FF");
-                colorTo = Color.valueOf("C99200FF");
+                particles = 7; cone = 360;
+                sizeFrom = 1.4f; sizeTo = 0.1f;
+                colorFrom = Color.valueOf("FFCB00FF"); colorTo = Color.valueOf("C99200FF");
                 lifetime = 60;
-                length = 3;
-                baseLength = 5;
+                length = 4; baseLength = 6;
             }};
             ambientSound = Sounds.machine; ambientSoundVolume = 0.08f;
             drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawLiquidTile(lava, 2),
                     new DrawRegion("-rotator"){{
                         spinSprite = true;
                         rotateSpeed = -4;}},
-                    new DrawDefault()
+                    new DrawDefault(), new DrawGlowRegion(){{color = Color.valueOf("e8ac828e");}}
             );
         }};
 
@@ -93,8 +94,8 @@ public class ThezsiaCrafting{
             liquidCapacity = 40;
             craftTime = 160;
             outputLiquids = LiquidStack.with(carbonDioxide,0.22f, ammonia,0.1f);
-            consumeLiquid(oxygen, 0.38f);
-            consumePower(1.2f);
+            consumeLiquid(oxygen, 22f / 60f);
+            consumePower(270f / 60f);
 
             ambientSound = Sounds.hum;
             ambientSoundVolume = 0.08f;
@@ -114,7 +115,8 @@ public class ThezsiaCrafting{
                     }},
                     new DrawLiquidTile(oxygen, 4){{
                         alpha = 0.76f;
-                    }}, new DrawDefault(), new DrawLiquidOutputs());
+                    }}, new DrawDefault(), new DrawLiquidOutputs()
+            );
         }};
 
         commonHeater = new HeatProducer("common-heater"){{
@@ -201,7 +203,7 @@ public class ThezsiaCrafting{
                         sizeFrom = 2.9f; sizeTo = 0;
                     }}
             );
-            drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawRegion("-bottom2"), new DrawHeatInput("-heat"), new DrawDefault(),
+            drawer = new DrawMulti(new DrawRegion("-bottom"),
                     new DrawGlowRegion(){{color = Color.valueOf("2CDC78");}},
                     new DrawParticles(){{
                         fadeMargin = 1.4f;
@@ -210,17 +212,17 @@ public class ThezsiaCrafting{
                         color = Color.valueOf("48d986d7");
                     }},
                     new DrawLiquidTile(){{
-                        padding = 2;
+                        padding = 2.5f;
                         drawLiquid = ThezLiquids.ammonia;
                         alpha = 0.95f;
-                    }},
+                    }}, new DrawRegion("-bottom2"),
                     new DrawParticles(){{
                         reverse = true;
                         fadeMargin = 0.7f;
                         particleRad = 12; particleLife = 137; particleSize = 1.55f;
                         alpha = 0.45f;
                         color = Color.valueOf( "4fff959e");
-                    }}
+                    }}, new DrawDefault(), new DrawHeatInput("-heat")
             );
             ambientSound = Sounds.machine; ambientSoundVolume = 0.09f;
 

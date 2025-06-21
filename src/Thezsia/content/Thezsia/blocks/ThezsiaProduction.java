@@ -3,16 +3,16 @@ package Thezsia.content.Thezsia.blocks;
 
 import arc.graphics.Color;
 import arc.math.Interp;
-import mindustry.entities.effect.ParticleEffect;
+import mindustry.content.Fx;
+import mindustry.entities.effect.*;
 import mindustry.gen.Sounds;
+import mindustry.graphics.Pal;
 import mindustry.type.Category;
 import mindustry.type.ItemStack;
 import mindustry.type.LiquidStack;
 import mindustry.world.Block;
-import mindustry.world.blocks.production.Drill;
-import mindustry.world.blocks.production.GenericCrafter;
-import mindustry.world.blocks.production.WallCrafter;
-import mindustry.world.consumers.ConsumeLiquid;
+import mindustry.world.blocks.production.*;
+import mindustry.world.consumers.*;
 import mindustry.world.draw.*;
 
 import static Thezsia.content.ThezItems.*;
@@ -25,7 +25,7 @@ public class ThezsiaProduction{
             //Blocks
             windTrap,
             //drills
-            stoneGrinder, rotaryDrill, circularDrill;
+            stoneGrinder, /*rotaryDrill,*/ circularDrill;
     public static void load(){
         windTrap = new GenericCrafter("large-wind-trap"){{
             requirements(Category.production, ItemStack.with(tantalum, 100, infium, 80, tensorite, 50));
@@ -66,29 +66,43 @@ public class ThezsiaProduction{
             ambientSound = Sounds.drill;
             ambientSoundVolume = 0.08f;
         }};
-        rotaryDrill = new Drill("rotary-drill"){{
-            requirements(Category.production, ItemStack.with(tantalum, 40));
-            size = 3; squareSprite = false;
+        circularDrill = new BurstDrill("circular-drill"){{
+            requirements(Category.production, ItemStack.with(tantalum, 80, silver, 25));
+            size = 4; squareSprite = false; itemCapacity = 30; fogRadius = 4;
             tier = 4;
-            drillTime = 900;
-            liquidBoostIntensity = 1;
-            consumeLiquid(oxygen, 0.1f);
+            drillTime = 10f * 60f;
+            liquidBoostIntensity = 1.5f;
+
+            drillEffect = new MultiEffect(/*Fx.mineImpact,*/ Fx.drillSteam, Fx.mineImpactWave.wrap(Pal.redLight, 60f),
+                    new ParticleEffect(){{
+                        particles = 8; lifetime = 40; region = "thezsia1-bubble";
+                        length = 24; baseLength = 2f;
+                        sizeFrom = 8f; sizeTo = 3.7f;
+                        cone = 360; baseRotation = 0;
+                        colorFrom = Color.valueOf("615755c6"); colorTo = Color.valueOf("544f5074");
+                        interp = Interp.pow3Out; sizeInterp = Interp.pow3Out;
+                    }});
+            shake = 1.7f;
+
+            hasPower = true; consumePower(100f / 60f);
+            consumeLiquid(oxygen, 6f / 60f);
+            consumeLiquid(carbonDioxide, 4f / 60f).boost();
 
             ambientSound = Sounds.grinding;
             ambientSoundVolume = 0.3f;
             alwaysUnlocked = true;
         }};
-        circularDrill = new Drill("circular-drill"){{
+        /*circularDrill = new Drill("circular-drill"){{
             requirements(Category.production, ItemStack.with(tantalum, 60, infium, 20f, nihilite, 15f));
             size = 4;
             tier = 5;
             drillTime = 630;
             liquidBoostIntensity = 1.35f;
-            consumeLiquids(LiquidStack.with(lava, 0.27f));
+            consumeLiquids(LiquidStack.with(lava, 10f / 60f, carbonDioxide, 6f / 60f));
             consumePower(0.92f);
 
             ambientSound = Sounds.grinding;
             ambientSoundVolume = 0.4f;
-        }};
+        }};*/
     }
 }

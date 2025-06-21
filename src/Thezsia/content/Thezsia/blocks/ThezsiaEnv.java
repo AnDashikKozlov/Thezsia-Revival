@@ -3,18 +3,19 @@ package Thezsia.content.Thezsia.blocks;
 import Thezsia.content.ThezItems;
 import Thezsia.world.blocks.ThezAttribute;
 import Thezsia.world.blocks.environment.BiggerVent;
-import arc.graphics.Color;
 import mindustry.world.Block;
 import mindustry.world.blocks.environment.*;
 import mindustry.world.meta.Attribute;
+
+import static Thezsia.content.ThezItems.*;
 
 public class ThezsiaEnv{
     public static Block
             //Blocks
             //environment
-            basalticPatch, basalticRock, basalticWall,
             charrokFloor, hardCharrok, charrokPile, hardCharrokPile, charrokWall, hardCharrokWall, largeCharrokPile, largeHardCharrokPile,
-            MagmaOverlayA, MagmaOverlayB, MagmaOverlayC,
+            basalticPatch, basalticRock, basalticWall,
+            /*MagmaOverlayA, MagmaOverlayB, MagmaOverlayC,*/
             smoothSulfur, sulfurFloor, sulfurVent, sulfurBigVent, sulfurBoulder, sulfurWall, largeSulfurPile,
             peridotite, peridotiteDark, peridotiteCube, peridotiteDarkCube, peridotiteWall, peridotiteDarkWall, tritaniumCluster,
             //ores
@@ -28,18 +29,6 @@ public class ThezsiaEnv{
                 }};
                 */
         //Basaltic, charrok biome
-        basalticPatch = new Floor("basaltic-patch"){{
-            variants = 5;
-        }};
-        basalticRock = new Prop("basaltic-rock"){{
-            variants = 3;
-            basalticPatch.asFloor().decoration = this;
-        }};
-        basalticWall = new StaticWall("basaltic-wall"){{
-            variants = 4;
-            basalticPatch.asFloor().wall = this;
-            attributes.set(ThezAttribute.volcanicStone, 0.8f);
-        }};
         charrokFloor = new Floor("charrok-floor"){{
             variants = 5;
         }};
@@ -70,7 +59,19 @@ public class ThezsiaEnv{
             variants = 3;
             shadowAlpha = 0.8f;
         }};
-        MagmaOverlayA = new OverlayFloor("magma-overlay-a"){{variants = 4;
+        basalticPatch = new Floor("basaltic-patch"){{
+            variants = 5;
+        }};
+        basalticRock = new Prop("basaltic-rock"){{
+            variants = 3;
+            basalticPatch.asFloor().decoration = this;
+        }};
+        basalticWall = new StaticWall("basaltic-wall"){{
+            variants = 4;
+            basalticPatch.asFloor().wall = this;
+            attributes.set(ThezAttribute.volcanicStone, 0.8f);
+        }};
+        /*MagmaOverlayA = new OverlayFloor("magma-overlay-a"){{variants = 4;
             emitLight = true; lightColor = Color.valueOf("ffbd7f"); lightRadius = 12f * 8f;
         }};
         MagmaOverlayB = new OverlayFloor("magma-overlay-b"){{variants = 4;
@@ -78,7 +79,7 @@ public class ThezsiaEnv{
         }};
         MagmaOverlayC = new OverlayFloor("magma-overlay-c"){{variants = 4;
             emitLight = true; lightColor = Color.valueOf("d13e30c3"); lightRadius = 5 * 8f;
-        }};
+        }};*/
         //Sulfur Biome
         smoothSulfur = new Floor("smooth-sulfur"){{
             variants = 4;
@@ -137,11 +138,11 @@ public class ThezsiaEnv{
             shadowAlpha = 0.3f;
         }};
         //ores
-        /* basalticVein = new OreBlock("basaltic-vein"){{
+        basalticVein = new OreBlock("basaltic-vein"){{
             variants = 3;
             itemDrop = nihilite;
             wallOre = false;
-        }}; */
+        }};
         silverLick = new OreBlock("silver-lick"){{
             variants = 4;
             itemDrop = ThezItems.silver;
