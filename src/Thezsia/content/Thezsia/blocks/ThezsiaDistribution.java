@@ -3,6 +3,7 @@ package Thezsia.content.Thezsia.blocks;
 
 import Thezsia.content.ThezItems;
 import Thezsia.world.blocks.distribution.ClosedConveyor;
+import Thezsia.world.meta.ThezEnv;
 import arc.graphics.Color;
 import mindustry.type.Category;
 import mindustry.type.ItemStack;
@@ -13,6 +14,7 @@ import mindustry.world.blocks.liquid.Conduit;
 import mindustry.world.blocks.liquid.LiquidBridge;
 import mindustry.world.blocks.liquid.LiquidJunction;
 import mindustry.world.blocks.liquid.LiquidRouter;
+import mindustry.world.meta.Env;
 
 import static Thezsia.content.ThezItems.*;
 
@@ -25,6 +27,7 @@ public class ThezsiaDistribution{
     public static void load(){
         //item
         tantalumBelt = new ClosedConveyor("tantalum-belt"){{
+            envEnabled = Env.underwater | ThezEnv.underwaterWarm;
             requirements(Category.distribution, ItemStack.with(tantalum, 1));
             health = 40;
             speed = 0.04f;
@@ -42,7 +45,7 @@ public class ThezsiaDistribution{
             hasPower = false;
             range = 4;
         }};
-        ((ClosedConveyor) tantalumBelt).junctionReplacement = tantalumJunction;
+        //((ClosedConveyor) tantalumBelt).junctionReplacement = tantalumJunction;
         tantalumRouter = new Router("tantalum-router"){{
             requirements(Category.distribution, ItemStack.with(tantalum, 5));
             size = 1;
@@ -78,6 +81,7 @@ public class ThezsiaDistribution{
             leaks = false;
         }};
         /*infiumPipe = new Conduit("infium-pipe"){{
+            envEnabled = Env.underwater | ThezEnv.underwaterWarm;
             requirements(Category.liquid, ItemStack.with(infium, 2, sulfur, 1));
             health = 160;
             size = 1;

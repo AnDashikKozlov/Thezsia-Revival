@@ -1,9 +1,11 @@
 package Thezsia.content.Thezsia.blocks;
 
 import Thezsia.world.blocks.storage.GeneratorCore;
+import Thezsia.world.meta.ThezEnv;
 import mindustry.type.Category;
 import mindustry.type.ItemStack;
 import mindustry.world.Block;
+import mindustry.world.meta.Env;
 
 import static Thezsia.content.ThezItems.*;
 import static Thezsia.content.Thezsia.ThezsiaUnits.*;

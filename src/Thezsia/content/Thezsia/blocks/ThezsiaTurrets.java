@@ -1,5 +1,6 @@
 package Thezsia.content.Thezsia.blocks;
 
+import Thezsia.world.meta.ThezEnv;
 import arc.graphics.Color;
 import mindustry.content.Fx;
 import mindustry.entities.bullet.*;
@@ -11,6 +12,7 @@ import mindustry.world.Block;
 import mindustry.world.blocks.defense.turrets.*;
 import mindustry.world.consumers.ConsumeCoolant;
 import mindustry.world.draw.DrawTurret;
+import mindustry.world.meta.Env;
 
 import static Thezsia.content.ThezItems.*;
 

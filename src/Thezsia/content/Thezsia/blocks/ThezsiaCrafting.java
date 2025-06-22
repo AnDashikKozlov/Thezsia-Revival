@@ -3,6 +3,7 @@ package Thezsia.content.Thezsia.blocks;
 import Thezsia.content.ThezItems;
 import Thezsia.content.ThezLiquids;
 import Thezsia.world.draw.DrawArcSmeltReverse;
+import Thezsia.world.meta.ThezEnv;
 import arc.graphics.Color;
 import arc.math.Interp;
 import mindustry.entities.effect.*;
@@ -15,6 +16,7 @@ import mindustry.world.Block;
 import mindustry.world.blocks.heat.*;
 import mindustry.world.blocks.production.*;
 import mindustry.world.draw.*;
+import mindustry.world.meta.Env;
 
 import static Thezsia.content.ThezItems.*;
 import static Thezsia.content.ThezLiquids.*;
@@ -27,6 +29,7 @@ public class ThezsiaCrafting{
             blastFurnace, arcFurnace, infiumMolder, massMolder, gasDecomposer, massiveDecomposer, commonHeater, sulfurHeater, heatRedirector, tensoriteSmelter, tritaniumRefinery, tritaniumSynthesizer;
     public static void load(){
         blastFurnace = new GenericCrafter("blast-furnace"){{
+            envEnabled = Env.underwater | ThezEnv.underwaterWarm; envDisabled = Env.oxygen;
             requirements(Category.crafting, ItemStack.with(tantalum, 50, nihilite, 15));
             size = 3;
             squareSprite = false;
@@ -61,6 +64,7 @@ public class ThezsiaCrafting{
         }};
 
         infiumMolder = new GenericCrafter("infium-molder"){{
+            envEnabled = Env.underwater | ThezEnv.underwaterWarm | Env.oxygen;
             requirements(Category.crafting, ItemStack.with(tantalum, 70, nihilite, 20));
             size = 3;
             squareSprite = false;
@@ -85,6 +89,7 @@ public class ThezsiaCrafting{
         }};
 
         gasDecomposer= new GenericCrafter("gas-decomposer"){{
+            envEnabled = Env.underwater | ThezEnv.underwaterWarm; envDisabled = Env.oxygen;
             requirements(Category.crafting, ItemStack.with(tantalum, 60, nihilite, 15, infium, 20));
             size = 3;
             squareSprite = false;
@@ -120,6 +125,7 @@ public class ThezsiaCrafting{
         }};
 
         commonHeater = new HeatProducer("common-heater"){{
+            envEnabled = Env.underwater | ThezEnv.underwaterWarm;
             requirements(Category.crafting, ItemStack.with(tantalum, 20, silver, 80, infium, 30));
             size = 2;
             consumePower(124f / 60f);
@@ -129,6 +135,7 @@ public class ThezsiaCrafting{
             drawer = new DrawMulti(new DrawDefault(), new DrawHeatOutput());
         }};
         sulfurHeater = new HeatProducer("sulfur-heater"){{
+            envEnabled = Env.underwater | ThezEnv.underwaterWarm | Env.oxygen;
             requirements(Category.crafting, ItemStack.with(tantalum, 45, silver, 115, infium, 50));
             size = 3;
             consumeItem(sulfur);
@@ -138,12 +145,14 @@ public class ThezsiaCrafting{
             drawer = new DrawMulti(new DrawDefault(), new DrawHeatOutput());
         }};
         heatRedirector = new HeatConductor("heat-redirector"){{
+            envEnabled = Env.underwater | ThezEnv.underwaterWarm | Env.oxygen;
             requirements(Category.crafting, ItemStack.with(nihilite, 130, silver, 30));
             size = 3;
             drawer = new DrawMulti(new DrawDefault(), new DrawHeatOutput(), new DrawHeatOutput(), new DrawGlowRegion(){{color = Color.valueOf("876c5c1b");}});
         }};
 
         tensoriteSmelter = new GenericCrafter("tensorite-smelter"){{
+            envEnabled = Env.underwater | ThezEnv.underwaterWarm | Env.oxygen;
             requirements(Category.crafting, ItemStack.with(tantalum, 80, silver, 10, infium, 40));
             size = 3;
             squareSprite = false;
@@ -176,6 +185,7 @@ public class ThezsiaCrafting{
         }};
 
         tritaniumSynthesizer = new HeatCrafter("tritanium-synthesizer"){{
+            envEnabled = Env.underwater | ThezEnv.underwaterWarm;
             requirements(Category.crafting, ItemStack.with(tantalum, 90f, infium, 60f, tensorite, 30f, sulfur, 15f));
             size = 4;
             outputItem = new ItemStack(tritanium, 4);

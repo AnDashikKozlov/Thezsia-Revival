@@ -1,6 +1,7 @@
 package Thezsia.content.Thezsia.blocks;
 
 import Thezsia.world.blocks.power.*;
+import Thezsia.world.meta.ThezEnv;
 import arc.graphics.Color;
 import mindustry.type.Category;
 import mindustry.world.Block;
@@ -8,6 +9,7 @@ import mindustry.world.blocks.power.Battery;
 import mindustry.world.draw.DrawGlowRegion;
 import mindustry.world.draw.DrawMulti;
 import mindustry.world.draw.DrawRegion;
+import mindustry.world.meta.Env;
 
 import static Thezsia.content.ThezItems.*;
 import static Thezsia.world.graphics.ThezPal.*;

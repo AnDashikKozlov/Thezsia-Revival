@@ -1,6 +1,7 @@
 package Thezsia.content.Thezsia.blocks;
 
 
+import Thezsia.world.meta.ThezEnv;
 import arc.graphics.Color;
 import arc.math.Interp;
 import mindustry.content.Fx;
@@ -14,6 +15,7 @@ import mindustry.world.Block;
 import mindustry.world.blocks.production.*;
 import mindustry.world.consumers.*;
 import mindustry.world.draw.*;
+import mindustry.world.meta.Env;
 
 import static Thezsia.content.ThezItems.*;
 import static Thezsia.content.ThezLiquids.*;
@@ -28,11 +30,12 @@ public class ThezsiaProduction{
             stoneGrinder, /*rotaryDrill,*/ circularDrill;
     public static void load(){
         windTrap = new GenericCrafter("large-wind-trap"){{
+            envEnabled = Env.underwater | ThezEnv.underwaterWarm; envDisabled = Env.oxygen;
             requirements(Category.production, ItemStack.with(tantalum, 100, infium, 80, tensorite, 50));
             size = 5; health = 525; squareSprite = false;
 
             consumePower(1.92f);
-            outputLiquid = new LiquidStack(oxygen,1.11f);
+            outputLiquid = new LiquidStack(oxygen,30f / 60f);
             liquidCapacity = 300;
 
             craftEffect = new ParticleEffect(){{
@@ -56,6 +59,7 @@ public class ThezsiaProduction{
             );
         }};
         stoneGrinder = new WallCrafter("stone-grinder"){{
+            envEnabled = Env.underwater | ThezEnv.underwaterWarm;
             requirements(Category.production, ItemStack.with(tantalum, 25));
             size = 2; health = 85; squareSprite = false;
 
@@ -67,6 +71,7 @@ public class ThezsiaProduction{
             ambientSoundVolume = 0.08f;
         }};
         circularDrill = new BurstDrill("circular-drill"){{
+            envEnabled = Env.underwater | ThezEnv.underwaterWarm; envDisabled = Env.oxygen;
             requirements(Category.production, ItemStack.with(tantalum, 80, silver, 25));
             size = 4; squareSprite = false; itemCapacity = 30; fogRadius = 4;
             tier = 4;
