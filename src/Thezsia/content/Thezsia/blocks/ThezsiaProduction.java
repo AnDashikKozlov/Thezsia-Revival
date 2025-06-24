@@ -59,7 +59,7 @@ public class ThezsiaProduction{
             );
         }};
         stoneGrinder = new WallCrafter("stone-grinder"){{
-            envEnabled = Env.underwater | ThezEnv.underwaterWarm;
+            envEnabled = Env.underwater | ThezEnv.underwaterWarm | Env.oxygen;
             requirements(Category.production, ItemStack.with(tantalum, 25));
             size = 2; health = 85; squareSprite = false;
 
