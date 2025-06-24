@@ -22,6 +22,7 @@ public class ThezsiaTurrets{
             ember, gaze;
     public static void load() {
         ember = new ItemTurret("ember"){{
+            envEnabled = Env.underwater | ThezEnv.underwaterWarm | Env.oxygen;
             requirements(Category.turret, ItemStack.with(tantalum, 50));
             size = 3;
             squareSprite = false;
@@ -88,6 +89,7 @@ public class ThezsiaTurrets{
         }};
 
         gaze = new PowerTurret("gaze"){{
+            envEnabled = Env.underwater | ThezEnv.underwaterWarm | Env.oxygen;
             requirements(Category.turret, ItemStack.with(tantalum, 125, silver, 75, tensorite, 50));
             size = 3;
             coolant = consume(new ConsumeCoolant(0.1f, true, true));
