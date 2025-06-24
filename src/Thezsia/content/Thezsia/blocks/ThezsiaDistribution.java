@@ -40,6 +40,7 @@ public class ThezsiaDistribution{
             speed = 35;
             capacity = 6;
         }};
+        ((ClosedConveyor) tantalumBelt).junctionReplacement = tantalumJunction;
         tantalumBridge = new ItemBridge("tantalum-bridge"){{
             envEnabled = Env.underwater | ThezEnv.underwaterWarm | Env.oxygen;
             requirements(Category.distribution, ItemStack.with(tantalum, 8));
@@ -47,13 +48,12 @@ public class ThezsiaDistribution{
             hasPower = false;
             range = 4;
         }};
-        //((ClosedConveyor) tantalumBelt).junctionReplacement = tantalumJunction;
+        ((ClosedConveyor) tantalumBelt).bridgeReplacement = tantalumBridge;
         tantalumRouter = new Router("tantalum-router"){{
             envEnabled = Env.underwater | ThezEnv.underwaterWarm | Env.oxygen;
             requirements(Category.distribution, ItemStack.with(tantalum, 5));
             size = 1;
         }};
-        ((ClosedConveyor) tantalumBelt).bridgeReplacement = tantalumBridge;
         tantalumSorter = new Sorter("tantalum-sorter"){{
             envEnabled = Env.underwater | ThezEnv.underwaterWarm | Env.oxygen;
             requirements(Category.distribution, ItemStack.with(tantalum, 5, nihilite,2));
