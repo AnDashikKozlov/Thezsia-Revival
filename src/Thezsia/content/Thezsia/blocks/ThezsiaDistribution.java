@@ -27,19 +27,21 @@ public class ThezsiaDistribution{
     public static void load(){
         //item
         tantalumBelt = new ClosedConveyor("tantalum-belt"){{
-            envEnabled = Env.underwater | ThezEnv.underwaterWarm;
+            envEnabled = Env.underwater | ThezEnv.underwaterWarm | Env.oxygen;
             requirements(Category.distribution, ItemStack.with(tantalum, 1));
             health = 40;
             speed = 0.04f;
             displayedSpeed = 5.4f;
         }};
         tantalumJunction = new Junction("tantalum-junction"){{
+            envEnabled = Env.underwater | ThezEnv.underwaterWarm | Env.oxygen;
             requirements(Category.distribution, ItemStack.with(tantalum, 3));
             size = 1;
             speed = 35;
             capacity = 6;
         }};
         tantalumBridge = new ItemBridge("tantalum-bridge"){{
+            envEnabled = Env.underwater | ThezEnv.underwaterWarm | Env.oxygen;
             requirements(Category.distribution, ItemStack.with(tantalum, 8));
             size = 1; health = 80;
             hasPower = false;
@@ -47,25 +49,30 @@ public class ThezsiaDistribution{
         }};
         //((ClosedConveyor) tantalumBelt).junctionReplacement = tantalumJunction;
         tantalumRouter = new Router("tantalum-router"){{
+            envEnabled = Env.underwater | ThezEnv.underwaterWarm | Env.oxygen;
             requirements(Category.distribution, ItemStack.with(tantalum, 5));
             size = 1;
         }};
         ((ClosedConveyor) tantalumBelt).bridgeReplacement = tantalumBridge;
         tantalumSorter = new Sorter("tantalum-sorter"){{
+            envEnabled = Env.underwater | ThezEnv.underwaterWarm | Env.oxygen;
             requirements(Category.distribution, ItemStack.with(tantalum, 5, nihilite,2));
             health =50;
         }};
         invertedTantalumSorter = new Sorter("inverted-tantalum-sorter"){{
+            envEnabled = Env.underwater | ThezEnv.underwaterWarm | Env.oxygen;
             requirements(Category.distribution, ItemStack.with(tantalum, 5, nihilite,2));
             health = 50;
             invert = true;
         }};
         tantalumSpillwayGate = new OverflowGate("tantalum-spillway-gate"){{
+            envEnabled = Env.underwater | ThezEnv.underwaterWarm | Env.oxygen;
             requirements(Category.distribution, ItemStack.with(tantalum, 5, nihilite,2));
             health = 50;
             researchCostMultiplier = 0.5f;
         }};
         invertedTantalumSpillwayGate = new OverflowGate("inverted-tantalum-spillway-gate"){{
+            envEnabled = Env.underwater | ThezEnv.underwaterWarm | Env.oxygen;
             requirements(Category.distribution, ItemStack.with(tantalum, 5, nihilite,2));
             health = 50;
             invert = true;
@@ -74,6 +81,7 @@ public class ThezsiaDistribution{
 
         //liquid
         tantalumPipe = new Conduit("tantalum-pipe"){{
+            envEnabled = Env.underwater | ThezEnv.underwaterWarm | Env.oxygen;
             requirements(Category.liquid, ItemStack.with(tantalum, 2));
             size = 1;
             liquidCapacity = 12;
@@ -81,7 +89,7 @@ public class ThezsiaDistribution{
             leaks = false;
         }};
         /*infiumPipe = new Conduit("infium-pipe"){{
-            envEnabled = Env.underwater | ThezEnv.underwaterWarm;
+            envEnabled = Env.underwater | ThezEnv.underwaterWarm | Env.oxygen;
             requirements(Category.liquid, ItemStack.with(infium, 2, sulfur, 1));
             health = 160;
             size = 1;
@@ -89,12 +97,14 @@ public class ThezsiaDistribution{
             botColor = Color.valueOf("19181AFF");
         }};*/
         liquidJunction = new LiquidJunction("liquid-junction"){{
+            envEnabled = Env.underwater | ThezEnv.underwaterWarm | Env.oxygen;
             requirements(Category.liquid,ItemStack.with(tantalum, 6));
             health = 50;
             size = 1;
         }};
         ((Conduit) tantalumPipe).junctionReplacement = liquidJunction; //((Conduit) infiumPipe).junctionReplacement = liquidJunction;
         liquidBridge = new LiquidBridge("liquid-bridge"){{
+            envEnabled = Env.underwater | ThezEnv.underwaterWarm | Env.oxygen;
             requirements(Category.liquid, ItemStack.with(tantalum, 10));
             size = 1;
             hasPower = false;
@@ -103,12 +113,14 @@ public class ThezsiaDistribution{
         }};
         ((Conduit) tantalumPipe).bridgeReplacement = liquidBridge; //((Conduit) infiumPipe).bridgeReplacement = liquidBridge;
         liquidHub = new LiquidRouter("liquid-hub"){{
+            envEnabled = Env.underwater | ThezEnv.underwaterWarm | Env.oxygen;
             requirements(Category.liquid, ItemStack.with(tantalum, 5));
             health = 45;
             size = 1;
             liquidPadding = 1;
         }};
         liquidBallast = new LiquidRouter("liquid-ballast"){{
+            envEnabled = Env.underwater | ThezEnv.underwaterWarm | Env.oxygen;
             requirements(Category.liquid, ItemStack.with(tantalum, 40, infium, 10));
             size = 2;
             liquidPadding = 2;
