@@ -41,12 +41,16 @@ public class ThezsiaDistribution{
             capacity = 6;
         }};
         ((ClosedConveyor) tantalumBelt).junctionReplacement = tantalumJunction;
-        tantalumBridge = new ItemBridge("tantalum-bridge"){{
+        tantalumBridge = new BufferedItemBridge("tantalum-bridge"){{
             envEnabled = Env.underwater | ThezEnv.underwaterWarm | Env.oxygen;
             requirements(Category.distribution, ItemStack.with(tantalum, 8));
             size = 1; health = 80;
             hasPower = false;
+            fadeIn = moveArrows = false;
             range = 4;
+            speed = 82f;
+            arrowSpacing = 8f;
+            bufferCapacity = 12;
         }};
         ((ClosedConveyor) tantalumBelt).bridgeReplacement = tantalumBridge;
         tantalumRouter = new Router("tantalum-router"){{
