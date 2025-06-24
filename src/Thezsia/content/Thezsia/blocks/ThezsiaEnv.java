@@ -3,6 +3,7 @@ package Thezsia.content.Thezsia.blocks;
 import Thezsia.content.ThezItems;
 import Thezsia.world.blocks.ThezAttribute;
 import Thezsia.world.blocks.environment.BiggerVent;
+import arc.graphics.Color;
 import mindustry.world.Block;
 import mindustry.world.blocks.environment.*;
 import mindustry.world.meta.Attribute;
@@ -15,7 +16,7 @@ public class ThezsiaEnv{
             //environment
             charrokFloor, hardCharrok, charrokPile, hardCharrokPile, charrokWall, hardCharrokWall, largeCharrokPile, largeHardCharrokPile,
             basalticPatch, basalticRock, basalticWall,
-            /*MagmaOverlayA, MagmaOverlayB, MagmaOverlayC,*/
+            igneousBasalt, hotRock, igneousRock, magma, magmaOverlay,
             smoothSulfur, sulfurFloor, sulfurVent, sulfurBigVent, sulfurBoulder, sulfurWall, largeSulfurPile,
             peridotite, peridotiteDark, peridotiteCube, peridotiteDarkCube, peridotiteWall, peridotiteDarkWall, tritaniumCluster,
             //ores
@@ -28,7 +29,7 @@ public class ThezsiaEnv{
                     attributes.set(Attribute.steam, 1f);
                 }};
                 */
-        //Basaltic, charrok biome
+        //Charrok, basaltic, magmatic biomes
         charrokFloor = new Floor("charrok-floor"){{
             variants = 5;
         }};
@@ -59,6 +60,7 @@ public class ThezsiaEnv{
             variants = 3;
             shadowAlpha = 0.8f;
         }};
+
         basalticPatch = new Floor("basaltic-patch"){{
             variants = 5;
         }};
@@ -71,31 +73,33 @@ public class ThezsiaEnv{
             basalticPatch.asFloor().wall = this;
             attributes.set(ThezAttribute.volcanicStone, 0.8f);
         }};
-        /*MagmaOverlayA = new OverlayFloor("magma-overlay-a"){{variants = 4;
-            emitLight = true; lightColor = Color.valueOf("ffbd7f"); lightRadius = 12f * 8f;
-        }};
-        MagmaOverlayB = new OverlayFloor("magma-overlay-b"){{variants = 4;
+
+        igneousBasalt = new Floor("igneous-basalt"){{variants = 5;}};
+        hotRock = new Floor("hot-rock"){{variants = 5;
             emitLight = true; lightColor = Color.valueOf("f2724bd3"); lightRadius = 8f * 8f;
         }};
-        MagmaOverlayC = new OverlayFloor("magma-overlay-c"){{variants = 4;
+        igneousRock = new Floor("igneous-rock"){{variants = 5;
             emitLight = true; lightColor = Color.valueOf("d13e30c3"); lightRadius = 5 * 8f;
-        }};*/
+        }};
+        magma = new Floor("magma"){{variants = 0;
+            emitLight = true; lightColor = Color.valueOf("ffbd7f"); lightRadius = 12f * 8f;
+        }};
+        magmaOverlay = new OverlayFloor("magma-overlay"){{variants = 4;}};
+
         //Sulfur Biome
         smoothSulfur = new Floor("smooth-sulfur"){{
-            variants = 4;
+            variants = 5;
         }};
         sulfurFloor = new Floor("sulfur-floor"){{
             variants = 5;
             blendGroup = smoothSulfur;
         }};
-        sulfurVent = new SteamVent("sulfur-vent"){{
-            variants = 0;
-            blendGroup = parent = sulfurFloor = smoothSulfur;
+        sulfurVent = new SteamVent("sulfur-vent"){{variants = 2;
+            blendGroup = parent = smoothSulfur;
             attributes.set(Attribute.steam, 1f);
         }};
-        sulfurBigVent = new BiggerVent("sulfur-big-vent"){{
-            variants = 0;
-            blendGroup = parent = sulfurFloor;
+        sulfurBigVent = new BiggerVent("sulfur-big-vent"){{variants = 2;
+            blendGroup = parent = smoothSulfur;
             attributes.set(Attribute.steam, 1.6f);
         }};
         sulfurBoulder = new Prop("sulfur-boulder"){{
