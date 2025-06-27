@@ -9,14 +9,10 @@ displayName: "Thezsia Revival"
 
 author:
 '''
-Programmers: AnDashik, ItzCraft
-Spriters: AnDasik
-Testers: AnDashik, ItzCraft
-Translators: AnDashik, Sputnuc
-Mappers: Andashik
-Composers: Ace, CY4NIDE
-
-Original idea: Thruster (DisplayName)
+Main developer: AnDashik
+Music by Ace, CY4NIDE
+Contrubutors: ItzCraft, Weeersix, Sputnuc
+Original version of the mod: Thruster (aka  DisplayName)
 '''
 
 description:
@@ -25,9 +21,9 @@ ALPHA VERSION
 New planet, new stuff, what a surprise
 Not dead now :) (Or dead :/ idk)
 '''
-subtitle: "Alpha 0.3 JAVA"
+subtitle: "Alpha 0.4"
 
-version: "Alpha 0.3 JAVA"
+version: "Alpha 0.4"
 
 
 //dependencies: ["font-icon-lib"]
