@@ -22,8 +22,8 @@ public class ThezPal{
     gasChlorine = Color.valueOf("bff270"),
 
     itemTantalum = Color.valueOf("979faa"),
-    itemSilver = Color.valueOf("66bcc8"),
-    itemNihilite = Color.valueOf("666558"),
+    itemSilver = Color.valueOf("89eef2"),
+    itemNihilite = Color.valueOf("8f9788"),
     itemInfium = Color.valueOf("f5c05d"),
     itemTensprite = Color.valueOf("67b5e9"),
     itemSulfur = Color.valueOf("ffec70"),
