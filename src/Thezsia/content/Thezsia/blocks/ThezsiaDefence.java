@@ -15,7 +15,7 @@ import static arc.math.Interp.pow2Out;
 public class ThezsiaDefence{
     public static Block
             //walls
-            tantalumWall, largeTantalumWall, infiumWall, largeInfiumWall, tensoriteWall, largeTensoriteWall, tritaniumWall, largeTritaniumWall, crackedWall, largeCrackedWall,
+            tantalumWall, TantalumWallLarge, infiumWall, InfiumWallLarge, tensoriteWall, TensoriteWallLarge, tritaniumWall, TritaniumWallLarge, crackedWall, largeCrackedWall,
             //effects
             renewer, barrierProjector;
     public static void load(){
@@ -24,7 +24,7 @@ public class ThezsiaDefence{
             requirements(Category.defense, ItemStack.with(tantalum, 6));
             size = 1; health = 360;
         }};
-        largeTantalumWall = new Wall("large-tantalum-wall"){{
+        TantalumWallLarge = new Wall("large-tantalum-wall-large"){{
             requirements(Category.defense, ItemStack.with(tantalum, 24));
             size = 2; health = 1440;
         }};
@@ -32,7 +32,7 @@ public class ThezsiaDefence{
             requirements(Category.defense, ItemStack.with(infium, 6));
             size = 1; health = 440;
         }};
-        largeInfiumWall = new Wall("large-infium-wall"){{
+        InfiumWallLarge = new Wall("large-infium-wall-large"){{
             requirements(Category.defense, ItemStack.with(infium, 24));
             size = 2; health = 1760;
         }};
@@ -40,7 +40,7 @@ public class ThezsiaDefence{
             requirements(Category.defense, ItemStack.with(tensorite, 6));
             size = 1; health = 560;
         }};
-        largeTensoriteWall = new Wall("large-tensorite-wall"){{
+        TensoriteWallLarge = new Wall("tensorite-wall-large"){{
             requirements(Category.defense, ItemStack.with(tensorite, 24));
             size = 2; health = 2240;
         }};
@@ -62,7 +62,7 @@ public class ThezsiaDefence{
                     new DrawDefault()
             );
         }};
-        largeTritaniumWall = new RegenProjector("large-tritanium-wall"){{
+        TritaniumWallLarge = new RegenProjector("tritanium-wall-large"){{
             requirements(Category.defense, ItemStack.with(tritanium, 24, sulfur, 16));
             health = 1640; size = 2;
             baseColor = Color.valueOf("2CDC78FF");
@@ -86,7 +86,7 @@ public class ThezsiaDefence{
             requirements(Category.defense, ItemStack.with(silver, 19));
             health = 471; size = 2; variants = 3;
         }};
-        //effects
+        //"effects"
         renewer = new RegenProjector("renewer"){{
             requirements(Category.effect, ItemStack.with(tantalum, 40, tensorite, 30, tritaniumCrystal, 15));
             health = 185; size = 2; squareSprite = false;
