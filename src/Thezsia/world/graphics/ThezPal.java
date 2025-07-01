@@ -18,7 +18,7 @@ public class ThezPal{
     liquidAmeba = Color.valueOf("51d285"),
     gasOxygen = Color.valueOf("d3d8dd"),
     gasAmmonia = Color.valueOf("c8a8fc"),
-    gasCarbonDioxide = Color.valueOf("767ed6"),
+    gasCarbonDioxide = Color.valueOf("868ca1"),
     gasChlorine = Color.valueOf("bff270"),
 
     itemTantalum = Color.valueOf("979faa"),
