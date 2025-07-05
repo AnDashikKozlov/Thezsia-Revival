@@ -3,6 +3,7 @@ package Thezsia.content.Thezsia.blocks;
 import Thezsia.world.blocks.power.*;
 import Thezsia.world.meta.ThezEnv;
 import arc.graphics.Color;
+import mindustry.gen.Sounds;
 import mindustry.type.Category;
 import mindustry.world.Block;
 import mindustry.world.blocks.power.Battery;
@@ -31,15 +32,10 @@ public class ThezsiaPower {
             //lightColor = Color.valueOf("8aede2"); lightRadius = 1.2f * 8;
             emptyLightColor = powerColorA; fullLightColor = powerColorB;
             consumePowerBuffered(200);
+            ambientSound = Sounds.electricHum; ambientSoundVolume = 0.21f;
             drawer = new DrawMulti(new DrawRegion(), new DrawGlowRegion("-glow"){{color = powerColorC;}});
         }};
-        /*testFignya = new TransferPowerConsumeGenerator("test-fignya"){{
-            requirements(Category.power, with(tantalum, 1, silver, 1));
-            size = 2;
-            health = 12;
-            radius = 15 / 8f;
-        }};*/
-        /*beamNodeTest = new BeamNodeDiagonal("beam-node-test"){{
+        /*beamNodeTest = new DiagonalBeamNode("beam-node-test"){{
             requirements(Category.power, with(tantalum, 8));
             consumesPower = outputsPower = true;
             health = 90;

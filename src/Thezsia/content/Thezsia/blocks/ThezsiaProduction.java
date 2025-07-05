@@ -67,8 +67,7 @@ public class ThezsiaProduction{
             drillTime = 220;
             output = nihilite;
             attribute = volcanicStone;
-            ambientSound = Sounds.drill;
-            ambientSoundVolume = 0.08f;
+            ambientSound = Sounds.grinding; ambientSoundVolume = 0.13f;
         }};
         circularDrill = new BurstDrill("circular-drill"){{
             envEnabled = Env.underwater | ThezEnv.underwaterWarm; envDisabled = Env.oxygen;
@@ -78,14 +77,14 @@ public class ThezsiaProduction{
             drillTime = 10f * 60f;
             liquidBoostIntensity = 1.5f;
 
-            drillEffect = new MultiEffect(/*Fx.mineImpact,*/ Fx.drillSteam, Fx.mineImpactWave.wrap(Pal.redLight, 60f),
+            drillEffect = new MultiEffect(/*Fx.mineImpact,*/ Fx.drillSteam, Fx.mineImpactWave.wrap(Pal.reactorPurple, 60f),
                     new ParticleEffect(){{
-                        particles = 8; lifetime = 40; region = "thezsia1-bubble";
-                        length = 24; baseLength = 2f;
-                        sizeFrom = 8f; sizeTo = 3.7f;
+                        particles = 9; lifetime = 72; region = "thezsia1-bubble";
+                        length = 38; baseLength = 5f;
+                        sizeFrom = 11f; sizeTo = 4.8f;
                         cone = 360; baseRotation = 0;
-                        colorFrom = Color.valueOf("615755c6"); colorTo = Color.valueOf("544f5074");
-                        interp = Interp.pow3Out; sizeInterp = Interp.pow3Out;
+                        colorFrom = Color.valueOf("fafafcf6"); colorTo = Color.valueOf("fafafc00"); //Old colorTo = fafafc82
+                        interp = Interp.circleOut; sizeInterp = Interp.pow4Out;
                     }});
             shake = 1.7f;
 
@@ -93,8 +92,7 @@ public class ThezsiaProduction{
             consumeLiquid(oxygen, 6f / 60f);
             consumeLiquid(carbonDioxide, 4f / 60f).boost();
 
-            ambientSound = Sounds.grinding;
-            ambientSoundVolume = 0.3f;
+            ambientSound = Sounds.hum; /* Old was Sounds.grinding*/ ambientSoundVolume = 0.52f;
             alwaysUnlocked = true;
         }};
         /*circularDrill = new Drill("circular-drill"){{

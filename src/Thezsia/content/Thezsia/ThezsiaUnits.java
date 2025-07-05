@@ -34,17 +34,17 @@ public class ThezsiaUnits {
         float coreFleeRange = 500f;
 
         Iambient = new UnitType("01-ambient"){{
-            envEnabled = Env.underwater | ThezEnv.underwaterWarm;
+            envEnabled = Env.terrestrial | Env.oxygen | Env.underwater | ThezEnv.underwaterWarm;
             constructor = LegsUnit::create;
             coreUnitDock = true;
             controller = u -> new BuilderAI(true, coreFleeRange);
+            hitSize = 64f / 4f; //*sprite size / 4f*/
 
             speed = 1;
             accel = 0.1f;
             drag = 0.1f;
             health  = 450;
             armor = 2;
-            hitSize = 7;
             itemCapacity  = 30;
             faceTarget = true;
             targetPriority = -2;
@@ -108,15 +108,15 @@ public class ThezsiaUnits {
                 }});
         }};
         IIambient = new UnitType("02-ambient"){{
-            envEnabled = Env.underwater | ThezEnv.underwaterWarm;
+            envEnabled = Env.terrestrial | Env.oxygen | Env.underwater | ThezEnv.underwaterWarm;
             constructor = LegsUnit::create;
+            hitSize = 74f / 4f; //*sprite size / 4f*/
 
             speed = 1.25f;
             accel = 0.12f;
             drag = 0.12f;
             health  = 530;
             armor = 5;
-            hitSize = 9;
             itemCapacity  = 50;
             faceTarget = true;
             outlineColor = outlineCoreunitTree;
@@ -173,8 +173,9 @@ public class ThezsiaUnits {
         }};
         //Noctis tree
         noctis = new UnitType("noctis"){{
-            envEnabled = Env.underwater | ThezEnv.underwaterWarm;
+            envEnabled = Env.terrestrial | Env.underwater | ThezEnv.underwaterWarm;
             constructor = LegsUnit::create;
+            hitSize = 48f / 4f; //*sprite size / 4f*/
 
             drag = 0.07f;
             speed = 1;
@@ -184,7 +185,6 @@ public class ThezsiaUnits {
             accel = 0.06f;
             health = 175;
             armor = 1;
-            hitSize = 10;
             itemCapacity = 0;
 
             legStraightness = 0.2f;
@@ -226,8 +226,9 @@ public class ThezsiaUnits {
             }});
         }};
         stella = new UnitType("stella"){{
-            envEnabled = Env.underwater | ThezEnv.underwaterWarm;
+            envEnabled = Env.terrestrial | Env.underwater | ThezEnv.underwaterWarm;
             constructor = LegsUnit::create;
+            hitSize = 64f / 4f; //*sprite size / 4f*/
 
             drag = 0.07f;
             speed = 0.9f;
@@ -237,7 +238,6 @@ public class ThezsiaUnits {
             accel = 0.06f;
             health = 460;
             armor = 4;
-            hitSize = 14;
             itemCapacity = 0;
 
             legStraightness = 0.2f;
@@ -295,8 +295,9 @@ public class ThezsiaUnits {
             }});
         }};
         astrum = new UnitType("astrum"){{
-            envEnabled = Env.underwater | ThezEnv.underwaterWarm;
+            envEnabled = Env.terrestrial | Env.underwater | ThezEnv.underwaterWarm;
             constructor = LegsUnit::create;
+            hitSize = 96f / 4f; //*sprite size / 4f*/
 
             drag = 0.07f;
             speed = 0.75f;
@@ -306,7 +307,6 @@ public class ThezsiaUnits {
             accel = 0.06f;
             health = 985;
             armor = 6;
-            hitSize = 20;
             itemCapacity = 0;
 
             legStraightness = 0.2f;
@@ -394,13 +394,13 @@ public class ThezsiaUnits {
         }};
         //Ignis tree
         ignis = new UnitType("ignis"){{
-            envEnabled = Env.oxygen; envDisabled = Env.underwater | ThezEnv.underwaterWarm;
+            envEnabled = Env.terrestrial | Env.oxygen; envDisabled = Env.underwater | ThezEnv.underwaterWarm;
             constructor = MechUnit::create;
-            immunities.addAll(StatusEffects.burning);
+            hitSize = 64f / 4f; //*sprite size / 4f*/
+            //immunities.addAll(StatusEffects.burning);
 
             speed = 0.7f;
             health = 180;
-            hitSize = 9;
             rotateSpeed = 3.4f;
             outlineColor = outlineIgnisTree;
             mechLegColor = outlineIgnisTree;
@@ -451,13 +451,13 @@ public class ThezsiaUnits {
             );
         }};
         flamma = new UnitType("flamma"){{
-            envEnabled = Env.oxygen; envDisabled = Env.underwater | ThezEnv.underwaterWarm;
+            envEnabled = Env.terrestrial | Env.oxygen; envDisabled = Env.underwater | ThezEnv.underwaterWarm;
             constructor = MechUnit::create;
+            hitSize = 74f / 4f; //*sprite size (smaller side) / 4f*/
             immunities.addAll(StatusEffects.burning);
 
             speed = 0.74f;
             health = 445;
-            hitSize = 14;
             rotateSpeed = 3.1f;
             outlineColor = outlineIgnisTree;
             mechLegColor = outlineIgnisTree;
@@ -506,9 +506,9 @@ public class ThezsiaUnits {
                     }}
             );
         }};
-        //pebble tree
+        //pebble treeS
         pebble = new UnitType("pebble"){{
-            envEnabled = Env.underwater | ThezEnv.underwaterWarm | Env.scorching;
+            envEnabled = Env.terrestrial | Env.oxygen | Env.scorching | Env.underwater | ThezEnv.underwaterWarm;
             constructor = LegsUnit::create;
 
             drag = 0.04f;
@@ -571,7 +571,7 @@ public class ThezsiaUnits {
             }});
         }};
         pebbleSolid = new UnitType("pebble-solid"){{
-            envEnabled = Env.underwater | ThezEnv.underwaterWarm | Env.scorching;
+            envEnabled = Env.terrestrial | Env.oxygen | Env.scorching | Env.underwater | ThezEnv.underwaterWarm;
             constructor = LegsUnit::create;
 
             drag = 1;
@@ -615,7 +615,7 @@ public class ThezsiaUnits {
             }});
         }};
         stone = new UnitType("stone"){{
-            envEnabled = Env.underwater | ThezEnv.underwaterWarm | Env.scorching;
+            envEnabled = Env.terrestrial | Env.oxygen | Env.scorching | Env.underwater | ThezEnv.underwaterWarm;
             constructor = LegsUnit::create;
 
             drag = 0.08f;

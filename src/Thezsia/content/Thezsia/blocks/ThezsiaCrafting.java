@@ -40,21 +40,22 @@ public class ThezsiaCrafting{
             outputLiquid = new LiquidStack(ThezLiquids.lava,8f / 60f);
 
             craftTime = 2f * 60f;
-                    craftEffect = new MultiEffect(new RadialEffect(){{rotationSpacing = 45; amount = 2; layer = 118;
+            craftEffect = new MultiEffect(new RadialEffect(){{rotationSpacing = 45; amount = 2; layer = 118;
                 effect = new ParticleEffect(){{
-                    particles = 5; length = 15; lifetime = 72;
+                    particles = 5; length = 15; lifetime = 92;
                     sizeFrom = 2.7f; sizeTo = 0;
                     colorFrom = Color.valueOf("ffffff00"); colorTo = Color.valueOf("ffffff88");
-                    layer = 80; }};
-                    }}, new ParticleEffect(){{
-                        particles = 13; lifetime = 42;
-                        length = 120; baseLength = 10f;
-                        sizeFrom = 3.5f; sizeTo = 1.2f;
-                        cone = 30f; baseRotation = 45f;
-                        colorFrom = Color.valueOf("615755c6");
-                        colorTo = Color.valueOf("544f5074");
-                        interp = Interp.pow2; sizeInterp = Interp.pow2Out;
-                    }});
+                    layer = 80;
+                }};
+            }}, new ParticleEffect(){{
+                particles = 13; lifetime = 42;
+                length = 120; baseLength = 10f;
+                sizeFrom = 3.5f; sizeTo = 1.2f;
+                cone = 30f; baseRotation = 45f;
+                colorFrom = Color.valueOf("615755c6");
+                colorTo = Color.valueOf("544f5074");
+                interp = Interp.pow2; sizeInterp = Interp.pow2Out;
+            }});
             ambientSound = Sounds.machine; ambientSoundVolume = 0.08f;
             drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawLiquidTile(ThezLiquids.lava, 3),
                     new DrawArcSmeltReverse(){{

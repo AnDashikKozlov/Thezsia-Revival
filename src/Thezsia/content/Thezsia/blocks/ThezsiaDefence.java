@@ -1,6 +1,12 @@
 package Thezsia.content.Thezsia.blocks;
 
+import Thezsia.world.graphics.ThezPal;
 import arc.graphics.Color;
+import arc.math.Interp;
+import mindustry.content.Fx;
+import mindustry.entities.bullet.BasicBulletType;
+import mindustry.entities.bullet.BulletType;
+import mindustry.entities.effect.MultiEffect;
 import mindustry.entities.effect.ParticleEffect;
 import mindustry.type.Category;
 import mindustry.type.ItemStack;
@@ -24,7 +30,7 @@ public class ThezsiaDefence{
             requirements(Category.defense, ItemStack.with(tantalum, 6));
             size = 1; health = 360;
         }};
-        TantalumWallLarge = new Wall("large-tantalum-wall-large"){{
+        TantalumWallLarge = new Wall("tantalum-wall-large"){{
             requirements(Category.defense, ItemStack.with(tantalum, 24));
             size = 2; health = 1440;
         }};
@@ -32,17 +38,67 @@ public class ThezsiaDefence{
             requirements(Category.defense, ItemStack.with(infium, 6));
             size = 1; health = 440;
         }};
-        InfiumWallLarge = new Wall("large-infium-wall-large"){{
+        InfiumWallLarge = new Wall("infium-wall-large"){{
             requirements(Category.defense, ItemStack.with(infium, 24));
             size = 2; health = 1760;
         }};
         tensoriteWall = new Wall("tensorite-wall"){{
             requirements(Category.defense, ItemStack.with(tensorite, 6));
             size = 1; health = 560;
+            destroyBullet = new BasicBulletType(0, 26){{
+                lifetime = 0.1f;
+                width = height = 6; sprite = "thezsia1-none-bullet"; backColor = frontColor = ThezPal.itemTensprite;
+                hitEffect = despawnEffect = new MultiEffect(){{
+                    new ParticleEffect(){{
+                        lifetime = 1.7f * 60f;
+                        baseLength = 15; length = 34;
+                        interp = Interp.pow2; sizeInterp = Interp.pow2Out;
+                        sizeFrom = 3; sizeTo = 1;
+                        baseRotation = 0; cone = 360;
+                        colorFrom = ThezPal.itemTensprite; colorTo = Color.valueOf("0a0b0d00");
+                    }};
+                    new ParticleEffect(){{
+                        lifetime = 3f * 60f;
+                        line = true; lenFrom = 3; lenTo = 0.2f;
+                        baseLength = 15; length = 34;
+                        interp = Interp.pow2; sizeInterp = Interp.pow2Out;
+                        sizeFrom = 3; sizeTo = 1;
+                        baseRotation = 0; cone = 360;
+                        colorFrom = ThezPal.itemTensprite; colorTo = Color.valueOf("0a0b0d00");
+                    }};
+                }};
+                hitColor = ThezPal.itemTensprite;
+                splashDamage = 7; splashDamageRadius = 3.1f * 8f;
+            }};
         }};
         TensoriteWallLarge = new Wall("tensorite-wall-large"){{
             requirements(Category.defense, ItemStack.with(tensorite, 24));
             size = 2; health = 2240;
+            destroyBullet = new BasicBulletType(0, 26){{
+                lifetime = 0.1f;
+                width = height = 14; sprite = "thezsia1-none-bullet"; backColor = frontColor = ThezPal.itemTensprite;
+                hitEffect = despawnEffect = new MultiEffect(){{
+                    new ParticleEffect(){{
+                        lifetime = 2.1f * 60f;
+                        baseLength = 19; length = 44;
+                        interp = Interp.pow2; sizeInterp = Interp.pow2Out;
+                        sizeFrom = 4; sizeTo = 1;
+                        baseRotation = 0; cone = 360;
+                        colorFrom = ThezPal.itemTensprite; colorTo = Color.valueOf("0a0b0d00");
+                    }};
+                    new ParticleEffect(){{
+                        lifetime = 4f * 60f;
+                        line = true; lenFrom = 3; lenTo = 0.2f;
+                        baseLength = 19; length = 44;
+                        interp = Interp.pow2; sizeInterp = Interp.pow2Out;
+                        sizeFrom = 4; sizeTo = 1;
+                        baseRotation = 0; cone = 360;
+                        colorFrom = ThezPal.itemTensprite; colorTo = Color.valueOf("0a0b0d00");
+                    }};
+                }};
+                hitColor = ThezPal.itemTensprite;
+                splashDamage = 13; splashDamageRadius = 5.6f * 8f;
+            }};
         }};
         tritaniumWall = new RegenProjector("tritanium-wall"){{
             requirements(Category.defense, ItemStack.with(tritanium, 6, sulfur, 4));

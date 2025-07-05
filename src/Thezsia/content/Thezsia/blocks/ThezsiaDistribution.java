@@ -46,10 +46,9 @@ public class ThezsiaDistribution{
             requirements(Category.distribution, ItemStack.with(tantalum, 8));
             size = 1; health = 80;
             hasPower = false;
-            fadeIn = moveArrows = false;
+            fadeIn = moveArrows = true; arrowSpacing = 6f;
             range = 4;
             speed = 82f;
-            arrowSpacing = 8f;
             bufferCapacity = 12;
         }};
         ((ClosedConveyor) tantalumBelt).bridgeReplacement = tantalumBridge;
@@ -113,7 +112,7 @@ public class ThezsiaDistribution{
             size = 1;
             hasPower = false;
             range = 4;
-            arrowSpacing =5;
+            fadeIn = moveArrows = true; arrowSpacing = 6f;
         }};
         ((Conduit) tantalumPipe).bridgeReplacement = liquidBridge; //((Conduit) infiumPipe).bridgeReplacement = liquidBridge;
         liquidHub = new LiquidRouter("liquid-hub"){{

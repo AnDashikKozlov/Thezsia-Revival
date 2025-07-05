@@ -35,7 +35,7 @@ public class ThezItems {
             charge = 0.75f;
         }};
         sulfur = new Item("sulfur", ThezPal.itemSulfur){{
-            hardness = 3;
+            hardness = 2; // Or 3. Idk...
             cost = 1.2f;
             flammability = 1.32f;
         }};

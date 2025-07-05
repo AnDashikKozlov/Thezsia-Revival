@@ -17,7 +17,7 @@ public class ThezEnvRenderers{
 
     public static void init(){
 
-        Color waterColor = Color.valueOf("30626e"); //353982
+        Color waterColor = Color.valueOf("363159"); //First ver — 353982. Second ver — 30626e. Third ver — 363159
         Rand rand = new Rand();
 
         Core.assets.load("sprites/rays.png", Texture.class).loaded = t -> {

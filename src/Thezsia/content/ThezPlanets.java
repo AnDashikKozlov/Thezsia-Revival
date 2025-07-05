@@ -1,9 +1,8 @@
 package Thezsia.content;
 
-import Thezsia.world.generators.ThezsiaPlanetGenerator;
+import Thezsia.world.generators.*;
 import Thezsia.world.meta.ThezEnv;
 import arc.graphics.*;
-import mindustry.content.*;
 import mindustry.graphics.g3d.*;
 import mindustry.type.*;
 import mindustry.world.meta.*;
@@ -15,10 +14,10 @@ public class ThezPlanets {
     public static Planet
 
             //Lumi system
-            doubleLumiSystem, starLumiAlpha, starLumiBeta, planetThezsia;
+            starLumiAlpha, starLumiBeta, planetThezsia;
 
     public static void load() {
-        doubleLumiSystem = new Planet("lumi-system", null, 1f) {{
+        /*doubleLumiSystem = new Planet("lumi-system", null, 1f) {{
             bloom = false;
             lightColor = Color.valueOf("d4aff0"); //404040
             hasAtmosphere = false;
@@ -29,12 +28,14 @@ public class ThezPlanets {
             visible = true;
             alwaysUnlocked = false;
             //solarSystem = doubleLumiSystem;
-        }};
-        starLumiAlpha = new Planet("lumi-alpha", doubleLumiSystem, 1.3f) {{
-            orbitRadius = 21; orbitOffset = 0; orbitTime = 72f * 60f; rotateTime =  19f * 60f;
+        }};*/
+        starLumiAlpha = new Planet("lumi-alpha", null, 5.6f){{
+            //orbitRadius = 21; orbitOffset = 0; orbitTime = 72f * 60f;
+            //rotateTime =  19f * 60f;
             bloom = true;
-            lightColor = Color.valueOf("d7daf5");
+            lightColor = Color.valueOf("f5b28c");
             hasAtmosphere = false;
+
             meshLoader = () -> new SunMesh(this, 4, 5, 0.27, 1.8, 1.3, 1, 1.1f,
                     Color.valueOf("eeedf7"), Color.valueOf("c9cdf2"), Color.valueOf("a3b6e5"), Color.valueOf("7ea4cf"));
             iconColor = Color.valueOf("bcc9eb");
@@ -42,13 +43,15 @@ public class ThezPlanets {
             //accessible = true;
             visible = true;
             alwaysUnlocked = true;
-            solarSystem = doubleLumiSystem;
+            //solarSystem = starLumiAlpha;
         }};
-        starLumiBeta = new Planet("lumi-beta", doubleLumiSystem, 5.6f) {{
-            orbitRadius = 21; orbitOffset = 180; orbitTime = 72f * 60f; rotateTime = 72f * 60f;
+        starLumiBeta = new Planet("lumi-beta", starLumiAlpha, 1.5f){{
+            //Old orbitRadius was 21
+            orbitRadius = 42; orbitOffset = 180; orbitTime = 72f * 60f; rotateTime = 72f * 60f;
             bloom = true;
-            lightColor = Color.valueOf("f5b28c");
+            lightColor = Color.valueOf("d7daf5");
             hasAtmosphere = false;
+
             meshLoader = () -> new SunMesh(this, 5, 4, 0.27, 1.8, 1, 1.3, 1.2f,
                     Color.valueOf("f7d1ad"), Color.valueOf("f5b28c"), Color.valueOf("eb8375"), Color.valueOf("d65c64"));
             iconColor = Color.valueOf("eb8375");
@@ -56,33 +59,26 @@ public class ThezPlanets {
             //accessible = true;
             visible = true;
             alwaysUnlocked = true;
-            solarSystem = doubleLumiSystem;
+            solarSystem = starLumiAlpha;
         }};
 
-        planetThezsia = new Planet("thezsia", doubleLumiSystem, 1.2f, 2) {{
+        planetThezsia = new Planet("thezsia", starLumiBeta, 1.2f, 2){{
             generator = new ThezsiaPlanetGenerator() {{
 
                 meshLoader = () -> new HexMesh(planetThezsia, 6);
                 cloudMeshLoader = () -> new MultiMesh(
-                        new HexSkyMesh(planetThezsia, 34, 0.81f, 0.08f, 6, Color.valueOf("99a3a2").a(0.42f), 3, 0.5f, 1f, 0.58f),
-                        new HexSkyMesh(planetThezsia, 32, -0.21f, 0.12f, 6, Color.valueOf("8e9699").a(0.54f), 4, 0.56f, 0.89f, 0.5f),
-                        new HexSkyMesh(planetThezsia, 30, 1.13f, 0.19f, 6, Color.valueOf("8b898f").a(0.27f), 4, 0.6f, 1f, 0.61f)
+                        new HexSkyMesh(planetThezsia, 34, 1.21f, 0.08f, 6, Color.valueOf("99a3a2").a(0.42f), 3, 0.5f, 1f, 0.58f),
+                        new HexSkyMesh(planetThezsia, 32, -0.71f, 0.12f, 6, Color.valueOf("8e9699").a(0.54f), 4, 0.56f, 0.89f, 0.5f),
+                        new HexSkyMesh(planetThezsia, 30, 1.33f, 0.19f, 6, Color.valueOf("8b898f").a(0.27f), 4, 0.6f, 1f, 0.61f)
                 );
 
                 //lightColor = Color.valueOf("39383d"); //39383d
                 drawOrbit = true;
-                orbitTime = 34 * 60;
-                orbitSpacing = 27;
-                orbitRadius = 72;
-                rotateTime = 34 * 60;
+                orbitRadius = 21; /* Old orbitRadius was 72*/ orbitSpacing = 27; orbitTime = 34 * 60; rotateTime = 34 * 60;
                 enemyBuildSpeedMultiplier = 0.4f;
 
-                allowLaunchSchematics = false;
-                allowLaunchToNumbered = false;
-                allowLaunchLoadout = false;
-                allowSectorInvasion = true;
-                allowWaveSimulation = false;
-                allowWaves = true;
+                allowLaunchToNumbered = allowLaunchSchematics = allowLaunchLoadout = false;
+                allowSectorInvasion = allowWaves = true; allowWaveSimulation = false;
                 clearSectorOnLose = true;
                 startSector = 12;
                 sectorSeed = 12;
@@ -91,7 +87,7 @@ public class ThezPlanets {
 
                 updateLighting = false;
                 hasAtmosphere = true;
-                atmosphereColor = Color.valueOf("9e95ad"); //4d4143d6
+                atmosphereColor = Color.valueOf("9e95ad"); //Old — 4d4143d6
                 atmosphereRadIn = 0.1f;
                 atmosphereRadOut = 0.24f;
                 tidalLock = true;
@@ -100,7 +96,7 @@ public class ThezPlanets {
                 accessible = true;
                 visible = true;
                 alwaysUnlocked = true;
-                solarSystem = doubleLumiSystem;
+                solarSystem = starLumiAlpha;
 
                 ruleSetter = r -> {
                     r.lighting = true;
