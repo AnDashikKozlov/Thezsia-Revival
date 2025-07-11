@@ -4,6 +4,7 @@ import arc.graphics.*;
 
 public class ThezPal{
     public static Color
+    outlineTurret = Color.valueOf("262229"),
     outlineCoreunitTree = Color.valueOf("212222"),
     outlineIgnisTree = Color.valueOf("1f1c1c"),
     outlineNoctisTree = Color.valueOf("242229"),
@@ -28,6 +29,9 @@ public class ThezPal{
     itemTensprite = Color.valueOf("67b5e9"),
     itemSulfur = Color.valueOf("ffec70"),
     itemTritaniumcrystal = Color.valueOf("caed6d"),
-    itemTritanium = Color.valueOf("5fe775")
+    itemTritanium = Color.valueOf("5fe775"),
+
+    particleBubbleColorFrom = Color.valueOf("fafafcf6"),
+    particleBubbleColorTo = Color.valueOf("fafafc00")
     ;
 }
