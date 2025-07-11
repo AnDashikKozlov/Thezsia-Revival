@@ -15,7 +15,7 @@ import static mindustry.Vars.ui;
 public class UIHandler {
     public static void init() {
 
-        // 2 more team buttons in editor UI
+        // more team buttons in editor UI
         MyTeamsInEditorUI();
     }
 
@@ -28,7 +28,7 @@ public class UIHandler {
 
             ((Table)teambuttons).row();
 
-            for (int i = 80; i <= 81; i++) {
+            for (int i = 80; i <= 82; i++) {
                 Team team = Team.get(i);
 
                 ImageButton button = new ImageButton(Tex.whiteui, Styles.clearNoneTogglei);
