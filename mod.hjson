@@ -11,7 +11,7 @@ author:
 '''
 Main developer: AnDashik
 Music by Ace, CY4NIDE
-Contrubutors: ItzCraft, Weeersix, Sputnuc
+Other help (code, sprites, etc): ItzCraft, Weeersix, Sputnuc, CY4NIDE
 Original version of the mod: Thruster (aka  DisplayName)
 '''
 
@@ -19,11 +19,11 @@ description:
 '''
 ALPHA VERSION
 New planet, new stuff, what a surprise
-Not dead now :) (Or dead :/ idk)
+Thezsia — wasteland planet but underwater.
 '''
-subtitle: "Alpha 0.4"
+subtitle: "Alpha 0.5"
 
-version: "Alpha 0.4"
+version: "Alpha 0.5"
 
 
 //dependencies: ["font-icon-lib"]
