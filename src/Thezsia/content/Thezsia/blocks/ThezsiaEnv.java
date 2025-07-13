@@ -3,7 +3,9 @@ package Thezsia.content.Thezsia.blocks;
 import Thezsia.content.ThezItems;
 import Thezsia.world.blocks.ThezAttribute;
 import Thezsia.world.blocks.environment.BiggerVent;
+import Thezsia.world.blocks.environment.EffectFloor;
 import arc.graphics.Color;
+import mindustry.Vars;
 import mindustry.content.Fx;
 import mindustry.content.StatusEffects;
 import mindustry.world.Block;
@@ -20,7 +22,7 @@ public class ThezsiaEnv{
             //environment
             charrokFloor, hardCharrok, charrokPile, hardCharrokPile, charrokWall, hardCharrokWall, charrokWallLedge, hardCharrokWallLedge, largeCharrokPile, largeHardCharrokPile,
             igneousBasalt, hotRock, igneousRock, magma, hotRockWall, igneousRockWall, igneousBasalticWall, magmaticWall, magmaticWallLedge,
-            basalticPatch, basalticRock, basalticWall, basalticWallLedge,
+            basalticPatch, roughBasalticPatch, basalticCrater, basalticRock, basalticWall, basalticWallLedge,
             smoothSulfur, sulfurFloor, sulfurVent, sulfurBigVent, sulfurBoulder, sulfurWall, sulfurWallLedge, largeSulfurPile,
             peridotite, peridotiteDark, peridotiteCube, peridotiteDarkCube, peridotiteWall, peridotiteDarkWall, tritaniumCluster,
             //ores
@@ -63,13 +65,14 @@ public class ThezsiaEnv{
             shadowAlpha = 0.8f;
         }};
         //Basaltic
-        basalticPatch = new Floor("basaltic-patch"){{variants = 5;
-        }};
+        basalticPatch = new Floor("basaltic-patch"){{variants = 5;}};
+        roughBasalticPatch = new Floor("rough-basaltic-patch"){{variants = 5;}};
+        basalticCrater = new Floor("basaltic-crater"){{variants = 5;}};
         basalticRock = new Prop("basaltic-rock"){{variants = 3;
-            basalticPatch.asFloor().decoration = this;
+            basalticPatch.asFloor().decoration = roughBasalticPatch.asFloor().decoration = basalticCrater.asFloor().decoration =this;
         }};
         basalticWall = new StaticWall("basaltic-wall"){{variants = 6;
-            basalticPatch.asFloor().wall = this;
+            basalticPatch.asFloor().wall = roughBasalticPatch.asFloor().wall = basalticCrater.asFloor().wall = this;
             attributes.set(ThezAttribute.volcanicStone, 0.8f);
         }};
         basalticWallLedge = new TallBlock("basaltic-wall-ledge"){{variants = 0;
@@ -77,40 +80,43 @@ public class ThezsiaEnv{
         }};
         //Igneous basaltic
         igneousBasalt = new Floor("igneous-basalt"){{variants = 5;
-            attributes.set(Attribute.heat, 0.15f);
+            attributes.set(Attribute.heat, 0.1f);
         }};
-        hotRock = new Floor("hot-rock"){{variants = 5;
-            emitLight = true; lightColor = Color.valueOf("a12d426a"); lightRadius = 9f * 8f;
+        hotRock = new EffectFloor("hot-rock"){{variants = 5;
+            effectChance = 0.0004f; effect = Fx.airBubble;
+            emitLight = true; lightColor = Color.valueOf("a12d426a"); lightRadius = 9f * Vars.tilesize;
             attributes.set(Attribute.heat, 0.4f);
-            speedMultiplier = 0.9f;
+            speedMultiplier = 0.8f;
         }};
-        igneousRock = new Floor("igneous-rock"){{variants = 5;
-            emitLight = true; lightColor = Color.valueOf("c944448b"); lightRadius = 6 * 8f;
+        igneousRock = new EffectFloor("igneous-rock"){{variants = 5;
+            effectChance = 0.0007f; effect = Fx.airBubble;
+            emitLight = true; lightColor = Color.valueOf("c944448b"); lightRadius = 6 * Vars.tilesize;
+            attributes.set(Attribute.heat, 0.6f);
+            speedMultiplier = 0.6f;
+        }};
+        magma = new EffectFloor("magma"){{variants = 0;
+            effectChance = 0.001f; effect = Fx.airBubble;
+            emitLight = true; lightColor = Color.valueOf("ffad8ae5"); lightRadius = 4f * Vars.tilesize;
             attributes.set(Attribute.heat, 1.0f);
-            speedMultiplier = 0.7f;
+            speedMultiplier = 0.3f; status = StatusEffects.melting; statusDuration = 4f * 60f;
         }};
-        magma = new Floor("magma"){{variants = 0;
-            emitLight = true; lightColor = Color.valueOf("ffad8ae5"); lightRadius = 4f * 8f;
-            attributes.set(Attribute.heat, 1.6f);
-            speedMultiplier = 0.4f; status = StatusEffects.melting; statusDuration = 4f *60f;
-        }};
-        igneousBasalticWall = new StaticWall("igneous-basaltic-wall"){{variants = 6;
+        igneousBasalticWall = new StaticWall("igneous-basaltic-wall"){{variants = 8;
             igneousBasalt.asFloor().wall = this;
         }};
         hotRockWall = new StaticWall("hot-rock-wall"){{variants = 6;
-            emitLight = true; lightColor = Color.valueOf("a12d426a"); lightRadius = 9f * 8f;
+            emitLight = true; lightColor = Color.valueOf("a12d426a"); lightRadius = 9f * Vars.tilesize;
             hotRock.asFloor().wall = this;
         }};
         igneousRockWall = new StaticWall("igneous-rock-wall"){{variants = 6;
-            emitLight = true; lightColor = Color.valueOf("c944448b"); lightRadius = 6 * 8f;
+            emitLight = true; lightColor = Color.valueOf("c944448b"); lightRadius = 6 * Vars.tilesize;
             igneousRock.asFloor().wall = this;
         }};
         magmaticWall = new StaticWall("magmatic-wall"){{variants = 0;
-            emitLight = true; lightColor = Color.valueOf("ffad8ae5"); lightRadius = 4f * 8f;
+            emitLight = true; lightColor = Color.valueOf("ffad8ae5"); lightRadius = 4f * Vars.tilesize;
             customShadow = true;
         }};
         magmaticWallLedge = new TallBlock("magmatic-wall-ledge"){{variants = 0;
-            emitLight = true; lightColor = Color.valueOf("ffad8ae5"); lightRadius = 4f * 8f;
+            emitLight = true; lightColor = Color.valueOf("ffad8ae5"); lightRadius = 4f * Vars.tilesize;
             shadowAlpha = 0.35f;
         }};
 
@@ -131,10 +137,10 @@ public class ThezsiaEnv{
             attributes.set(Attribute.steam, 1.6f);
         }};
         sulfurBoulder = new Prop("sulfur-boulder"){{variants = 3;
-            sulfurFloor.asFloor().decoration = smoothSulfur.asFloor().decoration = this;
+            smoothSulfur.asFloor().decoration = sulfurFloor.asFloor().decoration = this;
         }};
         sulfurWall = new StaticWall("sulfur-wall"){{variants = 6;
-            sulfurFloor.asFloor().wall = smoothSulfur.asFloor().wall = this;
+            smoothSulfur.asFloor().wall = sulfurFloor.asFloor().decoration = this;
         }};
         sulfurWallLedge = new TallBlock("sulfur-wall-ledge"){{variants = 0;
             shadowAlpha = 0.35f;
