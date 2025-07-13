@@ -21,7 +21,7 @@ public class GeneratorCore extends CoreBlock{
     public float glowMag = 0.5f;
     public float glowScl = 10f;
 
-    public float powerProduction = 60 / 60f;
+    public float passiveEnergyOut = 60 / 60f;
 
     public GeneratorCore(String name){
         super(name);
@@ -42,8 +42,12 @@ public class GeneratorCore extends CoreBlock{
     public void setBars(){
         super.setBars();
         addBar("poweroutput", (GeneratorCoreBuild entity) ->
-                new Bar(() -> Core.bundle.format("bar.poweroutput", Strings.fixed(powerProduction * 60 + 0.0001f, 1)), () -> Pal.powerBar, () -> 1f));
-        addBar("power", makePowerBalance());
+                new Bar(
+                        () -> Core.bundle.format("bar.poweroutput", Strings.fixed(passiveEnergyOut * 60, 1)),
+                        () -> Pal.powerBar,
+                        () -> 1f
+                )
+        );
     }
 
     public static Func<Building, Bar> makePowerBalance(){
@@ -72,7 +76,7 @@ public class GeneratorCore extends CoreBlock{
 
         @Override
         public float getPowerProduction(){
-            return enabled ? powerProduction : 0f;
+            return enabled ? passiveEnergyOut : 0f;
         }
     }
 }
