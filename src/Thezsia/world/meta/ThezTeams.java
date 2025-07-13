@@ -4,11 +4,12 @@ import arc.graphics.Color;
 import mindustry.game.Team;
 
 public class ThezTeams {
-    public static Team precursors, vanitser;
+    public static Team precursors, vanitser, pebbles;
 
     public static void load() {
         precursors = newTeam(80, "precursors", Color.valueOf("6bebcd"));
         vanitser = newTeam(81, "vanitser", Color.valueOf("524b7e"));
+        pebbles = newTeam(82, "pebbles", Color.valueOf("473639"));
     }
 
     //modify any of 256 teams' properties
