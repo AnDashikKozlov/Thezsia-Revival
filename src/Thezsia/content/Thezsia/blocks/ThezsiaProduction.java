@@ -1,6 +1,7 @@
 package Thezsia.content.Thezsia.blocks;
 
 
+import Thezsia.world.graphics.ThezPal;
 import Thezsia.world.meta.ThezEnv;
 import arc.graphics.Color;
 import arc.math.Interp;
@@ -15,6 +16,7 @@ import mindustry.world.Block;
 import mindustry.world.blocks.production.*;
 import mindustry.world.consumers.*;
 import mindustry.world.draw.*;
+import mindustry.world.meta.Attribute;
 import mindustry.world.meta.Env;
 
 import static Thezsia.content.ThezItems.*;
@@ -25,11 +27,13 @@ import static arc.math.Interp.*;
 public class ThezsiaProduction{
     public static Block
             //Blocks
-            windTrap,
-            //drills
-            stoneGrinder, /*rotaryDrill,*/ circularDrill;
+            /*windTrap,*/
+            //Drills
+            stoneGrinder, /*rotaryDrill,*/ circularDrill,
+            //Extractors
+            OxygenConcentrator;
     public static void load(){
-        windTrap = new GenericCrafter("large-wind-trap"){{
+        /*windTrap = new GenericCrafter("large-wind-trap"){{
             envEnabled = Env.underwater | ThezEnv.underwaterWarm; envDisabled = Env.oxygen;
             requirements(Category.production, ItemStack.with(tantalum, 100, infium, 80, tensorite, 50));
             size = 5; health = 525; squareSprite = false;
@@ -57,9 +61,9 @@ public class ThezsiaProduction{
                         color = Color.valueOf("FFFFFF");
                     }}
             );
-        }};
+        }};*/
         stoneGrinder = new WallCrafter("stone-grinder"){{
-            envEnabled = Env.underwater | ThezEnv.underwaterWarm | Env.oxygen;
+            envEnabled = Env.underwater | ThezEnv.underwaterWarm;
             requirements(Category.production, ItemStack.with(tantalum, 25));
             size = 2; health = 85; squareSprite = false;
 
@@ -70,7 +74,7 @@ public class ThezsiaProduction{
             ambientSound = Sounds.grinding; ambientSoundVolume = 0.13f;
         }};
         circularDrill = new BurstDrill("circular-drill"){{
-            envEnabled = Env.underwater | ThezEnv.underwaterWarm; envDisabled = Env.oxygen;
+            envEnabled = Env.underwater | ThezEnv.underwaterWarm;
             requirements(Category.production, ItemStack.with(tantalum, 80, silver, 25));
             size = 4; squareSprite = false; itemCapacity = 30; fogRadius = 4;
             tier = 4;
@@ -83,7 +87,7 @@ public class ThezsiaProduction{
                         length = 38; baseLength = 5f;
                         sizeFrom = 11f; sizeTo = 4.8f;
                         cone = 360; baseRotation = 0;
-                        colorFrom = Color.valueOf("fafafcf6"); colorTo = Color.valueOf("fafafc00"); //Old colorTo = fafafc82
+                        colorFrom = ThezPal.particleBubbleColorFrom; colorTo = ThezPal.particleBubbleColorTo; //Old colorTo = fafafc82
                         interp = Interp.circleOut; sizeInterp = Interp.pow4Out;
                     }});
             shake = 1.7f;
@@ -96,6 +100,7 @@ public class ThezsiaProduction{
             alwaysUnlocked = true;
         }};
         /*circularDrill = new Drill("circular-drill"){{
+            envEnabled = Env.underwater | ThezEnv.underwaterWarm; envDisabled = Env.oxygen;
             requirements(Category.production, ItemStack.with(tantalum, 60, infium, 20f, nihilite, 15f));
             size = 4;
             tier = 5;
@@ -107,5 +112,35 @@ public class ThezsiaProduction{
             ambientSound = Sounds.grinding;
             ambientSoundVolume = 0.4f;
         }};*/
+        OxygenConcentrator = new AttributeCrafter("oxygen-concentrator"){{
+            envEnabled = Env.underwater | ThezEnv.underwaterWarm;
+            requirements(Category.production, ItemStack.with(tantalum, 100, nihilite, 35));
+            size = 3; health = 525; squareSprite = false;
+
+            attribute = Attribute.heat; baseEfficiency = 0.35f; minEfficiency = 0f;
+            consumePower(17f / 60f);
+            outputLiquid = new LiquidStack(oxygen,30f / 60f);
+            liquidCapacity = 160;
+
+            craftEffect = new ParticleEffect(){{
+                particles = 6;
+                cone = 360;
+                followParent = false; rotWithParent = false;
+                sizeFrom = 1.2f; sizeTo = 0.1f;
+                lifetime = 40;
+                length = 9; baseLength = 5;
+                interp = pow2; sizeInterp = Interp.pow3In;
+            }};
+            ambientSound = Sounds.hum; ambientSoundVolume = 0.11f;
+
+            drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawLiquidTile(oxygen, 3), new DrawRegion("-bottom2"),
+                    new DrawBlurSpin(){{suffix = "-rotator"; rotateSpeed = 8;}}, new DrawDefault(),
+                    new DrawParticles(){{
+                        particleRad = 21; particleLife = 190; particleSize = 1.4f;
+                        alpha = 0.35f;
+                        color = ThezPal.gasOxygen;
+                    }}
+            );
+        }};
     }
 }
