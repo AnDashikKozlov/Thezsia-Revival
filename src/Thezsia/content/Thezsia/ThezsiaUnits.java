@@ -40,6 +40,15 @@ public class ThezsiaUnits {
             controller = u -> new BuilderAI(true, coreFleeRange);
             hitSize = 64f / 4f; //*sprite size / 4f*/
 
+            legContinuousMove = allowLegStep = lockLegBase = true;
+            legStraightness = 0.3f;
+            legGroupSize = 4;
+            legCount = 8;
+            legLength = 14; legExtension = -2;
+            legSpeed = 0.3f;
+            legForwardScl = 0.7f;
+            legMoveSpace = 1;
+
             speed = 1;
             accel = 0.1f;
             drag = 0.1f;
@@ -54,37 +63,21 @@ public class ThezsiaUnits {
             pickupUnits = false;
             vulnerableWithPayloads = true;
 
-            mineTier = 2;
-            mineWalls = true;
-            mineRange = 80;
-            mineSpeed = 6.5f;
-            buildRange = 230;
-            buildSpeed = 0.75f;
+            mineTier = 2; mineWalls = true;
+            mineRange = 80; mineSpeed = 6.5f;
+            buildRange = 230; buildSpeed = 0.75f;
             buildBeamOffset = 5.5f;
 
-            legStraightness = 0.3f;
-            legContinuousMove = true;
-            lockLegBase = true;
-            legGroupSize = 4;
-            legCount = 8;
-            allowLegStep = true;
-            legExtension = -2;
-            legLength = 14;
-            legSpeed = 0.3f;
-            legForwardScl = 0.7f;
-            legMoveSpace = 1;
             hovering = true;
             groundLayer = 60;
 
             fogRadius = 0;
-            targetable = false;
-            hittable = false;
+            targetable = hittable = false;
 
             weapons.add(new RepairBeamWeapon(){{
                     widthSinMag = 0.06f;
                     reload = 34f;
-                    x = 17.4f / 4f;
-                    y = 14f / 4f;
+                    x = 17.4f / 4f; y = 14f / 4f;
                     rotate = false;
                     shootY = 0f;
                     beamWidth = 0.4f;
@@ -92,25 +85,29 @@ public class ThezsiaUnits {
                     shootCone = 18f;
                     mirror = true;
 
-                    repairSpeed = 1.5f / 2f;
-                    fractionRepairSpeed = 0.02f;
+                    repairSpeed = 1.5f / 2f; fractionRepairSpeed = 0.02f;
 
-                    targetUnits = false;
-                    targetBuildings = true;
+                    targetUnits = false; targetBuildings = true;
                     autoTarget = false;
                     controllable = true;
-                    laserColor = Pal.accent;
-                    healColor = Pal.accent;
+                    laserColor = healColor = Pal.accent;
 
-                    bullet = new BulletType(){{
-                        maxRange = 4.5f * 8;
-                    }};
+                    bullet = new BulletType(){{maxRange = 4.5f * 8f;}};
                 }});
         }};
         IIambient = new UnitType("02-ambient"){{
             envEnabled = Env.terrestrial | Env.oxygen | Env.underwater | ThezEnv.underwaterWarm;
             constructor = LegsUnit::create;
             hitSize = 74f / 4f; //*sprite size / 4f*/
+
+            legContinuousMove = allowLegStep = lockLegBase = true;
+            legStraightness = 0.35f;
+            legGroupSize = 4;
+            legCount = 8;
+            legLength = 19; legExtension = -4;
+            legSpeed = 0.35f;
+            legForwardScl = 0.7f;
+            legMoveSpace = 1;
 
             speed = 1.25f;
             accel = 0.12f;
@@ -121,54 +118,34 @@ public class ThezsiaUnits {
             faceTarget = true;
             outlineColor = outlineCoreunitTree;
 
-            mineTier = 2;
-            mineWalls = true;
-            mineRange = 112;
-            mineSpeed = 6.8f;
-            buildRange = 262;
-            buildSpeed = 0.82f;
+            mineTier = 2; mineWalls = true;
+            mineRange = 112; mineSpeed = 6.8f;
+            buildRange = 262; buildSpeed = 0.82f;
 
-            legStraightness = 0.35f;
-            legContinuousMove = true;
-            lockLegBase = true;
-            legGroupSize = 4;
-            legCount = 8;
-            allowLegStep = true;
-            legExtension = -4;
-            legLength = 19;
-            legSpeed = 0.35f;
-            legForwardScl = 0.7f;
-            legMoveSpace = 1;
             hovering = true;
             groundLayer = 60;
 
             fogRadius = 0;
 
             weapons.add(new RepairBeamWeapon(){{
+                x = 18f / 4f; y = 18 / 4f;
+                shootY = 0f;
                 widthSinMag = 0.06f;
                 reload = 34f;
-                x = 18f / 4f;
-                y = 18 / 4f;
                 rotate = false;
-                shootY = 0f;
                 beamWidth = 0.55f;
                 aimDst = 0f;
                 shootCone = 30f;
                 mirror = true;
 
-                repairSpeed = 1.52f / 2f;
-                fractionRepairSpeed = 0.036f;
+                repairSpeed = 1.52f / 2f; fractionRepairSpeed = 0.036f;
 
-                targetUnits = false;
-                targetBuildings = true;
+                targetUnits = false; targetBuildings = true;
                 autoTarget = false;
                 controllable = true;
-                laserColor = Pal.accent;
-                healColor = Pal.accent;
+                laserColor = healColor = Pal.accent;
 
-                bullet = new BulletType(){{
-                    maxRange = 8f * 8;
-                }};
+                bullet = new BulletType(){{maxRange = 8f * 8f;}};
             }});
         }};
         //Noctis tree
@@ -177,50 +154,41 @@ public class ThezsiaUnits {
             constructor = LegsUnit::create;
             hitSize = 48f / 4f; //*sprite size / 4f*/
 
+            legContinuousMove = allowLegStep = lockLegBase = true;
+            legStraightness = 0.2f;
+            legGroupSize = 3;
+            legCount = 6;
+            legLength = 14; legExtension = -2;
+            legSpeed = 0.25f;
+            legForwardScl = 0.7f;
+            legMoveSpace = 1.3f;
+            hovering = true;
+
             drag = 0.07f;
             speed = 1;
             rotateSpeed = 4;
             outlineColor = outlineNoctisTree;
 
             accel = 0.06f;
-            health = 175;
-            armor = 1;
+            health = 175; armor = 1;
             itemCapacity = 0;
-
-            legStraightness = 0.2f;
-            legContinuousMove = true;
-            lockLegBase = true;
-            legGroupSize = 3;
-            legCount = 6;
-            allowLegStep = true;
-            legExtension = -2;
-            legLength = 14;
-            legSpeed = 0.25f;
-            legForwardScl = 0.7f;
-            legMoveSpace = 1.3f;
-            hovering = true;
 
             weapons.add(new Weapon("thezsia1-noctis-gun"){{
                 top = false;
-                x = 0;
-                y = 0;
+                x = 0; y = 0;
                 reload = 70;
                 recoil = 0.7f;
                 mirror = false;
                 inaccuracy = 10;
                 shootSound = Sounds.blaster;
                 cooldownTime = 50;
-                shoot.shots = 3;
-                shoot.shotDelay = 8;
+                shoot.shots = 3; shoot.shotDelay = 8;
                 bullet = new MissileBulletType(4.5f, 10) {{
                     homingPower = 0.18f;
-                    weaveMag = 4;
-                    weaveScale = 2;
-                    trailLength = 8;
-                    trailWidth = 2f;
+                    weaveMag = 4; weaveScale = 2;
+                    trailLength = 8; trailWidth = 2f;
                     lifetime = 33;
-                    frontColor = Color.valueOf("FFFFFFFF");
-                    backColor = Color.valueOf("869CBEFF");
+                    frontColor = Color.valueOf("FFFFFFFF"); backColor = Color.valueOf("869CBEFF");
                     trailColor = Color.valueOf("869CBEFF");
                 }};
             }});
@@ -230,44 +198,37 @@ public class ThezsiaUnits {
             constructor = LegsUnit::create;
             hitSize = 64f / 4f; //*sprite size / 4f*/
 
-            drag = 0.07f;
-            speed = 0.9f;
-            rotateSpeed = 3.7f;
-            outlineColor = outlineNoctisTree;
-
-            accel = 0.06f;
-            health = 460;
-            armor = 4;
-            itemCapacity = 0;
-
             legStraightness = 0.2f;
-            legContinuousMove = true;
-            lockLegBase = true;
+            legContinuousMove = allowLegStep = lockLegBase = true;
             legGroupSize = 2;
             legCount = 4;
-            allowLegStep = true;
-            legExtension = -2.5f;
-            legLength = 19;
+            legLength = 19; legExtension = -2.5f;
             legSpeed = 0.25f;
             legForwardScl = 0.7f;
             legMoveSpace = 1.3f;
             hovering = true;
             alwaysShootWhenMoving = true;
 
+            drag = 0.07f;
+            speed = 0.9f;
+            rotateSpeed = 3.7f;
+            outlineColor = outlineNoctisTree;
+
+            accel = 0.06f;
+            health = 460; armor = 4;
+            itemCapacity = 0;
+
             parts.addAll(
                     new RegionPart("-shell"){{
                         mirror = true;
                         progress = PartProgress.warmup;
-                        moveX = 0.9f;
-                        moveY = -1;
-                        moveRot = -30;
+                        moveX = 0.9f; moveY = -1; moveRot = -30;
                     }}
             );
 
             weapons.add(new Weapon("thezsia1-stella-weapon"){{
                 top = false;
-                x = 0;
-                y = -0.0f;
+                x = 0; y = -0.0f;
                 rotate = false;
                 shootCone = 30;
                 shootX = 5;
@@ -283,13 +244,10 @@ public class ThezsiaUnits {
                 bullet = new BasicBulletType(5.5f, 7) {{
                     smokeEffect = shootBigSmoke;
                     shootEffect = shootBigColor;
-                    trailLength = 10;
-                    trailWidth = 1.5f;
-                    height = 7.3f;
-                    width = 6.9f;
+                    trailLength = 10; trailWidth = 1.5f;
+                    height = 7.3f; width = 6.9f;
                     lifetime = 18;
-                    frontColor = Color.valueOf("FFFFFFFF");
-                    backColor = Color.valueOf("869CBEFF");
+                    frontColor = Color.valueOf("FFFFFFFF"); backColor = Color.valueOf("869CBEFF");
                     trailColor = Color.valueOf("869CBEFF");
                 }};
             }});
@@ -298,6 +256,15 @@ public class ThezsiaUnits {
             envEnabled = Env.terrestrial | Env.underwater | ThezEnv.underwaterWarm;
             constructor = LegsUnit::create;
             hitSize = 96f / 4f; //*sprite size / 4f*/
+
+            legContinuousMove = allowLegStep = lockLegBase = true;
+            legStraightness = 0.2f;
+            legGroupSize = 2;
+            legCount = 6;
+            legLength = 27; legExtension = -7f;
+            legSpeed = 0.25f;
+            legForwardScl = 0.7f;
+            legMoveSpace = 1.3f;
 
             drag = 0.07f;
             speed = 0.75f;
@@ -309,17 +276,6 @@ public class ThezsiaUnits {
             armor = 6;
             itemCapacity = 0;
 
-            legStraightness = 0.2f;
-            legContinuousMove = true;
-            lockLegBase = true;
-            legGroupSize = 2;
-            legCount = 6;
-            allowLegStep = true;
-            legExtension = -7f;
-            legLength = 27;
-            legSpeed = 0.25f;
-            legForwardScl = 0.7f;
-            legMoveSpace = 1.3f;
             hovering = true;
             alwaysShootWhenMoving = true;
 
@@ -336,10 +292,8 @@ public class ThezsiaUnits {
             weapons.add(
             new Weapon("thezsia1-astrum-shellweapon"){{
                 top = false;
-                x = 0;
-                y = 0;
-                shootX = 9.9f;
-                shootY = 1.8f;
+                x = 0; y = 0;
+                shootX = 9.9f; shootY = 1.8f;
                 rotate = false;
                 shootCone = 30;
                 mirror = true;
@@ -349,8 +303,7 @@ public class ThezsiaUnits {
                 inaccuracy = 8;
                 shootSound = Sounds.blaster;
                 cooldownTime = 68;
-                shootWarmupSpeed = 0.028f;
-                minWarmup = 0.96f;
+                shootWarmupSpeed = 0.028f; minWarmup = 0.96f;
                 bullet = new MissileBulletType(5.9f, 12) {{
                     smokeEffect = shootBigSmoke;
                     shootEffect = shootBigColor;
@@ -367,10 +320,8 @@ public class ThezsiaUnits {
             }},
             new Weapon("thezsia1-astrum-gun"){{
                 top = false;
-                x = 0;
-                y = 0f;
-                shootX = 0;
-                shootY = 6.8f;
+                x = 0; y = 0f;
+                shootX = 0; shootY = 6.8f;
                 mirror = false;
                 rotate = false;
                 recoil = 0.78f;
@@ -378,9 +329,7 @@ public class ThezsiaUnits {
                 cooldownTime = 152;
                 heatColor = Color.valueOf("e5f1ffdb");
                 shootSound = Sounds.laser;
-                shoot.shots = 4;
-                shoot.firstShotDelay= 104;
-                shoot.shotDelay = 68;
+                shoot.shots = 4; shoot.firstShotDelay= 104; shoot.shotDelay = 68;
                 bullet = new LaserBulletType(10) {{
                     length = 72;
                     width = 9;
@@ -402,16 +351,13 @@ public class ThezsiaUnits {
             speed = 0.7f;
             health = 180;
             rotateSpeed = 3.4f;
-            outlineColor = outlineIgnisTree;
-            mechLegColor = outlineIgnisTree;
+            outlineColor = mechLegColor = outlineIgnisTree;
 
             weapons.add(
             new Weapon("thezsia1-ignis-weapon"){{
                 top = false;
-                x = 4.7f;
-                y = 0;
-                shootX = 0.6f;
-                shootY = 3.2f;
+                x = 4.7f; y = 0;
+                shootX = 0.6f; shootY = 3.2f;
                 shootCone = 30;
                 reload = 120;
                 rotate = false;
@@ -420,21 +366,15 @@ public class ThezsiaUnits {
                 shootSound = Sounds.shootAlt;
                 bullet = new BasicBulletType(3.7f, 10){{
                     lifetime = 40;
-                    height = 14;
-                    width = 8f;
-                    trailLength = 5;
-                    trailWidth = 1.3f;
+                    height = 14; width = 8f;
+                    trailLength = 5; trailWidth = 1.3f;
                     pierce = false;
                     shootEffect = shootSmallFlame;
 
-                    fragRandomSpread = 0;
-                    fragSpread = 60;
-                    fragOnHit = true;
-                    fragBullets = 6;
+                    fragOnHit = true; fragSpread = 60; fragRandomSpread = 0; fragBullets = 6;
                     fragBullet = new BasicBulletType(6, 1.8f){{
                         lifetime = 15;
-                        height = 9;
-                        width = 6.5f;
+                        height = 9; width = 6.5f;
                         hitSize = 4;
                         trailLength = 6;
                         trailWidth = 0.7f;
@@ -459,47 +399,37 @@ public class ThezsiaUnits {
             speed = 0.74f;
             health = 445;
             rotateSpeed = 3.1f;
-            outlineColor = outlineIgnisTree;
-            mechLegColor = outlineIgnisTree;
+            outlineColor = mechLegColor = outlineIgnisTree;
 
             weapons.add(
                     new Weapon("thezsia1-flamma-weapon"){{
                         top = false;
-                        x = 9;
-                        y = 0;
-                        shootX = 0.4f;
-                        shootY = 6.2f;
+                        x = 9; y = 0;
+                        shootX = 0.4f; shootY = 6.2f;
                         shootCone = 30;
                         recoil = 2.4f;
                         rotate = true;
-                        rotateSpeed = 0.95f;
-                        rotationLimit = 20;
+                        rotateSpeed = 0.95f; rotationLimit = 20;
                         mirror = true;
                         alternate = false;
-                        soundPitchMin = 0.8f;
-                        soundPitchMax = 1.1f;
+                        soundPitchMin = 0.8f; soundPitchMax = 1.1f;
                         shootSound = Sounds.torch;
                         alwaysContinuous = true;
                         continuous = true;
                         bullet = new ContinuousFlameBulletType(3.7f){{
-                            length = 51;
-                            width = 2.12f;
+                            length = 51; width = 2.12f;
                             colors = new Color[]{Color.valueOf("f0533ece"), Color.valueOf("ff7a5c"), Color.valueOf("ffaf96"), Color.valueOf("ffdbc2")};
-                            flareLength = 11;
-                            flareWidth = 1.93f;
+                            flareLength = 11; flareWidth = 1.93f;
                             flareColor = Color.valueOf("FF5845FF");
 
-                            status = StatusEffects.melting;
-                            statusDuration = 117;
+                            status = StatusEffects.melting; statusDuration = 117;
                             hitEffect = new ParticleEffect(){{
                                 cone = -75;
-                                colorFrom = Color.valueOf("FF5845FF");
-                                colorTo = Color.valueOf("FFC1BBFF");
+                                colorFrom = Color.valueOf("FF5845FF"); colorTo = Color.valueOf("FFC1BBFF");
                                 line = true;
                                 lifetime = 18;
                                 length = 50;
-                                lenFrom = 6;
-                                lenTo = 0.5f;
+                                lenFrom = 6;lenTo = 0.5f;
                                 particles = 5;
                             }};
                         }};
@@ -517,8 +447,7 @@ public class ThezsiaUnits {
             speed = 1;
             rotateSpeed = 4;
             accel = 0.04f;
-            health = 80;
-            armor = 6;
+            health = 80; armor = 6;
             hitSize = 5;
             engineOffset = 0;
             engineSize = 0;
@@ -587,8 +516,7 @@ public class ThezsiaUnits {
             speed = 0;
             rotateSpeed = 0;
             accel = 0;
-            health = 100;
-            armor = 5;
+            health = 100; armor = 5;
             hitSize = 5;
             engineOffset = 0;
             engineSize = 0;
@@ -624,8 +552,7 @@ public class ThezsiaUnits {
             speed = 0.9f;
             rotateSpeed = 2;
             accel = 0.04f;
-            health = 190;
-            armor = 34;
+            health = 190; armor = 34;
             hitSize = 9;
             engineOffset = 0;
             engineSize = 0;
@@ -654,16 +581,13 @@ public class ThezsiaUnits {
                 layerOffset = -0.001f;
                 progress = DrawPart.PartProgress.recoil;
                 mirror = true;
-                moveX = -0.3f;
-                moveY = 0.5f;
-                moveRot = 30;
+                moveX = -0.3f; moveY = 0.5f; moveRot = 30;
             }});
 
             weapons.add(new Weapon(){{
                 display = false;
                 shootSound = Sounds.blaster;
-                x = 0;
-                y = 0;
+                x = 0; y = 0;
                 shootY = 0.3f;
                 mirror = false;
                 reload = 60;
@@ -676,8 +600,7 @@ public class ThezsiaUnits {
                     damage = 42;
                     speed = 11;
                     lifetime = 0.85f;
-                    reflectable = false;
-                    absorbable = false;
+                    reflectable = false; absorbable = false;
                     width = height = 0;
                 }};
             }});
