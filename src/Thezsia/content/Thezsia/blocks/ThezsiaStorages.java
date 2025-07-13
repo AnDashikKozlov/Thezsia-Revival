@@ -21,7 +21,7 @@ public class ThezsiaStorages{
 
             hasPower = true;
             conductivePower = true;
-            powerProduction = 80 / 60f;
+            passiveEnergyOut = 80 / 60f;
             consumePowerBuffered(180);
             glowMag = 0.78f; glowScl = 9.5f;
             itemCapacity = 5000;
@@ -36,7 +36,7 @@ public class ThezsiaStorages{
 
             hasPower = true;
             conductivePower = true;
-            powerProduction = 250 / 60f;
+            passiveEnergyOut = 250 / 60f;
             consumePowerBuffered(100);
             glowMag = 0.78f; glowScl = 9.5f;
             itemCapacity = 7500;
