@@ -92,12 +92,12 @@ public class ThezPlanets {
             startSector = 12;
             sectorSeed = 122;
             defaultCore = ThezsiaStorages.coreDust;
-            defaultEnv = Env.any | Env.terrestrial | Env.groundOil | ThezEnv.underwaterWarm;
+            defaultEnv = Env.terrestrial | Env.groundOil | Env.oxygen | ThezEnv.darkness;
 
             //lightColor = Color.valueOf("39383d"); //39383d
             updateLighting = false;
             hasAtmosphere = true;
-            atmosphereColor = Color.valueOf("6571787a"); //Old — 4d4143d6
+            atmosphereColor = Color.valueOf("4d4143d6"); //Old underwater — 6571787a.
             atmosphereRadIn = 0.0f;
             atmosphereRadOut = 0.18f;
             tidalLock = false;
@@ -108,9 +108,9 @@ public class ThezPlanets {
 
             ruleSetter = r -> {
                 r.lighting = true;
-                r.ambientLight = Color.valueOf("273b4a5c"); //Old color —> 1d4a624a
+                r.ambientLight = Color.valueOf("343038c6"); //Old colors —> 1d4a624a, 273b4a5c. "343038" — color for fog of war.
                 // r.loadout = ItemStack.list();
-                r.fog = false; //true
+                r.fog = false; //tru
                 r.showSpawns = true;
                 r.defaultTeam = vanitser;
                 r.waveTeam = precursors;

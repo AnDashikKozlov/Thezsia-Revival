@@ -1,5 +1,6 @@
 package Thezsia.content.Thezsia.blocks;
 
+import Thezsia.content.ThezFx;
 import Thezsia.content.ThezItems;
 import Thezsia.world.blocks.ThezAttribute;
 import Thezsia.world.blocks.environment.BiggerVent;
@@ -14,18 +15,25 @@ import mindustry.world.blocks.environment.*;
 import mindustry.world.meta.Attribute;
 
 import static Thezsia.content.ThezItems.*;
+import static mindustry.Vars.tilesize;
 import static mindustry.content.Fx.none;
 
 public class ThezsiaEnv{
     public static Block
-            //Blocks
-            //environment
+            /* Environment */
+            // Charrok
             charrokFloor, hardCharrok, charrokPile, hardCharrokPile, charrokWall, hardCharrokWall, charrokWallLedge, hardCharrokWallLedge, largeCharrokPile, largeHardCharrokPile,
+            // Basaltic
+            basalticPatch, roughBasalticPatch, basalticCrater, basalticRock, basalticWall, basalticWallLedge, coalyDeadTree,
+            // Igneous basaltic
             igneousBasalt, hotRock, igneousRock, magma, hotRockWall, igneousRockWall, igneousBasalticWall, magmaticWall, magmaticWallLedge,
-            basalticPatch, roughBasalticPatch, basalticCrater, basalticRock, basalticWall, basalticWallLedge,
+            // Sulfur
             smoothSulfur, sulfurFloor, sulfurVent, sulfurBigVent, sulfurBoulder, sulfurWall, sulfurWallLedge, largeSulfurPile,
+            // Peridotite
             peridotite, peridotiteDark, peridotiteCube, peridotiteDarkCube, peridotiteWall, peridotiteDarkWall, tritaniumCluster,
-            //ores
+            // Nature
+            deadYellowCoralFloor, deadYellowCoralFloorAlt, deadYellowcoral, deadYellowcoralAlt,
+            // Ores
             tantalumOre, silverLick, nihiliteOre, tritaniumOre, tritaniumOreWall;
     public static void load(){
         /*
@@ -35,7 +43,7 @@ public class ThezsiaEnv{
                     attributes.set(Attribute.steam, 1f);
                 }};
                 */
-        //Charrok
+        // Charrok
         charrokFloor = new Floor("charrok-floor"){{variants = 5;
         }};
         hardCharrok = new Floor("hard-charrok"){{variants = 5;
@@ -64,10 +72,13 @@ public class ThezsiaEnv{
         largeHardCharrokPile = new TallBlock("large-hard-charrok-pile"){{variants = 3;
             shadowAlpha = 0.8f;
         }};
-        //Basaltic
+
+        // Basaltic
         basalticPatch = new Floor("basaltic-patch"){{variants = 5;}};
         roughBasalticPatch = new Floor("rough-basaltic-patch"){{variants = 5;}};
-        basalticCrater = new Floor("basaltic-crater"){{variants = 5;}};
+        basalticCrater = new EffectFloor("basaltic-crater"){{variants = 5;
+            effectChance = 0.0005f; effect = ThezFx.craterSmoke;
+        }};
         basalticRock = new Prop("basaltic-rock"){{variants = 3;
             basalticPatch.asFloor().decoration = roughBasalticPatch.asFloor().decoration = basalticCrater.asFloor().decoration =this;
         }};
@@ -78,61 +89,68 @@ public class ThezsiaEnv{
         basalticWallLedge = new TallBlock("basaltic-wall-ledge"){{variants = 0;
             shadowAlpha = 0.35f;
         }};
-        //Igneous basaltic
+        coalyDeadTree = new TreeBlock("coaly-dead-tree"){{variants = 2;
+            shadowOffset = -1.3f;
+            clipSize = 320;
+        }};
+
+        // Igneous basaltic
         igneousBasalt = new Floor("igneous-basalt"){{variants = 5;
             attributes.set(Attribute.heat, 0.1f);
         }};
         hotRock = new EffectFloor("hot-rock"){{variants = 5;
-            effectChance = 0.0004f; effect = Fx.airBubble;
-            emitLight = true; lightColor = Color.valueOf("a12d426a"); lightRadius = 9f * Vars.tilesize;
+            emitLight = true; lightColor = Color.valueOf("a12d426a"); lightRadius = 9f * tilesize;
             attributes.set(Attribute.heat, 0.4f);
             speedMultiplier = 0.8f;
+            effectChance = 0.0004f; effect = Fx.fire;
         }};
         igneousRock = new EffectFloor("igneous-rock"){{variants = 5;
-            effectChance = 0.0007f; effect = Fx.airBubble;
-            emitLight = true; lightColor = Color.valueOf("c944448b"); lightRadius = 6 * Vars.tilesize;
+            emitLight = true; lightColor = Color.valueOf("c944448b"); lightRadius = 6 * tilesize;
             attributes.set(Attribute.heat, 0.6f);
             speedMultiplier = 0.6f;
+            effectChance = 0.0007f; effect = Fx.fire;
         }};
         magma = new EffectFloor("magma"){{variants = 0;
-            effectChance = 0.001f; effect = Fx.airBubble;
-            emitLight = true; lightColor = Color.valueOf("ffad8ae5"); lightRadius = 4f * Vars.tilesize;
+            emitLight = true; lightColor = Color.valueOf("ffad8ae5"); lightRadius = 4f * tilesize;
             attributes.set(Attribute.heat, 1.0f);
             speedMultiplier = 0.3f; status = StatusEffects.melting; statusDuration = 4f * 60f;
+            effectChance = 0.001f; effect = Fx.fire;
         }};
         igneousBasalticWall = new StaticWall("igneous-basaltic-wall"){{variants = 8;
             igneousBasalt.asFloor().wall = this;
         }};
         hotRockWall = new StaticWall("hot-rock-wall"){{variants = 6;
-            emitLight = true; lightColor = Color.valueOf("a12d426a"); lightRadius = 9f * Vars.tilesize;
+            emitLight = true; lightColor = Color.valueOf("a12d426a"); lightRadius = 9f * tilesize;
             hotRock.asFloor().wall = this;
         }};
         igneousRockWall = new StaticWall("igneous-rock-wall"){{variants = 6;
-            emitLight = true; lightColor = Color.valueOf("c944448b"); lightRadius = 6 * Vars.tilesize;
+            emitLight = true; lightColor = Color.valueOf("c944448b"); lightRadius = 6 * tilesize;
             igneousRock.asFloor().wall = this;
         }};
         magmaticWall = new StaticWall("magmatic-wall"){{variants = 0;
-            emitLight = true; lightColor = Color.valueOf("ffad8ae5"); lightRadius = 4f * Vars.tilesize;
+            emitLight = true; lightColor = Color.valueOf("ffad8ae5"); lightRadius = 4f * tilesize;
             customShadow = true;
         }};
         magmaticWallLedge = new TallBlock("magmatic-wall-ledge"){{variants = 0;
-            emitLight = true; lightColor = Color.valueOf("ffad8ae5"); lightRadius = 4f * Vars.tilesize;
+            emitLight = true; lightColor = Color.valueOf("ffad8ae5"); lightRadius = 4f * tilesize;
             shadowAlpha = 0.35f;
         }};
 
-        //Sulfur biome
+        // Sulfur biome
         smoothSulfur = new Floor("smooth-sulfur"){{variants = 5;
         }};
         sulfurFloor = new Floor("sulfur-floor"){{variants = 5;
             blendGroup = smoothSulfur;
         }};
         sulfurVent = new SteamVent("sulfur-vent"){{variants = 3;
-            effect = Fx.airBubble;
+            // TODO make effect look... Just make copy of Purples Vents from Subnautica Below Zero
+            effect = ThezFx.craterSmoke;
             blendGroup = parent = smoothSulfur;
             attributes.set(Attribute.steam, 1f);
         }};
         sulfurBigVent = new BiggerVent("sulfur-big-vent"){{variants = 2;
-            effect = Fx.airBubble;
+            // TODO make effect look... Just make copy of Purples Vents from Subnautica Below Zero
+            effect = ThezFx.craterSmoke;
             blendGroup = parent = smoothSulfur;
             attributes.set(Attribute.steam, 1.6f);
         }};
@@ -148,7 +166,8 @@ public class ThezsiaEnv{
         largeSulfurPile = new TallBlock("large-sulfur-pile"){{variants = 1;
             shadowAlpha = 0.75f;
         }};
-        //Peridotite biome
+
+        // Peridotite biome
         peridotite = new Floor("peridotite"){{variants = 5;
         }};
         peridotiteDark = new Floor("peridotite-dark"){{variants = 5;
@@ -168,7 +187,25 @@ public class ThezsiaEnv{
         tritaniumCluster = new TallBlock("tritanium-cluster"){{variants = 4;
             shadowAlpha = 0.3f;
         }};
-        //ores
+
+        // Nature
+        deadYellowCoralFloor = new Floor("dead-yellow-coral-floor"){{variants = 5;}};
+        deadYellowcoral = new SeaBush("dead-yellowcoral"){{
+            lobesMin = 2; lobesMax = 3;
+            magMin = 2f; magMax = 8f;
+            origin = 0.3f;
+            spread = 40f;
+            sclMin = 60f; sclMax = 100f;
+        }};
+        deadYellowcoralAlt = new SeaBush("dead-yellowcoral-alt"){{
+            lobesMin = 2; lobesMax = 3;
+            magMin = 1.5f; magMax = 5f;
+            origin = 0.2f;
+            spread = 40f;
+            sclMin = 40f; sclMax = 80f;
+        }};
+
+        // Ores
         tantalumOre = new OreBlock("tantalum-ore"){{variants = 4;
             itemDrop = tantalum;
             wallOre = false;

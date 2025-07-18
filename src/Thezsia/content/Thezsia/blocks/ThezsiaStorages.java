@@ -1,5 +1,6 @@
 package Thezsia.content.Thezsia.blocks;
 
+import Thezsia.content.ThezFx;
 import Thezsia.world.blocks.storage.GeneratorCore;
 import Thezsia.world.meta.ThezEnv;
 import mindustry.type.Category;
@@ -16,6 +17,7 @@ public class ThezsiaStorages{
             coreDust, coreFog;
     public static void load(){
         coreDust = new GeneratorCore("core-dust"){{
+            launchEffect = ThezFx.launchCore;
             requirements(Category.effect, ItemStack.with(tantalum, 750, silver, 70));
             size= 4; health = 1950; squareSprite = false;
 
@@ -31,6 +33,7 @@ public class ThezsiaStorages{
             alwaysUnlocked = true;
         }};
         coreFog = new GeneratorCore("core-fog"){{
+            launchEffect = ThezFx.launchCore;
             requirements(Category.effect, ItemStack.with(tantalum, 1200, silver, 500, infium, 260, tensorite, 180));
             size= 5; health = 3700; squareSprite = false;
 
