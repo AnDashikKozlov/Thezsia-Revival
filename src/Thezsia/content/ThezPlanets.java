@@ -13,6 +13,7 @@ import arc.util.Tmp;
 import mindustry.content.Blocks;
 import mindustry.graphics.g3d.*;
 import mindustry.maps.planet.AsteroidGenerator;
+import mindustry.maps.planet.ErekirPlanetGenerator;
 import mindustry.type.Planet;
 import mindustry.type.Sector;
 import mindustry.world.Block;

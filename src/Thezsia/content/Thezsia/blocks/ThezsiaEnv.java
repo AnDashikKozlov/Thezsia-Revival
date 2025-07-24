@@ -30,7 +30,7 @@ public class ThezsiaEnv{
             // Sulfur
             smoothSulfur, sulfurFloor, sulfurVent, sulfurBigVent, sulfurBoulder, sulfurWall, sulfurWallLedge, largeSulfurPile,
             // Peridotite
-            peridotite, peridotiteDark, peridotiteCube, peridotiteDarkCube, peridotiteWall, peridotiteDarkWall, tritaniumCluster,
+            peridotite, darkPeridotite, peridotiteCube, darkPeridotiteCube, peridotiteWall, darkPeridotiteWall, tritaniumCluster,
             // Nature
             deadYellowCoralFloor, deadYellowCoralFloorAlt, deadYellowcoral, deadYellowcoralAlt,
             // Ores
@@ -170,19 +170,19 @@ public class ThezsiaEnv{
         // Peridotite biome
         peridotite = new Floor("peridotite"){{variants = 5;
         }};
-        peridotiteDark = new Floor("peridotite-dark"){{variants = 5;
+        darkPeridotite = new Floor("peridotite-dark"){{variants = 5;
         }};
         peridotiteCube = new Prop("peridotite-cube"){{variants = 3;
             peridotite.asFloor().decoration = this;
         }};
-        peridotiteDarkCube = new Prop("peridotite-dark-cube"){{variants = 3;
-            peridotiteDark.asFloor().decoration = this;
+        darkPeridotiteCube = new Prop("peridotite-dark-cube"){{variants = 3;
+            darkPeridotite.asFloor().decoration = this;
         }};
         peridotiteWall = new StaticWall("peridotite-wall"){{variants = 6;
             peridotite.asFloor().wall = this;
         }};
-        peridotiteDarkWall = new StaticWall("peridotite-dark-wall"){{variants = 6;
-            peridotiteDark.asFloor().wall = this;
+        darkPeridotiteWall = new StaticWall("peridotite-dark-wall"){{variants = 6;
+            darkPeridotite.asFloor().wall = this;
         }};
         tritaniumCluster = new TallBlock("tritanium-cluster"){{variants = 4;
             shadowAlpha = 0.3f;
