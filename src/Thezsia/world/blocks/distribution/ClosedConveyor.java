@@ -21,7 +21,7 @@ public class ClosedConveyor extends Conveyor {
             convRegions[i] = Core.atlas.find(name + "-top-" + i);
             capRegion = Core.atlas.find(name + "-cap");
         }
-        uiIcon = fullIcon = editorIcon = Core.atlas.find(name + "-full");
+        uiIcon = fullIcon = Core.atlas.find(name + "-full");
     }
     @SuppressWarnings("unused")
     public class ClosedConveyorBuild extends ConveyorBuild {
