@@ -134,7 +134,7 @@ public class ThezPlanets {
             );
 
             updateLighting = true;
-            hasAtmosphere = true;
+            hasAtmosphere = false;
             atmosphereColor = Color.valueOf("4d464636");
             atmosphereRadIn = 0f;
             atmosphereRadOut = 0.21f;
