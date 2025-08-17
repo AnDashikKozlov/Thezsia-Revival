@@ -1,5 +1,5 @@
 # Welcome to planet Thezsia
-# ![logo.png](\assets\sprites-override\ui\logo.png)
+# ![logo.png](/assets\sprites-override\ui\logo.png)
 
 # Links
 [![Discord](https://img.shields.io/discord/1301553669925244970?style=for-the-badge&color=ffa875&logo=discord&label=Thezsia%20%7C%20Main%20Outpost)](https://discord.gg/VhqTMUEUmZ)
