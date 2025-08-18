@@ -1,5 +1,6 @@
 package Thezsia.content;
 
+import Thezsia.content.Thezsia.blocks.ThezsiaDistribution;
 import Thezsia.content.Thezsia.blocks.ThezsiaEnv;
 import Thezsia.content.Thezsia.blocks.ThezsiaStorages;
 import Thezsia.world.generators.*;
@@ -123,7 +124,10 @@ public class ThezPlanets {
                 // r.bannedBlocks.addAll(conveyor);
                 r.hideBannedBlocks = true;
             };
-            unlockedOnLand.add(ThezsiaStorages.coreDust);
+            unlockedOnLand.add(
+                    ThezsiaStorages.coreDust,
+                    ThezsiaDistribution.tantalumBelt
+            );
         }};
         satelliteDeoren = new Planet("deoren", planetThezsia, 0.75f, 3){{
             iconColor = Color.valueOf("7c7582");
