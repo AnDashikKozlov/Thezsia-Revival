@@ -20,21 +20,24 @@ import static mindustry.content.Fx.*;
 
 public class ThezsiaUnits {
     public static UnitType
-    //core
+    /* Core units */
     Iambient, IIambient,
-    //Noctis tree
-    noctis, stella, astrum,
-    //Ignis tree
-    ignis, flamma,
-    //Pebble tree
+
+    /* Noctis' tree */
+    noctis, stella, astrum, celestia, nebula,
+
+    /* Ignis' tree */
+    ignis, flamma, ardor, incendium, infernum,
+
+    /* Pebble's tree */
     pebble, pebbleSolid, stone;
 
     public static void load(){
 
         float coreFleeRange = 500f;
 
+        /* Core units */
         Iambient = new UnitType("01-ambient"){{
-            envEnabled = Env.terrestrial | Env.oxygen | Env.underwater | ThezEnv.underwaterWarm;
             constructor = LegsUnit::create;
             coreUnitDock = true;
             controller = u -> new BuilderAI(true, coreFleeRange);
@@ -96,7 +99,6 @@ public class ThezsiaUnits {
                 }});
         }};
         IIambient = new UnitType("02-ambient"){{
-            envEnabled = Env.terrestrial | Env.oxygen | Env.underwater | ThezEnv.underwaterWarm;
             constructor = LegsUnit::create;
             hitSize = 74f / 4f; //*sprite size / 4f*/
 
@@ -148,9 +150,8 @@ public class ThezsiaUnits {
                 bullet = new BulletType(){{maxRange = 8f * 8f;}};
             }});
         }};
-        //Noctis tree
+        /* Noctis' tree */
         noctis = new UnitType("noctis"){{
-            envEnabled = Env.terrestrial | Env.underwater | ThezEnv.underwaterWarm;
             constructor = LegsUnit::create;
             hitSize = 48f / 4f; //*sprite size / 4f*/
 
@@ -194,7 +195,6 @@ public class ThezsiaUnits {
             }});
         }};
         stella = new UnitType("stella"){{
-            envEnabled = Env.terrestrial | Env.underwater | ThezEnv.underwaterWarm;
             constructor = LegsUnit::create;
             hitSize = 64f / 4f; //*sprite size / 4f*/
 
@@ -253,7 +253,6 @@ public class ThezsiaUnits {
             }});
         }};
         astrum = new UnitType("astrum"){{
-            envEnabled = Env.terrestrial | Env.underwater | ThezEnv.underwaterWarm;
             constructor = LegsUnit::create;
             hitSize = 96f / 4f; //*sprite size / 4f*/
 
@@ -341,12 +340,12 @@ public class ThezsiaUnits {
             }}
             );
         }};
-        //Ignis tree
+
+        /* Ignis' tree */
         ignis = new UnitType("ignis"){{
-            envEnabled = Env.terrestrial | Env.oxygen; envDisabled = Env.underwater | ThezEnv.underwaterWarm;
             constructor = MechUnit::create;
-            hitSize = 64f / 4f; //*sprite size / 4f*/
-            //immunities.addAll(StatusEffects.burning);
+            hitSize = 64f / 4f; //* sprite size / 4f */
+            // immunities.addAll(StatusEffects.burning);
 
             speed = 0.7f;
             health = 180;
@@ -391,9 +390,8 @@ public class ThezsiaUnits {
             );
         }};
         flamma = new UnitType("flamma"){{
-            envEnabled = Env.terrestrial | Env.oxygen; envDisabled = Env.underwater | ThezEnv.underwaterWarm;
             constructor = MechUnit::create;
-            hitSize = 74f / 4f; //*sprite size (smaller side) / 4f*/
+            hitSize = 74f / 4f; //* sprite size (smaller side) / 4f */
             immunities.addAll(StatusEffects.burning);
 
             speed = 0.74f;
@@ -436,7 +434,8 @@ public class ThezsiaUnits {
                     }}
             );
         }};
-        //pebble treeS
+        /* Pebble's tree */
+        /*
         pebble = new UnitType("pebble"){{
             envEnabled = Env.terrestrial | Env.oxygen | Env.scorching | Env.underwater | ThezEnv.underwaterWarm;
             constructor = LegsUnit::create;
@@ -605,5 +604,6 @@ public class ThezsiaUnits {
                 }};
             }});
         }};
+        */
     }
 }

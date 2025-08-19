@@ -34,7 +34,6 @@ public class ThezsiaProduction{
             OxygenConcentrator;
     public static void load(){
         /*windTrap = new GenericCrafter("large-wind-trap"){{
-            envEnabled = Env.underwater | ThezEnv.underwaterWarm; envDisabled = Env.oxygen;
             requirements(Category.production, ItemStack.with(tantalum, 100, infium, 80, tensorite, 50));
             size = 5; health = 525; squareSprite = false;
 
@@ -63,7 +62,6 @@ public class ThezsiaProduction{
             );
         }};*/
         stoneGrinder = new WallCrafter("stone-grinder"){{
-            envEnabled = Env.underwater | ThezEnv.underwaterWarm;
             requirements(Category.production, ItemStack.with(tantalum, 25));
             size = 2; health = 85; squareSprite = false;
 
@@ -74,7 +72,6 @@ public class ThezsiaProduction{
             ambientSound = Sounds.grinding; ambientSoundVolume = 0.13f;
         }};
         circularDrill = new BurstDrill("circular-drill"){{
-            envEnabled = Env.underwater | ThezEnv.underwaterWarm;
             requirements(Category.production, ItemStack.with(tantalum, 80, silver, 25));
             size = 4; squareSprite = false; itemCapacity = 30; fogRadius = 4;
             tier = 4;
@@ -100,7 +97,6 @@ public class ThezsiaProduction{
             alwaysUnlocked = true;
         }};
         /*circularDrill = new Drill("circular-drill"){{
-            envEnabled = Env.underwater | ThezEnv.underwaterWarm; envDisabled = Env.oxygen;
             requirements(Category.production, ItemStack.with(tantalum, 60, infium, 20f, nihilite, 15f));
             size = 4;
             tier = 5;
@@ -113,7 +109,6 @@ public class ThezsiaProduction{
             ambientSoundVolume = 0.4f;
         }};*/
         OxygenConcentrator = new AttributeCrafter("oxygen-concentrator"){{
-            envEnabled = Env.underwater | ThezEnv.underwaterWarm;
             requirements(Category.production, ItemStack.with(tantalum, 100, nihilite, 35));
             size = 3; health = 525; squareSprite = false;
 
