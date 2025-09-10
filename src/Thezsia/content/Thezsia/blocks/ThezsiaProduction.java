@@ -78,15 +78,7 @@ public class ThezsiaProduction{
             drillTime = 10f * 60f;
             liquidBoostIntensity = 1.5f;
 
-            drillEffect = new MultiEffect(/*Fx.mineImpact,*/ Fx.drillSteam, Fx.mineImpactWave.wrap(Pal.reactorPurple, 60f),
-                    new ParticleEffect(){{
-                        particles = 9; lifetime = 72; region = "thezsia1-bubble";
-                        length = 38; baseLength = 5f;
-                        sizeFrom = 11f; sizeTo = 4.8f;
-                        cone = 360; baseRotation = 0;
-                        colorFrom = ThezPal.particleBubbleColorFrom; colorTo = ThezPal.particleBubbleColorTo; //Old colorTo = fafafc82
-                        interp = Interp.circleOut; sizeInterp = Interp.pow4Out;
-                    }});
+            drillEffect = new MultiEffect(/*Fx.mineImpact,*/ Fx.drillSteam, Fx.mineImpactWave.wrap(Pal.reactorPurple, 60f));
             shake = 1.7f;
 
             hasPower = true; consumePower(100f / 60f);

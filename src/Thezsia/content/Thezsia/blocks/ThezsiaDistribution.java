@@ -76,9 +76,8 @@ public class ThezsiaDistribution{
 
         //liquid
         tantalumPipe = new Conduit("tantalum-pipe"){{
-            requirements(Category.liquid, ItemStack.with(tantalum, 2));
-            size = 1;
-            liquidCapacity = 12;
+            requirements(Category.liquid, ItemStack.with(tantalum, 1, silver, 1));
+            liquidCapacity = 28;
             botColor = Color.valueOf("19181AFF");
             leaks = false;
         }};
@@ -98,7 +97,6 @@ public class ThezsiaDistribution{
         ((Conduit) tantalumPipe).junctionReplacement = liquidJunction; //((Conduit) infiumPipe).junctionReplacement = liquidJunction;
         liquidBridge = new LiquidBridge("liquid-bridge"){{
             requirements(Category.liquid, ItemStack.with(tantalum, 10));
-            size = 1;
             hasPower = false;
             range = 4;
             fadeIn = moveArrows = true; arrowSpacing = 6f;
@@ -106,7 +104,7 @@ public class ThezsiaDistribution{
         ((Conduit) tantalumPipe).bridgeReplacement = liquidBridge; //((Conduit) infiumPipe).bridgeReplacement = liquidBridge;
         liquidHub = new LiquidRouter("liquid-hub"){{
             requirements(Category.liquid, ItemStack.with(tantalum, 5));
-            health = 45;
+            health = 65;
             size = 1;
             liquidPadding = 1;
         }};

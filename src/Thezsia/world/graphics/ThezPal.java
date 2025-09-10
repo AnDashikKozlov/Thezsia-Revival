@@ -10,9 +10,12 @@ public class ThezPal{
     outlineNoctisTree = Color.valueOf("242229"),
     outlinePebbleTree = Color.valueOf("19181AFF"),
 
-    powerColorA = Color.valueOf("6c938e"),
-    powerColorB = Color.valueOf("ade7ec"),
-    powerColorC = Color.valueOf("8aede2"),
+    powerColorDark = Color.valueOf("756c93"),
+    powerColorLight = Color.valueOf("8a95ed"),
+    powerColorMid = Color.valueOf("7b7bba"),
+    powerPrecColorA = Color.valueOf("6c938e"),
+    powerPrecColorB = Color.valueOf("ade7ec"),
+    powerPrecColorC = Color.valueOf("8aede2"),
 
     liquidLava = Color.valueOf("e06e4c"),
     liquidMeltedTensorite = Color.valueOf("767ed6"),

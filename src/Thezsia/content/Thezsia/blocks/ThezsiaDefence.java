@@ -89,6 +89,7 @@ public class ThezsiaDefence{
             }};
             drawer = new DrawMulti(new DrawDefault());
         }};
+        /*
         crackedWall = new Wall("cracked-wall"){{
             requirements(Category.defense, ItemStack.with(silver, 4));
             health = 165; size = 1; variants = 3;
@@ -97,6 +98,7 @@ public class ThezsiaDefence{
             requirements(Category.defense, ItemStack.with(silver, 19));
             health = 471; size = 2; variants = 3;
         }};
+        */
 
         /* "Effects" */
         renewer = new RegenProjector("renewer"){{

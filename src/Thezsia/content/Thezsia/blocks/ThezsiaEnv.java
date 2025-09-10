@@ -1,16 +1,13 @@
 package Thezsia.content.Thezsia.blocks;
 
 import Thezsia.content.ThezFx;
-import Thezsia.content.ThezItems;
 import Thezsia.world.blocks.ThezAttribute;
 import Thezsia.world.blocks.environment.BiggerVent;
 import Thezsia.world.blocks.environment.EffectFloor;
 import arc.graphics.Color;
-import mindustry.Vars;
 import mindustry.content.Fx;
 import mindustry.content.StatusEffects;
 import mindustry.world.Block;
-import mindustry.world.blocks.Attributes;
 import mindustry.world.blocks.environment.*;
 import mindustry.world.meta.Attribute;
 
@@ -36,13 +33,6 @@ public class ThezsiaEnv{
             // Ores
             tantalumOre, silverLick, nihiliteOre, tritaniumOre, tritaniumOreWall;
     public static void load(){
-        /*
-                testBiggerVent = new BiggerVent("test-bigger-vent"){{
-                    variants = 2;
-                    blendGroup = parent = stone;
-                    attributes.set(Attribute.steam, 1f);
-                }};
-                */
         // Charrok
         charrokFloor = new Floor("charrok-floor"){{variants = 5;
         }};
@@ -140,8 +130,16 @@ public class ThezsiaEnv{
         smoothSulfur = new Floor("smooth-sulfur"){{variants = 5;
         }};
         sulfurFloor = new Floor("sulfur-floor"){{variants = 5;
+            itemDrop = sulfur;
             blendGroup = smoothSulfur;
         }};
+        /*
+        tiledSulfur = new TiledFloor("tiled-sulfur"){{
+            itemDrop = sulfur;
+            // tilingVariants = 2;
+            tilingSize = 4;
+        }};
+        */
         sulfurVent = new SteamVent("sulfur-vent"){{variants = 3;
             // TODO make effect look... Just make copy of Purples Vents from Subnautica Below Zero
             effect = ThezFx.craterSmoke;
@@ -221,10 +219,7 @@ public class ThezsiaEnv{
         tritaniumOre = new OreBlock("tritanium-ore"){{variants = 4;
             itemDrop = tritaniumCrystal;
             wallOre = false;
-        }};
-        tritaniumOreWall = new OreBlock("tritanium-wallore"){{variants = 4;
-            itemDrop = tritaniumCrystal;
-            wallOre = true;
+            emitLight = true; lightColor = Color.valueOf("4f734642"); lightRadius = 1.5f * tilesize;
         }};
     }
 }

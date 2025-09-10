@@ -32,20 +32,24 @@ public class ThezsiaPower {
             requirements(Category.power, with(tantalum, 20, tensorite, 15));
             size = 2; squareSprite = false; health = 90;
             //lightColor = Color.valueOf("8aede2"); lightRadius = 1.2f * 8;
-            emptyLightColor = powerColorA; fullLightColor = powerColorB;
+            emptyLightColor = powerColorDark; fullLightColor = powerColorLight;
             consumePowerBuffered(200);
             ambientSound = Sounds.electricHum; ambientSoundVolume = 0.31f;
-            drawer = new DrawMulti(new DrawRegion(), new DrawGlowRegion("-glow"){{color = powerColorC;}});
+            drawer = new DrawMulti(new DrawRegion(), new DrawGlowRegion("-glow"){{color = powerColorLight;}});
         }};
-        transmittingNode = new BeamNode("transmitting-node"){{
+        transmittingNode = new AdjustableBeamNode("transmitting-node"){{
             requirements(Category.power, with(tantalum, 20, silver, 8));
+            health = 120;
+
+            // beamDirections = new int[][] {{1, 0}, {0, 1}, {-1, 0}, {0, -1},  {1, 1}, {1, -1}, {-1, -1}, {-1, 1}};
+            // beamDirections = new int[][] {{0, 2}, {2, -1}, {-2, -1}};
+            beamDirections = new int[][] {{1, 1}, {1, -1}, {-1, -1}, {-1, 1}};
+
             consumesPower = outputsPower = true;
             consumePowerBuffered(750f);
-            health = 120;
-            range = 14;
-            laserColor1 = powerColorB;
-            laserColor2 = powerColorA;
-            fogRadius = 1;
+            range = 8;
+            laserColor1 = Color.white;
+            laserColor2 = powerColorDark;
             // researchCost = with(tantalum, 5);
             // buildCostMultiplier = 2.5f;
         }};

@@ -1,5 +1,6 @@
 package Thezsia.content;
 
+import Thezsia.world.graphics.ThezPal;
 import arc.Core;
 import arc.graphics.Color;
 import arc.graphics.g2d.*;
@@ -65,5 +66,13 @@ public class ThezFx{
                 colorFrom = Color.valueOf("52392f90"); colorTo = Color.valueOf("2e282210");
                 interp = Interp.pow3Out;
             }}
-    );
+    ),
+    cDrillBubbles = new ParticleEffect(){{
+        particles = 9; lifetime = 72; region = "thezsia1-bubble";
+        length = 38; baseLength = 5f;
+        sizeFrom = 11f; sizeTo = 4.8f;
+        cone = 360; baseRotation = 0;
+        colorFrom = ThezPal.particleBubbleColorFrom; colorTo = ThezPal.particleBubbleColorTo; //Old colorTo = fafafc82
+        interp = Interp.circleOut; sizeInterp = Interp.pow4Out;
+    }};
 };

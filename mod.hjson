@@ -3,6 +3,7 @@ name: "thezsia1"
 main: "Thezsia.Thezsia"
 java: true
 minGameVersion: 147
+repo: "https://github.com/AnDashikKozlov/Thezsia-Revival"
 
 
 displayName: "Thezsia Revival"
