@@ -1,18 +1,20 @@
 package Thezsia.content.Thezsia;
 
-import Thezsia.world.meta.ThezEnv;
+import arc.graphics.Blending;
 import arc.graphics.Color;
 import mindustry.ai.types.*;
+import mindustry.content.Fx;
 import mindustry.content.StatusEffects;
-import mindustry.entities.abilities.SpawnDeathAbility;
+import mindustry.entities.abilities.*;
 import mindustry.entities.bullet.*;
 import mindustry.entities.effect.*;
 import mindustry.entities.part.*;
+import mindustry.entities.pattern.*;
 import mindustry.gen.*;
+import mindustry.graphics.Drawf;
 import mindustry.graphics.Pal;
 import mindustry.type.*;
 import mindustry.type.weapons.*;
-import mindustry.world.meta.Env;
 
 import static Thezsia.world.graphics.ThezPal.*;
 import static mindustry.Vars.tilesize;
@@ -154,103 +156,137 @@ public class ThezsiaUnits {
         noctis = new UnitType("noctis"){{
             constructor = LegsUnit::create;
             hitSize = 48f / 4f; //*sprite size / 4f*/
+            health = 375; armor = 1;
+            itemCapacity = 0;
 
             legContinuousMove = allowLegStep = lockLegBase = true;
             legStraightness = 0.2f;
             legGroupSize = 3;
             legCount = 6;
-            legLength = 14; legExtension = -2;
+            legLength = 18; legExtension = -2;
             legSpeed = 0.25f;
             legForwardScl = 0.7f;
             legMoveSpace = 1.3f;
             hovering = true;
 
+            accel = 0.06f;
             drag = 0.07f;
             speed = 1;
             rotateSpeed = 4;
             outlineColor = outlineNoctisTree;
 
-            accel = 0.06f;
-            health = 175; armor = 1;
-            itemCapacity = 0;
-
             weapons.add(new Weapon("thezsia1-noctis-gun"){{
                 top = false;
                 x = 0; y = 0;
                 reload = 70;
-                recoil = 0.7f;
+                recoil = 0.6f;
                 mirror = false;
                 inaccuracy = 10;
                 shootSound = Sounds.blaster;
                 cooldownTime = 50;
                 shoot.shots = 3; shoot.shotDelay = 8;
-                bullet = new MissileBulletType(4.5f, 10) {{
+                bullet = new MissileBulletType(4.5f, 15) {{
+                    lifetime = 33;
+                    frontColor = Color.valueOf("bdebff"); backColor = Color.valueOf("81afe3");
+                    trailColor = Color.valueOf("81afe3");
+                    trailLength = 8; trailWidth = 2f;
+                    smokeEffect = shootSmallSmoke;
+                    shootEffect = shootSmallColor;
                     homingPower = 0.18f;
                     weaveMag = 4; weaveScale = 2;
-                    trailLength = 8; trailWidth = 2f;
-                    lifetime = 33;
-                    frontColor = Color.valueOf("FFFFFFFF"); backColor = Color.valueOf("869CBEFF");
-                    trailColor = Color.valueOf("869CBEFF");
                 }};
             }});
         }};
         stella = new UnitType("stella"){{
             constructor = LegsUnit::create;
             hitSize = 64f / 4f; //*sprite size / 4f*/
+            health = 760; armor = 4;
+            itemCapacity = 0;
 
             legStraightness = 0.2f;
             legContinuousMove = allowLegStep = lockLegBase = true;
             legGroupSize = 2;
             legCount = 4;
-            legLength = 19; legExtension = -2.5f;
-            legSpeed = 0.25f;
-            legForwardScl = 0.7f;
-            legMoveSpace = 1.3f;
+            legLength = 25; legExtension = -2.5f;
+            legSpeed = 0.22f;
+            legForwardScl = 0.6f;
+            legMoveSpace = 1.2f;
             hovering = true;
             alwaysShootWhenMoving = true;
 
+            accel = 0.06f;
             drag = 0.07f;
             speed = 0.9f;
             rotateSpeed = 3.7f;
             outlineColor = outlineNoctisTree;
 
-            accel = 0.06f;
-            health = 460; armor = 4;
-            itemCapacity = 0;
-
             parts.addAll(
                     new RegionPart("-shell"){{
+                        layerOffset = 0.0001f;
                         mirror = true;
                         progress = PartProgress.warmup;
-                        moveX = 0.9f; moveY = -1; moveRot = -30;
+                        moveX = 1.5f; // moveY = -1; moveRot = -30;
+                    }},
+                    new RegionPart("-glow"){{
+                        mirror = outline = false;
+                        progress = PartProgress.recoil;
+                        blending = Blending.additive;
+                        colorTo = Color.valueOf("bdebff"); color = colorTo.cpy().a(0f);
                     }}
             );
 
-            weapons.add(new Weapon("thezsia1-stella-weapon"){{
-                top = false;
-                x = 0; y = -0.0f;
-                rotate = false;
-                shootCone = 30;
-                shootX = 5;
-                mirror = true;
-                alternate = true;
-                reload = 4;
-                recoil = 0.7f;
-                inaccuracy = 5;
-                shootSound = Sounds.blaster;
-                cooldownTime = 50;
-                shootWarmupSpeed = 0.04f;
-                minWarmup = 0.8f;
-                bullet = new BasicBulletType(5.5f, 7) {{
-                    smokeEffect = shootBigSmoke;
-                    shootEffect = shootBigColor;
-                    trailLength = 10; trailWidth = 1.5f;
-                    height = 7.3f; width = 6.9f;
-                    lifetime = 18;
-                    frontColor = Color.valueOf("FFFFFFFF"); backColor = Color.valueOf("869CBEFF");
-                    trailColor = Color.valueOf("869CBEFF");
-                }};
-            }});
+            weapons.add(
+                    /*new Weapon(){{
+                        top = false;
+                        x = 0f; y = 0f;
+                        rotate = false;
+                        shootCone = 10;
+                        shootX = 5f; shootY = 1f;
+                        mirror = true;
+                        alternate = true;
+                        reload = 4;
+                        recoil = 0.7f;
+                        inaccuracy = 5;
+                        shootSound = Sounds.blaster;
+                        shootWarmupSpeed = 0.04f; minWarmup = 0.8f; cooldownTime = 55;
+                        bullet = new BasicBulletType(5.5f, 7) {{
+                            lifetime = 18;
+                            height = 7.3f; width = 6.9f;
+                            frontColor = Color.valueOf("FFFFFFFF"); backColor = Color.valueOf("869cbe");
+                            trailColor = Color.valueOf("869cbe");
+                            trailLength = 10; trailWidth = 1.5f;
+                            smokeEffect = shootSmallSmoke;
+                            shootEffect = shootSmallColor;
+                        }};
+                    }}*/
+                    new Weapon(){{
+                        top = false;
+                        x = 5f; y = 1f;
+                        shootX = shootY = 0f;
+                        rotate = false;
+                        shootCone = 10;
+                        mirror = true;
+                        alternate = true;
+                        reload = 7;
+                        recoil = 0.7f;
+                        inaccuracy = 5;
+                        shootSound = Sounds.blaster;
+                        shootWarmupSpeed = 0.04f; minWarmup = 0.7f; cooldownTime = 121;
+                        bullet = new LaserBulletType(){{
+                            damage = 12;
+                            lifetime = 17;
+                            recoil = 0.12f;
+                            length = 57f; width = 7f;
+                            sideLength = 21f; sideWidth = 0.7f; sideAngle = 21;
+                            colors = new Color[]{Color.valueOf("81afe3"), Color.valueOf("bdebff")};
+                            pierceDamageFactor = 0.7f;
+                            smokeEffect = colorSpark;
+                            shootEffect = shootSmallColor;
+                            hitColor = Color.valueOf("81afe3");
+                            hitEffect = Fx.hitBulletColor;
+                        }};
+                    }}
+            );
         }};
         astrum = new UnitType("astrum"){{
             constructor = LegsUnit::create;
@@ -278,6 +314,7 @@ public class ThezsiaUnits {
             hovering = true;
             alwaysShootWhenMoving = true;
 
+            /*
             parts.addAll(
                     new RegionPart("-shell"){{
                         mirror = true;
@@ -339,6 +376,7 @@ public class ThezsiaUnits {
                 }};
             }}
             );
+             */
         }};
 
         /* Ignis' tree */
