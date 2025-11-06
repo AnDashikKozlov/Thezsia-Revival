@@ -2,9 +2,12 @@
 # ![logo.png](/assets/sprites-override/ui/logo.png)
 
 # Introduction
-This place, although it looks empty and safe, is actually fraught with dangers that you will encounter, good luck with your passage.
+Thezsia, once a developed, living planet, is now nothing more than a sandy, rocky wasteland, its surface obscured by thick clouds of smoke and ash.
 
-# All original rights to the mod belong to @decract ( displayname aka Thruster aka nyl ) from the Official Mindustry discord)
+Your small mining colony was once established there, but communication with the planet is extremely difficult. After an unknown amount of time, you were sent to the planet for inspection and further research of it's evironemnt.
+This place, although it looks empty, is actually fraught with danger that you will encounter, good luck with your passage.
+
+# Original version and idea of the mod belongs to @nyledekare (Discrod) from the Official Mindustry server
 
 # Links
 [![Discord](https://img.shields.io/discord/1301553669925244970?style=for-the-badge&color=ffa875&logo=discord&label=Thezsia%20%7C%20Main%20Outpost)](https://discord.gg/VhqTMUEUmZ)
