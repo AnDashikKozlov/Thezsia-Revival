@@ -19,12 +19,17 @@ Original version of the mod: Thruster (aka  DisplayName)
 description:
 '''
 ALPHA VERSION
-New planet, new stuff, what a surprise
-Thezsia — wasteland planet but underwater.
-'''
-subtitle: "Alpha 0.5"
+"New planet, new stuff, what a surprise" ©[#5865f2[]]@nyledekare[whiye[]]
 
-version: "Alpha 0.5"
+Special thanks to:
+- [#5865f2[]]@photon_gravity[white[]] for AdjustableBeamNode (diagonal beam node) code.
+- [#5865f2[]]@meepoffaith[white[]] for the pseudo-3D drawing code.
+- [#5865f2[]]@nyledekare[white[]] for original version of mod.
+
+'''
+subtitle: "Alpha 0.6"
+
+version: "Alpha 0.6"
 
 
 //dependencies: ["font-icon-lib"]
