@@ -2,6 +2,7 @@ package Thezsia.content.Thezsia;
 
 import arc.graphics.Blending;
 import arc.graphics.Color;
+import arc.math.Interp;
 import mindustry.ai.types.*;
 import mindustry.content.Fx;
 import mindustry.content.StatusEffects;
@@ -156,7 +157,7 @@ public class ThezsiaUnits {
         noctis = new UnitType("noctis"){{
             constructor = LegsUnit::create;
             hitSize = 48f / 4f; //*sprite size / 4f*/
-            health = 375; armor = 1;
+            health = 375; armor = 2;
             itemCapacity = 0;
 
             legContinuousMove = allowLegStep = lockLegBase = true;
@@ -167,6 +168,7 @@ public class ThezsiaUnits {
             legSpeed = 0.25f;
             legForwardScl = 0.7f;
             legMoveSpace = 1.3f;
+            stepShake = 0f;
             hovering = true;
 
             accel = 0.06f;
@@ -200,7 +202,7 @@ public class ThezsiaUnits {
         stella = new UnitType("stella"){{
             constructor = LegsUnit::create;
             hitSize = 64f / 4f; //*sprite size / 4f*/
-            health = 760; armor = 4;
+            health = 760; armor = 5;
             itemCapacity = 0;
 
             legStraightness = 0.2f;
@@ -212,7 +214,8 @@ public class ThezsiaUnits {
             legForwardScl = 0.6f;
             legMoveSpace = 1.2f;
             hovering = true;
-            alwaysShootWhenMoving = true;
+            stepShake = 0.1f;
+            //alwaysShootWhenMoving = true;
 
             accel = 0.06f;
             drag = 0.07f;
@@ -236,29 +239,6 @@ public class ThezsiaUnits {
             );
 
             weapons.add(
-                    /*new Weapon(){{
-                        top = false;
-                        x = 0f; y = 0f;
-                        rotate = false;
-                        shootCone = 10;
-                        shootX = 5f; shootY = 1f;
-                        mirror = true;
-                        alternate = true;
-                        reload = 4;
-                        recoil = 0.7f;
-                        inaccuracy = 5;
-                        shootSound = Sounds.blaster;
-                        shootWarmupSpeed = 0.04f; minWarmup = 0.8f; cooldownTime = 55;
-                        bullet = new BasicBulletType(5.5f, 7) {{
-                            lifetime = 18;
-                            height = 7.3f; width = 6.9f;
-                            frontColor = Color.valueOf("FFFFFFFF"); backColor = Color.valueOf("869cbe");
-                            trailColor = Color.valueOf("869cbe");
-                            trailLength = 10; trailWidth = 1.5f;
-                            smokeEffect = shootSmallSmoke;
-                            shootEffect = shootSmallColor;
-                        }};
-                    }}*/
                     new Weapon(){{
                         top = false;
                         x = 5f; y = 1f;
@@ -291,92 +271,101 @@ public class ThezsiaUnits {
         astrum = new UnitType("astrum"){{
             constructor = LegsUnit::create;
             hitSize = 96f / 4f; //*sprite size / 4f*/
+            health = 985; armor = 12;
+            itemCapacity = 0;
 
             legContinuousMove = allowLegStep = lockLegBase = true;
             legStraightness = 0.2f;
             legGroupSize = 2;
             legCount = 6;
-            legLength = 27; legExtension = -7f;
+            legLength = 29; legExtension = -7f;
             legSpeed = 0.25f;
             legForwardScl = 0.7f;
             legMoveSpace = 1.3f;
+            stepShake = 0.2f;
+            hovering = true;
 
+            accel = 0.06f;
             drag = 0.07f;
             speed = 0.75f;
             rotateSpeed = 3.42f;
             outlineColor = outlineNoctisTree;
 
-            accel = 0.06f;
-            health = 985;
-            armor = 6;
-            itemCapacity = 0;
-
-            hovering = true;
-            alwaysShootWhenMoving = true;
-
-            /*
             parts.addAll(
-                    new RegionPart("-shell"){{
-                        mirror = true;
-                        progress = PartProgress.warmup;
-                        moveX = 0.8f;
-                        moveY = -1.1f;
-                        moveRot = -24;
+                    new RegionPart("-glow"){{
+                        mirror = outline = false;
+                        progress = PartProgress.smoothReload;
+                        blending = Blending.additive;
+                        colorTo = Color.valueOf("bdebff"); color = colorTo.cpy().a(0f);
                     }}
             );
 
             weapons.add(
-            new Weapon("thezsia1-astrum-shellweapon"){{
-                top = false;
-                x = 0; y = 0;
-                shootX = 9.9f; shootY = 1.8f;
-                rotate = false;
-                shootCone = 30;
-                mirror = true;
-                alternate = true;
-                reload = 7;
-                recoil = 0.82f;
-                inaccuracy = 8;
-                shootSound = Sounds.blaster;
-                cooldownTime = 68;
-                shootWarmupSpeed = 0.028f; minWarmup = 0.96f;
-                bullet = new MissileBulletType(5.9f, 12) {{
-                    smokeEffect = shootBigSmoke;
-                    shootEffect = shootBigColor;
-                    homingPower = 0.35f;
-                    weaveMag = 5;
-                    weaveScale = 2.65f;
-                    trailLength = 14;
-                    trailWidth = 2.7f;
-                    lifetime = 25;
-                    frontColor = Color.valueOf("FFFFFFFF");
-                    backColor = Color.valueOf("869CBEFF");
-                    trailColor = Color.valueOf("869CBEFF");
-                }};
-            }},
-            new Weapon("thezsia1-astrum-gun"){{
-                top = false;
-                x = 0; y = 0f;
-                shootX = 0; shootY = 6.8f;
-                mirror = false;
-                rotate = false;
-                recoil = 0.78f;
-                reload = 267;
-                cooldownTime = 152;
-                heatColor = Color.valueOf("e5f1ffdb");
-                shootSound = Sounds.laser;
-                shoot.shots = 4; shoot.firstShotDelay= 104; shoot.shotDelay = 68;
-                bullet = new LaserBulletType(10) {{
-                    length = 72;
-                    width = 9;
-                    lifetime = 32;
-                    colors = new Color[]{Color.valueOf("869CBEFF"), Color.valueOf("b8dbf5"), Color.valueOf("FFFFFFFF")};
-                    shootEffect = new MultiEffect(lightningShoot, lightningCharge);
-                    hitEffect = hitLancer;
-                }};
-            }}
+                    new Weapon("thezsia1-astrum-weapon"){{
+                        top = false;
+                        x = y = 0;
+                        shootX = 0; shootY = 6f;
+                        rotate = false;
+                        shootCone = 10;
+                        mirror = false;
+                        reload = 184;
+                        recoil = 0;
+                        inaccuracy = 8;
+                        shootSound = Sounds.cannon;
+                        shootWarmupSpeed = 0.03f; minWarmup = 0.85f; cooldownTime = 158;
+                        bullet = new ArtilleryBulletType(){{
+                            //sprite = "large-bomb";
+                            parts.addAll(
+                                    new FlarePart(){{
+                                        mirror = false;
+                                        sides = 3;
+                                        radius = 5f; radiusTo = 18f;
+                                        stroke = 5;
+                                        rotation = 0f;
+                                        y = 0f;
+                                        followRotation = true;
+                                        progress = PartProgress.life.slope().curve(Interp.pow3Out);
+                                        color1 = Color.valueOf("bdebff"); color2 = color1.cpy().a(0f);
+                                    }}
+                            );
+                            damage = 46;
+                            splashDamage = 28; splashDamageRadius = 5 * tilesize;
+                            lifetime = 184;
+                            recoil = 0.58f;
+                            height = width = 0; //height = 21f; width = 19f;
+                            frontColor = Color.valueOf("81afe3"); backColor = Color.valueOf("bdebff");
+                            pierceDamageFactor = 1.5f;
+                            smokeEffect = colorSparkBig;
+                            shootEffect = shootBigColor;
+                            hitColor = Color.valueOf("81afe3");
+                            hitEffect = despawnEffect = titanExplosionSmall;
+
+                            fragSpread = 60; fragRandomSpread = 0;
+                            fragBullets = 6;
+                            fragBullet = new LaserBulletType(){{
+                                damage = 12;
+                                lifetime = 17;
+                                length = 19f; width = 19f;
+                                //sideLength = 41f; sideWidth = 1.7f; sideAngle = 60;
+                                colors = new Color[]{Color.valueOf("81afe3"), Color.valueOf("bdebff")};
+                                pierceDamageFactor = 0.7f;
+                                smokeEffect = colorSpark;
+                                shootEffect = none;
+                                shootSound = Sounds.laser;
+                                hitColor = Color.valueOf("81afe3");
+                                hitEffect = Fx.hitBulletColor;
+                            }};
+                        }};
+                        parts.add(
+                                new RegionPart("-side"){{
+                                    under = true; //layerOffset = -0.001f;
+                                    mirror = true;
+                                    progress = PartProgress.recoil;
+                                    moveX = 1.75f; moveY = -1.25f; moveRot = -7;
+                                }}
+                        );
+                    }}
             );
-             */
         }};
 
         /* Ignis' tree */
