@@ -25,6 +25,7 @@ public class Thezsia extends Mod{
         Log.info("Loading some Thezsia content.");
         ThezTeams.load();
         ThezAttribute.load();
+        ThezSounds.load();
         ThezItems.load();
         ThezLiquids.load();
         ThezsiaUnits.load();
