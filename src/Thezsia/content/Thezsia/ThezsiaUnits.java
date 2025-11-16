@@ -1,5 +1,6 @@
 package Thezsia.content.Thezsia;
 
+import Thezsia.content.ThezSounds;
 import arc.graphics.Blending;
 import arc.graphics.Color;
 import arc.math.Interp;
@@ -311,7 +312,7 @@ public class ThezsiaUnits {
                         reload = 184;
                         recoil = 0;
                         inaccuracy = 8;
-                        shootSound = Sounds.cannon;
+                        shootSound = ThezSounds.blasterShot1;
                         shootWarmupSpeed = 0.03f; minWarmup = 0.85f; cooldownTime = 158;
                         bullet = new ArtilleryBulletType(){{
                             //sprite = "large-bomb";
@@ -339,6 +340,7 @@ public class ThezsiaUnits {
                             shootEffect = shootBigColor;
                             hitColor = Color.valueOf("81afe3");
                             hitEffect = despawnEffect = titanExplosionSmall;
+                            hitSound = despawnSound = ThezSounds.laserShot;
 
                             fragSpread = 60; fragRandomSpread = 0;
                             fragBullets = 6;
@@ -351,7 +353,6 @@ public class ThezsiaUnits {
                                 pierceDamageFactor = 0.7f;
                                 smokeEffect = colorSpark;
                                 shootEffect = none;
-                                shootSound = Sounds.laser;
                                 hitColor = Color.valueOf("81afe3");
                                 hitEffect = Fx.hitBulletColor;
                             }};
@@ -383,7 +384,7 @@ public class ThezsiaUnits {
             new Weapon("thezsia1-ignis-weapon"){{
                 top = false;
                 x = 4.7f; y = 0;
-                shootX = 0.6f; shootY = 3.2f;
+                shootX = 0.6f; shootY = 3.4f;
                 shootCone = 30;
                 reload = 120;
                 rotate = false;
@@ -392,14 +393,17 @@ public class ThezsiaUnits {
                 shootSound = Sounds.shootAlt;
                 bullet = new BasicBulletType(3.7f, 10){{
                     lifetime = 40;
-                    height = 14; width = 8f;
+                    height = 14; width = 10f;
                     trailLength = 5; trailWidth = 1.3f;
                     pierce = false;
                     shootEffect = shootSmallFlame;
+                    hitSound = despawnSound = ThezSounds.machineGunShot2;
 
-                    fragOnHit = true; fragSpread = 60; fragRandomSpread = 0; fragBullets = 6;
+                    fragOnHit = true;
+                    fragSpread = 60; fragRandomSpread = 15;
+                    fragBullets = 6;
                     fragBullet = new BasicBulletType(6, 1.8f){{
-                        lifetime = 15;
+                        lifetime = 12;
                         height = 9; width = 6.5f;
                         hitSize = 4;
                         trailLength = 6;
@@ -409,7 +413,7 @@ public class ThezsiaUnits {
                         incendChance = 0.17f;
                         pierce = true;
                         pierceBuilding = true;
-                        pierceCap = 5;
+                        pierceCap = 2;
 
                     }};
                 }};
