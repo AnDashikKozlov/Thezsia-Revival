@@ -55,7 +55,7 @@ public class ThezsiaCrafting{
                 colorTo = Color.valueOf("544f5074");
                 interp = Interp.pow2; sizeInterp = Interp.pow2Out;
             }});
-            ambientSound = Sounds.machine; ambientSoundVolume = 0.08f;
+            ambientSound = Sounds.loopMachine; ambientSoundVolume = 0.08f;
             drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawLiquidTile(ThezLiquids.lava, 3),
                     new DrawArcSmeltReverse(){{
                         particleLife = 55; particleRad = 9;}}, new DrawDefault(),
@@ -78,7 +78,7 @@ public class ThezsiaCrafting{
                 lifetime = 60;
                 length = 4; baseLength = 6;
             }};
-            ambientSound = Sounds.machine; ambientSoundVolume = 0.08f;
+            ambientSound = Sounds.loopMachine; ambientSoundVolume = 0.08f;
             drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawLiquidTile(lava, 2),
                     new DrawRegion("-rotator"){{
                         spinSprite = true;
@@ -100,7 +100,7 @@ public class ThezsiaCrafting{
             consumeLiquid(oxygen, 22f / 60f);
             consumePower(270f / 60f);
 
-            ambientSound = Sounds.hum;
+            ambientSound = Sounds.loopHum;
             ambientSoundVolume = 0.08f;
             rotate = true;
             invertFlip = true;
@@ -160,7 +160,7 @@ public class ThezsiaCrafting{
             consumeLiquids(LiquidStack.with(lava, 0.36f, carbonDioxide, 0.14));
             consumePower(2.12f);
 
-            ambientSound = Sounds.hum;
+            ambientSound = Sounds.loopHum;
             ambientSoundVolume = 0.10f;
             rotate = false;
             invertFlip = true;
@@ -227,7 +227,7 @@ public class ThezsiaCrafting{
                         color = Color.valueOf( "4fff959e");
                     }}, new DrawDefault(), new DrawHeatInput("-heat")
             );
-            ambientSound = Sounds.machine; ambientSoundVolume = 0.09f;
+            ambientSound = Sounds.loopMachine; ambientSoundVolume = 0.09f;
 
             consumeItems(with(tritaniumCrystal, 5));
             consumeLiquid(ammonia, 0.45f);

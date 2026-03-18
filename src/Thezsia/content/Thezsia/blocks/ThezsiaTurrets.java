@@ -1,5 +1,6 @@
 package Thezsia.content.Thezsia.blocks;
 
+import Thezsia.content.ThezSounds;
 import Thezsia.type.bullet.PosLightningType;
 import Thezsia.world.graphics.ThezPal;
 import Thezsia.world.meta.ThezEnv;
@@ -42,7 +43,7 @@ public class ThezsiaTurrets{
             fogRadiusMultiplier = 0.5f;
             inaccuracy = 2;
             shootY = 2;
-            shootSound = Sounds.largeCannon;
+            shootSound = ThezSounds.UKShoot1; // Should I use Sounds.shootBreachCarbide instead?
             cooldownTime = 90f;
             ammoPerShot = 5;
             minWarmup = 0.5f;
@@ -107,7 +108,7 @@ public class ThezsiaTurrets{
             fogRadiusMultiplier = 0.25f;
             inaccuracy = 0.2f;
             shootY = 2;
-            shootSound = Sounds.laser;
+            shootSound = Sounds.shootLancer;
             //cooldownTime = 90f;
             ammoPerShot = 5;
             //minWarmup = 0.5f;
@@ -116,7 +117,7 @@ public class ThezsiaTurrets{
             ammo(
                     tensorite, new PosLightningType(38){{
                         lightningColor = hitColor = ThezPal.itemTensprite;
-                        shootSound = Sounds.spark;
+                        shootSound = Sounds.shootLocus;
                         boltNum = 3;
                         lightningDamage = 7;
                         lightning = 3; lightningLength = 5; lightningLengthRand = 12;
@@ -126,7 +127,7 @@ public class ThezsiaTurrets{
                     }},
                     tritaniumCrystal, new PosLightningType(72){{
                         lightningColor = hitColor = ThezPal.itemTritaniumcrystal;
-                        shootSound = Sounds.spark;
+                        shootSound = Sounds.shootLocus;
                         boltNum = 5;
                         lightningDamage = 21;
                         lightning = 7; lightningLength = 12; lightningLengthRand = 19;

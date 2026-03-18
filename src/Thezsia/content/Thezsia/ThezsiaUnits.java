@@ -185,7 +185,7 @@ public class ThezsiaUnits {
                 recoil = 0.6f;
                 mirror = false;
                 inaccuracy = 10;
-                shootSound = Sounds.blaster;
+                shootSound = Sounds.shootMerui;
                 cooldownTime = 50;
                 shoot.shots = 3; shoot.shotDelay = 8;
                 bullet = new MissileBulletType(4.5f, 15) {{
@@ -251,7 +251,7 @@ public class ThezsiaUnits {
                         reload = 7;
                         recoil = 0.7f;
                         inaccuracy = 5;
-                        shootSound = Sounds.blaster;
+                        shootSound = Sounds.shootCleroi;
                         shootWarmupSpeed = 0.04f; minWarmup = 0.7f; cooldownTime = 121;
                         bullet = new LaserBulletType(){{
                             damage = 12;
@@ -390,7 +390,7 @@ public class ThezsiaUnits {
                 rotate = false;
                 mirror = true;
                 alternate = true;
-                shootSound = Sounds.shootAlt;
+                shootSound = ThezSounds.machineGunShot4;
                 bullet = new BasicBulletType(3.7f, 10){{
                     lifetime = 40;
                     height = 14; width = 10f;
@@ -442,7 +442,7 @@ public class ThezsiaUnits {
                         mirror = true;
                         alternate = false;
                         soundPitchMin = 0.8f; soundPitchMax = 1.1f;
-                        shootSound = Sounds.torch;
+                        shootSound = Sounds.beamLustre;
                         alwaysContinuous = true;
                         continuous = true;
                         bullet = new ContinuousFlameBulletType(3.7f){{

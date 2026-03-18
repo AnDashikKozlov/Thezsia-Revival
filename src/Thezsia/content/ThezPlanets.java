@@ -88,7 +88,7 @@ public class ThezPlanets {
                     );
 
             allowLaunchToNumbered = allowLaunchSchematics = allowLaunchLoadout = false;
-            allowSectorInvasion = allowWaves = true; allowWaveSimulation = false;
+            allowSectorInvasion = allowWaves = true; allowCampaignRules  = true;
             enemyBuildSpeedMultiplier = 0.4f;
             clearSectorOnLose = true;
             startSector = 12;

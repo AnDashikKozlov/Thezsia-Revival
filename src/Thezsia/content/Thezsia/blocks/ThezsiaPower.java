@@ -34,7 +34,7 @@ public class ThezsiaPower {
             //lightColor = Color.valueOf("8aede2"); lightRadius = 1.2f * 8;
             emptyLightColor = powerColorDark; fullLightColor = powerColorLight;
             consumePowerBuffered(200);
-            ambientSound = Sounds.electricHum; ambientSoundVolume = 0.31f;
+            ambientSound = Sounds.loopElectricHum; ambientSoundVolume = 0.31f;
             drawer = new DrawMulti(new DrawRegion(), new DrawGlowRegion("-glow"){{color = powerColorLight;}});
         }};
         transmittingNode = new AdjustableBeamNode("transmitting-node"){{

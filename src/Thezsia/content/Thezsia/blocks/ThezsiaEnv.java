@@ -29,9 +29,10 @@ public class ThezsiaEnv{
             // Peridotite
             peridotite, darkPeridotite, peridotiteCube, darkPeridotiteCube, peridotiteWall, darkPeridotiteWall, tritaniumCluster,
             // Nature
-            deadYellowCoralFloor, deadYellowCoralFloorAlt, deadYellowcoral, deadYellowcoralAlt,
+            deadYellowCoralFloor, deadYellowCoralFloorAlt, deadYellowcoral, deadYellowcoralAlt, fernAlphared, fernYellow,
             // Ores
             tantalumOre, silverLick, nihiliteOre, tritaniumOre, tritaniumOreWall;
+
     public static void load(){
         // Charrok
         charrokFloor = new Floor("charrok-floor"){{variants = 5;
@@ -201,6 +202,12 @@ public class ThezsiaEnv{
             origin = 0.2f;
             spread = 40f;
             sclMin = 40f; sclMax = 80f;
+        }};
+        fernAlphared = new TreeBlock("fern-alphared"){{
+            variants = 4;
+        }};
+        fernYellow = new TreeBlock("dead-yellowcoral-alt"){{
+            variants = 4;
         }};
 
         // Ores

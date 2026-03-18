@@ -69,7 +69,7 @@ public class ThezsiaProduction{
             drillTime = 220;
             output = nihilite;
             attribute = volcanicStone;
-            ambientSound = Sounds.grinding; ambientSoundVolume = 0.13f;
+            ambientSound = Sounds.loopGrind; ambientSoundVolume = 0.13f;
         }};
         circularDrill = new BurstDrill("circular-drill"){{
             requirements(Category.production, ItemStack.with(tantalum, 80, silver, 25));
@@ -85,7 +85,7 @@ public class ThezsiaProduction{
             consumeLiquid(oxygen, 6f / 60f);
             consumeLiquid(carbonDioxide, 4f / 60f).boost();
 
-            ambientSound = Sounds.hum; /* Old was Sounds.grinding*/ ambientSoundVolume = 0.52f;
+            ambientSound = Sounds.loopHum; /* Old was Sounds.grinding*/ ambientSoundVolume = 0.52f;
             alwaysUnlocked = true;
         }};
         /*circularDrill = new Drill("circular-drill"){{
@@ -97,7 +97,7 @@ public class ThezsiaProduction{
             consumeLiquids(LiquidStack.with(lava, 10f / 60f, carbonDioxide, 6f / 60f));
             consumePower(0.92f);
 
-            ambientSound = Sounds.grinding;
+            ambientSound = Sounds.loopGrind; // Sounds.grinding is gone.
             ambientSoundVolume = 0.4f;
         }};*/
         OxygenConcentrator = new AttributeCrafter("oxygen-concentrator"){{
@@ -118,7 +118,7 @@ public class ThezsiaProduction{
                 length = 9; baseLength = 5;
                 interp = pow2; sizeInterp = Interp.pow3In;
             }};
-            ambientSound = Sounds.hum; ambientSoundVolume = 0.11f;
+            ambientSound = Sounds.loopHum; ambientSoundVolume = 0.11f;
 
             drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawLiquidTile(oxygen, 3), new DrawRegion("-bottom2"),
                     new DrawBlurSpin(){{suffix = "-rotator"; rotateSpeed = 8;}}, new DrawDefault(),

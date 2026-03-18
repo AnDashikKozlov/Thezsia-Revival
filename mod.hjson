@@ -2,7 +2,7 @@
 name: "thezsia1"
 main: "Thezsia.Thezsia"
 java: true
-minGameVersion: 147
+minGameVersion: 154.3
 repo: "https://github.com/AnDashikKozlov/Thezsia-Revival"
 hideBrowser: true
 
@@ -14,23 +14,24 @@ author:
 Main developer: AnDashik
 Music by Ace, CY4NIDE
 Other help (code, sprites, etc): ItzCraft, Weeersix, Sputnuc, CY4NIDE
-Original version of the mod: Thruster (aka  DisplayName)
+Original version & idea of the mod: Thruster (aka  DisplayName / nyledekare)
 '''
 
 description:
 '''
 ALPHA VERSION
-"New planet, new stuff, what a surprise" ©[#5865f2[]]@nyledekare[whiye[]]
+"New planet, new stuff, what a surprise" ©[#5865f2[]]@nyledekare[white[]]
+Might need FICO lib in future.
 
 Special thanks to:
 - [#5865f2[]]@photon_gravity[white[]] for AdjustableBeamNode (diagonal beam node) code.
 - [#5865f2[]]@meepoffaith[white[]] for the pseudo-3D drawing code.
-- [#5865f2[]]@nyledekare[white[]] for original version of mod.
+- [#5865f2[]]@nyledekare[white[]] for original mod.
 
 '''
-subtitle: "Alpha 0.6"
+subtitle: "Alpha 0.7"
 
-version: "Alpha 0.6"
+version: "Alpha 0.7"
 
 
 //dependencies: ["font-icon-lib"]
