@@ -65,7 +65,8 @@ public class ThezsiaProduction{
             requirements(Category.production, ItemStack.with(tantalum, 25));
             size = 2; health = 85; squareSprite = false;
 
-            consume(new ConsumeLiquid(oxygen, 0.05f));
+            //consume(new ConsumeLiquid(oxygen, 0.05f));
+            hasPower = true; consumePower(80f / 60f);
             drillTime = 220;
             output = nihilite;
             attribute = volcanicStone;
@@ -81,7 +82,8 @@ public class ThezsiaProduction{
             drillEffect = new MultiEffect(/*Fx.mineImpact,*/ Fx.drillSteam, Fx.mineImpactWave.wrap(Pal.reactorPurple, 60f));
             shake = 1.7f;
 
-            hasPower = true; consumePower(100f / 60f);
+            hasPower = true;
+            consumePower(120f / 60f);
             consumeLiquid(oxygen, 6f / 60f);
             consumeLiquid(carbonDioxide, 4f / 60f).boost();
 
