@@ -4,6 +4,7 @@ import Thezsia.content.ThezFx;
 import Thezsia.world.blocks.ThezAttribute;
 import Thezsia.world.blocks.environment.BiggerVent;
 import Thezsia.world.blocks.environment.EffectFloor;
+import Thezsia.world.blocks.environment.FernBlock;
 import arc.graphics.Color;
 import mindustry.content.Fx;
 import mindustry.content.StatusEffects;
@@ -29,7 +30,7 @@ public class ThezsiaEnv{
             // Peridotite
             peridotite, darkPeridotite, peridotiteCube, darkPeridotiteCube, peridotiteWall, darkPeridotiteWall, tritaniumCluster,
             // Nature
-            deadYellowCoralFloor, deadYellowCoralFloorAlt, deadYellowcoral, deadYellowcoralAlt, fernAlphared, fernYellow,
+            deadYellowCoralFloor, deadYellowCoralFloorAlt, deadYellowcoral, deadYellowcoralAlt, fernAlphared, fernYellow, fernAlpharedLayered,
             // Ores
             tantalumOre, silverLick, nihiliteOre, tritaniumOre, tritaniumOreWall;
 
@@ -203,12 +204,14 @@ public class ThezsiaEnv{
             spread = 40f;
             sclMin = 40f; sclMax = 80f;
         }};
-        fernAlphared = new TreeBlock("fern-alphared"){{
+        /*fernAlphared = new TreeBlock("fern-alphared"){{
             variants = 4;
         }};
-        fernYellow = new TreeBlock("dead-yellowcoral-alt"){{
+        fernYellow = new TreeBlock("fern-yellow"){{
             variants = 4;
         }};
+        */
+        fernAlpharedLayered = new FernBlock("fern-alphared-layered"){{variants = 0;}};
 
         // Ores
         tantalumOre = new OreBlock("tantalum-ore"){{variants = 4;
