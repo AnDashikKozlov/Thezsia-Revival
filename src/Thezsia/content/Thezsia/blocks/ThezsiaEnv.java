@@ -211,7 +211,7 @@ public class ThezsiaEnv{
             variants = 4;
         }};
         */
-        fernAlpharedLayered = new FernBlock("fern-alphared-layered"){{variants = 0;}};
+        // fernAlpharedLayered = new FernBlock("fern-alphared-layered"){{variants = 0;}};
 
         // Ores
         tantalumOre = new OreBlock("tantalum-ore"){{variants = 4;

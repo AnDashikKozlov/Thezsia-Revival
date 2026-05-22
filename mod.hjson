@@ -1,37 +1,16 @@
-
 name: "thezsia1"
+
 main: "Thezsia.Thezsia"
-java: true
-minGameVersion: 154.3
 repo: "https://github.com/AnDashikKozlov/Thezsia-Revival"
+java: true
+version: "Alpha 0.7"
+minGameVersion: 157
 hideBrowser: true
 
 
 displayName: "Thezsia Revival"
-
-author:
-'''
-Main developer: AnDashik
-Music by Ace, CY4NIDE
-Other help (code, sprites, etc): ItzCraft, Weeersix, Sputnuc, CY4NIDE
-Original version & idea of the mod: Thruster (aka  DisplayName / nyledekare)
-'''
-
-description:
-'''
-ALPHA VERSION
-"New planet, new stuff, what a surprise" ©[#5865f2[]]@nyledekare[white[]]
-Might need FICO lib in future.
-
-Special thanks to:
-- [#5865f2[]]@photon_gravity[white[]] for AdjustableBeamNode (diagonal beam node) code.
-- [#5865f2[]]@meepoffaith[white[]] for the pseudo-3D drawing code.
-- [#5865f2[]]@nyledekare[white[]] for original mod.
-
-'''
-subtitle: "Alpha 0.7"
-
-version: "Alpha 0.7"
-
+subtitle: "𝙰𝚕𝚙𝚑𝚊 𝟶.𝟽"
+author: "[#d13050[]]𝐀𝐧𝐃𝐚𝐬̌𝐲𝐤[white[]]"
+description: "ＡＬＰＨＡ ＶＥＲＳＩＯＮ \n «New planet, new stuff, what a surprise» ©[#5865f2[]]@nyledekare[white[]] \n Might be dependent FICO lib in future? I'm not sure. \n \n Special thanks to: \n — Music by [#d9c289[]]Ace[white[]] & [#89bbd9[]]Cirrus (CY4NIDE)[white[]]. \n — [#5865f2[]]@photon_gravity[white[]] for AdjustableBeamNode (diagonal beam node) code. \n — [#5865f2[]]@meepoffaith[white[]] for the pseudo-3D drawing code. \n — [#5865f2[]]@nyledekare[white[]] for original mod. \n \n Other help (code, sprites, etc): ItzCraft, WeεrsΙχ?, Sputnuc, Cirrus \n Original version & idea of the mod: Thruster (aka  DisplayName / nyledekare)"
 
 //dependencies: ["font-icon-lib"]
