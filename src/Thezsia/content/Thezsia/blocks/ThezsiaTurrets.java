@@ -4,6 +4,7 @@ import Thezsia.content.ThezSounds;
 import Thezsia.type.bullet.PosLightningType;
 import Thezsia.world.graphics.ThezPal;
 import Thezsia.world.meta.ThezEnv;
+import arc.graphics.Blending;
 import arc.graphics.Color;
 import mindustry.Vars;
 import mindustry.content.Fx;
@@ -88,7 +89,7 @@ public class ThezsiaTurrets{
                     mirror = true;
                     under = true;
                     outline = true;
-                    progress = PartProgress.recoil; heatProgress = PartProgress.warmup;
+                    progress = PartProgress.recoil; heatProgress = PartProgress.recoil;
                     moveX = 0.7f; moveY = -0.8f; moveRot = -18;
                     heatColor = Color.valueOf("FFA665FF");
                 }});
@@ -103,40 +104,77 @@ public class ThezsiaTurrets{
             outlineColor = ThezPal.outlineTurret;
             targetAir = false;
             targetGround = true;
-            reload = 1.3f * 60f;
+            reload = 1.6f * 60f;
             range = 18f * Vars.tilesize;
             fogRadiusMultiplier = 0.25f;
             inaccuracy = 0.2f;
-            shootY = 2;
+            shootY = 7;
             shootSound = Sounds.shootLancer;
-            //cooldownTime = 90f;
-            ammoPerShot = 5;
-            //minWarmup = 0.5f;
-            //shootWarmupSpeed = 0.03f;
+            cooldownTime = 75f;
+            ammoPerShot = 2;
+            minWarmup = 0.8f;
+            warmupMaintainTime = 90f;
+            shootWarmupSpeed = 0.025f;
 
             ammo(
                     tensorite, new PosLightningType(38){{
                         lightningColor = hitColor = ThezPal.itemTensprite;
-                        shootSound = Sounds.shootLocus;
-                        boltNum = 3;
+                        //shootSound = Sounds.shootLocus;
+                        shootSound = Sounds.shootBeamPlasma;
+                        boltNum = 2;
                         lightningDamage = 7;
-                        lightning = 3; lightningLength = 5; lightningLengthRand = 12;
+                        lightning = 3; lightningLength = 5; lightningLengthRand = 4;
                         minRange = 5f * Vars.tilesize; maxRange = rangeOverride = 18f * Vars.tilesize;
                         hitEffect = Fx.hitLaserColor;
-                        smokeEffect = Fx.greenCloud.wrap(ThezPal.itemTensprite);
+                        shootEffect = Fx.colorSparkBig.wrap(ThezPal.itemTensprite);
+                        smokeEffect = Fx.smokePuff.wrap(ThezPal.itemTensprite);
                     }},
                     tritaniumCrystal, new PosLightningType(72){{
-                        lightningColor = hitColor = ThezPal.itemTritaniumcrystal;
-                        shootSound = Sounds.shootLocus;
-                        boltNum = 5;
+                        lightningColor = hitColor = ThezPal.itemTritanium;
+                        shootSound = Sounds.shootBeamPlasmaSmall;
+                        boltNum = 3;
                         lightningDamage = 21;
-                        lightning = 7; lightningLength = 12; lightningLengthRand = 19;
+                        lightning = 7; lightningLength = 12; lightningLengthRand = 9;
                         minRange = 5f * Vars.tilesize; maxRange = rangeOverride = 25f * Vars.tilesize;
                         hitEffect = Fx.hitLaserColor;
-                        smokeEffect = Fx.greenCloud.wrap(ThezPal.itemTritaniumcrystal);
+                        shootEffect = Fx.colorSparkBig.wrap(ThezPal.itemTritanium);
+                        smokeEffect = Fx.smokePuff.wrap(ThezPal.itemTritanium);
 
                     }}
             );
+            drawer = new DrawTurret("thezsia-"){{
+                parts.add(new RegionPart("-wing"){{
+                    mirror = true;
+                    under = false;
+                    outline = true;
+                    progress = PartProgress.warmup; //heatProgress = PartProgress.warmup;
+                    moveX = -1.5f; moveY = -3; moveRot = 30;
+                    heatColor = Color.valueOf("FFA665FF");
+                }});
+                parts.add(new RegionPart("-side"){{
+                    mirror = true;
+                    under = true;
+                    outline = true;
+                    progress = PartProgress.warmup; heatProgress = PartProgress.recoil;
+                    moveX = 0.75f; moveY = 2.25f;
+                    heatColor = Color.valueOf("FFA665FF");
+                    moves.add(new PartMove(PartProgress.recoil, 0, -1.75f, -7));
+                }});
+                parts.add(new RegionPart("-glow"){{
+                    drawRegion = false;
+                    mirror = false;
+                    blending = Blending.additive;
+                    heatProgress = PartProgress.warmup;
+                    heatColor = ThezPal.powerColorMid; //Color.valueOf("FFA665FF");
+                }});
+                parts.add(new RegionPart("-shoot-glow"){{
+                    drawRegion = false;
+                    mirror = false;
+                    blending = Blending.additive;
+                    heatProgress = PartProgress.heat;
+                    heatColor = ThezPal.powerColorLight;
+                }});
+            }};
         }};
     }
 }
