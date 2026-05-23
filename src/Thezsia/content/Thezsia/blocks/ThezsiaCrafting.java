@@ -125,7 +125,7 @@ public class ThezsiaCrafting{
         commonHeater = new HeatProducer("common-heater"){{
             requirements(Category.crafting, ItemStack.with(tantalum, 20, silver, 80, infium, 30));
             size = 2;
-            consumePower(124f / 60f);
+            consumePower(114f / 60f);
             heatOutput = 3;
             warmupRate = 0.165f;
             craftTime = 119;
@@ -135,6 +135,7 @@ public class ThezsiaCrafting{
             requirements(Category.crafting, ItemStack.with(tantalum, 45, silver, 115, infium, 50));
             size = 3;
             consumeItem(sulfur);
+            consumePower(182f / 60f);
             heatOutput = 7;
             warmupRate = 0.165f;
             craftTime = 127;
@@ -162,19 +163,21 @@ public class ThezsiaCrafting{
 
             ambientSound = Sounds.loopHum;
             ambientSoundVolume = 0.10f;
-            rotate = false;
+            rotate = rotateDraw = false;
             invertFlip = true;
-            rotateDraw = false;
             liquidOutputDirections = new int[]{2};
             regionRotated1 = 1;
             outputFacing = true;
 
             drawer = new DrawMulti(
+                    /*
                     //new DrawRegion("-hintoverlay"){{layer = 29.5f;}},
                     new DrawRegion("-bottom"), //{{layer = 30.1f;}},
                     new DrawRegion("-top"){{layer = 30.5f;}},
                     new DrawLiquidTile(meltedTensorite,1),
                     new DrawDefault() //DrawRegion(""){{layer = 32f;}}
+                    */
+                    new DrawDefault()
             );
         }};
 
