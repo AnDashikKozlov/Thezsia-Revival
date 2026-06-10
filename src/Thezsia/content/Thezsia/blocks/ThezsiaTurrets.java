@@ -27,7 +27,7 @@ import static Thezsia.content.ThezItems.*;
 
 public class ThezsiaTurrets{
     public static Block
-            //Blocks
+            // Block
             ember, stinger;
     public static void load() {
         ember = new ItemTurret("ember"){{
@@ -54,7 +54,7 @@ public class ThezsiaTurrets{
                         ammoMultiplier = 2;
                         shootEffect = Fx.shootTitan; smokeEffect = Fx.shootSmokeTitan;
                         width = 8; height = 10;
-                        //sprite =
+                        // sprite =
                         speed = 5.5f;
                         lifetime = 36.36f;
                         pierce = true; pierceCap = 3; pierceBuilding = true;
@@ -65,7 +65,7 @@ public class ThezsiaTurrets{
                         ammoMultiplier = 1;
                         shootEffect = Fx.shootTitan; smokeEffect = Fx.shootSmokeTitan;
                         width = 9.4f; height = 13.4f;
-                        //sprite =
+                        // sprite =
                         speed = 5.7f;
                         lifetime = 38.59f;
                         damage = 13;
@@ -99,6 +99,7 @@ public class ThezsiaTurrets{
             requirements(Category.turret, ItemStack.with(tantalum, 110, silver, 40, infium, 75));
             size = 3;
             squareSprite = false;
+            consumePower(275f / 60f);
             coolant = consume(new ConsumeCoolant(0.25f, true, true));
             rotateSpeed = 2.1f;
             outlineColor = ThezPal.outlineTurret;
@@ -119,7 +120,7 @@ public class ThezsiaTurrets{
             ammo(
                     tensorite, new PosLightningType(38){{
                         lightningColor = hitColor = ThezPal.itemTensprite;
-                        //shootSound = Sounds.shootLocus;
+                        // shootSound = Sounds.shootLocus;
                         shootSound = Sounds.shootBeamPlasma;
                         boltNum = 2;
                         lightningDamage = 7;
