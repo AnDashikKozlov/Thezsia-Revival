@@ -20,14 +20,14 @@ import static mindustry.type.ItemStack.with;
 
 public class ThezsiaPower {
     public static Block
-            //Blocks
-            /*silverCable,*/ transmittingNode, capacitor; /*testFignya;*/
+            // Blocks
+            /* silverCable, */ transmittingNode, capacitor; /*testFignya;*/
     public static void load() {
-        /*silverCable = new PowerWire("silver-cable"){{
+        /* silverCable = new PowerWire("silver-cable"){{
             requirements(Category.power, with(tantalum, 1, silver, 1));
             health = 12;
             emitLight = true; lightColor = powerColorA; lightRadius = 10;
-        }};*/
+        }}; */
         capacitor = new Battery("capacitor"){{
             requirements(Category.power, with(tantalum, 20, tensorite, 15));
             size = 2; squareSprite = false; health = 90;
