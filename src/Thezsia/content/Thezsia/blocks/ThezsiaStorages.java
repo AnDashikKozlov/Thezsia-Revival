@@ -23,8 +23,8 @@ public class ThezsiaStorages{
 
             hasPower = true;
             conductivePower = true;
-            passiveEnergyOut = 80 / 60f;
-            consumePowerBuffered(180);
+            passiveEnergyOut = 320 / 60f;
+            consumePowerBuffered(440);
             glowMag = 0.78f; glowScl = 9.5f;
             itemCapacity = 5000;
             unitType = Iambient;
@@ -39,8 +39,8 @@ public class ThezsiaStorages{
 
             hasPower = true;
             conductivePower = true;
-            passiveEnergyOut = 250 / 60f;
-            consumePowerBuffered(100);
+            passiveEnergyOut = 480 / 60f;
+            consumePowerBuffered(600);
             glowMag = 0.78f; glowScl = 9.5f;
             itemCapacity = 7500;
             unitType = IIambient;

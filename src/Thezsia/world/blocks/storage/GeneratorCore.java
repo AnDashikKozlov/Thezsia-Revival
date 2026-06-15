@@ -35,8 +35,13 @@ public class GeneratorCore extends CoreBlock{
     public void load(){
         super.load();
         glow = Core.atlas.find(name + "-glow");
-        uiIcon = fullIcon = Core.atlas.find(name + "-full");
     }
+
+    @Override
+	public void loadIcon(){
+		uiIcon = fullIcon = Core.atlas.find(name + "-full");
+		if (!uiIcon.found()) super.loadIcon();
+	}
 
     @Override
     public void setBars(){

@@ -13,39 +13,49 @@ public class ThezItems {
     public static final Seq<Item> thezsiaItems = new Seq<>();
     public static void load(){
         tantalum = new Item("tantalum", ThezPal.itemTantalum){{
+            healthScaling = 0.25f;
             cost = 1;
             hardness = 1;
         }};
         silver = new Item("silver", ThezPal.itemSilver){{
+            healthScaling = -0.1f;
             hardness = 2;
             cost = 1.24f;
+            lowPriority = true;
         }};
         nihilite = new Item("nihilite", ThezPal.itemNihilite){{
+            healthScaling = -0.3f;
             hardness = 1;
             cost = 1;
             charge = 0.1f;
         }};
         infium = new Item("infium", ThezPal.itemInfium){{
+            healthScaling = 0.75f;
             hardness = 4;
             cost = 1.3f;
         }};
         tensorite = new Item("tensorite", ThezPal.itemTensprite){{
+            healthScaling = 0.5f;
             hardness = 5;
             cost = 1.62f;
             charge = 0.75f;
         }};
         sulfur = new Item("sulfur", ThezPal.itemSulfur){{
-            hardness = 2; // Or 3. Idk...
+            healthScaling = -0.6f;
+            hardness = 2; // 2 or 3? Idk...
             cost = 1.2f;
             flammability = 1.32f;
+            lowPriority = true;
         }};
         tritaniumCrystal = new Item("tritanium-crystal", ThezPal.itemTritaniumcrystal){{
+            healthScaling = -0.4f;
             hardness = 4;
             cost = 1.35f;
             charge = 0.08f;
             radioactivity = 0.72f;
         }};
         tritanium = new Item("tritanium", ThezPal.itemTritanium){{
+            healthScaling = 0.5f;
             hardness = 5;
             cost = 1.8f;
             charge = 0.15f;

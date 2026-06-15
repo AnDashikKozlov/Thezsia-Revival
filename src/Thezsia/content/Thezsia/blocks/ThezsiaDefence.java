@@ -48,12 +48,12 @@ public class ThezsiaDefence{
         tensoriteWall = new Wall("tensorite-wall"){{
             requirements(Category.defense, ItemStack.with(silver, 4, tensorite, 32));
             size = 1; health = 560;
-            lightningChance = 0.03f; lightningColor = ThezPal.itemTensprite; lightningDamage = 12; lightningLength = 20; lightningSound = Sounds.spark;
+            lightningChance = 0.03f; lightningColor = ThezPal.itemTensprite; lightningDamage = 12; lightningLength = 20; lightningSound = Sounds.shootPulsar; // Should I use "shootElude" as sound?
         }};
         TensoriteWallLarge = new Wall("tensorite-wall-large"){{
             requirements(Category.defense, ItemStack.with(silver, 12, tensorite, 96));
             size = 2; health = 2240;
-            lightningChance = 0.03f; lightningColor = ThezPal.itemTensprite; lightningDamage = 40; lightningLength = 48; lightningSound = Sounds.spark;
+            lightningChance = 0.03f; lightningColor = ThezPal.itemTensprite; lightningDamage = 40; lightningLength = 48; lightningSound = Sounds.shootPulsar; // Should I use "shootElude" as sound?
         }};
         tritaniumWall = new RegenProjector("tritanium-wall"){{
             requirements(Category.defense, ItemStack.with(sulfur, 12, tritanium, 32));
@@ -89,6 +89,7 @@ public class ThezsiaDefence{
             }};
             drawer = new DrawMulti(new DrawDefault());
         }};
+        /*
         crackedWall = new Wall("cracked-wall"){{
             requirements(Category.defense, ItemStack.with(silver, 4));
             health = 165; size = 1; variants = 3;
@@ -97,6 +98,7 @@ public class ThezsiaDefence{
             requirements(Category.defense, ItemStack.with(silver, 19));
             health = 471; size = 2; variants = 3;
         }};
+        */
 
         /* "Effects" */
         renewer = new RegenProjector("renewer"){{

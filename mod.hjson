@@ -1,29 +1,16 @@
-
 name: "thezsia1"
+
 main: "Thezsia.Thezsia"
+repo: "https://github.com/AnDashikKozlov/Thezsia-Revival"
 java: true
-minGameVersion: 147
+version: "Alpha 0.8"
+minGameVersion: 157
+hideBrowser: true
 
 
 displayName: "Thezsia Revival"
-
-author:
-'''
-Main developer: AnDashik
-Music by Ace, CY4NIDE
-Other help (code, sprites, etc): ItzCraft, Weeersix, Sputnuc, CY4NIDE
-Original version of the mod: Thruster (aka  DisplayName)
-'''
-
-description:
-'''
-ALPHA VERSION
-New planet, new stuff, what a surprise
-Thezsia — wasteland planet but underwater.
-'''
-subtitle: "Alpha 0.5"
-
-version: "Alpha 0.5"
-
+subtitle: "𝙰𝚕𝚙𝚑𝚊 𝟶.𝟽"
+author: "[#d13050[]]𝐀𝐧𝐃𝐚𝐬̌𝐲𝐤[white[]]"
+description: "ALPHA VERSION \n There is NO playable campaign right now! It's a WIP mod! \n «New planet, new stuff, what a surprise» © [#5865f2[]]@nyledekare[white[]] \n Might be dependent on FICO lib in future? I'm not sure. \n \n Special thanks to: \n — [#d9c289[]]Ace[white[]] ([#5865f2[]]@ace1020spawn[white[]]) & [#89bbd9[]]Cirrus[white[]] ([#5865f2[]]@cirrusisakey[white[]]) for cool music. \n — [#5865f2[]]@photon_gravity[white[]] for AdjustableBeamNode (diagonal beam nodes). \n — [#5865f2[]]@meepoffaith[white[]] for the pseudo-3D drawing code. \n — [#5865f2[]]@nyledekare[white[]] for original mod. \n \n Other help (code, sprites, etc): ItzCraft, WeεrsΙχ?, Sputnuc, Cirrus."
 
 //dependencies: ["font-icon-lib"]

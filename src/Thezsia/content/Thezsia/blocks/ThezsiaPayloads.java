@@ -15,8 +15,11 @@ import static mindustry.type.ItemStack.with;
 
 public class ThezsiaPayloads{
     public static Block
-            //Blocks
-            groundFabricator, massConveyor, massRouter;
+            // Blocks
+            // Units
+            groundFabricator,
+            // Distribution
+            massConveyor, massRouter;
     public static void load(){
         groundFabricator = new UnitFactory("ground-fabricator"){{
             requirements(Category.units, ItemStack.with(tantalum,50, tensorite, 30));
