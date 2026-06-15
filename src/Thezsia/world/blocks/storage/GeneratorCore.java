@@ -47,12 +47,8 @@ public class GeneratorCore extends CoreBlock{
     public void setBars(){
         super.setBars();
         addBar("poweroutput", (GeneratorCoreBuild entity) ->
-                new Bar(
-                        () -> Core.bundle.format("bar.poweroutput", Strings.fixed(passiveEnergyOut * 60, 1)),
-                        () -> Pal.powerBar,
-                        () -> 1f
-                )
-        );
+                new Bar(() -> Core.bundle.format("bar.poweroutput", Strings.fixed(passiveEnergyOut * 60 + 0.0001f, 1)), () -> Pal.powerBar, () -> 1f));
+        addBar("power", makePowerBalance());
     }
 
     public static Func<Building, Bar> makePowerBalance(){
