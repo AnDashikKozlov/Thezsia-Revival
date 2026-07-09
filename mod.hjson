@@ -4,13 +4,13 @@ main: "Thezsia.Thezsia"
 repo: "https://github.com/AnDashikKozlov/Thezsia-Revival"
 java: true
 version: "Alpha 0.8"
-minGameVersion: 157
+minGameVersion: 158
 hideBrowser: true
 
 
 displayName: "[#e89784[]]Thezsia Revival[white[]]"
-subtitle: "Alpha 𝟶.8"
-author: "[#c43f5e[]]AnDašyk[white[]]"
+subtitle: "WIP | Alpha 0.8"
+author: "[#c43f5e[]]AnDašyk[white[]] [gray[]](AnDashik)[white[]]"
 description: "ALPHA VERSION \n\nThere is NO playable campaign right now! It's a WIP mod! \n «New planet, new stuff, what a surprise» © [#5865f2[]]@nyledekare[white[]] \n\nMight be dependent on FICO lib in future? I'm not sure. \n\nSpecial thanks to: \n— [#d9c289[]]Ace[white[]] ([#5865f2[]]@ace1020spawn[white[]]) & [#89bbd9[]]Cirrus[white[]] ([#5865f2[]]@cirrusisakey[white[]]) for cool music; \n— [#5865f2[]]@photon_gravity[white[]] for AdjustableBeamNode (diagonal beam nodes); \n— [#5865f2[]]@meepoffaith[white[]] for the pseudo-3D drawing code; \n— [#5865f2[]]@nyledekare[white[]] for original mod. \nOther help (code, sprites, etc): ItzCraft, WeεrsΙχ?, Sputnuc, Cirrus."
 
 //dependencies: ["font-icon-lib"]
