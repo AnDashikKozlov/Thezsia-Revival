@@ -23,24 +23,25 @@ import static mindustry.Vars.tilesize;
 import static mindustry.content.Fx.*;
 
 public class ThezsiaUnits {
+
     public static UnitType
-    /* Core units */
+    //* Core units */
     Iambient, IIambient,
 
-    /* Noctis' tree */
+    //* Noctis's tree */
     noctis, stella, astrum, celestia, nebula,
 
-    /* Ignis' tree */
+    //* Ignis' tree */
     ignis, flamma, ardor, incendium, infernum,
 
-    /* Pebble's tree */
+    //* Pebbles */
     pebble, pebbleSolid, stone;
 
     public static void load(){
 
         float coreFleeRange = 500f;
 
-        /* Core units */
+        //* Core units */
         Iambient = new UnitType("01-ambient"){{
             constructor = LegsUnit::create;
             coreUnitDock = true;
@@ -154,7 +155,7 @@ public class ThezsiaUnits {
                 bullet = new BulletType(){{maxRange = 8f * 8f;}};
             }});
         }};
-        /* Noctis' tree */
+        //* Noctis' tree */
         noctis = new UnitType("noctis"){{
             constructor = LegsUnit::create;
             hitSize = 48f / 4f; //*sprite size / 4f*/
@@ -369,7 +370,7 @@ public class ThezsiaUnits {
             );
         }};
 
-        /* Ignis' tree */
+        //* Ignis' tree */
         ignis = new UnitType("ignis"){{
             constructor = MechUnit::create;
             hitSize = 64f / 4f; //* sprite size / 4f */
@@ -423,7 +424,7 @@ public class ThezsiaUnits {
         flamma = new UnitType("flamma"){{
             constructor = MechUnit::create;
             hitSize = 74f / 4f; //* sprite size (smaller side) / 4f */
-            immunities.addAll(StatusEffects.burning);
+            immunities.add(StatusEffects.burning);
 
             speed = 0.74f;
             health = 445;
@@ -465,7 +466,7 @@ public class ThezsiaUnits {
                     }}
             );
         }};
-        /* Pebble's tree */
+        //* Pebble's tree */
         /*
         pebble = new UnitType("pebble"){{
             envEnabled = Env.terrestrial | Env.oxygen | Env.scorching | Env.underwater | ThezEnv.underwaterWarm;
