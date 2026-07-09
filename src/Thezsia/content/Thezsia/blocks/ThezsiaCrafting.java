@@ -3,6 +3,7 @@ package Thezsia.content.Thezsia.blocks;
 import Thezsia.content.ThezItems;
 import Thezsia.content.ThezLiquids;
 import Thezsia.world.draw.DrawArcSmeltReverse;
+import Thezsia.world.graphics.ThezPal;
 import Thezsia.world.meta.ThezEnv;
 import arc.graphics.Color;
 import arc.math.Interp;
@@ -34,31 +35,37 @@ public class ThezsiaCrafting{
             squareSprite = false;
 
             consumePower(130f / 60f);
-            consumeItem(nihilite, 2);
+            consumeItem(nihilite, 3);
             consumeLiquid(oxygen, 10f / 60f);
-            outputLiquid = new LiquidStack(ThezLiquids.lava,8f / 60f);
+            outputLiquid = new LiquidStack(ThezLiquids.lava,12f / 60f);
 
             craftTime = 2f * 60f;
-            craftEffect = new MultiEffect(new RadialEffect(){{rotationSpacing = 45; amount = 2; layer = 118;
-                effect = new ParticleEffect(){{
-                    particles = 5; length = 15; lifetime = 92;
-                    sizeFrom = 2.7f; sizeTo = 0;
-                    colorFrom = Color.valueOf("ffffff00"); colorTo = Color.valueOf("ffffff88");
-                    layer = 80;
-                }};
-            }}, new ParticleEffect(){{
-                particles = 13; lifetime = 42;
-                length = 120; baseLength = 10f;
-                sizeFrom = 3.5f; sizeTo = 1.2f;
-                cone = 30f; baseRotation = 45f;
-                colorFrom = Color.valueOf("615755c6");
-                colorTo = Color.valueOf("544f5074");
-                interp = Interp.pow2; sizeInterp = Interp.pow2Out;
-            }});
+            craftEffect = new MultiEffect(
+                    new RadialEffect(){{
+                        rotationSpacing = 45; amount = 2; layer = 118;
+                        effect = new ParticleEffect(){{
+                            particles = 5; length = 15; lifetime = 92;
+                            sizeFrom = 2.7f; sizeTo = 0;
+                            colorFrom = Color.valueOf("ffffff00"); colorTo = Color.valueOf("ffffff88");
+                            layer = 80;
+                        }};
+                    }},
+                    new ParticleEffect(){{
+                        particles = 13; lifetime = 42;
+                        length = 120; baseLength = 10f;
+                        sizeFrom = 3.5f; sizeTo = 1.2f;
+                        cone = 30f; baseRotation = 45f;
+                        colorFrom = Color.valueOf("615755c6");
+                        colorTo = Color.valueOf("544f5074");
+                        interp = Interp.pow2; sizeInterp = Interp.pow2Out;
+                    }}
+            );
             ambientSound = Sounds.loopMachine; ambientSoundVolume = 0.08f;
-            drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawLiquidTile(ThezLiquids.lava, 3),
-                    new DrawArcSmeltReverse(){{
-                        particleLife = 55; particleRad = 9;}}, new DrawDefault(),
+            drawer = new DrawMulti(
+                    new DrawRegion("-bottom"),
+                    new DrawLiquidTile(ThezLiquids.lava, 3),
+                    new DrawArcSmeltReverse(){{particleLife = 55; particleRad = 9;}},
+                    new DrawDefault(),
                     new DrawGlowRegion(){{color = Color.valueOf("e06f554f");}}
             );
         }};
@@ -68,7 +75,7 @@ public class ThezsiaCrafting{
             size = 3;
             squareSprite = false;
             outputItem = new ItemStack(infium, 1);
-            consumeItems(ItemStack.with(tantalum, 3, nihilite, 1));
+            consumeItems(ItemStack.with(tantalum, 6, nihilite, 2));
             consumeLiquid(lava, 4f / 60f);
             consumePower(135f / 60f);
             craftEffect = new ParticleEffect(){{
@@ -79,11 +86,14 @@ public class ThezsiaCrafting{
                 length = 4; baseLength = 6;
             }};
             ambientSound = Sounds.loopMachine; ambientSoundVolume = 0.08f;
-            drawer = new DrawMulti(new DrawRegion("-bottom"), new DrawLiquidTile(lava, 2),
+            drawer = new DrawMulti(
+                    new DrawRegion("-bottom"),
+                    new DrawLiquidTile(lava, 2),
                     new DrawRegion("-rotator"){{
                         spinSprite = true;
                         rotateSpeed = -4;}},
-                    new DrawDefault(), new DrawGlowRegion(){{color = Color.valueOf("e8ac828e");}}
+                    new DrawDefault(),
+                    new DrawGlowRegion(){{color = Color.valueOf("e8ac828e");}}
             );
         }};
 
@@ -109,7 +119,8 @@ public class ThezsiaCrafting{
             regionRotated1 = 1;
             outputFacing = true;
 
-            drawer = new DrawMulti(new DrawRegion("-bottom"),
+            drawer = new DrawMulti(
+                    new DrawRegion("-bottom"),
                     new DrawParticles(){{
                         particleRad = 6; particleLife = 120; particleSize = 2.5f;
                         alpha = 0.42f;
@@ -118,7 +129,9 @@ public class ThezsiaCrafting{
                     }},
                     new DrawLiquidTile(oxygen, 4){{
                         alpha = 0.76f;
-                    }}, new DrawDefault(), new DrawLiquidOutputs()
+                    }},
+                    new DrawDefault(),
+                    new DrawLiquidOutputs()
             );
         }};
 
@@ -126,7 +139,7 @@ public class ThezsiaCrafting{
             requirements(Category.crafting, ItemStack.with(tantalum, 20, silver, 80, infium, 30));
             size = 2;
             consumePower(114f / 60f);
-            heatOutput = 3;
+            heatOutput = 2;
             warmupRate = 0.165f;
             craftTime = 119;
             drawer = new DrawMulti(new DrawDefault(), new DrawHeatOutput());
@@ -136,7 +149,7 @@ public class ThezsiaCrafting{
             size = 3;
             consumeItem(sulfur);
             consumePower(182f / 60f);
-            heatOutput = 7;
+            heatOutput = 8;
             warmupRate = 0.165f;
             craftTime = 127;
             drawer = new DrawMulti(new DrawDefault(), new DrawHeatOutput());
@@ -144,7 +157,12 @@ public class ThezsiaCrafting{
         heatRedirector = new HeatConductor("heat-redirector"){{
             requirements(Category.crafting, ItemStack.with(nihilite, 130, silver, 30));
             size = 3;
-            drawer = new DrawMulti(new DrawDefault(), new DrawHeatOutput(), new DrawHeatOutput(), new DrawGlowRegion(){{color = Color.valueOf("876c5c1b");}});
+            drawer = new DrawMulti(
+                    new DrawDefault(),
+                    new DrawHeatOutput(),
+                    new DrawHeatOutput(),
+                    new DrawGlowRegion(){{color = Color.valueOf("876c5c1b");}}
+            );
         }};
 
         tensoriteSmelter = new GenericCrafter("tensorite-smelter"){{
@@ -157,7 +175,7 @@ public class ThezsiaCrafting{
             liquidCapacity = 70;
             craftTime = 180;
             outputLiquids = LiquidStack.with(meltedTensorite, 0.217f);
-            consumeItem(ThezItems.silver, 3);
+            consumeItem(silver, 3);
             consumeLiquids(LiquidStack.with(lava, 0.36f, carbonDioxide, 0.14));
             consumePower(2.12f);
 
@@ -185,7 +203,7 @@ public class ThezsiaCrafting{
             requirements(Category.crafting, ItemStack.with(tantalum, 90f, infium, 60f, tensorite, 30f, sulfur, 15f));
             size = 4;
             outputItem = new ItemStack(tritanium, 4);
-            heatRequirement = 18f;
+            heatRequirement = 24f;
             hasPower = hasItems = true;
             craftTime = 235f;
             squareSprite = false;
@@ -209,8 +227,8 @@ public class ThezsiaCrafting{
                         sizeFrom = 2.9f; sizeTo = 0;
                     }}
             );
-            drawer = new DrawMulti(new DrawRegion("-bottom"),
-                    new DrawGlowRegion(){{color = Color.valueOf("2CDC78");}},
+            drawer = new DrawMulti(
+                    new DrawRegion("-bottom"),
                     new DrawParticles(){{
                         fadeMargin = 1.4f;
                         particleRad = 14; particleLife = 176; particleSize = 2.5f;
@@ -221,14 +239,23 @@ public class ThezsiaCrafting{
                         padding = 2.5f;
                         drawLiquid = ThezLiquids.ammonia;
                         alpha = 0.95f;
-                    }}, new DrawRegion("-bottom2"),
+                    }},
+                    new DrawRegion("-bottom2"),
                     new DrawParticles(){{
                         reverse = true;
                         fadeMargin = 0.7f;
                         particleRad = 12; particleLife = 137; particleSize = 1.55f;
                         alpha = 0.45f;
                         color = Color.valueOf( "4fff959e");
-                    }}, new DrawDefault(), new DrawHeatInput("-heat")
+                    }},
+                    new DrawDefault(),
+                    new DrawGlowRegion(){{color = Color.valueOf("327d52");}}, // Glow of decal. OUTDATED color — "2CDC78".
+                    new DrawGlowRegion(){{
+                        suffix = "-glow2";
+                        color = ThezPal.itemTritaniumcrystal;
+                        glowScale = 7f; glowIntensity = 0.4f;
+                    }}, // Glow from the inside.
+                    new DrawHeatInput("-heat")
             );
             ambientSound = Sounds.loopMachine; ambientSoundVolume = 0.09f;
 
