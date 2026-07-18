@@ -1,6 +1,7 @@
 package Thezsia.content.Thezsia;
 
 import Thezsia.content.ThezSounds;
+import Thezsia.world.entities.bullets.AdvancedArtilleryBulletType;
 import arc.graphics.Blending;
 import arc.graphics.Color;
 import arc.math.Interp;
@@ -315,7 +316,7 @@ public class ThezsiaUnits {
                         inaccuracy = 8;
                         shootSound = ThezSounds.blasterShot1;
                         shootWarmupSpeed = 0.03f; minWarmup = 0.85f; cooldownTime = 158;
-                        bullet = new ArtilleryBulletType(){{
+                        bullet = new AdvancedArtilleryBulletType(){{
                             //sprite = "large-bomb";
                             parts.addAll(
                                     new FlarePart(){{
