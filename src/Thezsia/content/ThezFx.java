@@ -1,5 +1,6 @@
 package Thezsia.content;
 
+import Thezsia.core.ThezVars;
 import Thezsia.world.graphics.ThezPal;
 import arc.Core;
 import arc.graphics.Color;
@@ -38,7 +39,7 @@ public class ThezFx{
     }),
     craterSmoke = new MultiEffect(
             new ParticleEffect(){{
-                particles = 4;
+                particles = ThezVars.settingsLowDetail ? 1 : 4;
                 lifetime = 150;
                 length = 12f * tilesize;
                 cone = 15f; baseRotation = 30f;
@@ -48,7 +49,7 @@ public class ThezFx{
             }},
             new ParticleEffect(){{
                 startDelay = 16;
-                particles = 4;
+                particles = ThezVars.settingsLowDetail ? 1 : 4;
                 lifetime = 180;
                 length = 13f * tilesize;
                 cone = 15f; baseRotation = 30f;
@@ -58,7 +59,7 @@ public class ThezFx{
             }},
             new ParticleEffect(){{
                 startDelay = 26;
-                particles = 3;
+                particles = ThezVars.settingsLowDetail ? 1 : 3;
                 lifetime = 210;
                 length = 19f * tilesize;
                 cone = 15f; baseRotation = 30f;
@@ -68,7 +69,7 @@ public class ThezFx{
             }}
     ),
     cDrillBubbles = new ParticleEffect(){{
-        particles = 9; lifetime = 72; region = "thezsia1-bubble";
+        particles = ThezVars.settingsLowDetail ? 3 : 9; lifetime = 72; region = "thezsia1-bubble";
         length = 38; baseLength = 5f;
         sizeFrom = 11f; sizeTo = 4.8f;
         cone = 360; baseRotation = 0;
