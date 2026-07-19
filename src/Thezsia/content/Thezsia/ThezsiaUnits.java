@@ -311,11 +311,13 @@ public class ThezsiaUnits {
                         rotate = false;
                         shootCone = 10;
                         mirror = false;
-                        reload = 184;
+                        reload = 185;
                         recoil = 0;
                         inaccuracy = 8;
                         shootSound = ThezSounds.blasterShot1;
-                        shootWarmupSpeed = 0.03f; minWarmup = 0.85f; cooldownTime = 158;
+                        /* shootWarmupSpeed = 0.03f; minWarmup = 0.85f; */ cooldownTime = 160;
+                        shoot.firstShotDelay = 80;
+                        chargeSound = Sounds.chargeCorvus;
                         bullet = new AdvancedArtilleryBulletType(){{
                             //sprite = "large-bomb";
                             parts.addAll(
@@ -335,7 +337,7 @@ public class ThezsiaUnits {
                             splashDamage = 28; splashDamageRadius = 5 * tilesize;
                             lifetime = 184;
                             recoil = 0.58f;
-                            height = width = 0; //height = 21f; width = 19f;
+                            height = 21f; width = 19f; // Use this or parts for the bullet? height = 21f; width = 19f;
                             frontColor = Color.valueOf("81afe3"); backColor = Color.valueOf("bdebff");
                             pierceDamageFactor = 1.5f;
                             smokeEffect = colorSparkBig;
@@ -425,7 +427,7 @@ public class ThezsiaUnits {
         flamma = new UnitType("flamma"){{
             constructor = MechUnit::create;
             hitSize = 74f / 4f; //* sprite size (smaller side) / 4f */
-            immunities.add(StatusEffects.burning);
+            //immunities.add(StatusEffects.burning);
 
             speed = 0.74f;
             health = 445;
@@ -444,7 +446,7 @@ public class ThezsiaUnits {
                         mirror = true;
                         alternate = false;
                         soundPitchMin = 0.8f; soundPitchMax = 1.1f;
-                        shootSound = Sounds.beamLustre;
+                        shootSound = Sounds.shootSublimate;
                         alwaysContinuous = true;
                         continuous = true;
                         bullet = new ContinuousFlameBulletType(3.7f){{
