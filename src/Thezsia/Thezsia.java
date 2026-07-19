@@ -38,6 +38,7 @@ public class Thezsia extends Mod{
         ThezsiaUnits.load();
         ThezsiaBlocks.load();
         ThezPlanets.load();
+        ThezsiaTechTreePlayer.load();
         ThezEnvRenderers.init();
     }
 
