@@ -1,6 +1,7 @@
 package Thezsia.content.Thezsia.blocks;
 
 import Thezsia.content.ThezFx;
+import Thezsia.core.ThezVars;
 import Thezsia.world.blocks.ThezAttribute;
 import Thezsia.world.blocks.environment.BiggerVent;
 import Thezsia.world.blocks.environment.EffectFloor;
@@ -79,7 +80,7 @@ public class ThezsiaEnv{
         roughBasalticPatch = new Floor("rough-basaltic-patch"){{variants = 5;}};
         basalticCrater = new EffectFloor("basaltic-crater"){{
             variants = 5;
-            effectChance = 0.0005f; effect = ThezFx.craterSmoke;
+            effectChance = ThezVars.settingsLowDetail ? 0.0000005f : 0.0005f; effect = ThezFx.craterSmoke;
         }};
         basalticRock = new Prop("basaltic-rock"){{
             variants = 3;
@@ -110,21 +111,21 @@ public class ThezsiaEnv{
             emitLight = true; lightColor = Color.valueOf("a12d426a"); lightRadius = 9f * tilesize;
             attributes.set(Attribute.heat, 0.4f);
             speedMultiplier = 0.8f;
-            effectChance = 0.0004f; effect = Fx.fire;
+            effectChance = ThezVars.settingsLowDetail ? 0.0000004f : 0.0004f; effect = Fx.fire;
         }};
         igneousRock = new EffectFloor("igneous-rock"){{
             variants = 5;
             emitLight = true; lightColor = Color.valueOf("c944448b"); lightRadius = 6 * tilesize;
             attributes.set(Attribute.heat, 0.6f);
             speedMultiplier = 0.6f;
-            effectChance = 0.0007f; effect = Fx.fire;
+            effectChance = ThezVars.settingsLowDetail ? 0.0000007f : 0.0007f; effect = Fx.fire;
         }};
         magma = new EffectFloor("magma"){{
-            variants = 0;
+            variants = 3;
             emitLight = true; lightColor = Color.valueOf("ffad8ae5"); lightRadius = 4f * tilesize;
             attributes.set(Attribute.heat, 1.0f);
             speedMultiplier = 0.3f; status = StatusEffects.melting; statusDuration = 4f * 60f;
-            effectChance = 0.001f; effect = Fx.fire;
+            effectChance = ThezVars.settingsLowDetail ? 0.000001f : 0.001f; effect = Fx.fire;
         }};
         igneousBasalticWall = new StaticWall("igneous-basaltic-wall"){{
             variants = 8;
@@ -170,7 +171,7 @@ public class ThezsiaEnv{
         }};
         sulfurVent = new SteamVent("sulfur-vent"){{
             variants = 3;
-            // TODO make effect look... Just make copy of Purples Vents from Subnautica Below Zero
+            // TODO make effect look like Purple Vents from Subnautica Below Zero
             effect = ThezFx.craterSmoke;
             blendGroup = parent = smoothSulfur;
             attributes.set(Attribute.steam, 1.0f);
@@ -178,7 +179,7 @@ public class ThezsiaEnv{
         }};
         sulfurBigVent = new BiggerVent("sulfur-big-vent"){{
             variants = 2;
-            // TODO make effect look... Just make copy of Purples Vents from Subnautica Below Zero
+            // TODO make effect look like Purple Vents from Subnautica Below Zero
             effect = ThezFx.craterSmoke;
             blendGroup = parent = smoothSulfur;
             attributes.set(Attribute.steam, 1.6f);
