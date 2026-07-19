@@ -1,5 +1,6 @@
 package Thezsia.world.graphics;
 
+import Thezsia.core.ThezVars;
 import Thezsia.world.meta.ThezEnv;
 import arc.*;
 import arc.graphics.*;
@@ -43,7 +44,7 @@ public class ThezEnvRenderers{
 
             Draw.z(Layer.light + 2);
 
-            int rays = 50;
+            int rays = ThezVars.settingsLowDetail ? 1 : 50;
             float timeScale = 2000f;
             rand.setSeed(0);
 
@@ -105,7 +106,7 @@ public class ThezEnvRenderers{
 
             Draw.z(Layer.light + 2);
 
-            int darkRays = 50;
+            int darkRays = ThezVars.settingsLowDetail ? 1 : 50;
             float timeScale = 3600f; // 2000
             rand.setSeed(0);
 
