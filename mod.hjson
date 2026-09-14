@@ -4,7 +4,7 @@ main: "Thezsia.Thezsia"
 repo: "https://github.com/AnDashikKozlov/Thezsia-Revival"
 java: true
 version: "Alpha 0.8"
-minGameVersion: 158
+minGameVersion: 160.3
 hideBrowser: true
 
 
