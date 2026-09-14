@@ -21,6 +21,7 @@ import mindustry.world.Block;
 import mindustry.world.meta.Env;
 
 import static Thezsia.world.meta.ThezTeams.*;
+import static mindustry.game.Team.*;
 
 public class ThezPlanets {
 
@@ -125,7 +126,7 @@ public class ThezPlanets {
                 // r.loadout = ItemStack.list();
                 r.fog = false; //Should I make it true? I'm not sure right now about fog mechanic...
                 r.hideSpawns = false;
-                r.defaultTeam = vanitser;
+                r.defaultTeam = sharded; // Yeah... I've decided that I'll use classic yellow as main team color.
                 r.waveTeam = precursors; // Absolutely not a Subnautica reference :P
                 r.enemyCoreBuildRadius = 250;
                 r.coreCapture = false;
