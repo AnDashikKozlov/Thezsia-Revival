@@ -16,7 +16,7 @@ public class ThezsiaTechTreePlayer{
     public static void load(){
         Seq<Objectives.Objective> thezsiaSector = Seq.with(new Objectives.OnPlanet(ThezPlanets.planetThezsia));
 
-        ThezPlanets.planetThezsia.techTree = nodeRoot("techTree.Player", ThezsiaStorages.coreDust, true, () -> {
+        ThezPlanets.planetThezsia.techTree = nodeRoot("techTree.ThezsiaPlayer", ThezsiaStorages.coreDust, true, () -> {
             node(tantalumBelt, thezsiaSector, () -> {
                 node(tantalumJunction, thezsiaSector, () -> {
                     node(tantalumBridge, thezsiaSector, () -> {
