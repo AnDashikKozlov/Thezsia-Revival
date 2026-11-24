@@ -124,7 +124,7 @@ public class ThezPlanets {
                 r.ambientLight = Color.valueOf("343038c6"); // OUTDATED. Colors —> 1d4a624a, 273b4a5c: 343038 — color for fog of war.
                 // r.loadout = ItemStack.list();
                 r.fog = false; //Should I make it true?
-                r.showSpawns = true;
+                r.hideSpawns = false;
                 r.defaultTeam = vanitser;
                 r.waveTeam = precursors; // Absolutely not a Subnautica reference :P
                 r.enemyCoreBuildRadius = 250;
