@@ -1,0 +1,73 @@
+{
+  "mod_name": "thezsia1",
+  "src": [
+    "src"
+  ],
+  "bundles_dir": null,
+  "base_bundle": "bundle.properties",
+  "section_header": "# {name}",
+  "fill": "copy",
+  "file_categories": {
+    "ThezsiaCrafting": "CRAFTING",
+    "ThezsiaDefence": "DEFENCE",
+    "ThezsiaDistribution": "DISTRIBUTION",
+    "ThezsiaEnv": "ENVIRONMENT",
+    "ThezsiaPayloads": "PAYLOADS",
+    "ThezsiaPower": "POWER",
+    "ThezsiaProduction": "PRODUCTION",
+    "ThezsiaStorages": "STORAGES",
+    "ThezsiaTurrets": "TURRETS"
+  },
+  "type_categories": {
+    "item": "items",
+    "liquid": "liquids",
+    "unit": "units",
+    "status": "status",
+    "weather": "weathers",
+    "planet": "planets",
+    "sector": "sectors"
+  },
+  "section_order": [],
+  "fields": {
+    "block": [
+      "name",
+      "description"
+    ],
+    "item": [
+      "name",
+      "description"
+    ],
+    "liquid": [
+      "name",
+      "description"
+    ],
+    "unit": [
+      "name",
+      "description",
+      "details"
+    ],
+    "status": [
+      "name",
+      "description"
+    ],
+    "weather": [
+      "name"
+    ],
+    "planet": [
+      "name",
+      "description"
+    ],
+    "sector": [
+      "name",
+      "description"
+    ]
+  },
+  "block_classes": [],
+  "ignore_classes": [],
+  "bundles": {
+    "bundle_ru.properties": {
+      "enabled": true,
+      "fill": "copy"
+    }
+  }
+}
