@@ -4,13 +4,13 @@ main: "Thezsia.Thezsia"
 repo: "https://github.com/AnDashikKozlov/Thezsia-Revival"
 java: true
 version: "Alpha 0.8"
-minGameVersion: 157
+minGameVersion: 160.3
 hideBrowser: true
 
 
-displayName: "Thezsia Revival"
-subtitle: "𝙰𝚕𝚙𝚑𝚊 𝟶.𝟽"
-author: "[#d13050[]]𝐀𝐧𝐃𝐚𝐬̌𝐲𝐤[white[]]"
-description: "ALPHA VERSION \n There is NO playable campaign right now! It's a WIP mod! \n «New planet, new stuff, what a surprise» © [#5865f2[]]@nyledekare[white[]] \n Might be dependent on FICO lib in future? I'm not sure. \n \n Special thanks to: \n — [#d9c289[]]Ace[white[]] ([#5865f2[]]@ace1020spawn[white[]]) & [#89bbd9[]]Cirrus[white[]] ([#5865f2[]]@cirrusisakey[white[]]) for cool music. \n — [#5865f2[]]@photon_gravity[white[]] for AdjustableBeamNode (diagonal beam nodes). \n — [#5865f2[]]@meepoffaith[white[]] for the pseudo-3D drawing code. \n — [#5865f2[]]@nyledekare[white[]] for original mod. \n \n Other help (code, sprites, etc): ItzCraft, WeεrsΙχ?, Sputnuc, Cirrus."
+displayName: "[#e89784[]]Thezsia Revival[white[]]"
+subtitle: "WIP | Alpha 0.8"
+author: "[#c43f5e[]]AnDašyk[white[]]"
+description: "ALPHA VERSION \nThere is NO playable campaign right now! It's a WIP mod! \n«New planet, new stuff, what a surprise» \n© [#5865f2[]]@nyledekare[white[]] \nMight be dependent on FICO lib in future? I'm not sure. \n\nSpecial thanks to: \n- [#d9c289[]]Ace[white[]] ([#5865f2[]]@ace1020spawn[white[]]) & [#89bbd9[]]Cirrus[white[]] ([#5865f2[]]@cirrusisakey[white[]]) for cool music. \n- [#5865f2[]]@photon_gravity[white[]] for AdjustableBeamNode (diagonal beam nodes). \n- [#5865f2[]]@meepoffaith[white[]] for the pseudo-3D drawing code. \n- [#fad193[]]ItzCraft[white[]] ([#5865f2[]]@itz.craft_[white[]]). \n— [#5865f2[]]@nyledekare[white[]] for original mod. \n\nOther help (code, sprites, etc): ItzCraft, WeεrsΙχ?, Sputnuc, Cirrus."
 
 //dependencies: ["font-icon-lib"]
